@@ -10,5 +10,14 @@
 	<atom:link href="https://aswanipranjal.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>Manuscripts</title>
+      <link>https://aswanipranjal.github.io/categories/manuscripts/</link>
+      <pubDate>Thu, 10 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://aswanipranjal.github.io/categories/manuscripts/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

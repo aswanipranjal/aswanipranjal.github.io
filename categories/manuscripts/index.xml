@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on TOBOR A TON MA I</title>
-    <link>https://aswanipranjal.github.io/posts/</link>
-    <description>Recent content in Posts on TOBOR A TON MA I</description>
+    <title>Manuscripts on TOBOR A TON MA I</title>
+    <link>https://aswanipranjal.github.io/categories/manuscripts/</link>
+    <description>Recent content in Manuscripts on TOBOR A TON MA I</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 10 May 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://aswanipranjal.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://aswanipranjal.github.io/categories/manuscripts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,16 +19,6 @@
       <guid>https://aswanipranjal.github.io/posts/communitybonding/</guid>
       <description>This is the first post describing what I have being doing since the starting of the community boding period. There will be one post every wednesday, starting next week, describing what I did the previous week and having links to all the necessary resources to track the project.
 Community Bonding (April 23rd - May 10th) The community bonding period lasts from 23rd April - 13th April. During this time, I had to understand how the community works and how I should participate in the discussions that happen.</description>
-    </item>
-    
-    <item>
-      <title>GSoC Prep</title>
-      <link>https://aswanipranjal.github.io/posts/gsoc-prep/</link>
-      <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://aswanipranjal.github.io/posts/gsoc-prep/</guid>
-      <description>Before the orgs were announced Since I enrolled into Engineering back in 2014, I wanted to participate in GSoC. I tried to apply in 2016 and 2017 but didn&amp;rsquo;t get in. This is my final year of Engineering and this year I meant business.
-I was interning at Network Intelligence India (1) Pvt. Ltd. when the program schedule for 2018 was announced. I didn&amp;rsquo;t have a concrete plan in mind at that time but I knew that I wanted to apply.</description>
     </item>
     
   </channel>
