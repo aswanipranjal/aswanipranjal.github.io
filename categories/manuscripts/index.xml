@@ -6,10 +6,19 @@
     <description>Recent content in Manuscripts on TOBOR A TON MA I</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 10 May 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 16 May 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://aswanipranjal.github.io/categories/manuscripts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>init: start code</title>
+      <link>https://aswanipranjal.github.io/posts/week-1/</link>
+      <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://aswanipranjal.github.io/posts/week-1/</guid>
+      <description>This week was interesting! I read the manuscripts base code and played with a lot of functions to learn how they work. It was fun because after being stuck on a few functions and classes, I finally understood that I should burn my laptop, giveup and go home. Good bye!</description>
+    </item>
     
     <item>
       <title>Ready Player One</title>
