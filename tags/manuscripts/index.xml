@@ -6,13 +6,23 @@
     <description>Recent content in Manuscripts on TOBOR A TON MA I</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 16 May 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 22 May 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://aswanipranjal.github.io/tags/manuscripts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>init: start code</title>
+      <title>Deep inside the tunnel</title>
+      <link>https://aswanipranjal.github.io/posts/week-2/</link>
+      <pubDate>Tue, 22 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://aswanipranjal.github.io/posts/week-2/</guid>
+      <description>Okay, so in week 2, I&amp;rsquo;ve had some good challenges to overcome. I was given 3 tasks this week:
+ To cleanup esquery.py file. This file is the primary file to create elasticsearch DSL queries which are sent to elasticsearch to get the required results. To create from scratch, a new notebook which queries elasticsearch enriched indices and calculates the metrics. To think about structure of new classes and functions that can be created for the metrics as the old classes are cumbersome to use.</description>
+    </item>
+    
+    <item>
+      <title>Insert coin to begin</title>
       <link>https://aswanipranjal.github.io/posts/week-1/</link>
       <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
       
