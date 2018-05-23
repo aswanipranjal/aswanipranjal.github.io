@@ -320,7 +320,7 @@ response = s.execute()
 response.aggregations.num_open_issues.value
 </code></pre>
 
-<p>Rather than going throught the complex process described above, we can use this simple code snippit to calculate the open issues. We will define classes and helper functions such as <code>by_period</code>, <code>by_user</code>, <code>by_organization</code>, to seggregate the, for example, number of commits by the time period in which they were created, by the author of the commit and by the organization under which they were created respectively.</p>
+<p>Rather than going through the complex process described above, we can use this simple code snippit to calculate the open issues. We will define classes and helper functions such as <code>by_period</code>, <code>by_user</code>, <code>by_organization</code>, to seggregate the, for example, number of commits by the time period in which they were created, by the author of the commit and by the organization under which they were created respectively.</p>
 
 <p>All processes will be documented in the <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/GMD-metrics-from-scratch.ipynb">Notebook</a>.</p>
 
@@ -337,6 +337,39 @@ response.aggregations.num_open_issues.value
 <p>The resolution of the above issues will help us better understand the Metrics and help me to calculate and describe them in an efficient way.</p>
 
 <p>That was all for this week!</p>
+
+<hr />
+
+<p>For the next week, I&rsquo;ll have 4 tasks that I need to accomplish:</p>
+
+<ul>
+<li><p>Cleanup esquery.py file a bit further</p>
+
+<ul>
+<li>1a. Finish the <a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/58">current PR</a> by adding tests for all the functions and correct &amp; cleanup the comments in the functions.</li>
+<li>1b. The get_aggs function returns a JSON object to be used by the functions in metrics.py file. Evaluate, and if it is not a lot of work, implement, changes in the rest of manuscripts, including metrics.py, to use <em>only</em> es_dsl.</li>
+</ul></li>
+
+<li><p>Implement more GMD metrics:</p>
+
+<ul>
+<li>2a: Implement all GMD metrics that are implementable (are available from the enriched indexes) in the notebook using elasticsearch_dsl only.</li>
+<li>2b: For those that are missing in the enriched index: open an issue in gelk to implement them in the enriched index, and find ways to aggregate and bucket them.</li>
+</ul></li>
+
+<li><p>Work on the new functions:</p>
+
+<ul>
+<li>3a: create chainable objects(by that we mean: create functions and classes which can be used together) for at least &ldquo;by_period&rdquo;, &ldquo;by_organization&rdquo;, &ldquo;by_author&rdquo;. This will be used to seggregate the data <code>by_period</code>, <code>by_org</code> and <code>by_author</code> respectively.</li>
+</ul></li>
+
+<li><p>Work on Visualizations!</p>
+
+<ul>
+<li>4a: test plotly and seaborn for static visualization</li>
+<li>4b: do the same with Altair and Plotly for interactive visualizations</li>
+</ul></li>
+</ul>
 
 <p>Adios.</p>
 
