@@ -6,10 +6,21 @@
     <description>Recent content in Posts on TOBOR A TON MA I</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 22 May 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 30 May 2018 23:43:21 +0530</lastBuildDate>
     
 	<atom:link href="https://aswanipranjal.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A week full of hiccups</title>
+      <link>https://aswanipranjal.github.io/posts/week-3/</link>
+      <pubDate>Wed, 30 May 2018 23:43:21 +0530</pubDate>
+      
+      <guid>https://aswanipranjal.github.io/posts/week-3/</guid>
+      <description>Hello and welcome to the third week of Google Summer of Code. I hit a couple of speed bumps this week.
+Highlights: Task-1: Complete cleaning esquery.py file, add tests and make the whole manuscripts project use elasticsearch_dsl.py module.
+Progress: I was able to complete writing tests for esquery.py and make the comments more detailed. The changes can be found here. This is the part of the previous PR that I made in the previous week.</description>
+    </item>
     
     <item>
       <title>Deep inside the tunnel</title>
