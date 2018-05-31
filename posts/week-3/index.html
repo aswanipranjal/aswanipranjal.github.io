@@ -157,7 +157,7 @@ I analysed the raw index that is created when data about a github repo is indexe
 
 <h5 id="task-3-1">Task-3:</h5>
 
-<p>I was able to create the chainable <code>by_authors</code>, <code>by_organizations</code>, <code>by_period</code> functions. But these functions are a part of the Metric class implemented in the <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/new_functions.py#L48">new_functions.py</a> file. Because these functions had to be chainabel, I created a object to make them chainable methods of that object. The Metric class is just an initial idea and will be modified later.
+<p>I was able to create the chainable <code>by_authors</code>, <code>by_organizations</code>, <code>by_period</code> functions. But these functions are a part of the Metric class implemented in the <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/new_functions.py#L48">new_functions.py</a> file. Because these functions had to be chainable, I created a object to make them chainable methods of that object. The Metric class is just an initial idea and will be modified later.
 These functions give the metric count on the WRT the authors, organizatons and period of analysis. I&rsquo;ve showed these functions in action in the Notebook for open and closed issues.</p>
 
 <p>The new classes for the metrics will also be created in this new_functions.py file.</p>
@@ -204,7 +204,14 @@ Samsung                      1      1
 T-Systems Iberia             1      1
 </code></pre>
 
-<p>Alot of improvement is still required in these functions.</p>
+<p>Alot of improvement is still required in these functions.
+Some of the difficulties that i&rsquo;ll face while implementing the Classes:
+- Diffenret aggregations have different bucket names and value types which have to be parsed and converted into DataFrames.
+- Chainable functions need to work on all the metrics because different metrics will have different field names.
+- Not all functions can be applied to all the metrics, need errors to fail gracefully.
+- Multiple aggregations with multiple child aggregations? We need a method of keeping track of the nested aggregation names.
+- How should results be represented?
+- How do I know which bucket is for which result if we are going to use numbers for aggregation names?</p>
 
 <h5 id="task-4-1">Task-4:</h5>
 
