@@ -205,13 +205,16 @@ T-Systems Iberia             1      1
 </code></pre>
 
 <p>Alot of improvement is still required in these functions.
-Some of the difficulties that i&rsquo;ll face while implementing the Classes:
-- Diffenret aggregations have different bucket names and value types which have to be parsed and converted into DataFrames.
-- Chainable functions need to work on all the metrics because different metrics will have different field names.
-- Not all functions can be applied to all the metrics, need errors to fail gracefully.
-- Multiple aggregations with multiple child aggregations? We need a method of keeping track of the nested aggregation names.
-- How should results be represented?
-- How do I know which bucket is for which result if we are going to use numbers for aggregation names?</p>
+Some of the difficulties that i&rsquo;ll face while implementing the Classes:</p>
+
+<ul>
+<li>Different aggregations have different bucket names and value types which have to be parsed and converted into DataFrames.</li>
+<li>Chainable functions need to work on all the metrics because different metrics will have different field names.</li>
+<li>Not all functions can be applied to all the metrics, need errors to fail gracefully.</li>
+<li>Multiple aggregations with multiple child aggregations? We need a method of keeping track of the nested aggregation names.</li>
+<li>How should results be represented?</li>
+<li>How do I know which bucket is for which result if we are going to use numbers for aggregation names?</li>
+</ul>
 
 <h5 id="task-4-1">Task-4:</h5>
 
