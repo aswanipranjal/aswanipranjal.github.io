@@ -106,6 +106,11 @@ I was able to implement all the current metrics for GitHub and Git in the notebo
 
 <p>Tasks-1 and 2 need no further explaination, I think. So I am starting with TASK-3.</p>
 
+<p><strong>NOTE:</strong> Please install sortinghat and set up a MySql or MariaDB(&gt;10.1) when enriching the indices using <code>p2o.py</code> script. THis is because grimoire-elk calibrates the IDs of the authors using sorting hat and adds some specific fields to the enriched index, which wont be there if we do not use sortinghat and we will end up with an incomplete analysis.
+<a href="https://grimoirelab.gitbooks.io/tutorial/grimoireelk/a-dashboard-with-sortinghat.html">Instructions to install sortinghat</a>.
+<a href="https://grimoirelab.gitbooks.io/tutorial/sortinghat/intro.html">Usage</a>.
+I learned this the hard way and got stuck in this because I thought that there was a problem in enrichment.</p>
+
 <h3 id="task-3">TASK-3</h3>
 
 <p>Here, I had to recreate the current reports that manuscripts produces currently using new_functions.py library. We will analyse parts of the <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/104b6575ae2d45f9a26f485491f589500682fddb/manuscripts/report.py">report.py</a> file and see how the reports are being generated.</p>
