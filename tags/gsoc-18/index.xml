@@ -6,10 +6,21 @@
     <description>Recent content in Gsoc 18 on TOBOR A TON MA I</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 May 2018 23:43:21 +0530</lastBuildDate>
+    <lastBuildDate>Tue, 05 Jun 2018 16:12:47 +0530</lastBuildDate>
     
 	<atom:link href="https://aswanipranjal.github.io/tags/gsoc-18/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How do you Debug? I use a lot of *print* statements and patience</title>
+      <link>https://aswanipranjal.github.io/posts/week-4/</link>
+      <pubDate>Tue, 05 Jun 2018 16:12:47 +0530</pubDate>
+      
+      <guid>https://aswanipranjal.github.io/posts/week-4/</guid>
+      <description>Welcome to Week 4 of Google Summer of Code. It said in one of the emails from Google, that time will move pretty fast. Yep, 4 weeks over!
+Let&amp;rsquo;s look at the tasks to be completed in this week.
+Brief introduction TASK-1: I created the last PR which completes the migration of manuscripts to elasticsearch_dsl module. The main purpose of this PR was to change esquery.py and metrics.py so that the functions do not directly query elasticsearch.</description>
+    </item>
     
     <item>
       <title>A week full of hiccups</title>

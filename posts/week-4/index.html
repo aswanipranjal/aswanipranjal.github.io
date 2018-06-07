@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Pranjal Aswani">
+    <meta name="description" content="This is where i will rant about stuff">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <base href="https://aswanipranjal.github.io/">
+    <title>
+  How do you Debug? I use a lot of *print* statements and patience · TOBOR A TON MA I
+</title>
+
+    <link rel="canonical" href="https://aswanipranjal.github.io/posts/week-4/">
+
+    <link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
+    <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+    <link rel="stylesheet" href="https://aswanipranjal.github.io/css/style.min.css">
+
+    <link rel="icon" type="image/png" href="https://aswanipranjal.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://aswanipranjal.github.io/images/favicon-16x16.png" sizes="16x16">
+
+    
+
+    <meta name="generator" content="Hugo 0.40.1" />
+  </head>
+
+  <body>
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://aswanipranjal.github.io/">
+      TOBOR A TON MA I
+    </a>
+    
+    <ul class="navigation-list float-right">
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="/posts/">Blog</a>
+      </li>
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="/about/">About</a>
+      </li>
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="/tags/">Tags</a>
+      </li>
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+  <article>
+    <header>
+      <h1 class="title">How do you Debug? I use a lot of *print* statements and patience</h1>
+      <h2 class="date">June 5, 2018</h2>
+    </header>
+
+    
+
+<p>Welcome to Week 4 of Google Summer of Code. It said in one of the emails from Google, that time will move pretty fast. Yep, 4 weeks over!</p>
+
+<p>Let&rsquo;s look at the tasks to be completed in this week.</p>
+
+<hr />
+
+<h4 id="brief-introduction">Brief introduction</h4>
+
+<p><strong>TASK-1:</strong> I created the <a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/63">last PR</a> which completes the migration of manuscripts to elasticsearch_dsl module. The main purpose of this PR was to change esquery.py and metrics.py so that the functions do not directly query elasticsearch. Specifically removing <em>json.loads</em> from <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/104b6575ae2d45f9a26f485491f589500682fddb/manuscripts/esquery.py#L383">get_agg</a> in esquery.py and changing <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/104b6575ae2d45f9a26f485491f589500682fddb/manuscripts/metrics/metrics.py#L152">get_metrics_data</a> to use Search.execute() to get data from elasticsearch.</p>
+
+<p>I Also created <a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/63">PR#64</a> which cleans up the tests a bit.</p>
+
+<p><strong>TASK-2:</strong> We are still discussing on how to define and calculate some metrics, but apart from that, all the metrics that <em>can</em> be calcualted from the enriched index have been calculated. They can be found here in <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/GMD-metrics-from-scratch.ipynb">the Notebook</a>.
+Apart from that, I <a href="https://github.com/chaoss/grimoirelab-elk/issues/364">opened this issue</a> to add the Implementations of some metrics into grimoirelab-elk so that they can be added to the index while enrichment. You can follow the discussions here:</p>
+
+<ul>
+<li><a href="https://github.com/chaoss/wg-gmd/issues/5">Issue resolution efficiency</a></li>
+<li><a href="https://github.com/chaoss/wg-gmd/issues/9">New Contributors</a></li>
+<li><a href="https://github.com/chaoss/wg-gmd/issues/8">First response to issue duration</a>: I&rsquo;ll make a PR for this soon.</li>
+<li><a href="https://github.com/chaoss/grimoirelab-elk/issues/364">Other metrics under Code Development</a></li>
+</ul>
+
+<p>There is still some discussion to be held before we start making PRs and closing these issues though.</p>
+
+<p><strong>TASK-3:</strong> In task-3 I had to implement the current reports that manuscripts produces using the new functions that I&rsquo;ve been working on. Using these <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/new_functions.py">new functions</a>, I did create <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/Calculating%20CHAOSS%20metrics.ipynb">a Notebook</a> which analyses <a href="https://github.com/aimacode/aima-python">aima-python</a> github repo. I&rsquo;ve tried to calculate all the metrics using the <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/aima_python.pdf">report pdf</a> as reference.</p>
+
+<p>This task was particularly interesting because I got an indepth view of the <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/master/manuscripts/report.py">report.py</a> file. I&rsquo;ve written about the analysis below.
+I was able to implement all the current metrics for GitHub and Git in the notebook, so check it out! The new functions still need improvements and tests have to be written for them.</p>
+
+<p><strong>TASK-4:</strong> This task was to visualise the metrics using Plotly, Seaborn and Altair.</p>
+
+<p><strong>TASK-5:</strong> This task was to make PRs for the issues that were opened under TASK-2 for Code Development Metrics.</p>
+
+<hr />
+
+<h2 id="oh-boy-here-i-go-debugging-again">Oh boy, Here I go Debugging again!</h2>
+
+<p>Tasks-1 and 2 need no further explaination, I think. So I am starting with TASK-3.</p>
+
+<h3 id="task-3">TASK-3</h3>
+
+<p>Here, I had to recreate the current reports that manuscripts produces currently using new_functions.py library. We will analyse parts of the <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/104b6575ae2d45f9a26f485491f589500682fddb/manuscripts/report.py">report.py</a> file and see how the reports are being generated.</p>
+
+<h5 id="introduction-to-data-sources-being-used-and-the-related-classes"><strong>Introduction to data sources being used and the related classes:</strong></h5>
+
+<p>So, all the Metrics are derived from the <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/104b6575ae2d45f9a26f485491f589500682fddb/manuscripts/metrics/metrics.py#L36">Metric class in metrics.py</a> file.
+Each data source (github, git) has a base class, for example <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/104b6575ae2d45f9a26f485491f589500682fddb/manuscripts/metrics/metrics.py#L36">GithubPRs</a> class: it has a <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/104b6575ae2d45f9a26f485491f589500682fddb/manuscripts/metrics/github_prs.py#L32">get_section metrics</a> function which returns a configuration file containing different sections that the report is divided into. These sections are:</p>
+
+<ul>
+<li>overview</li>
+<li>com_channels (communication channels)</li>
+<li>project activity</li>
+<li>project community</li>
+<li>project process</li>
+</ul>
+
+<p>As you can see in the file.</p>
+
+<p>Now, the file <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/104b6575ae2d45f9a26f485491f589500682fddb/manuscripts/metrics/github_prs.py">github_prs</a> which contains the GithubPRs class has a few other classes too, which derive them selves from a base class of the form <MetricName>Metrics, here that class is <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/104b6575ae2d45f9a26f485491f589500682fddb/manuscripts/metrics/github_prs.py#L71">GithubPRsMetrics</a>.</p>
+
+<p>Other classes have this class as their parent class. Each class in the file represents a Metric as and since the base class is derived from the Metrics class from metrics.py module, each of them have all the functionalities that Metric class provides.</p>
+
+<p>So, in the get_section_metrics function inside GithubPRs class, the return dict has these Classes (containing fields for the metrics they represent) to calculate the metrics from them. If I am not clear, this is how the return dict looks like:
+(from get_section_metrics)</p>
+
+<pre><code>return {
+    &quot;overview&quot;: {
+        &quot;activity_metrics&quot;: [ClosedPR, SubmittedPR],
+        &quot;author_metrics&quot;: [],
+        &quot;bmi_metrics&quot;: [BMIPR],
+        &quot;time_to_close_metrics&quot;: [DaysToClosePRMedian],
+        &quot;projects_metrics&quot;: [Projects]
+    },
+    &quot;com_channels&quot;: {
+        &quot;activity_metrics&quot;: [],
+        &quot;author_metrics&quot;: []
+    },
+    &quot;project_activity&quot;: {
+        &quot;metrics&quot;: [SubmittedPR, ClosedPR]
+    },
+    &quot;project_community&quot;: {
+        &quot;author_metrics&quot;: [],
+        &quot;people_top_metrics&quot;: [],
+        &quot;orgs_top_metrics&quot;: [],
+    },
+    &quot;project_process&quot;: {
+        &quot;bmi_metrics&quot;: [BMIPR],
+        &quot;time_to_close_metrics&quot;: [],
+        &quot;time_to_close_title&quot;: &quot;Days to close (median and average)&quot;,
+        &quot;time_to_close_review_metrics&quot;: [DaysToClosePRAverage, DaysToClosePRMedian],
+        &quot;time_to_close_review_title&quot;: &quot;Days to close review (median and average)&quot;,
+        &quot;patchsets_metrics&quot;: []
+    }
+}
+</code></pre>
+
+<p>And the <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/104b6575ae2d45f9a26f485491f589500682fddb/manuscripts/metrics/github_prs.py#L76">SubmittedPR</a> class will look something like this:</p>
+
+<pre><code>class SubmittedPR(GitHubPRsMetrics):
+    id = &quot;submitted&quot;
+    name = &quot;Submitted reviews&quot;
+    desc = &quot;Number of submitted code review processes&quot;
+    FIELD_NAME = 'id'
+    FIELD_COUNT = 'id'
+    filters = {&quot;pull_request&quot;: &quot;true&quot;}
+</code></pre>
+
+<p>Going by the current design that manuscripts uses.</p>
+
+<p>All the datasources have a similar structure.</p>
+
+<h4 id="reports-py">Reports.py</h4>
+
+<p>Now, coming back to our main file generating the reports. We have <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/104b6575ae2d45f9a26f485491f589500682fddb/manuscripts/report.py#L74">mappings</a> relating the base classes we saw above to their corresponding indices in elasticsearch.</p>
+
+<p>After the initialization and the required calibration of datasources, we generate the main donfiguration dictionary that will desctibe which Metrics will be a part of which sections using the <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/104b6575ae2d45f9a26f485491f589500682fddb/manuscripts/report.py#L198">get_config</a> function.
+This is the configuration file that is generated when we are using git and github data sources to create the reports:</p>
+
+<pre><code>'overview': {
+    'activity_metrics': [&lt;class 'manuscripts.metrics.github_prs.ClosedPR'&gt;, 
+                        &lt;class 'manuscripts.metrics.github_prs.SubmittedPR'&gt;, 
+                        &lt;class 'manuscripts.metrics.github_issues.Closed'&gt;, 
+                        &lt;class 'manuscripts.metrics.github_issues.Opened'&gt;, 
+                        &lt;class 'manuscripts.metrics.git.Commits'&gt;], 
+    'author_metrics': [&lt;class 'manuscripts.metrics.git.Authors'&gt;], 
+    'bmi_metrics': [&lt;class 'manuscripts.metrics.github_prs.BMIPR'&gt;, 
+                    &lt;class 'manuscripts.metrics.github_issues.BMI'&gt;], 
+    'time_to_close_metrics': [&lt;class 'manuscripts.metrics.github_prs.DaysToClosePRMedian'&gt;, 
+                            &lt;class 'manuscripts.metrics.github_issues.DaysToCloseMedian'&gt;], 
+    'projects_metrics': [&lt;class 'manuscripts.metrics.github_prs.Projects'&gt;, 
+                        &lt;class 'manuscripts.metrics.github_issues.Projects'&gt;, 
+                        &lt;class 'manuscripts.metrics.git.Projects'&gt;], 
+    'activity_file_csv': 'data_source_evolution.csv', 
+    'efficiency_file_csv': 'efficiency.csv'
+    }, 
+
+'com_channels': {
+        'activity_metrics': [], 'author_metrics': []
+    }, 
+
+'project_activity': {
+    'metrics': [&lt;class 'manuscripts.metrics.github_prs.SubmittedPR'&gt;, 
+                &lt;class 'manuscripts.metrics.github_prs.ClosedPR'&gt;, 
+                &lt;class 'manuscripts.metrics.github_issues.Opened'&gt;, 
+                &lt;class 'manuscripts.metrics.github_issues.Closed'&gt;, 
+                &lt;class 'manuscripts.metrics.git.Commits'&gt;, 
+                &lt;class 'manuscripts.metrics.git.Authors'&gt;], 
+    'ds1_metrics': [&lt;class 'manuscripts.metrics.github_prs.SubmittedPR'&gt;, 
+                    &lt;class 'manuscripts.metrics.github_prs.ClosedPR'&gt;], 
+    'ds2_metrics': [&lt;class 'manuscripts.metrics.github_issues.Opened'&gt;, 
+                    &lt;class 'manuscripts.metrics.github_issues.Closed'&gt;], 
+    'ds3_metrics': [&lt;class 'manuscripts.metrics.git.Commits'&gt;, 
+                        &lt;class 'manuscripts.metrics.git.Authors'&gt;]
+    }, 
+
+'project_community': {
+    'author_metrics': [&lt;class 'manuscripts.metrics.git.Authors'&gt;], 
+    'people_top_metrics': [&lt;class 'manuscripts.metrics.git.Authors'&gt;],
+    'orgs_top_metrics': [&lt;class 'manuscripts.metrics.git.Organizations'&gt;]
+    },
+
+'project_process': {
+    'bmi_metrics': [&lt;class 'manuscripts.metrics.github_prs.BMIPR'&gt;, 
+                    &lt;class 'manuscripts.metrics.github_issues.BMI'&gt;], 
+       'time_to_close_metrics': [&lt;class 'manuscripts.metrics.github_issues.DaysToCloseAverage'&gt;, 
+                                &lt;class 'manuscripts.metrics.github_issues.DaysToCloseMedian'&gt;], 
+       'time_to_close_title': 'Days to close (median and average)', 
+       'time_to_close_review_metrics': [&lt;class 'manuscripts.metrics.github_prs.DaysToClosePRAverage'&gt;, 
+                                        &lt;class 'manuscripts.metrics.github_prs.DaysToClosePRMedian'&gt;], 
+       'time_to_close_review_title': 'Days to close review (median and average)', 
+       'patchsets_metrics': []
+}
+</code></pre>
+
+<p>Each entry in the lists in the dictionary is a Class having the required fields to calculate the metrics and have been derived from the Metrics class hence have all the functionality to access elasticsearch and get the results. This is really smart programming, I must say.
+As we can see, the Report generated is divided into 4 parts, listed as primary keys of the dict above.</p>
+
+<p><strong>OVERVIEW:</strong></p>
+
+<ul>
+<li><p>Activity metrics: we have to get the trend for these:</p>
+
+<ul>
+<li>Closed PRs</li>
+<li>Open PRs</li>
+<li>Issues Open</li>
+<li>Issues Closed</li>
+<li>Commits created</li>
+</ul></li>
+
+<li><p>Authors per interval selected: description: average number of developers per month by quarters
+    (so we have the average number of developers per month during
+    those three months). If the approach is to work at the level of month,
+    then just the number of developers per month.</p></li>
+
+<li><p>BMI metrics: a little introduction about BMI- here, BMI calculates the efficiency of creating/closing Issues and PRs.</p>
+
+<ul>
+<li>BMI of PRs: closed PRs/ submitted PRs in total and a trend showing the same ratio over the said interval(month, week, year) in the given range of time.</li>
+<li>BMI for issues: same as PRs but for issues.</li>
+</ul></li>
+
+<li><p>Time to close metrics:</p>
+
+<ul>
+<li>Median for Days to close a PR.</li>
+<li>Median for Days to close an issue.</li>
+</ul></li>
+
+<li><p>Project Metrics:  What are they? The field inside the enriched index for project doesnot exists. There is an issue about discussing this metric <a href="https://github.com/chaoss/wg-gmd/issues/11">here</a>.</p></li>
+</ul>
+
+<p><strong>COMM CHANNELS?</strong>
+There are none for github and git. All the communication takes place through the PRs and the Issues.</p>
+
+<p><strong>ACTIVITIES:</strong>
+Here, under the <code>project_activity</code> key, we have 4 key val pairs as you can see. Here we calculate the number of commits made per month (in the given range) and the number of contributors per month (in the given range).</p>
+
+<p><strong>COMMUNITY:</strong>
+In community, we calculate the active contributors per month and the Most active contributors in the previous period of analysis(month/quarter). We also calculate the most active org.</p>
+
+<p><strong>PROCESS:</strong>
+Under Process, we calculate the BMI or the ratio of Total closed/ Total created for issues and PRs per month in the range of analysis given.
+We also calculate the average and median for <code>time_to_close days</code> of the PRs that were created for each month.</p>
+
+<p>Some useful functions to look at:</p>
+
+<ul>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/104b6575ae2d45f9a26f485491f589500682fddb/manuscripts/report.py#L344">sec_overview</a>: This function gets the fields from the config dict and then calls the get_trend function from the classes. It creates a csv file containing these calculated Metrics.</li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/104b6575ae2d45f9a26f485491f589500682fddb/manuscripts/report.py#L458">create_csv_eps</a>: This function takes in 2 metrics and generates a timeseries for those metrics for the given fields and then displays these fields in a bar graph.</li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/104b6575ae2d45f9a26f485491f589500682fddb/manuscripts/report.py#L538">sec_project_activity</a>: it is the same as sec_overview, but it also creates bar graphs for the metrics.</li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/104b6575ae2d45f9a26f485491f589500682fddb/manuscripts/report.py#L560">sec_project_community</a>: same as sec_project_activity, but to calculate the commits and author related metrics.</li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/104b6575ae2d45f9a26f485491f589500682fddb/manuscripts/report.py#L622">sec_project_process</a>: calculates the BMI related data for PRs and creates bar graphs plotting that data.</li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/104b6575ae2d45f9a26f485491f589500682fddb/manuscripts/report.py#L844">create_pdf</a>: generates the final report.</li>
+</ul>
+
+<p>The exact analysis that is being generated in the report is shown in <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/Calculating%20CHAOSS%20metrics.ipynb">the Notebook using the new functions</a>.</p>
+
+  </article>
+</section>
+
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    © 2018 · Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>
