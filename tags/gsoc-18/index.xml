@@ -6,10 +6,21 @@
     <description>Recent content in Gsoc 18 on TOBOR A TON MA I</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 13 Jun 2018 08:14:49 +0530</lastBuildDate>
+    <lastBuildDate>Wed, 27 Jun 2018 06:51:49 +0530</lastBuildDate>
     
 	<atom:link href="https://aswanipranjal.github.io/tags/gsoc-18/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Pause, reflect and Plan ahead!</title>
+      <link>https://aswanipranjal.github.io/posts/week-7/</link>
+      <pubDate>Wed, 27 Jun 2018 06:51:49 +0530</pubDate>
+      
+      <guid>https://aswanipranjal.github.io/posts/week-7/</guid>
+      <description>Hey all! I am sorry for been gone for so long.
+Welcome to Week-7 of Google Summer of Code. First of all, I&amp;rsquo;d like to thank my mentors Jesus and Valerio for passing me in the first evaluations! I am very happy about it. They&amp;rsquo;ve been really great and supportive through out and I&amp;rsquo;d like to Thank them for that.
+Since I skipped the last week, this post might be a little longer than normal.</description>
+    </item>
     
     <item>
       <title>Come with me.. and you&#39;ll be.. in a world of visualizations, tests and documentation </title>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Pranjal Aswani">
+    <meta name="description" content="This is where i will rant about stuff">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <base href="https://aswanipranjal.github.io/">
+    <title>
+  Pause, reflect and Plan ahead! · TOBOR A TON MA I
+</title>
+
+    <link rel="canonical" href="https://aswanipranjal.github.io/posts/week-7/">
+
+    <link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
+    <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+    <link rel="stylesheet" href="https://aswanipranjal.github.io/css/style.min.css">
+
+    <link rel="icon" type="image/png" href="https://aswanipranjal.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://aswanipranjal.github.io/images/favicon-16x16.png" sizes="16x16">
+
+    
+
+    <meta name="generator" content="Hugo 0.40.1" />
+  </head>
+
+  <body>
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://aswanipranjal.github.io/">
+      TOBOR A TON MA I
+    </a>
+    
+    <ul class="navigation-list float-right">
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="/posts/">Blog</a>
+      </li>
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="/about/">About</a>
+      </li>
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="/tags/">Tags</a>
+      </li>
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+  <article>
+    <header>
+      <h1 class="title">Pause, reflect and Plan ahead!</h1>
+      <h2 class="date">June 27, 2018</h2>
+    </header>
+
+    
+
+<p>Hey all! I am sorry for been gone for so long.</p>
+
+<p>Welcome to Week-7 of Google Summer of Code. First of all, I&rsquo;d like to thank my mentors Jesus and Valerio for passing me in the first evaluations! I am very happy about it. They&rsquo;ve been really great and supportive through out and I&rsquo;d like to Thank them for that.</p>
+
+<p>Since I skipped the last week, this post might be a little longer than normal.</p>
+
+<p><h2 style="text-align: center"><bold>In Brief</bold></h2></p>
+
+<h5 id="task-1-completed">Task-1 [COMPLETED]:</h5>
+
+<p>This task was to make manuscripts use elasticsearch_dsl whenever it was querying Elasticsearch for data. The PR for this has been merged with the main repo by Jesus finishing this task.</p>
+
+<ul>
+<li>PR for this task: <a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/64">manuscripts#64</a></li>
+</ul>
+
+<h5 id="task-2-under-progress">Task-2 [UNDER-PROGRESS]:</h5>
+
+<p>This task was to open issues for the metrics still missing in Manuscripts. There is actually <a href="https://lists.linuxfoundation.org/pipermail/oss-health-metrics/2018-June/000707.html">a great meta-discussion</a> going on in the Mailinglists about how to&rsquo;s of the Metrics. Once the community comes to a conclusion, I think I&rsquo;ll have a better understanding of what needs to be done. Till then, only the metrics under Code Development remain which, hopefully, I&rsquo;ll be adding this week? More about this below.</p>
+
+<p><strong>NOTE:</strong> There is going to be a meeting regarding the GMD metrics on Thursday at 11 AM CDT where the above discussion will be continued. So please be there if you have any suggestions or if you want to just follow along.</p>
+
+<h5 id="task-3-under-progress">Task-3 [UNDER-PROGRESS]:</h5>
+
+<p>This task is still underway. This task was to redesign the functions calculating the Metrics.</p>
+
+<ul>
+<li>PR for this task: <a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/67">manuscripts#67</a></li>
+</ul>
+
+<h5 id="task-4-under-progress">Task-4 [UNDER-PROGRESS]:</h5>
+
+<p>I was able create notebooks for Altair and Seaborn. They are statistical Visualisation libraries and that means they depend upon how varied the data is and what we are trying to plot. They need data in a certain format known as &ldquo;tidy data&rdquo;. Read about <a href="http://nbviewer.jupyter.org/github/jfpuget/Tidy-Data/blob/master/Tidy-Data.ipynb">tidy-data here</a>. It&rsquo;s quite an interesting read. I&rsquo;ll explain more about tidy data and about Altair &amp; Seaborn below.</p>
+
+<h5 id="task-5-under-progress">Task-5 [UNDER-PROGRESS]:</h5>
+
+<p>This task is to make PRs on the Metrics which can be calculated. I was able to make a PR calculating <a href="https://github.com/chaoss/wg-gmd/issues/8">time to first response duration</a>.</p>
+
+<ul>
+<li>PR for this task: <a href="https://github.com/chaoss/grimoirelab-elk/pull/383">grimoirelab-elk#383</a></li>
+</ul>
+
+<h5 id="extra">Extra:</h5>
+
+<p>I was able to solve another old Issue regarding changing the hardcoded start date in manuscripts. The default start date for any data source is <code>2015-01-01</code>. This PR calculates the minimum data from all the data sources being queried and sets it to the start date if its not provided.</p>
+
+<ul>
+<li>Issue: <a href="https://github.com/chaoss/grimoirelab-manuscripts/issues/48">manuscripts#48</a></li>
+<li>Related PR: <a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/69">manuscripts#69</a></li>
+</ul>
+
+<p>Let&rsquo;s dive in deeper!</p>
+
+<hr />
+
+<p><h2 style="text-align: center"><bold>In Detail</bold></h2></p>
+
+<h5 id="tasks-2-5">Tasks-2 &amp; 5:</h5>
+
+<p>Since Task-5 was derived from the issues created in Task-2, it&rsquo;ll be appropriate to describe them both together.
+These tasks mainly require adding code to <a href="https://github.com/chaoss/grimoirelab-elk">Grimoire-elk</a> and <a href="https://github.com/chaoss/grimoirelab-perceval">Perceval</a>.
+A considerable amount of my time this week went into understanding both of these code bases.
+Perceval is used to fetch data from different data sources such as git, github, mailinglists, gerrit and so on. Grimoire-elk, using perceval, fetches this data and saves it as raw indices into elasticsearch. Perceval&rsquo;s job is then done.
+After that, Grimoire-elk queries elasticsearch to retrieve this raw data and enriches it by calculating the fields needed to calculate the metrics and saves this enriched data back into elasticsearch in a second index (with possibly a similar name). This is, in short, what happens when we run the command:</p>
+
+<pre><code class="language-bash">$ p2o.py --enrich --index &lt;raw index name&gt; --index-enrich &lt;enriched index name&gt; -e &lt;URI of where elasticsearch is running&gt; --no_inc --debug &lt;data source&gt; &lt;corresponding parameters for the data source as given to perceval&gt;
+</code></pre>
+
+<p>The <code>raw index name</code> is where the data fetched from perceval will be stored.
+The <code>enriched index name</code> is where the processed data will be stored after it&rsquo;s enriched by grimoire-elk.</p>
+
+<hr style="border-top: dashed 0.5px;" />
+
+<h5 style="text-align: center"><bold>A bit about how PERCEVAL works</bold></h5>
+
+<p>Perceval supports a variety of data sources and has specific <a href="https://github.com/chaoss/grimoirelab-perceval/tree/master/perceval/backends/core">set of functions</a> for each of them to fetch the data. To query any data source, we give the command:</p>
+
+<pre><code class="language-bash">$ perceval &lt;datasource&gt; [-options] [arguments for that data source]
+</code></pre>
+
+<p>All the classes for each data source are derieved from <a href="https://github.com/chaoss/grimoirelab-perceval/blob/master/perceval/backend.py">Backend classes</a>.</p>
+
+<p>Here, we were dealing with the GitHub data source to calculate the metrics under <a href="https://github.com/chaoss/wg-gmd/blob/master/2_Growth-Maturity-Decline.md#code-development">Code Development</a>. As we can see that almost all these metrics depend on it.
+The general command to fetch from github data source is:</p>
+
+<pre><code class="language-bash">$ perceval github &lt;user/org-name&gt; &lt;repo-name&gt; --token &lt;github token&gt;
+</code></pre>
+
+<p>So, perceval, by default fetches all the items (issues and prs in the repository) as if they were Issues. This behavour is defined by the <a href="https://github.com/chaoss/grimoirelab-perceval/blob/master/perceval/backends/core/github.py#L110">category parameter</a> that is passed to the fetch function when querying the repo for data.
+We can change this behaviour and fetch the data about pull requests (code reviews, commits made in that PR and such) by passing the category parameter to the perceval command:</p>
+
+<pre><code class="language-bash">$ perceval github --category pull_requests &lt;user/org-name&gt; &lt;repo-name&gt; --token &lt;github token&gt;
+</code></pre>
+
+<p>The issue and PR data that is fetched has a <code>data</code> field, apart from the other meta data fields, which contains the data that we need and which is enriched by grimoire-elk.</p>
+
+<p>The data fetched under issues has the following fields:
+[&lsquo;assignee&rsquo;, &lsquo;assignee_data&rsquo;, &lsquo;assignees&rsquo;, &lsquo;assignees_data&rsquo;, &lsquo;author_association&rsquo;, &lsquo;body&rsquo;, &lsquo;closed_at&rsquo;, &lsquo;comments&rsquo;, &lsquo;comments_data&rsquo;, &lsquo;comments_url&rsquo;, &lsquo;created_at&rsquo;, &lsquo;events_url&rsquo;, &lsquo;html_url&rsquo;, &lsquo;id&rsquo;, &lsquo;labels&rsquo;, &lsquo;labels_url&rsquo;, &lsquo;locked&rsquo;, &lsquo;milestone&rsquo;, &lsquo;node_id&rsquo;, &lsquo;number&rsquo;, &lsquo;pull_request&rsquo;, &lsquo;reactions&rsquo;, &lsquo;reactions_data&rsquo;, &lsquo;repository_url&rsquo;, &lsquo;state&rsquo;, &lsquo;title&rsquo;, &lsquo;updated_at&rsquo;, &lsquo;url&rsquo;, &lsquo;user&rsquo;, &lsquo;user_data&rsquo;]</p>
+
+<p>And the data fetched under pull_requests has the following fields:
+[&rsquo;_links&rsquo;, &lsquo;additions&rsquo;, &lsquo;assignee&rsquo;, &lsquo;assignees&rsquo;, &lsquo;author_association&rsquo;, &lsquo;base&rsquo;, &lsquo;body&rsquo;, &lsquo;changed_files&rsquo;, &lsquo;closed_at&rsquo;, &lsquo;comments&rsquo;, &lsquo;comments_url&rsquo;, &lsquo;commits&rsquo;, &lsquo;commits_data&rsquo;, &lsquo;commits_url&rsquo;, &lsquo;created_at&rsquo;, &lsquo;deletions&rsquo;, &lsquo;diff_url&rsquo;, &lsquo;head&rsquo;, &lsquo;html_url&rsquo;, &lsquo;id&rsquo;, &lsquo;issue_url&rsquo;, &lsquo;labels&rsquo;, &lsquo;locked&rsquo;, &lsquo;maintainer_can_modify&rsquo;, &lsquo;merge_commit_sha&rsquo;, &lsquo;mergeable&rsquo;, &lsquo;mergeable_state&rsquo;, &lsquo;merged&rsquo;, &lsquo;merged_at&rsquo;, &lsquo;merged_by&rsquo;, &lsquo;merged_by_data&rsquo;, &lsquo;milestone&rsquo;, &lsquo;node_id&rsquo;, &lsquo;number&rsquo;, &lsquo;patch_url&rsquo;, &lsquo;rebaseable&rsquo;, &lsquo;requested_reviewers&rsquo;, &lsquo;requested_reviewers_data&rsquo;, &lsquo;requested_teams&rsquo;, &lsquo;review_comment_url&rsquo;, &lsquo;review_comments&rsquo;, &lsquo;review_comments_data&rsquo;, &lsquo;review_comments_url&rsquo;, &lsquo;state&rsquo;, &lsquo;statuses_url&rsquo;, &lsquo;title&rsquo;, &lsquo;updated_at&rsquo;, &lsquo;url&rsquo;, &lsquo;user&rsquo;, &lsquo;user_data&rsquo;]</p>
+
+<p>As we can see, the latter one can provide us with a lot more insights.</p>
+
+<hr style="border-top: dashed 0.5px;" />
+
+<p>Now, back to grimoire-elk. Grimoire-elk is a little more complex than perceval. It has a bunch of <a href="https://github.com/chaoss/grimoirelab-elk/tree/master/utils">utilities</a> such as <code>p2o.py</code> which we saw earlier which can be used to do certain tasks.
+Like perceval, grimoire-elk also has <a href="https://github.com/chaoss/grimoirelab-elk/tree/master/grimoire_elk/enriched">specific sets of functions</a> for each of the data sources. These functions are responsible to enrich the raw data stored in elasticsearch and creating enriched data out of them.</p>
+
+<p>For github, the caveat is that there are no functions in <a href="https://github.com/chaoss/grimoirelab-elk/blob/master/grimoire_elk/enriched/github.py#L268">enriched/github.py</a> file that can parse the pull_requests raw data that can be fetched from perceval using the <code>--category</code> flag as we saw above. We need change this add add functions to calculate the raw pull request data so that the metrics under Code Development can be calculated.</p>
+
+<p>We can modify the get_rich_item function to reflect pull requests and issues as separate items or as the same item with the fields set to None in issues which are not present.</p>
+
+<p><strong>This is what I will be focusing on this coming week.</strong></p>
+
+<p>I was able to <a href="https://github.com/chaoss/grimoirelab-elk/pull/383">create a PR</a> and add the <code>time_to_first_attention</code> field to the github data source, though. This field calculates the first time a reaction was made to a PR/issue from a user other than the one who created that PR/issue.</p>
+
+<p>Other than that, discussion is still going on about the GMD-metrics and I think we&rsquo;ll have good progress and come to definate conclusions in tomorrow&rsquo;s meeting.
+That is it for Tasks-2 &amp; 5.</p>
+
+<p><br></p>
+
+<h5 id="tasks-4">Tasks-4:</h5>
+
+<p>Task 4 was to play with visualizations. We are planning to create interactive visualizations, using Plotly and Altair, in Jupyter Notebooks so the users can also dive in deeper using the visuals and get a better understanding of the metrics.
+You might have seen the <a href="https://nbviewer.jupyter.org/github/aswanipranjal/gsoc-manuscripts/blob/master/Plotly.ipynb">Plotly Notebook</a> that I created the previous week.
+This week I focused on <a href="http://nbviewer.jupyter.org/github/aswanipranjal/gsoc-manuscripts/blob/master/Altair.ipynb">Altair</a> and <a href="http://nbviewer.jupyter.org/github/aswanipranjal/gsoc-manuscripts/blob/master/Seaborn-testing.ipynb">Seaborn</a> (Work in progress) notebooks.</p>
+
+<hr style="border-top: dashed 0.5px;" />
+
+<p><strong>Important Note:</strong> Initially we were thinking of converting these interactive graphs and charts into png/jpeg/pdf files so that they can be directly included into the PDF report generated by manuscripts. But I think that won&rsquo;t be possible because:</p>
+
+<ul>
+<li><p>Plotly doesnot actually provide the offline users with the functionality to directly get the visualization as images or pdf files. <a href="https://plot.ly/python/static-image-export/">Read about it here</a>. What Plotly does provide is an HTML file. That HTML file actually contains the JS functions and data that is used to create the interactive visualisation. We can use this HTML file and take a screenshot of the visualization generated as <a href="https://nbviewer.jupyter.org/gist/jwhendy/a828e14d542562689add0d010d8e9d69">done by a Plotly user</a>. But this technique is a bit <em>hacky</em> , will not always work (I&rsquo;ve tried and I&rsquo;ve failed) and will require the users to download additional libraries like <code>selenium</code>, <code>PhantomJS</code> and also the chrome or geko drivers which will actually run open the HTML file to take the screenshot.</p></li>
+
+<li><p>Altair, although has a function to export a chart as image, uses a similar approach, as described above, which works brilliantly. But this too requires the users to download the chrome/geko drivers and selenium. This is still doable if we think about it because it&rsquo;s not hacky. <a href="https://altair-viz.github.io/user_guide/saving_charts.html?highlight=png">Read about how to do this here</a>.</p></li>
+
+<li><p>The reason I think that all (I also tried Bokeh to see if it was different) interactive visualisation libraries require all these extra libraries is because unlike Matplotlib, these libraries create visualisations using JS functions and data in JSON format. This requires extra processing to convert into static images and hence cannot be done easily.</p></li>
+</ul>
+
+<p>All in all, we might end up using the Pandas in built visualisations and the classic Matplotlib or even Seaborn to get the static visualisations and limit Altair and Plotly to the Notebooks and HTML pages for interactive visualisations. I hope to discuss this more in today&rsquo;s meeting.</p>
+
+<hr style="border-top: dashed 0.3px;" />
+
+<p>Altair and Seaborn require data in a specific format, known as <code>tidy-data</code>. So, what is tidy data exactly?
+The human readable data contains parameters as Column names and the data for those parameters as the rows. Example:</p>
+
+<pre><code>date				opened_issues		closed_issues		remaining_issues
+2016-01-01 00:00:00+00:00		1			1			NaN
+2016-02-01 00:00:00+00:00		2			1			1.0
+2016-03-01 00:00:00+00:00		8			4			4.0
+2016-04-01 00:00:00+00:00		1			1			0.0
+2016-05-01 00:00:00+00:00		0			0			0.0
+2016-06-01 00:00:00+00:00		3			1			1.0
+2016-07-01 00:00:00+00:00		2			2			0.0
+2016-08-01 00:00:00+00:00		1			0			0.0
+2016-09-01 00:00:00+00:00		7			5			2.0
+2016-10-01 00:00:00+00:00		12			7			2.0
+2016-11-01 00:00:00+00:00		7			4			1.0
+2016-12-01 00:00:00+00:00		4			6			1.0
+....
+</code></pre>
+
+<p>We can see that each row requires the headings to be specified so that we can determine the parameter that we are looking at. We need to provide extra data to distinguish between rows and fields.</p>
+
+<p>Let&rsquo;s have a look at the data which is <em>tidy</em>:</p>
+
+<pre><code>Date				issue_type		count
+2016-01-01T00:00:00+00:00	opened_issues		1.0
+2016-01-01T00:00:00+00:00	closed_issues		1.0
+2016-02-01T00:00:00+00:00	opened_issues		2.0
+2016-02-01T00:00:00+00:00	closed_issues		1.0
+2016-02-01T00:00:00+00:00	remaining_issues	1.0
+2016-03-01T00:00:00+00:00	opened_issues		8.0
+2016-03-01T00:00:00+00:00	closed_issues		4.0
+2016-03-01T00:00:00+00:00	remaining_issues	4.0
+2016-04-01T00:00:00+00:00	opened_issues		1.0
+2016-04-01T00:00:00+00:00	closed_issues		1.0
+2016-04-01T00:00:00+00:00	remaining_issues	0.0
+2016-05-01T00:00:00+00:00	opened_issues		0.0
+2016-05-01T00:00:00+00:00	closed_issues		0.0
+2016-05-01T00:00:00+00:00	remaining_issues	0.0
+2016-06-01T00:00:00+00:00	opened_issues		3.0
+2016-06-01T00:00:00+00:00	closed_issues		1.0
+2016-06-01T00:00:00+00:00	remaining_issues	1.0
+....
+</code></pre>
+
+<p>In the table above, we can see how tidy data looks like. Each row is unique by itself even though some of the fields in the rows might be the same in successive rows, <em>each row is unique by it self</em>. That is the emphasis here.</p>
+
+<p>Each row contains the exact information required to plot it and thus makes it easier to plot the data. The data in all the Altair plots has been first converted into tidy format and then plotted.</p>
+
+<p>You can view the <a href="http://nbviewer.jupyter.org/github/aswanipranjal/gsoc-manuscripts/blob/master/Altair.ipynb">Altair plots here</a>.</p>
+
+<ul>
+<li><a href="http://nbviewer.jupyter.org/github/aswanipranjal/gsoc-manuscripts/blob/master/Altair.ipynb#Distribution-of-issues-by-month-over-time">Here we see the distribution of opened, open and closed issues by month over time and in different formats</a>.</li>
+<li><a href="http://nbviewer.jupyter.org/github/aswanipranjal/gsoc-manuscripts/blob/master/Altair.ipynb#Closed-and-Opened-issues-by-authors:">We can create horizontal graphs to plot the activities by the users</a>.</li>
+<li>[We can even create box-plots to show the distribution of time_to_close days over the period of time](<a href="http://nbviewer.jupyter.org/github/aswanipranjal/gsoc-manuscripts/blob/master/Altair.ipynb#Closed-issue-resolution-duration-(Time-to-resolution-of-closed-issue">http://nbviewer.jupyter.org/github/aswanipranjal/gsoc-manuscripts/blob/master/Altair.ipynb#Closed-issue-resolution-duration-(Time-to-resolution-of-closed-issue</a>).</li>
+<li><a href="http://nbviewer.jupyter.org/github/aswanipranjal/gsoc-manuscripts/blob/master/Altair.ipynb#code-commits">And stream graphs to show the commits made and files changed over time</a>.</li>
+<li>Through some extra processing, <a href="http://nbviewer.jupyter.org/github/aswanipranjal/gsoc-manuscripts/blob/master/Altair.ipynb#Number-of-contributors">we can get the distribution of the contributors over the years</a>.</li>
+<li>And you can see a scatter plot with histograms for the values at the end of the notebook.</li>
+</ul>
+
+<p>Altair is a fun library, we&rsquo;ll just have to preprocess the data a bit to take full advantage of that library.</p>
+
+<hr />
+
+  </article>
+</section>
+
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    © 2018 · Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>
