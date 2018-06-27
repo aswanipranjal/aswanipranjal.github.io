@@ -69,15 +69,15 @@
 
 <p>Hey all! I am sorry for been gone for so long.</p>
 
-<p>Welcome to Week-7 of Google Summer of Code. First of all, I&rsquo;d like to thank my mentors Jesus and Valerio for passing me in the first evaluations! I am very happy about it. They&rsquo;ve been really great and supportive through out and I&rsquo;d like to Thank them for that.</p>
+<p>Welcome to Week-7 of Google Summer of Code. First of all, I&rsquo;d like to thank my mentors: Jesus and Valerio for passing me in the first evaluations! I am very happy about it. They&rsquo;ve been really great and supportive throughout and I&rsquo;d like to Thank them for that.</p>
 
-<p>Since I skipped the last week, this post might be a little longer than normal.</p>
+<p>Since I skipped the last week, this post might be a little longer than usual.</p>
 
-<p><h2 style="text-align: center"><bold>In Brief</bold></h2></p>
+<h2 style="text-align: center"><bold>In Brief</bold></h2>
 
 <h5 id="task-1-completed">Task-1 [COMPLETED]:</h5>
 
-<p>This task was to make manuscripts use elasticsearch_dsl whenever it was querying Elasticsearch for data. The PR for this has been merged with the main repo by Jesus finishing this task.</p>
+<p>This task was to make manuscripts use the <code>elasticsearch_dsl</code> library where ever it was querying Elasticsearch for data. The PR for this has been merged with the main repo by Jesus, thus finishing this task.</p>
 
 <ul>
 <li>PR for this task: <a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/64">manuscripts#64</a></li>
@@ -85,13 +85,13 @@
 
 <h5 id="task-2-under-progress">Task-2 [UNDER-PROGRESS]:</h5>
 
-<p>This task was to open issues for the metrics still missing in Manuscripts. There is actually <a href="https://lists.linuxfoundation.org/pipermail/oss-health-metrics/2018-June/000707.html">a great meta-discussion</a> going on in the Mailinglists about how to&rsquo;s of the Metrics. Once the community comes to a conclusion, I think I&rsquo;ll have a better understanding of what needs to be done. Till then, only the metrics under Code Development remain which, hopefully, I&rsquo;ll be adding this week? More about this below.</p>
+<p>This task was to open issues for the metrics still missing in Manuscripts. There is actually <a href="https://lists.linuxfoundation.org/pipermail/oss-health-metrics/2018-June/000707.html">a great discussion</a> going on in the Mailinglists about how the to&rsquo;s of the Metrics. Once the community comes to a conclusion, I think I&rsquo;ll have a better understanding of what needs to be done. Till then, only the metrics under Code Development remain which I&rsquo;ll be adding this week (hopefully)? More about this below.</p>
 
 <p><strong>NOTE:</strong> There is going to be a meeting regarding the GMD metrics on Thursday at 11 AM CDT where the above discussion will be continued. So please be there if you have any suggestions or if you want to just follow along.</p>
 
 <h5 id="task-3-under-progress">Task-3 [UNDER-PROGRESS]:</h5>
 
-<p>This task is still underway. This task was to redesign the functions calculating the Metrics.</p>
+<p>This task is still underway. In this, we had redesign the functions calculating the Metrics.</p>
 
 <ul>
 <li>PR for this task: <a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/67">manuscripts#67</a></li>
@@ -99,7 +99,7 @@
 
 <h5 id="task-4-under-progress">Task-4 [UNDER-PROGRESS]:</h5>
 
-<p>I was able create notebooks for Altair and Seaborn. They are statistical Visualisation libraries and that means they depend upon how varied the data is and what we are trying to plot. They need data in a certain format known as &ldquo;tidy data&rdquo;. Read about <a href="http://nbviewer.jupyter.org/github/jfpuget/Tidy-Data/blob/master/Tidy-Data.ipynb">tidy-data here</a>. It&rsquo;s quite an interesting read. I&rsquo;ll explain more about tidy data and about Altair &amp; Seaborn below.</p>
+<p>I was able create notebooks for <a href="http://nbviewer.jupyter.org/github/aswanipranjal/gsoc-manuscripts/blob/master/Altair.ipynb">Altair</a> and <a href="http://nbviewer.jupyter.org/github/aswanipranjal/gsoc-manuscripts/blob/master/Seaborn-testing.ipynb">Seaborn</a>. They are statistical Visualisation libraries and that means they depend upon how varied the data is and what we are trying to plot. They need data in a certain format known as &ldquo;tidy data&rdquo;. Read about <a href="http://nbviewer.jupyter.org/github/jfpuget/Tidy-Data/blob/master/Tidy-Data.ipynb">tidy-data here</a>. It&rsquo;s quite an interesting read. I&rsquo;ll explain more about tidy data and about Altair &amp; Seaborn below.</p>
 
 <h5 id="task-5-under-progress">Task-5 [UNDER-PROGRESS]:</h5>
 
@@ -111,7 +111,7 @@
 
 <h5 id="extra">Extra:</h5>
 
-<p>I was able to solve another old Issue regarding changing the hardcoded start date in manuscripts. The default start date for any data source is <code>2015-01-01</code>. This PR calculates the minimum data from all the data sources being queried and sets it to the start date if its not provided.</p>
+<p>I was able to solve another old Issue regarding changing the hardcoded start date in manuscripts. The default start date for any data source is <code>2015-01-01</code>. This PR calculates the minimum date from all the data sources being queried and sets it to the start date if it&rsquo;s not provided.</p>
 
 <ul>
 <li>Issue: <a href="https://github.com/chaoss/grimoirelab-manuscripts/issues/48">manuscripts#48</a></li>
@@ -127,9 +127,13 @@
 <h5 id="tasks-2-5">Tasks-2 &amp; 5:</h5>
 
 <p>Since Task-5 was derived from the issues created in Task-2, it&rsquo;ll be appropriate to describe them both together.
-These tasks mainly require adding code to <a href="https://github.com/chaoss/grimoirelab-elk">Grimoire-elk</a> and <a href="https://github.com/chaoss/grimoirelab-perceval">Perceval</a>.
-A considerable amount of my time this week went into understanding both of these code bases.
-Perceval is used to fetch data from different data sources such as git, github, mailinglists, gerrit and so on. Grimoire-elk, using perceval, fetches this data and saves it as raw indices into elasticsearch. Perceval&rsquo;s job is then done.
+These tasks mainly require adding code to <a href="https://github.com/chaoss/grimoirelab-elk">Grimoire-elk</a> and <a href="https://github.com/chaoss/grimoirelab-perceval">Perceval</a>.</p>
+
+<p>A considerable amount of my time this week went into understanding both of these code bases. (That was fun!)</p>
+
+<p>Perceval is used to fetch data from different data sources such as git, github, mailinglists, gerrit and so on.</p>
+
+<p>Grimoire-elk, using perceval, fetches this data and saves it as raw indices into elasticsearch. Perceval&rsquo;s job is then done.
 After that, Grimoire-elk queries elasticsearch to retrieve this raw data and enriches it by calculating the fields needed to calculate the metrics and saves this enriched data back into elasticsearch in a second index (with possibly a similar name). This is, in short, what happens when we run the command:</p>
 
 <pre><code class="language-bash">$ p2o.py --enrich --index &lt;raw index name&gt; --index-enrich &lt;enriched index name&gt; -e &lt;URI of where elasticsearch is running&gt; --no_inc --debug &lt;data source&gt; &lt;corresponding parameters for the data source as given to perceval&gt;
