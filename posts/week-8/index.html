@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Pranjal Aswani">
+    <meta name="description" content="This is where i will rant about stuff">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <base href="https://aswanipranjal.github.io/">
+    <title>
+  Week 8 · TOBOR A TON MA I
+</title>
+
+    <link rel="canonical" href="https://aswanipranjal.github.io/posts/week-8/">
+
+    <link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
+    <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+    <link rel="stylesheet" href="https://aswanipranjal.github.io/css/style.min.css">
+
+    <link rel="icon" type="image/png" href="https://aswanipranjal.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://aswanipranjal.github.io/images/favicon-16x16.png" sizes="16x16">
+
+    
+
+    <meta name="generator" content="Hugo 0.40.1" />
+  </head>
+
+  <body>
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://aswanipranjal.github.io/">
+      TOBOR A TON MA I
+    </a>
+    
+    <ul class="navigation-list float-right">
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="/posts/">Blog</a>
+      </li>
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="/about/">About</a>
+      </li>
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="/tags/">Tags</a>
+      </li>
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+  <article>
+    <header>
+      <h1 class="title">Week 8</h1>
+      <h2 class="date">July 4, 2018</h2>
+    </header>
+
+    
+
+<p>HELLO!!</p>
+
+<p>In this week, I did some experiments and got some good results. Welcome to Week-8 of Google Summer of Code!</p>
+
+<h2 style="text-align: center"><bold>In Brief</bold></h2>
+
+<h5 id="task-2-under-discussion">Task-2 [Under Discussion]:</h5>
+
+<ul>
+<li>Open issues for unclear metrics</li>
+</ul>
+
+<p>As last week, this week too the Task-2 is being discussed in the mailing lists.</p>
+
+<h5 id="task-3-almost-done">Task-3 [Almost Done]:</h5>
+
+<ul>
+<li><p>Create new chainable functions and classes to calcualte the metrics</p>
+
+<ul>
+<li>I know, <code>Almost Done</code> is a weird tag, but it&rsquo;s true. The new_functions almost good to go as soon as the PR adding them is merged into manuscripts.</li>
+<li>This week I cleaned up the old code, tested it as a module (earlier they were mere scripts), added comments and function descriptions and over all made the code pretty :P</li>
+<li>I&rsquo;ve removed the sample_metrics.ipynb notebook from the manuscripts2 folder and shifted it to Example folder in the main directory. This way we can treat <code>manuscripts2</code> as a module just like <code>manuscripts</code>.</li>
+<li>I also made a mistake and forgot to change other files related to the new_functions so the PR is still to be merged, but it has all the necessary files now so that should be soon, I hope!</li>
+</ul></li>
+
+<li><p>Related PR: <a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/67">grimoirelab-manuscripts/pull/67</a></p></li>
+
+<li><p>Example metrics: <a href="https://github.com/aswanipranjal/grimoirelab-manuscripts/blob/e864750fd309f1c9403d18f9f738ade66e9d447b/Examples/Sample_metrics.ipynb">Sample_metrics.ipynb</a></p></li>
+</ul>
+
+<p>Once this PR is merged to the main repo, we will start creating the <em>toolchain</em> required to actually create the reports using these functions. I&rsquo;ll focus on this during this week.</p>
+
+<h5 id="task-4-closed">Task-4 [Closed]:</h5>
+
+<ul>
+<li>Experiment with visualisations: Plotly, Altair, Seaborn</li>
+</ul>
+
+<p>This task was tagged as closed last week. It was to experiment with different plotting libraries and see which ones we can use.</p>
+
+<h5 id="task-5-under-progress">Task-5 [Under Progress]:</h5>
+
+<ul>
+<li>Make PRs to add fields into grimoire-elk so as to calculate metrics from enriched indices</li>
+</ul>
+
+<p>I Discussed this with Jesus, Valerio and Alvaro and I&rsquo;ll be working on adding some more metrics to the GitHub data source in <a href="https://github.com/chaoss/grimoirelab-elk">grimoire-elk</a> this week.</p>
+
+<h5 id="task-6-almost-done">Task-6 [Almost Done]:</h5>
+
+<ul>
+<li>Experiment with Altair</li>
+</ul>
+
+<p>In this task, I had to try out Altair to create interactive HTML charts and static png images to be added in a PDF. I was successful in creating these. <a href="https://htmlpreview.github.io/?https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/Altair/html/final_charts.html">You can see a sample HTML file here</a></p>
+
+<h5 id="task-7-a-completed">Task-7-A [Completed]:</h5>
+
+<ul>
+<li>To create PDF of sample static visualisations of the current metrics that manuscripts presents.</li>
+</ul>
+
+<p>I was able to create the PDF, using matplotlib and pandas.plot() method. <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/StaticViz/pdfs/sample_static_metrics.pdf">You can find it here</a>.</p>
+
+<h5 id="task-7-b-under-progress">Task-7-B [Under Progress]:</h5>
+
+<ul>
+<li>Create the tool chain to generate the whole report using the new functions</li>
+</ul>
+
+<p>I&rsquo;ll be working on writing functions to create the above plots along with structuring the report, using the toolchain, this week. The above PDF was generated using <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/StaticViz/Static-visualisations.ipynb">this notebook</a></p>
+
+<h5 id="other-news">Other news:</h5>
+
+<ul>
+<li><p>With the help of Valerio and Jesus, I submitted a proposal at <a href="https://in.pycon.org/cfp/2018/proposals/how-is-your-open-source-project-doing~bklNd/">PyCon</a> India happening in Hyderabad, India on October (5-6). I am super excited!!</p></li>
+
+<li><p>The PR I created calculating the default start date as the minimum date from the first activities of all the data sources has been merged. Yay! <a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/69">PR Source</a></p></li>
+</ul>
+
+<p>Okay, time to dive in!</p>
+
+<hr />
+
+<h2 style="text-align: center"><bold>In Detail</bold></h2>
+
+<h5 id="task-6">Task-6:</h5>
+
+<p>I&rsquo;ll discuss Task-6 first as it was the most time consuming of all the tasks. In this task, I had to figure out how to create interactive visualisations in Altair.</p>
+
+<ul>
+<li><a href="https://htmlpreview.github.io/?https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/Altair/html/commits_by_orgs.html">This HTML</a> file is an example of how interactive charts can be made a part of the manuscripts interactive visualisation tool set.</li>
+</ul>
+
+<hr style="border-top: dashed 0.3px;" />
+
+<p><strong>How to use:-</strong></p>
+
+<p>In the graphs, the first timeseries plot is all the commits in the <code>Project</code>. The Project here consists of <code>manuscripts</code>, <code>perceval</code> and <code>grimoire-elk</code>.  The first plot is differentiated in color and each color represents the author of the commit. On hovering over the commit in the plot, you get to know the details about the commit.</p>
+
+<p>You can select a time period by clicking and dragging on the plot. The chart below will change and show the number of commits that are present in the area selected in the above graph. The authors will change, i.e if an author hasn&rsquo;t made any commits in that time period, then they will be removed from the chart below. It&rsquo;s quite cool!</p>
+
+<p>If you mess with the second graph, the first one changes. The second chart consists of the names of the authors in the X axis and the number of commits made by them in the Y axis. The commits of each author are differentiated by colours. Each colour represents a repository (if they&rsquo;ve not contributed to a repo, they won&rsquo;t have that color in their bar).
+In the second graph, you can click on a colour and the first graph will adjust itself to show the commits corresponding to that repository inside the project.</p>
+
+<p>Using graphs like these, we can get an indepth view of our project.</p>
+
+<hr style="border-top: dashed 0.5px;" />
+
+<ul>
+<li><a href="https://htmlpreview.github.io/?https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/Altair/html/commits_by_authors_perceval.html">The second HTML file</a> is more user oriented.
+The first graph in the HTML, shows the number of commits in the repo(singular). The second graph shows the distribution of the commits by users.</li>
+</ul>
+
+<p>Like the first HTML, you can select the time period in the first graph and the users who made commits in that time period will be highlighted in the second graph.</p>
+
+<p>Unlike the first HTML, if you click on a bar in the second graph, you&rsquo;ll get to see the distribution of the commits made by that author(the bar represents an author here) over time. This functionality can be used to look at active authors and authors contribution patterns.</p>
+
+<ul>
+<li>These graphs (both the HTML files) were converted to PDF formats, <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/Altair/pdfs/altair_test.pdf">have a look at the PDF</a>.</li>
+</ul>
+
+<p>Although this task looks easy, it took a lot of time to figure out the most basic and small things.</p>
+
+<p>I&rsquo;ll be doing a separate post describing how to use Altair, what brushes are and how to create these linked graphs. I can&rsquo;t right now beause I am short on time :( Please stay tuned!</p>
+
+<h5 id="task-7">Task-7:</h5>
+
+<p>Okay, I&rsquo;ve actually divided Task-7 into two parts.</p>
+
+<h5 style="text-align: center"><bold>A</bold></h5>
+
+<p>The first part is to figure out how to create graphs for the metrics that manuscripts currently produces. I used matplotlib and pandas to create the graph. I am using <a href="https://pyfpdf.readthedocs.io/en/latest/">fpdf library</a> to create the PDF files, it makes the process quite simple, but I am still experimenting with it.</p>
+
+<p>You can checkout <a href="https://github.com/aswanipranjal/gsoc-manuscripts/tree/master/StaticViz/pdfs">the PDF here</a>.
+This was generated using the code in <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/StaticViz/Static-visualisations.ipynb">this notebook</a>.</p>
+
+<p>The difficult part will be to figure out the sizes of these plots as each of them produces unique information.</p>
+
+<h5 style="text-align: center"><bold>B</bold></h5>
+
+<p>For the second part, I&rsquo;ve been again reading the code of how mansucripts currently produces the reports. I think we can follow the similar pattern. I plan on adding a <code>bin/manuscripts2</code> file similar to <code>bin/manuscripts</code> which will be able to calculate the metrics using the classes in manuscripts/derived_classes.py.</p>
+
+<p>I have to think some more though, so this task is still under progress.</p>
+
+  </article>
+</section>
+
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    © 2018 · Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>
