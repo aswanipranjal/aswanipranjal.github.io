@@ -6,10 +6,20 @@
     <description>Recent content in Posts on TOBOR A TON MA I</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 11 Jul 2018 12:49:41 +0530</lastBuildDate>
+    <lastBuildDate>Wed, 18 Jul 2018 08:54:17 +0530</lastBuildDate>
     
 	<atom:link href="https://aswanipranjal.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>All hands on deck!</title>
+      <link>https://aswanipranjal.github.io/posts/week-10/</link>
+      <pubDate>Wed, 18 Jul 2018 08:54:17 +0530</pubDate>
+      
+      <guid>https://aswanipranjal.github.io/posts/week-10/</guid>
+      <description>I am very happy to inform y&amp;rsquo;all that I&amp;rsquo;ve passed my second evaluation. Jesus and Valerio helped me a ton in this phase so I&amp;rsquo;d like to thank them. I&amp;rsquo;d also like to thank all of you for your active participation in defining and discussing the details of the remaining metrics.
+Aaaaaaaaaand we are in the final phase of GSoC. This is now or never people. Welcome to Google Summer of Code-18 Week-10.</description>
+    </item>
     
     <item>
       <title>If you are happy that you are growing clap your hands!!</title>
