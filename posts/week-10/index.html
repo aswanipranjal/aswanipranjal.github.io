@@ -65,11 +65,171 @@
       <h2 class="date">July 18, 2018</h2>
     </header>
 
-    <p>I am very happy to inform y&rsquo;all that I&rsquo;ve passed my second evaluation. Jesus and Valerio helped me a ton in this phase so I&rsquo;d like to thank them. I&rsquo;d also like to thank all of you for your active participation in defining and discussing the details of the remaining metrics.</p>
+    
 
-<p>Aaaaaaaaaand we are in the final phase of GSoC. This is now or never people. Welcome to Google Summer of Code-18 Week-10.</p>
+<p>I am very happy to inform y&rsquo;all that I&rsquo;ve passed my second evaluation. Jesus and Valerio helped me a ton in this phase so I&rsquo;d like to thank them. I&rsquo;d also like to thank all of the CHAOSS community for their active participation in defining and discussing the details of the remaining metrics.</p>
+
+<p>Aaaaaaaaaand we are in the final phase of GSoC. This is now or never people!! Welcome to Google Summer of Code-18 Week-10.</p>
 
 <h2 style="text-align: center"><bold>In Brief</bold></h2>
+
+<h5 id="task-5-almost-done">Task-5 [Almost Done]:</h5>
+
+<p>In the remaining of this task, we are trying to figure out how to calculate the metrics which depend on Pull Requests Comment data. These are the metrics under <a href="https://github.com/chaoss/wg-gmd/blob/master/2_Growth-Maturity-Decline.md#code-development">Code-Development</a> in GMD. More on this below.</p>
+
+<h5 id="task-7-b-under-progress">Task-7.B [Under Progress]:</h5>
+
+<p>This task is to create the CHAOSS reports using new functions created. I&rsquo;ve been working on improving the tests and trying to figure out how to create different classes. I created a test PR with an initial method to calculate the CSV files. Right now I have finished the <code>overview</code> section of the Reports and I am writing tests for the same. I&rsquo;ll make a PR with these changes once I am done. More on this below.</p>
+
+<ul>
+<li>Related PR: <a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/73">grimoirelab-manuscripts/pull/73</a></li>
+</ul>
+
+<h5 id="task-8-research-phase">Task-8 [Research Phase]:</h5>
+
+<p>This is a new task in which we have to figure out a way to calculate the code review iteration on the Pull Request created by the submitter. Right now, I have no clue how to calculate it.</p>
+
+<h5 id="extras">Extras:</h5>
+
+<p>A while back Jesus commented on one of the PRs to make <code>get_aggs</code> and <code>get_timeseries</code> functions a part of Query class. This is the right approach and makes calculating the Metrics easy. I&rsquo;ve created a PR for the same.</p>
+
+<ul>
+<li>Related PR: <a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/74">grimoirelab-manuscripts/pull/74</a></li>
+</ul>
+
+<p>I also revamped the tests to use actual data from elasticsearch in testing all the functions. The PR is yet to be merged.</p>
+
+<ul>
+<li>Related PR: <a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/71">grimoirelab-manuscripts/pull/71</a></li>
+</ul>
+
+<h2 style="text-align: center"><bold>In Detail</bold></h2>
+
+<h5 id="task-5">Task-5</h5>
+
+<p>Pull Requests comments data:</p>
+
+<p><strong>Here are the facts:</strong> When we get the data from Perceval using no category (<code>issues</code> by default) then the data related to Issues and Pull Requests is fetched. All the items (issues, pull requests) are treated the same and thus the data specific to Pull Requests(review_comments, merged_by, reviewers and so on) is not fetched.
+To tackle this problem, we added the functionality to calculate enriched data for Pull Requests specifically (specifying <code>category=pull_requests</code> in Perceval when fetching the data). The problem here is that when we fetch data for <code>pull_requests</code>, Perceval does not fetch the comments on the pull requests. It fetches review comments, number of comments but not <em>comments_data</em>.</p>
+
+<p>As Valerio pointed out in the <a href="https://github.com/chaoss/grimoirelab-elk/issues/405">discussion in the related issue</a> that adding the functionality to fetch comments, in Perceval, for <code>pull_requests</code> will deplete the token (used to query data from <code>GitHub</code> data source) faster and that is a valid concern.</p>
+
+<p>The metrics dependent on Pull Requests comments are:</p>
+
+<ul>
+<li><a href="https://github.com/chaoss/wg-gmd/blob/master/activity-metrics/maintainer-response-to-merge-request-duration.md">Maintainer Response to Merge Request Duration</a>: This can be a comment or a review on the Pull Request. If we have data from both the <code>issue</code> and <code>pull_request</code> category, then we can take minimum of <code>time_to_first_attention</code> and <code>time_to_merge_request_response</code> form both the indices, respectively.</li>
+<li><a href="https://github.com/chaoss/wg-gmd/blob/master/activity-metrics/pull-requests-comment-duration.md">Pull Request Comment Duration</a>: We can calculate this from the <code>issues</code> index.</li>
+<li>Pull Request Comment Diversity: same as above.</li>
+<li><a href="https://github.com/chaoss/wg-gmd/blob/master/activity-metrics/pull-request-comments.md">Pull Request Comments</a>: This too can be calculated directly from the <code>issues</code> index.</li>
+</ul>
+
+<p>The only problem with the last 3 metrics is that they are <code>pull_request</code> specific metrics which are being calculated from the <code>issues</code> index. It is a problem because we might want all the <code>pull_request</code> specific data in the <code>pull_request</code> es index.</p>
+
+<p>Apart from the above, these two metrics might need some more discussion:</p>
+
+<ul>
+<li><a href="activity-metrics/new-contributors-code-reviews-opened.md">New Contributors of Initiated Code Reviews</a> What is the number of persons initiating a code review for the first time?</li>
+<li><a href="activity-metrics/new-contributors-code-reviews.md">New Contributors of Reviews for Code</a>: What is the number of persons contributing with reviews of code for the first time?</li>
+</ul>
+
+<p>The definitions of the above are not yet given.
+After the meeting today and discussion with Jesus and Valerio (and any other community members that are present in the meeting) I can decide how to proceed.</p>
+
+<h5 id="task-7-b">Task-7.B</h5>
+
+<p>We are primarily focused here on the CHAOSS metrics. I&rsquo;ll start with GMD metrics by the end of this week, once CHAOSS metrics are done (Tests included).
+I wrote about how <a href="https://aswanipranjal.github.io/posts/week-4/">reports are structured in Manuscripts</a>, in brief in week-4&rsquo;s post. We know that the Reports are divided into:</p>
+
+<ul>
+<li>overview</li>
+<li>com_channels (communication channels)</li>
+<li>project activity</li>
+<li>project community</li>
+<li>project process</li>
+</ul>
+
+<p>Using different classes form each data source, we calculate the metrics. Please <a href="https://aswanipranjal.github.io/posts/week-4/">read the week-4 to get the general idea</a>.</p>
+
+<p>In manuscripts (not manuscripts2 which contains the new functions), we use the <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/051562a53f15d2b41c77da6b8655e5409331e0f0/manuscripts/report.py#L194">__get_config</a> method in report.py to get all the sections from all the data sources and create a configuration dictionary containing the classes from  each of the data sources. These classes can be called with various parameters and the functions generating the report use these classes to calculate the metrics under that section.</p>
+
+<p>We are using a similar approach here. Each data source will have a file of their own and a &lt;DataSource&gt;Metrics class containing the different sections of the report.</p>
+
+<hr style="border-top: dashed 0.5px;" />
+
+<h6 style="text-align: center"><bold>For Example:</bold></h6>
+
+<p>For GitHub Issues data source, we call the <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/051562a53f15d2b41c77da6b8655e5409331e0f0/manuscripts2/metrics/github_issues.py#L40">get_section_metrics</a> function from the <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/051562a53f15d2b41c77da6b8655e5409331e0f0/manuscripts2/metrics/github_issues.py#L31">IssuesMetrics</a> class to get the configuration and sections of the report.</p>
+
+<p>In the Report class in <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/051562a53f15d2b41c77da6b8655e5409331e0f0/manuscripts2/report.py">manuscripts2/report.py</a>, we have a <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/051562a53f15d2b41c77da6b8655e5409331e0f0/manuscripts2/report.py#L95">__get_config</a> function which fetches the different sections of the Report.</p>
+
+<p>The method is different from what manuscripts currently uses because rather than creating classes for each of the metrics that we have to calculate (as is done in manuscripts, currently), we use instances of the items that we have to get the information about. Here item can be one of <code>Open-PullRequests</code>, <code>Closed-PullRequests</code>, <code>Open-Issues</code>, <code>Closed-Issues</code>, <code>Commits</code> and so on and all these items inherit the properties of the <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/051562a53f15d2b41c77da6b8655e5409331e0f0/manuscripts2/new_functions.py#L52">Query class</a>.</p>
+
+<p>In the <code>get_secion_metrics</code> method of each of the &lt;DataSource&gt;Metrics class, we set up these Items and call them with the required parameters. Continuing with the example above, the github_issues.py file looks like this:</p>
+
+<pre><code class="language-python">from manuscripts2.derived_classes import Issues
+
+DATAFRAME = True
+INDEX_NAME = &quot;github_issues&quot;
+
+
+def metric(metric_, name, id_):
+
+    return {
+        &quot;metric&quot;: metric_,
+        &quot;name&quot;: name,
+        &quot;id&quot;: id_,
+        &quot;index&quot;: &quot;github_issues&quot;
+    }
+
+
+class IssuesMetrics():
+
+    def __init__(self, index, start_date, end_date, interval=None):
+
+        self.opened_issues = Issues(index).since(start_date).until(end_date)
+        self.closed_issues = Issues(index).since(start_date).until(end_date)
+        self.closed_issues.is_closed()
+
+    def get_section_metrics(self):
+
+        return {
+            &quot;overview&quot;: {
+                &quot;activity_metrics&quot;: [metric(self.closed_issues.get_cardinality(&quot;id&quot;)
+                                                              .by_period(field=&quot;closed_at&quot;)
+                                                              .get_timeseries(dataframe=DATAFRAME),
+                                            &quot;Closed tickets&quot;, &quot;closed&quot;),
+                                     metric(self.opened_issues.get_cardinality(&quot;id&quot;)
+                                                              .by_period()
+                                                              .get_timeseries(dataframe=DATAFRAME),
+                                            &quot;Opened tickets&quot;, &quot;opened&quot;)],
+                &quot;author_metrics&quot;: [],
+                &quot;bmi_metrics&quot;: [metric((self.closed_issues.get_cardinality(&quot;id&quot;)
+                                                          .get_aggs(),
+                                        self.opened_issues.get_cardinality(&quot;id&quot;)
+                                                          .get_aggs()),
+                                       &quot;Backlog Management Index&quot;, &quot;bmi_tickets&quot;)],
+...
+</code></pre>
+
+<p>As we can see, the items here are represented by the <code>opened_issues</code> and <code>closed_issues</code> which represent the tickets opened and the tickets closed respectively. The range for them has been set. Now using these instances of items, we calculate the different sections of the report.</p>
+
+<p>In <code>activity_metrics</code>, we get the number closed tickets and the number opened tickets in the given time period.</p>
+
+<p>You should&rsquo;ve also noticed a <code>metric</code> function. To calculate the report, we will require some data about the metric being calculated. So to remedy that, each item in the <code>activity_metrics</code> list is a dictionary containing <code>name</code>, <code>id</code>, <code>index</code> and finally <code>metric</code> keys. This dict is used to get different information about the metric and the metric itself.</p>
+
+<p>The good thing about this design is that no metric will be calculated until the an instance of the IssuesMetric class is created by passing the corresponding <code>Index</code> information. Once the instance is created, then we can call the <code>get_section_metrics</code> method to calculate all the metrics for that data source.</p>
+
+<p>This also reduces the number of classes that we have to create to get the metircs (Earlier it was one class for one metric).</p>
+
+<hr style="border-top: dashed 0.5px;" />
+
+<p>Now, in the Report class, when we call the <code>__get_config</code> method, all the metrics that have to be calculated will be genarated. We pass the <code>Index</code>, <code>start</code> and <code>end</code> date to the respective class for each data source and call the <code>get_section_metrics</code> function which queries elasticsearch for all the data.</p>
+
+<p>Then using the config dictionary, we can calculate the different sections of the Report as done in manuscripts.</p>
+
+<p>This is the current approach and might need some improvement. As I write this, I am working on the tests for overview and will make a PR which will add the functionality for calculating all the files (CSV and image) for Overview section along with tests for them.</p>
+
+<hr />
 
   </article>
 </section>
