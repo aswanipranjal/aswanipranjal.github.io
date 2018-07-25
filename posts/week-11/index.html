@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Pranjal Aswani">
+    <meta name="description" content="This is where i will rant about stuff">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <base href="https://aswanipranjal.github.io/">
+    <title>
+  Week-11 · TOBOR A TON MA I
+</title>
+
+    <link rel="canonical" href="https://aswanipranjal.github.io/posts/week-11/">
+
+    <link  rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
+    <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+    <link rel="stylesheet" href="https://aswanipranjal.github.io/css/style.min.css">
+
+    <link rel="icon" type="image/png" href="https://aswanipranjal.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://aswanipranjal.github.io/images/favicon-16x16.png" sizes="16x16">
+
+    
+
+    <meta name="generator" content="Hugo 0.40.1" />
+  </head>
+
+  <body>
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://aswanipranjal.github.io/">
+      TOBOR A TON MA I
+    </a>
+    
+    <ul class="navigation-list float-right">
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="/posts/">Blog</a>
+      </li>
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="/about/">About</a>
+      </li>
+      
+      <li class="navigation-item">
+        <a class="navigation-link" href="/tags/">Tags</a>
+      </li>
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+  <article>
+    <header>
+      <h1 class="title">Week-11</h1>
+      <h2 class="date">July 25, 2018</h2>
+    </header>
+
+    
+
+<p>If you have a good testing infrastructure, you <em>can</em> do anything with your code. Everything becomes easy because you know that as long as the tests are passing, everything is A-Okay. The only downside is that testing is hard, man.</p>
+
+<p>Welcome to Google Summer of Code-18: Week-11.</p>
+
+<h2 style="text-align: center"><bold>In Brief</bold></h2>
+
+<h5 id="task-5-almost-done-still">Task-5 [Almost Done (still..)]:</h5>
+
+<p><strong>Task</strong>: Try to figure out how to calculate the metrics which depend on Pull Requests Comment data and any other that are remaining.</p>
+
+<p><strong>Progress</strong>: Last week, during our weekly GSoC meeting, Jesus, Valerio and I discussed about what can be done to calculate the metrics related to pull_requests category. The discussion <a href="https://github.com/chaoss/grimoirelab-elk/issues/405">is going on in this issue</a> and as Jesus pointed out in his last comment:</p>
+
+<blockquote>
+<p>The assumption is that we will have two raw (Perceval) indexes:</p>
+
+<p><code>github</code>, the current GitHub index, from the GitHub issues API. <code>githubpr</code>, the new GitHub PR index, from the GutHub Pull Requests API.
+Now, with those, we would be producing a new enriched index, githubpr, with all the data needed to deal with PRs. That data would come from the two previous raw indexes, and yes, it may contain duplicated data with the current github enriched index.</p>
+
+<p>I think at some point we would do the same with a new githubissues index, which will carry data only on issues, deprecating the current github enriched index.</p>
+</blockquote>
+
+<p>During our discussion on IRC, Valerio suggested that I use <code>studies</code> to perform the enrichment, so that the extra data related to the PRs can be added to the <code>githubpr</code> index. Right now, I am reading about how studies work.</p>
+
+<p>I also read about how aliases work and from what I&rsquo;ve read, we can create an alias for the raw indices for <code>github</code> and <code>githubpr</code> and then using that alias, we can pick the data that we want to be enriched and generate enriched <code>githubpr</code> index.
+I hope to further discuss this today and reach a conclusion ASAP.</p>
+
+<h5 id="task-7-b-under-progress">Task-7-B [Under Progress]:</h5>
+
+<p><strong>Task:</strong> To generate the reports using manuscripts2</p>
+
+<p><strong>Progress:</strong> After a lot of trial and error and some major help from Jesus, in the form of <a href="https://github.com/aswanipranjal/grimoirelab-manuscripts/pull/1/commits/cf312d836b75e532766c3be52304ece123565ee7">this PR explaining exactly how the reports should be structured</a> (Thanks again, Jesus!), I submitted another PR for the OVERVIEW section of the metrics for the git data source. The tough part was to figure out how to write the tests for these functions. More on this below.</p>
+
+<ul>
+<li>Related Pull Request: <a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/80">chaoss/grimoirelab-manuscripts/pull/80</a></li>
+</ul>
+
+<h5 id="task-8-researching">Task-8 [Researching]:</h5>
+
+<p>This week too, I couldn&rsquo;t progress on this task much.</p>
+
+<h2 style="text-align: center"><bold>In Detail</bold></h2>
+
+<h5 id="task-7-b">Task-7-B:</h5>
+
+<p>Jesus suggested that we have a separate session on how to structure the reports. It was because the structure, that I previously suggested based on the old manuscripts code, was too much like JS and not at all Object Oriented. After the discussion I had some clarity as to what I need to do and I made a PR with the changes. But, I still couldn&rsquo;t follow exactly what Jesus was trying to explain to me so he made a PR explaining exactly what he had in mind.
+The idea is to have a class for each of the metrics that are being calculated. And each section of the Report (overview, communication, etc) will have a separate function which will be called as needed.</p>
+
+<p>I worked on top of that PR and submitted an initial structure of the OVERVIEW section of the report for the <code>git</code> data source. I believe that once that structure is finalized then the rest of the data sources can be added in a similar fashion. <em>I plan on describing the new structure once it gets finalised so it might be in the next week&rsquo;s blogpost or if I am feeling ambitious, I&rsquo;ll do a bonus post describing exactly what we are doing.</em></p>
+
+<p><strong>Tests</strong>:
+Let&rsquo;s come to the tests now. For testing the reports, we need enriched data for the various data sources we support and that data is to be queried by manuscripts2&rsquo;s functions through elasticsearch. I am focusing on <code>git</code>, <code>github_issues</code> and <code>github_prs</code> data right now.</p>
+
+<p>For testing the functions, we&rsquo;ll need to mimic that data and create the whole infrastructure that is required to generate the report. I was confused as to what to do initially as the tests for <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/master/tests/test_elasticsearch.py">elasticsearch.py</a> fetch the <code>git</code> data directly from the repository using <strong>perceval</strong> and the tests for the report could not be created in the similar manner. For these tests, we would require data that will not change as the time passes and the data which can be controlled by us.</p>
+
+<p>Then I realised CHAOSS has a lot of tools and one of them: <a href="https://github.com/chaoss/grimoirelab-elk">grimoirelab-elk</a> actually uses something like this. It creates raw and enriched indices using frozen raw data (that is not queried using the internet) in the form of JSON files and uploads it to elasticsearch. It then uses this raw index to create an enriched index and also saves it into elasticsearch.</p>
+
+<p>I used a similar approach in which I got all the raw data for the perceval git repository and used that raw data to write the tests for the reports. The downside of this technique being that tests have to do twice the amount of work: first upload the raw data then enrich the data and upload the enriched data into elasticsearch. This technique works for now, but is enefficient.</p>
+
+<p>So during a separate session, we also talked about getting frozen enriched data and using it directly. I had previously tried it but I wasn&rsquo;t successful as I kept getting an error due to the mappings related to the data.
+On the bright side, Valerio recently created a <a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/82">Pull Request</a> which only uses enriched data and uploads it into elasticsearch to run the tests. I think this is the solution for the testing problems that I&rsquo;ve been facing.</p>
+
+<p>All in all, the movement is slow but we are on track with this task.</p>
+
+<hr />
+
+<p>That is all for now. This week I am going to focus on finishing the reports (once the final structure is decided) and creating a PR for the enriched githubprs data.</p>
+
+  </article>
+</section>
+
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    © 2018 · Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>

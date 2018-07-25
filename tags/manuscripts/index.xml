@@ -6,10 +6,21 @@
     <description>Recent content in Manuscripts on TOBOR A TON MA I</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Jul 2018 08:54:17 +0530</lastBuildDate>
+    <lastBuildDate>Wed, 25 Jul 2018 12:06:57 +0530</lastBuildDate>
     
 	<atom:link href="https://aswanipranjal.github.io/tags/manuscripts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Week-11</title>
+      <link>https://aswanipranjal.github.io/posts/week-11/</link>
+      <pubDate>Wed, 25 Jul 2018 12:06:57 +0530</pubDate>
+      
+      <guid>https://aswanipranjal.github.io/posts/week-11/</guid>
+      <description>If you have a good testing infrastructure, you can do anything with your code. Everything becomes easy because you know that as long as the tests are passing, everything is A-Okay. The only downside is that testing is hard, man.
+Welcome to Google Summer of Code-18: Week-11.
+In Brief Task-5 [Almost Done (still..)]: Task: Try to figure out how to calculate the metrics which depend on Pull Requests Comment data and any other that are remaining.</description>
+    </item>
     
     <item>
       <title>All hands on deck!</title>
