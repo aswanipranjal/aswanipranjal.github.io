@@ -6,10 +6,21 @@
     <description>Recent content in Gsoc 18 on TOBOR A TON MA I</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Aug 2018 00:13:02 +0530</lastBuildDate>
+    <lastBuildDate>Wed, 08 Aug 2018 14:08:55 +0530</lastBuildDate>
     
 	<atom:link href="https://aswanipranjal.github.io/tags/gsoc-18/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>I can almost taste it</title>
+      <link>https://aswanipranjal.github.io/posts/week-13/</link>
+      <pubDate>Wed, 08 Aug 2018 14:08:55 +0530</pubDate>
+      
+      <guid>https://aswanipranjal.github.io/posts/week-13/</guid>
+      <description>Control room!! This is the reporting ship: All tasks are complete. I repeat: All tasks are complete.
+This is the final week of GSoC. I am happy to tell you that we have the first version of the reports done. The PDF looks wonderful and everything is in order. Welcome to the start of the final week of Google Summer of Code.
+In Brief Last week we were left with only 2 tasks.</description>
+    </item>
     
     <item>
       <title>I see light at the end of this tunnel</title>
