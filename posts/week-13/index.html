@@ -225,8 +225,13 @@ The <code>overview</code> function from each of the data source files is called 
             csv += &quot;{}, {}, {}, {}\n&quot;.format(metric.name, last,
                                              percentage, metric.DS_NAME)
         create_csv(file_name, csv)
+</code></pre>
 
-        # AUTHOR METRICS
+<p><span style="color: blue">
+Create a CSV file containing the different activity metrics&rsquo; trend (relative to the previous time interval). These contain the number of PRs submitted and closed, the number of issues opened and closed and the number of commits made in this time period as compared to the previous time period.
+</span></p>
+
+<pre><code class="language-python">        # AUTHOR METRICS
         &quot;&quot;&quot;
         Git Authors:
         -----------
@@ -246,7 +251,15 @@ The <code>overview</code> function from each of the data source files is called 
             self.create_csv_fig_from_df([csv_data], file_path, [authors_by_period.name],
                                         fig_type=&quot;bar&quot;, title=title_label, xlabel=&quot;time_period&quot;,
                                         ylabel=authors_by_period.id)
-        # BMI METRICS
+</code></pre>
+
+<p><span style="color: blue">
+Calculate the number of authors per time period (month here) for the range of time we are calculating the metrics for.</p>
+
+<p>The function <code>create_csv_fig_from_df</code> is a very cool function which I describe below.
+</span></p>
+
+<pre><code class="language-python">        # BMI METRICS
         bmi = []
         bmi_metrics = overview_config['bmi_metrics']
         csv = &quot;&quot;
@@ -275,6 +288,10 @@ The <code>overview</code> function from each of the data source files is called 
         logger.debug(&quot;Overview metrics generation complete!&quot;)
 
 </code></pre>
+
+<p><span style="color: blue">
+The last part of the function gets the BMI and time to close metrics values for the previous time intervals. The queries for these values are configured on the data source file and the <code>aggregaions()</code> function generates those values here.
+</span></p>
 
 <p><span style="color: blue">
 These metrics are then calculated by calling the <code>timeseries()</code> or <code>aggregations()</code> methods of the Metric classes. The values returned from these methods are stored in files which will then be used when the report is being created using LaTex.
@@ -348,6 +365,92 @@ def project_process(index, start, end):
 
     return results
 </code></pre>
+
+<p><span style="color: red">
+The function create_csv_fig_from_df
+</span></p>
+
+<pre><code class="language-python">def create_csv_fig_from_df(self, data_frames=[], filename=None, headers=[], index_label=None,
+                               fig_type=None, title=None, xlabel=None, ylabel=None, xfont=20,
+                               yfont=20, titlefont=30, fig_size=(10, 15), image_type=&quot;png&quot;):
+        &quot;&quot;&quot;
+        Joins all the datafarames horizontally and creates a CSV and an image file from
+        those dataframes.
+        :param data_frames: a list of dataframes containing timeseries data from various metrics
+        :param filename: the name of the csv and image file
+        :param headers: a list of headers to be applied to columns of the dataframes
+        :param index_label: name of the index column
+        :param fig_type: figure type. Currently we support 'bar' graphs
+                         default: normal graph
+        :param title: display title of the figure
+        :param filename: file name to save the figure as
+        :param xlabel: label for x axis
+        :param ylabel: label for y axis
+        :param xfont: font size of x axis label
+        :param yfont: font size of y axis label
+        :param titlefont: font size of title of the figure
+        :param fig_size: tuple describing size of the figure (in centimeters) (H x W)
+        :param image_type: the image type to save the image as: jpg, png, etc
+                           default: png
+        :returns: creates a csv having name as &quot;filename&quot;.csv and an image file
+                  having the name as &quot;filename&quot;.&quot;image_type&quot;
+        &quot;&quot;&quot;
+
+        if not data_frames:
+            logger.error(&quot;No dataframes provided to create CSV&quot;)
+            sys.exit(1)
+        assert(len(data_frames) == len(headers))
+        dataframes = []
+
+        for index, df in enumerate(data_frames):
+            df = df.rename(columns={&quot;value&quot;: headers[index]})
+            dataframes.append(df)
+        res_df = pd.concat(dataframes, axis=1)
+
+        if &quot;unixtime&quot; in res_df:
+            del res_df['unixtime']
+        if not index_label:
+            index_label = &quot;Date&quot;
+
+        # Create the CSV file:
+        csv_name = filename + &quot;.csv&quot;
+        res_df.to_csv(csv_name, index_label=index_label)
+        logger.debug(&quot;file: {} was created.&quot;.format(csv_name))
+
+        # Create the Image:
+        image_name = filename + &quot;.&quot; + image_type
+        figure(figsize=fig_size)
+        plt.subplot(111)
+
+        if fig_type == &quot;bar&quot;:
+            ax = res_df.plot.bar(figsize=fig_size)
+            ticklabels = res_df.index
+            ax.xaxis.set_major_formatter(matplotlib.ticker.FixedFormatter(ticklabels))
+        else:
+            plt.plot(res_df)
+
+        if not ylabel:
+            ylabel = &quot;num &quot; + &quot; &amp; &quot;.join(headers)
+        if not xlabel:
+            xlabel = index_label
+
+        plt.title(title, fontsize=titlefont)
+        plt.ylabel(ylabel, fontsize=yfont)
+        plt.xlabel(xlabel, fontsize=xfont)
+        plt.grid(True)
+        plt.savefig(image_name)
+        logger.debug(&quot;Figure {} was generated.&quot;.format(image_name))
+
+</code></pre>
+
+<p><span style="color: blue">
+The function <code>create_csv_fig_from_df</code> does that the name says. We pass on to it a list of data frames (timseries data generated from the different metrics). This data is usually connected to each other or is in comparision with each other (time to close days median VS time to close days average). These data frames are 2 columned (one is the Date column which is also the index and the other is a value column). The column names are changed using values from the header variable.
+These dataframes are then concatinated together to create one dataframe containing all the values and same index (Date).</p>
+
+<p>In the second part of this function, the concatinated dataframe is then used to create a csv file with the file name that was provided earlier (the extension is csv).</p>
+
+<p>In the third part of this function, using the dataframes created in the first part, a <code>eps</code>(default) file is generated. These CSV and EPS files are stored in the folder for that section.
+</span></p>
 
 <p>The good thing about the new reports is that is uses a lot of already available code (pandas, elasticsearch_dsl) which allows us to focus on the functionality rather than focus on the implementation.</p>
 
