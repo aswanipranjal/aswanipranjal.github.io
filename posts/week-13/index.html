@@ -445,11 +445,13 @@ The function create_csv_fig_from_df
 
 <p><span style="color: blue">
 The function <code>create_csv_fig_from_df</code> does that the name says. We pass on to it a list of data frames (timseries data generated from the different metrics). This data is usually connected to each other or is in comparision with each other (time to close days median VS time to close days average). These data frames are 2 columned (one is the Date column which is also the index and the other is a value column). The column names are changed using values from the header variable.
-These dataframes are then concatinated together to create one dataframe containing all the values and same index (Date).</p>
-
-<p>In the second part of this function, the concatinated dataframe is then used to create a csv file with the file name that was provided earlier (the extension is csv).</p>
-
-<p>In the third part of this function, using the dataframes created in the first part, a <code>eps</code>(default) file is generated. These CSV and EPS files are stored in the folder for that section.
+These dataframes are then concatinated together to create one dataframe containing all the values and same index (Date).
+</span>
+<span style="color: blue">
+In the second part of this function, the concatinated dataframe is then used to create a csv file with the file name that was provided earlier (the extension is csv).
+</span>
+<span style="color: blue">
+In the third part of this function, using the dataframes created in the first part, a <code>eps</code>(default) file is generated. These CSV and EPS files are stored in the folder for that section.
 </span></p>
 
 <p>The good thing about the new reports is that is uses a lot of already available code (pandas, elasticsearch_dsl) which allows us to focus on the functionality rather than focus on the implementation.</p>
