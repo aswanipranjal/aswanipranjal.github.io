@@ -67,7 +67,7 @@
 
     
 
-<p><em>Welcome to the final week of Google Summer of Code-18.</em></p>
+<p><em>Welcome! To the final week of Google Summer of Code-18.</em></p>
 
 <p>This is the last in the <a href="https://aswanipranjal.github.io/tags/gsoc-18/">series</a> of blog posts that I&rsquo;ve been writing about my progress during GSoC-18.</p>
 
@@ -75,7 +75,7 @@
 
 <p>This blog post also serves as the final report of the work that I&rsquo;ve done during GSoC. The second part of this post is divided into the tasks that I performed and the Issues, PRs, files that were created to complete those tasks.</p>
 
-<p>For those of you who are reading this blog for the first time: <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Bold text is often a link to something important, so please click it</a> :)</p>
+<p>For those of you who are reading this blog for the first time: <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Bold text is often a link to something important, so please click on it</a> :)</p>
 
 <hr />
 
@@ -85,7 +85,7 @@
 
 <ul>
 <li><p>The main functionality that I&rsquo;ve added to the Manuscripts project is the <a href="https://github.com/chaoss/grimoirelab-manuscripts/tree/master/manuscripts2">manuscripts2</a> module. It is an iteration over <a href="https://github.com/chaoss/grimoirelab-manuscripts/tree/master/manuscripts">manuscripts</a>. An example of the <a href="https://drive.google.com/file/d/1-3MHbHHWudLkT3rQyQlEsIfSLsogIplA/view">final report generated using manuscripts2 can be found here</a>.
-Manuscripts2 adds the functionality to query elasticsearch using chainable functions &amp; classes. These functions allow the user to focus on caculating the metrics rather than think about how to go about fetching the data. To learn more about manuscripts2, please read the <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/master/manuscripts2/README.md">README.md</a>.</p></li>
+Manuscripts2 adds the functionality to query elasticsearch using chainable functions &amp; classes. These functions allow the user to focus on caculating the metrics rather than think about how to go about fetching the data. To learn more about manuscripts2, please read the <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/master/manuscripts2/README.md">README.md</a> for the module.</p></li>
 
 <li><p>Wrote <a href="https://github.com/chaoss/grimoirelab-manuscripts/tree/master/tests">tests for manuscripts and manuscripts2</a> which were eariler not present. These tests help us maintain the proper functioning of manuscripts.</p></li>
 
@@ -99,47 +99,60 @@ Manuscripts2 adds the functionality to query elasticsearch using chainable funct
 <h4 id="what-remains-to-be-done">What remains to be done?</h4>
 
 <ul>
-<li><p>We wanted extend the Manuscripts project to create reports for the <a href="https://github.com/chaoss/wg-gmd/blob/master/2_Growth-Maturity-Decline.md">GMD metrics</a> using manuscripts2 (the module was created keeping those metrics in mind). <a href="https://github.com/aswanipranjal/grimoirelab-manuscripts/blob/add-notebooks/Notebooks/GMD-manuscripts2.ipynb">This Notebook</a> does a decent job in calculating the metrics but we still need to be able to generate a PDF report for GMD metrics.</p></li>
+<li><p>We wanted extend the Manuscripts project to create reports for the <a href="https://github.com/chaoss/wg-gmd/blob/master/2_Growth-Maturity-Decline.md">GMD metrics</a> using manuscripts2 (the module was created keeping those metrics in mind). <a href="https://github.com/aswanipranjal/grimoirelab-manuscripts/blob/add-notebooks/Notebooks/GMD-manuscripts2.ipynb">This Notebook</a> does a decent job in calculating the metrics but we still need to be able to generate a PDF report for the GMD metrics.</p></li>
 
 <li><p>We also plan to add interactive HTML pages to manuscripts when a report is created. These pages will contain visualizations using <a href="https://github.com/aswanipranjal/grimoirelab-manuscripts/tree/add-notebooks/Notebooks/Altair">Altair</a> and <a href="https://github.com/aswanipranjal/grimoirelab-manuscripts/tree/add-notebooks/Notebooks/Plotly">Plotly</a> libraries.</p></li>
+
+<li><p>Currently, manuscripts2 supports the 3 basic data sources: <code>git</code>, <code>github_issues</code>, <code>github_prs</code>.
+I need to add support for <code>gerrit</code>, <code>stackexchange</code>, <code>mailinglists</code>, <code>its</code> and <code>jira</code>. But, since the whole initial infrastructure for the reports has been created, adding these data sources will be just a matter of replicating the necessary code for each of them.</p></li>
+
+<li><p>Make manuscripts2 mordred compatible. We need to add functionality to take as input a config file containing project data and create a report using that file.</p></li>
+
+<li><p>Add functionality to create <code>Project</code> reports. Currently, we can create reports for individual repositories only.</p></li>
 </ul>
+
+<p>The good thing about these tasks is that the foundation for most of them has already been layed. We will just have to build on top of that.</p>
 
 <hr />
 
-<h2 style="text-align: center"><bold>Tasks Completed</bold></h2>
+<h2 style="text-align: center"><bold>Tasks Undertaken</bold></h2>
 
 <p>Jesus had the brilliant idea at the start that we divide the project into different tasks that were to be completed. This helped me in keeping track of what was to be done and how things progressed each week.</p>
 
-<h4 id="task-1">Task 1:</h4>
+<h4 id="task-1-completed">Task 1 [COMPLETED]:</h4>
 
-<p>Task 1-A was to convert the functions in <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/master/manuscripts/esquery.py">manuscripts/esquery.py</a> file into elasticsearch_dsl based functions.</p>
+<p><em>Related blog posts:</em> <a href="https://aswanipranjal.github.io/posts/week-2/">Week-2</a>, <a href="https://aswanipranjal.github.io/posts/week-3/">Week-3</a>,
+<a href="https://aswanipranjal.github.io/posts/week-4/">Week-4</a>, <a href="https://aswanipranjal.github.io/posts/week-5/">Week-5</a>.</p>
+
+<p>Task 1-A was to convert the functions in <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/master/manuscripts/esquery.py">manuscripts/esquery.py</a> file into elasticsearch_dsl based functions. These functions were using the requests library to query elasticsearch.</p>
 
 <p>Task 1-B was to update the code in manuscripts/metrics/metrics.py because of the changes in esquery.py.</p>
-
-<p><strong>Related blog posts:</strong> <a href="https://aswanipranjal.github.io/posts/week-2/">Week-2</a>, <a href="https://aswanipranjal.github.io/posts/week-3/">Week-3</a>,
-<a href="https://aswanipranjal.github.io/posts/week-4/">Week-4</a>, <a href="https://aswanipranjal.github.io/posts/week-5/">Week-5</a>.</p>
 
 <p><strong>Related issues:</strong></p>
 
 <ul>
-<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/issues/57">https://github.com/chaoss/grimoirelab-manuscripts/issues/57</a></li>
-<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/issues/60">https://github.com/chaoss/grimoirelab-manuscripts/issues/60</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/issues/57">grimoirelab-manuscripts#57</a>: Issue describes in brief what Task-1A was about.</li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/issues/60">grimoirelab-manuscripts#60</a>: Issue describes what changes had to made to metrics.py and the tests so that all the code used <code>elasticsearch_dsl</code> only.</li>
 </ul>
 
 <p><strong>Related Pull Requests:</strong></p>
 
 <ul>
-<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/58">https://github.com/chaoss/grimoirelab-manuscripts/pull/58</a></li>
-<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/63">https://github.com/chaoss/grimoirelab-manuscripts/pull/63</a></li>
-<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/64">https://github.com/chaoss/grimoirelab-manuscripts/pull/64</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/58">grimoirelab-manuscripts#58</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/63">grimoirelab-manuscripts#63</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/64">grimoirelab-manuscripts#64</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/78">grimoirelab-manuscripts#78</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/83">grimoirelab-manuscripts#83</a></li>
 </ul>
 
-<h4 id="task-2">Task 2:</h4>
+<h4 id="task-2-partially-complete">Task 2 [PARTIALLY COMPLETE]:</h4>
 
-<p>The major theme for this task was to figure out which metrics were missing or their definitions were unclear or needed improvement from the list of GMD metrics and try to make them more structured.</p>
-
-<p><strong>Related blog posts:</strong> <a href="https://aswanipranjal.github.io/posts/week-2/">Week-2</a>, <a href="https://aswanipranjal.github.io/posts/week-3/">Week-3</a>,
+<p><em>Related blog posts:</em> <a href="https://aswanipranjal.github.io/posts/week-2/">Week-2</a>, <a href="https://aswanipranjal.github.io/posts/week-3/">Week-3</a>,
 <a href="https://aswanipranjal.github.io/posts/week-4/">Week-4</a>, <a href="https://aswanipranjal.github.io/posts/week-5/">Week-5</a>, <a href="https://aswanipranjal.github.io/posts/week-7/">Week-7</a></p>
+
+<p>The major theme for this task was to figure out which metrics were missing or their definitions were unclear or needed improvement from the list of GMD metrics and try to make them more structured. The main objective of this task was to get the community to talk about the missing definitions of the metrics. I opened some issues for the metrics which were unclear for me and we got to see some quite interesting discussions on how these metrics should be further defined.</p>
+
+<p>Task-5 was created to create pull requests for most of the issues that were created in this task.</p>
 
 <p><strong>Related Notebooks:</strong></p>
 
@@ -150,33 +163,33 @@ Manuscripts2 adds the functionality to query elasticsearch using chainable funct
 <p><strong>Related issues:</strong></p>
 
 <ul>
-<li><a href="https://github.com/chaoss/wg-gmd/issues/1">https://github.com/chaoss/wg-gmd/issues/1</a>: Better and complete descriptions of the metrics under GMD</li>
-<li><a href="https://github.com/chaoss/wg-gmd/issues/5">https://github.com/chaoss/wg-gmd/issues/5</a>: GMD: issue resolution efficiency - What are abandoned issues?. Possible PR: <a href="https://github.com/chaoss/wg-gmd/pull/12">#12</a>.</li>
-<li><a href="https://github.com/chaoss/wg-gmd/issues/6">https://github.com/chaoss/wg-gmd/issues/6</a>: How to calculate open issue age.</li>
-<li><a href="https://github.com/chaoss/wg-gmd/issues/7">https://github.com/chaoss/wg-gmd/issues/7</a>: How to calculate closed issue resolution duration</li>
-<li><a href="https://github.com/chaoss/grimoirelab-elk/issues/364">https://github.com/chaoss/grimoirelab-elk/issues/364</a>: general discussion about which metrics need more attention. Closed by <a href="https://github.com/chaoss/grimoirelab-elk/pull/399">#399</a> and <a href="https://github.com/chaoss/grimoirelab-elk/pull/401">#401</a></li>
-<li><a href="https://github.com/chaoss/wg-gmd/issues/9">https://github.com/chaoss/wg-gmd/issues/9</a>: New contributors metrics. Closed by <a href="https://github.com/chaoss/wg-gmd/pull/13">#13</a></li>
-<li><a href="https://github.com/chaoss/wg-gmd/issues/8">https://github.com/chaoss/wg-gmd/issues/8</a>: First response to issue duration</li>
-<li><a href="https://github.com/chaoss/wg-gmd/issues/10">https://github.com/chaoss/wg-gmd/issues/10</a>: How to calculate new contributing organizations?</li>
-<li><a href="https://github.com/chaoss/wg-gmd/issues/11">https://github.com/chaoss/wg-gmd/issues/11</a>: What are sub projects?</li>
-<li><a href="https://github.com/chaoss/wg-gmd/issues/14">https://github.com/chaoss/wg-gmd/issues/14</a>: Who can be considered a maintainer of a project/repo?</li>
+<li><a href="https://github.com/chaoss/wg-gmd/issues/1">wg-gmd#1</a>: Better and complete descriptions of the metrics under GMD. Issue tracking all the other Issues.</li>
+<li><a href="https://github.com/chaoss/wg-gmd/issues/5">wg-gmd#5</a>: GMD: issue resolution efficiency - What are abandoned issues?. Possible PR: <a href="https://github.com/chaoss/wg-gmd/pull/12">wg-gmd#12</a>.</li>
+<li><a href="https://github.com/chaoss/wg-gmd/issues/6">wg-gmd#6</a>: How to calculate open issue age. The conclusion from the discussion on this issue was used to calculate the open issue age in the Notebook mentioned above.</li>
+<li><a href="https://github.com/chaoss/wg-gmd/issues/7">wg-gmd#7</a>: How to calculate closed issue resolution duration</li>
+<li><a href="https://github.com/chaoss/wg-gmd/issues/8">wg-gmd#8</a>: First response to issue duration. Closed by <a href="https://github.com/chaoss/grimoirelab-elk/pull/383">grimoirelab-elk#383</a>.</li>
+<li><a href="https://github.com/chaoss/wg-gmd/issues/9">wg-gmd#9</a>: New contributors metrics. Closed by <a href="https://github.com/chaoss/wg-gmd/pull/13">wg-gmd#13</a></li>
+<li><a href="https://github.com/chaoss/wg-gmd/issues/10">wg-gmd#10</a>: How to calculate new contributing organizations?</li>
+<li><a href="https://github.com/chaoss/wg-gmd/issues/11">wg-gmd#11</a>: What are sub projects?</li>
+<li><a href="https://github.com/chaoss/wg-gmd/issues/14">wg-gmd#14</a>: Who can be considered a maintainer of a project/repo?
+-<a href="https://github.com/chaoss/grimoirelab-elk/issues/364">grimoirelab-elk#364</a>: general discussion about which metrics need more attention. Closed by <a href="https://github.com/chaoss/grimoirelab-elk/pull/399">grimoirelab-elk#399</a> and <a href="https://github.com/chaoss/grimoirelab-elk/pull/401">grimoirelab-elk#401</a></li>
 </ul>
 
 <p><strong>Related Pull Requests:</strong></p>
 
 <ul>
-<li><a href="https://github.com/chaoss/grimoirelab-elk/pull/419">https://github.com/chaoss/grimoirelab-elk/pull/419</a></li>
-<li><a href="https://github.com/chaoss/grimoirelab-elk/pull/383">https://github.com/chaoss/grimoirelab-elk/pull/383</a></li>
-<li><a href="https://github.com/chaoss/wg-gmd/pull/12">https://github.com/chaoss/wg-gmd/pull/12</a></li>
-<li><a href="https://github.com/chaoss/wg-gmd/pull/13">https://github.com/chaoss/wg-gmd/pull/13</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-elk/pull/419">grimoirelab-elk#419</a>: this task added the enrich_pull_requests studies to grimoirelab-elk.</li>
+<li><a href="https://github.com/chaoss/grimoirelab-elk/pull/383">grimoirelab-elk#383</a>: This PR added the time to first response field to the issues being enriched in grimoirelab-elk.</li>
+<li><a href="https://github.com/chaoss/wg-gmd/pull/12">wg-gmd#12</a></li>
+<li><a href="https://github.com/chaoss/wg-gmd/pull/13">wg-gmd#13</a></li>
 </ul>
 
-<h4 id="task-3">Task 3:</h4>
+<h4 id="task-3-completed">Task 3 [COMPLETED]:</h4>
 
-<p>This task was the basis of the manuscripts2 module. In this task, I had to experiment with creating chainable functions that were able to calculate the metrics.</p>
-
-<p><strong>Related blog posts:</strong> <a href="https://aswanipranjal.github.io/posts/week-2/">Week-2</a>, <a href="https://aswanipranjal.github.io/posts/week-3/">Week-3</a>,
+<p><em>Related blog posts:</em> <a href="https://aswanipranjal.github.io/posts/week-2/">Week-2</a>, <a href="https://aswanipranjal.github.io/posts/week-3/">Week-3</a>,
 <a href="https://aswanipranjal.github.io/posts/week-4/">Week-4</a>, <a href="https://aswanipranjal.github.io/posts/week-5/">Week-5</a>, <a href="https://aswanipranjal.github.io/posts/week-7/">Week-7</a>, <a href="https://aswanipranjal.github.io/posts/week-8/">Week-8</a>, <a href="https://aswanipranjal.github.io/posts/week-9/">Week-9</a></p>
+
+<p>This task was the basis of the manuscripts2 module. In this task, I had to experiment with creating chainable functions that were able to calculate the metrics. I first started off with calculating the GMD metrics in notebooks which are linked below. These metrics were calculated using the elasticsearch_dsl module. Then the common parts were converted into functions and with further iterations, we were able to create the manuscripts2 module.</p>
 
 <p><strong>Related Notebooks:</strong></p>
 
@@ -189,23 +202,23 @@ Manuscripts2 adds the functionality to query elasticsearch using chainable funct
 <p><strong>Related issues:</strong></p>
 
 <ul>
-<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/issues/59">https://github.com/chaoss/grimoirelab-manuscripts/issues/59</a></li>
-<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/issues/62">https://github.com/chaoss/grimoirelab-manuscripts/issues/62</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/issues/59">grimoirelab-manuscripts#59</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/issues/62">grimoirelab-manuscripts#62</a></li>
 </ul>
 
 <p><strong>Related Pull Requests:</strong></p>
 
 <ul>
-<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/67">https://github.com/chaoss/grimoirelab-manuscripts/pull/67</a></li>
-<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/71">https://github.com/chaoss/grimoirelab-manuscripts/pull/71</a></li>
-<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/74">https://github.com/chaoss/grimoirelab-manuscripts/pull/74</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/67">grimoirelab-manuscripts#67</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/71">grimoirelab-manuscripts#71</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/74">grimoirelab-manuscripts#74</a></li>
 </ul>
 
-<h4 id="task-4">Task 4:</h4>
+<h4 id="task-4-completed">Task 4 [COMPLETED]:</h4>
 
-<p>This, I think, was the most interesting of all tasks. I had to look at different visualization modules (Altair, Plotly, Seaborn) and figure out how we could use their power to take a better look at the metrics.</p>
+<p><em>Related blog posts:</em> <a href="https://aswanipranjal.github.io/posts/week-4/">Week-4</a>, <a href="https://aswanipranjal.github.io/posts/week-5/">Week-5</a>, <a href="https://aswanipranjal.github.io/posts/week-7/">Week-7</a></p>
 
-<p><strong>Related blog posts:</strong> <a href="https://aswanipranjal.github.io/posts/week-4/">Week-4</a>, <a href="https://aswanipranjal.github.io/posts/week-5/">Week-5</a>, <a href="https://aswanipranjal.github.io/posts/week-7/">Week-7</a></p>
+<p>This, I think, was the most interesting of all tasks. I had to look at different visualization modules (Altair, Plotly, Seaborn) and figure out how we could use their power to take a better look at the metrics. The idea was to figure out such visualisations that would compare the different metrics and provide a contrast between certain fields. This would lead to some interesting analysis.</p>
 
 <p><strong>Related Notebooks:</strong></p>
 
@@ -214,36 +227,41 @@ Manuscripts2 adds the functionality to query elasticsearch using chainable funct
 <li><a href="https://github.com/aswanipranjal/grimoirelab-manuscripts/blob/add-notebooks/Notebooks/Altair/Altair1.ipynb">Altair1</a></li>
 </ul>
 
-<h4 id="task-5">Task 5:</h4>
+<h4 id="task-5-completed">Task 5 [COMPLETED]:</h4>
 
-<p>This task was to create PRs in grimoirelab-elk for to add the fields for the metrics still needed to be added into the enriched indices. This task can be considered as the implementation of the issues that were created in Task-2, above.</p>
+<p><em>Related blog posts:</em> <a href="https://aswanipranjal.github.io/posts/week-5/">Week-5</a>, <a href="https://aswanipranjal.github.io/posts/week-7/">Week-7</a>, <a href="https://aswanipranjal.github.io/posts/week-8/">Week-8</a>, <a href="https://aswanipranjal.github.io/posts/week-9/">Week-9</a>, <a href="https://aswanipranjal.github.io/posts/week-10/">Week-10</a>, <a href="https://aswanipranjal.github.io/posts/week-11/">Week-11</a>, <a href="https://aswanipranjal.github.io/posts/week-12/">Week-12</a>, <a href="https://aswanipranjal.github.io/posts/week-13/">Week-13</a>.</p>
 
-<p><strong>Related blog posts:</strong> <a href="https://aswanipranjal.github.io/posts/week-5/">Week-5</a>, <a href="https://aswanipranjal.github.io/posts/week-7/">Week-7</a>, <a href="https://aswanipranjal.github.io/posts/week-8/">Week-8</a>, <a href="https://aswanipranjal.github.io/posts/week-9/">Week-9</a>, <a href="https://aswanipranjal.github.io/posts/week-10/">Week-10</a></p>
+<p>This is the task I am most proud of because for this task, I had to understand the internals of Perceval, ELK and Mordred. It was fun!</p>
 
-<p><strong>Related Notebooks:</strong></p>
+<p>This task was generated after we were able to analyse what all fields were required to calculate the metrics pointed out in Task-2
+In this task, we had to figure out how to add the fields to the enriched indices via grimoirelab-elk. The GMD metrics are mostly all dependent on the GitHub Issues and GitHub Pull Requests data that is fetched by <a href="https://github.com/chaoss/grimoirelab-perceval">Perceval</a>. We had to figure out how to separate this data for each of the data sources and how to extract the required fields from that data.</p>
 
 <p><strong>Related issues:</strong></p>
 
 <ul>
-<li><a href="https://github.com/chaoss/grimoirelab-elk/issues/394">https://github.com/chaoss/grimoirelab-elk/issues/394</a>: This issue is about getting pull requests only data and calculating the respective metrics from that data. Closed by <a href="https://github.com/chaoss/grimoirelab-elk/pull/399">#399</a> and <a href="https://github.com/chaoss/grimoirelab-elk/pull/401">#401</a></li>
-<li><a href="https://github.com/chaoss/grimoirelab-elk/issues/405">https://github.com/chaoss/grimoirelab-elk/issues/405</a>: To get all the comments for pull requests.</li>
+<li><a href="https://github.com/chaoss/grimoirelab-elk/issues/394">grimoirelab-elk#394</a>: This issue is about getting pull requests only data and calculating the respective metrics from that data. Closed by <a href="https://github.com/chaoss/grimoirelab-elk/pull/399">grimoirelab-elk#399</a> and <a href="https://github.com/chaoss/grimoirelab-elk/pull/401">grimoirelab-elk#401</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-elk/issues/405">grimoirelab-elk#405</a>: To get all the comments for pull requests.</li>
 </ul>
 
 <p><strong>Related Pull Requests:</strong></p>
 
 <ul>
-<li><a href="https://github.com/chaoss/grimoirelab-elk/pull/383">https://github.com/chaoss/grimoirelab-elk/pull/383</a></li>
-<li><a href="https://github.com/chaoss/grimoirelab-elk/pull/399">https://github.com/chaoss/grimoirelab-elk/pull/399</a> - By Valerio</li>
-<li><a href="https://github.com/chaoss/grimoirelab-elk/pull/398">https://github.com/chaoss/grimoirelab-elk/pull/398</a> - Not merged</li>
-<li><a href="https://github.com/chaoss/grimoirelab-elk/pull/401">https://github.com/chaoss/grimoirelab-elk/pull/401</a></li>
-<li><a href="https://github.com/chaoss/grimoirelab-elk/pull/419">https://github.com/chaoss/grimoirelab-elk/pull/419</a>: PR adding the enrich_pull_requests study to the <a href="https://github.com/chaoss/grimoirelab-elk">grimoirelab-elk</a> repository.</li>
+<li><a href="https://github.com/chaoss/grimoirelab-elk/pull/383">grimoirelab-elk#383</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-elk/pull/399">grimoirelab-elk#399</a> - By Valerio</li>
+<li><a href="https://github.com/chaoss/grimoirelab-elk/pull/398">grimoirelab-elk#398</a> - Not merged</li>
+<li><a href="https://github.com/chaoss/grimoirelab-elk/pull/401">grimoirelab-elk#401</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-elk/pull/419">grimoirelab-elk#419</a>: PR adding the enrich_pull_requests study to the <a href="https://github.com/chaoss/grimoirelab-elk">grimoirelab-elk</a> repository.</li>
+<li><a href="https://github.com/chaoss/grimoirelab-sirmordred/pull/190">grimoirelab-sirmordred#90</a>: PR by Valerio adding the functionality of micro-mordred to enrich the indices and run studies. This PR helped me write the code to calculate the remaining fields for pull requests only index. It is yet to be merged into the mordred codebase.</li>
+<li><a href="https://github.com/chaoss/grimoirelab-sirmordred/pull/191">grimoirelab-sirmordred#191</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-sirmordred/pull/194">grimoirelab-sirmordred#194</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-sirmordred/pull/193">grimoirelab-sirmordred#193</a></li>
 </ul>
 
-<h4 id="task-6">Task 6:</h4>
+<h4 id="task-6-completed">Task 6 [COMPLETED]:</h4>
+
+<p><em>Related Blog Posts:</em> <a href="https://aswanipranjal.github.io/posts/week-8/">Week-8</a></p>
 
 <p>This task was to find out the full potential of the Altair Library. <a href="https://github.com/aswanipranjal/grimoirelab-manuscripts/tree/add-notebooks/Notebooks/Altair/Altair2.ipynb">This notebook</a> does some justice to the Altair library. I was able to create interactive html pages using Altair. The idea is to integrate these visualisations by adding the HTML pages and the Notebooks to the reports generated for the GMD metrics.</p>
-
-<p><strong>Related Blog Posts:</strong> <a href="https://aswanipranjal.github.io/posts/week-8/">Week-8</a></p>
 
 <p><strong>Related Notebooks:</strong></p>
 
@@ -259,9 +277,9 @@ Manuscripts2 adds the functionality to query elasticsearch using chainable funct
 <li><a href="https://htmlpreview.github.io/?https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/Altair/html/commits_by_authors_perceval.html">Interactive HTML charts - Part 2</a></li>
 </ul>
 
-<h4 id="task-7">Task 7:</h4>
+<h4 id="task-7-completed">Task 7 [COMPLETED]:</h4>
 
-<p><strong>Related Blog Posts:</strong> <a href="https://aswanipranjal.github.io/posts/week-8/">Week-8</a>, <a href="https://aswanipranjal.github.io/posts/week-9/">Week-9</a>, <a href="https://aswanipranjal.github.io/posts/week-10/">Week-10</a></p>
+<p><em>Related Blog Posts:</em> <a href="https://aswanipranjal.github.io/posts/week-8/">Week-8</a>, <a href="https://aswanipranjal.github.io/posts/week-9/">Week-9</a>, <a href="https://aswanipranjal.github.io/posts/week-10/">Week-10</a>, <a href="https://aswanipranjal.github.io/posts/week-11/">Week-11</a>, <a href="https://aswanipranjal.github.io/posts/week-12/">Week-12</a>, <a href="https://aswanipranjal.github.io/posts/week-13/">Week-13</a>, <a href="https://aswanipranjal.github.io/posts/week-14/">Week-14</a>.</p>
 
 <h5 align="center">A</h5>
 
@@ -279,45 +297,81 @@ Manuscripts2 adds the functionality to query elasticsearch using chainable funct
 <p>The second part of Task 7 was to start on the final PDF that can be generated using the manuscripts2 module and the visualisations that I was able to create in Task 7A.
 For this task, I was stuck for a while. Jesus helped me out big time by suggesting the current structure of the functions to calculate the metrics. <a href="https://github.com/aswanipranjal/grimoirelab-manuscripts/pull/1/commits/cf312d836b75e532766c3be52304ece123565ee7">You can find the related PR and commits here</a></p>
 
+<p><strong>Related issues:</strong></p>
+
+<ul>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/issues/81">grimoirelab-manuscripts#81</a>. Configuring data for running the tests. Closed by <a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/82">grimoirelab-manuscripts#82</a> and <a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/84">grimoirelab-manuscripts#84</a></li>
+</ul>
+
 <p><strong>Related Pull Requests:</strong></p>
 
 <ul>
-<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/73">https://github.com/chaoss/grimoirelab-manuscripts/pull/73</a></li>
-<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/79">https://github.com/chaoss/grimoirelab-manuscripts/pull/79</a></li>
-<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/80">https://github.com/chaoss/grimoirelab-manuscripts/pull/80</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/73">grimoirelab-manuscripts#73</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/79">grimoirelab-manuscripts#79</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/80">grimoirelab-manuscripts#80</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/82">grimoirelab-manuscripts#82</a> - By Valerio</li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/84">grimoirelab-manuscripts#84</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/85">grimoirelab-manuscripts#85</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/87">grimoirelab-manuscripts#86</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/88">grimoirelab-manuscripts#88</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/90">grimoirelab-manuscripts#90</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/91">grimoirelab-manuscripts#91</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/92">grimoirelab-manuscripts#92</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/93">grimoirelab-manuscripts#93</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/94">grimoirelab-manuscripts#94</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/95">grimoirelab-manuscripts#95</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/97">grimoirelab-manuscripts#97</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/99">grimoirelab-manuscripts#99</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/100">grimoirelab-manuscripts#100</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/101">grimoirelab-manuscripts#101</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/102">grimoirelab-manuscripts#102</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/103">grimoirelab-manuscripts#103</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/104">grimoirelab-manuscripts#104</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/106">grimoirelab-manuscripts#106</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/107">grimoirelab-manuscripts#107</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/108">grimoirelab-manuscripts#108</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/109">grimoirelab-manuscripts#109</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/110">grimoirelab-manuscripts#110</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/113">grimoirelab-manuscripts#113</a></li>
 </ul>
 
-<h4 id="task-8">Task 8:</h4>
+<p>All the above PRs combined add the functionalities to create the different sections of the reports (<code>activity</code>, <code>community</code>, <code>overview</code>, <code>process</code>) for the <code>git</code>, <code>github_prs</code> and <code>github_issues</code> data sources.
+These PRs also add tests for the data sources as well as the PDF reports being generated.</p>
+
+<h4 id="task-8-abandoned">Task 8 [ABANDONED]:</h4>
 
 <p>In this task I had to figure out a way to calculate the code review iteration on the Pull Request created by the submitter. Being a low priority task of calculating the <em>num review iterations</em> (1 metric), it was abandoned for now but I will be working on this task in the coming weeks (after GSoC).</p>
 
 <h4 id="miscellaneous">Miscellaneous</h4>
 
-<h5 align="center">Closed</h5>
-
 <p><strong>Pull Requests:</strong></p>
 
 <ul>
-<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/55">https://github.com/chaoss/grimoirelab-manuscripts/pull/55</a>: This PR adds the functionality to show the helo for manuscripts when no parameter is passed. This closes <a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/55">#55</a>.</li>
-<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/69">https://github.com/chaoss/grimoirelab-manuscripts/pull/69</a>: This PR adds the functionality to set the default start date for manuscripts to the minimum date in all the data sources given. This closes <a href="(https://github.com/chaoss/grimoirelab-manuscripts/issues/48)">#48</a></li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/55">grimoirelab-manuscripts#55</a>: This PR adds the functionality to show the helo for manuscripts when no parameter is passed. This closes <a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/55">grimoirelab-manuscripts#55</a>.</li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/69">grimoirelab-manuscripts#69</a>: This PR adds the functionality to set the default start date for manuscripts to the minimum date in all the data sources given. This closes <a href="https://github.com/chaoss/grimoirelab-manuscripts/issues/48">grimoirelab-manuscripts#48</a></li>
 </ul>
 
 <p><strong>Issues:</strong></p>
 
 <ul>
-<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/issues/49">https://github.com/chaoss/grimoirelab-manuscripts/issues/49</a>: This issue is about showing help for manuscripts.</li>
-<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/issues/48">https://github.com/chaoss/grimoirelab-manuscripts/issues/48</a>: This issue is about changing the default start date of the report generated if no start date is given.</li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/issues/49">grimoirelab-manuscripts#49</a>: This issue is about showing help for manuscripts.</li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/issues/48">grimoirelab-manuscripts#48</a>: This issue is about changing the default start date of the report generated if no start date is given.</li>
+<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/issues/56">grimoirelab-manuscripts#56</a>: This issue is about restructuring the GitHub issues class in manuscripts.</li>
 </ul>
 
-<h5 align="center">Open</h5>
+<h4 id="behind-the-scenes">Behind the scenes</h4>
 
-<p><strong>Issues:</strong></p>
+<p>The beautiful code that you see in manuscripts required a fair bit of experimentation. I was not able to capture the experimentation process completely, but if you wish to see some hacks and ugly code, you can find it in the <a href="https://github.com/aswanipranjal/gsoc-manuscripts">gsoc-manuscripts</a> repository.</p>
 
-<ul>
-<li><a href="https://github.com/chaoss/grimoirelab-manuscripts/issues/56">https://github.com/chaoss/grimoirelab-manuscripts/issues/56</a>: This issue is about restructuring the GitHub issues class in manuscripts.</li>
-</ul>
+<hr />
 
-<p><strong>Pull Requests:</strong></p>
+<h2 style="text-align: center"><bold>Experience</bold></h2>
+
+<p>I think this is the most that I&rsquo;ve grown in a short period of time. Time flew by fast and I got to learn from great people and got to be a part of a wonderful and supportive community. I won&rsquo;t lie, it has been difficult. When this started, I knew nothing about linters or how branches in git work. I&rsquo;ve struggled my fair share but in the end, it has been worth it.</p>
+
+<p>I will continue to contribute to CHAOSS and also look for other open source communities which need help.</p>
+
+<p>Chao!</p>
 
   </article>
 </section>
