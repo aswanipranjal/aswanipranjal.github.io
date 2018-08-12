@@ -6,10 +6,22 @@
     <description>Recent content in Manuscripts on TOBOR A TON MA I</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 08 Aug 2018 14:08:55 +0530</lastBuildDate>
+    <lastBuildDate>Sat, 11 Aug 2018 20:56:31 +0530</lastBuildDate>
     
 	<atom:link href="https://aswanipranjal.github.io/categories/manuscripts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>We are there.</title>
+      <link>https://aswanipranjal.github.io/posts/week-14/</link>
+      <pubDate>Sat, 11 Aug 2018 20:56:31 +0530</pubDate>
+      
+      <guid>https://aswanipranjal.github.io/posts/week-14/</guid>
+      <description>Welcome to the final week of Google Summer of Code-18.
+This is the last in the series of blog posts that I&amp;rsquo;ve been writing about my progress during GSoC-18.
+To look at the code that I produced during GSoC, please refer to this README.md that lists out all the pull requests and issues that I&amp;rsquo;ve created and the work that is still left to do.
+For those of you who are reading this blog for the first time: Bold text is often a link to something important, so please click it :)</description>
+    </item>
     
     <item>
       <title>I can almost taste it</title>
