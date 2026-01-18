@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="author" content="Pranjal Aswani">
-    <meta name="description" content="This is where i will rant about stuff">
+    <meta name="author" content="Pranjal">
+    <meta name="description" content="Personal blog describing the work that I do, insights about life and my opinions on things">
     <meta name="keywords" content="blog,developer,personal">
 
     <base href="https://aswanipranjal.github.io/">
@@ -25,7 +25,7 @@
 
     
 
-    <meta name="generator" content="Hugo 0.40.1" />
+    <meta name="generator" content="Hugo 0.139.4">
   </head>
 
   <body>
@@ -39,11 +39,11 @@
     <ul class="navigation-list float-right">
       
       <li class="navigation-item">
-        <a class="navigation-link" href="/posts/">Blog</a>
+        <a class="navigation-link" href="/about/">About</a>
       </li>
       
       <li class="navigation-item">
-        <a class="navigation-link" href="/about/">About</a>
+        <a class="navigation-link" href="/posts/">Posts</a>
       </li>
       
       <li class="navigation-item">
@@ -65,105 +65,58 @@
       <h2 class="date">May 30, 2018</h2>
     </header>
 
-    
-
-<p>Hello and welcome to the third week of Google Summer of Code. I hit a couple of speed bumps this week.</p>
-
+    <p>Hello and welcome to the third week of Google Summer of Code. I hit a couple of speed bumps this week.</p>
 <h3 id="highlights">Highlights:</h3>
-
 <h5 id="task-1">Task-1:</h5>
-
 <p><em>Complete cleaning esquery.py file, add tests and make the whole manuscripts project use elasticsearch_dsl.py module.</em></p>
-
 <p><strong>Progress:</strong> I was able to complete writing tests for esquery.py and make the comments more detailed. <a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/58/commits/9acc5c2a79a4a09aba1e97f1ae254d60213d3a93">The changes can be found here</a>. This is the part of the <a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/58">previous PR</a> that I made in the previous week.</p>
-
-<p>I was also able to update the functions in metrics.py so that they too use only elasticsearch_dsl module and not the request module to query elasticsearch directly. The PR for that is ready, but I haven&rsquo;t made it yet because it will have to go on top of the previous PR that is yet to be merged. <a href="https://github.com/chaoss/grimoirelab-manuscripts/issues/60">This issue</a> represents the problem.</p>
-
+<p>I was also able to update the functions in metrics.py so that they too use only elasticsearch_dsl module and not the request module to query elasticsearch directly. The PR for that is ready, but I haven’t made it yet because it will have to go on top of the previous PR that is yet to be merged. <a href="https://github.com/chaoss/grimoirelab-manuscripts/issues/60">This issue</a> represents the problem.</p>
 <h5 id="task-2">Task-2:</h5>
-
 <p><em>Add more metrics to the jupyter-notebook. Implement the metrics which can directly be calculated from the enriched indices. Open issues for the metrics the data for which is yet to be added to the enriched index and start working on the PRs.</em></p>
-
-<p><strong>Progress:</strong> I did create some issues regarding clarification on the metric definitions: <a href="https://github.com/chaoss/wg-gmd/issues/10">new contributing orgs</a>, <a href="https://github.com/chaoss/wg-gmd/issues/9">new contributors</a>, <a href="https://github.com/chaoss/wg-gmd/issues/8">first response to issue duration</a>.
-Apart from this, I updated the <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/GMD-metrics-from-scratch.ipynb">Notebook</a> and added some more metrics such as <a href="https://github.com/chaoss/wg-gmd/issues/7">closed issue resolution duration</a>, and New Contributors. I also added <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/GMD-metrics-status.md">tracking information</a> about the metrics.</p>
-
-<p>I was unable to open any issue about the Review metrics under <a href="https://github.com/chaoss/wg-gmd/blob/master/2_Growth-Maturity-Decline.md#code-development">Code Development</a> which requires additional data to be added to the enriched index. For that we&rsquo;ll have to update gelk to get that data, parse it and store it in the eiriched index. I&rsquo;ll be working on this for week-4, hopefully!</p>
-
+<p><strong>Progress:</strong> I did create some issues regarding clarification on the metric definitions: <a href="https://github.com/chaoss/wg-gmd/issues/10">new contributing orgs</a>, <a href="https://github.com/chaoss/wg-gmd/issues/9">new contributors</a>, <a href="https://github.com/chaoss/wg-gmd/issues/8">first response to issue duration</a>. Apart from this, I updated the <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/GMD-metrics-from-scratch.ipynb">Notebook</a> and added some more metrics such as <a href="https://github.com/chaoss/wg-gmd/issues/7">closed issue resolution duration</a>, and New Contributors. I also added <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/GMD-metrics-status.md">tracking information</a> about the metrics.</p>
+<p>I was unable to open any issue about the Review metrics under <a href="https://github.com/chaoss/wg-gmd/blob/master/2_Growth-Maturity-Decline.md#code-development">Code Development</a> which requires additional data to be added to the enriched index. For that we’ll have to update gelk to get that data, parse it and store it in the eiriched index. I’ll be working on this for week-4, hopefully!</p>
 <h5 id="task-3">Task-3:</h5>
-
-<p><em>Create chainable functions and objects which can be used to seggregate the metrics on the basis of: users, period, organizations.
-Create a preliminary python file which will eventually contain the functions and classes to calculate the metrics and do the analysis.</em></p>
-
-<p><strong>Progress:</strong> I was asked to implement the chainable functions for <code>authors</code>, <code>organizations</code> and <code>periods</code>[month, year, week or any other that elasticsearch <code>date_histogram</code> aggregation supports] inside the notebook. I did some initial analysis for open and closed issues in the <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/GMD-metrics-from-scratch.ipynb">Notebook</a> and then implemted them under a Metrics class in <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/new_functions.py">new_functions.py</a> under the <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/new_functions.py#L48">Metrics class</a> file. I was actually just asked to create a simple design of how the classes and functions should look, but I created the Metrics class and the functions to see the practical difficulties that might arise when implemting the metrics in a similar manner as I&rsquo;ve done in the Notebook. I&rsquo;ll expand on this further below.</p>
-
+<p><em>Create chainable functions and objects which can be used to seggregate the metrics on the basis of: users, period, organizations. Create a preliminary python file which will eventually contain the functions and classes to calculate the metrics and do the analysis.</em></p>
+<p><strong>Progress:</strong> I was asked to implement the chainable functions for <code>authors</code>, <code>organizations</code> and <code>periods</code>[month, year, week or any other that elasticsearch <code>date_histogram</code> aggregation supports] inside the notebook. I did some initial analysis for open and closed issues in the <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/GMD-metrics-from-scratch.ipynb">Notebook</a> and then implemted them under a Metrics class in <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/new_functions.py">new_functions.py</a> under the <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/new_functions.py#L48">Metrics class</a> file. I was actually just asked to create a simple design of how the classes and functions should look, but I created the Metrics class and the functions to see the practical difficulties that might arise when implemting the metrics in a similar manner as I’ve done in the Notebook. I’ll expand on this further below.</p>
 <p><a href="https://github.com/chaoss/grimoirelab-manuscripts/issues/62">The issue tracking this task is here</a>.</p>
-
 <h5 id="task-4">Task-4:</h5>
-
 <p><em>Experiment with Visualizations: Plotly, Seaborn and Altair.</em></p>
-
-<p><strong>Progress:</strong> I wasn&rsquo;t able to complete this task. I did look into Plotly to create bar graphs, but Plotly requires a user authentication to use it seamlessly otherwise it keeps throwing authentication errors which I do not think the users of this application will be happy with.</p>
-
-<hr />
-
+<p><strong>Progress:</strong> I wasn’t able to complete this task. I did look into Plotly to create bar graphs, but Plotly requires a user authentication to use it seamlessly otherwise it keeps throwing authentication errors which I do not think the users of this application will be happy with.</p>
+<hr>
 <h3 id="details">Details</h3>
-
 <h5 id="task-1-1">Task-1:</h5>
-
 <p>So, in Task-1, <a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/58/files#diff-253c2ba8a4542cd50e59d3520d298007">I added tests to all the functions in esquery.py file</a>. Basically, for each function, I created the ideal dictionary(query) that should be returned by that function and tested it against the output of the function. If it passed the test then that meant that the function was working as expected.</p>
-
-<p><strong>NOTE: Always try to create tests first before writing the function corresponding to that test so you&rsquo;ll know exactly what kind of a function you need to make, what it will return and which parameters it requires.</strong></p>
-
-<p>I am mainly using <code>assertDictEquals</code> to compare the different dictionaries. The good thing is that all the functions are working successfully.
-I also updated the comments with details about what each function returned as input. We are using elasticsearch_dsl objects in each function and thus all the objects are either Aggregation, Query or Search objects from the elasticsearch_dsl module.</p>
-
-<p>The second subtask was to make the whole manuscripts project use elasticsearch_dsl. <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/5876118229a063cc613dd30197d08a229af706f8/manuscripts/esquery.py#L500">This line</a> inside <code>get_agg</code> function in esquery.py returns a json object. This is because the function <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/5876118229a063cc613dd30197d08a229af706f8/manuscripts/metrics/metrics.py#L152">get_metrics_data</a> uses the json object to query elasticsearch directly which is unacceptable. It should instead use a es_dsl Search object which can then call the <code>.execute()</code> function to get the results. Those results can then be converted into a dict and the rest of the file will work as it is.
-Ex:</p>
-
-<pre><code>from elasticsearch_dsl import A, Search, Q
-from elasticsearch import Elasticsearch
-
-es = Elasticsearch()
-s = Search(using=es, index=&quot;&lt;index-name&gt;&quot;)
-q1 = Q(&quot;match&quot;, field=value)
-q2 = Q(&quot;match&quot;, field2=value2)
-q = q1 &amp; q2 # ANDing the two queries
-s = s.query(q)
-agg = A(&quot;&lt;aggregation-type&gt;&quot;, field=value, &lt;other aggreagtion specific parameters&gt;)
-s.aggs.bucket(&quot;&lt;aggregation name&gt;&quot;, agg)
-
-# execute the query:
-response = s.execute()
-aggregations = response.aggregations.to_dict()
-</code></pre>
-
-<p>And then we can just use the aggregations like a dictionary object.</p>
-
+<p><strong>NOTE: Always try to create tests first before writing the function corresponding to that test so you’ll know exactly what kind of a function you need to make, what it will return and which parameters it requires.</strong></p>
+<p>I am mainly using <code>assertDictEquals</code> to compare the different dictionaries. The good thing is that all the functions are working successfully. I also updated the comments with details about what each function returned as input. We are using elasticsearch_dsl objects in each function and thus all the objects are either Aggregation, Query or Search objects from the elasticsearch_dsl module.</p>
+<p>The second subtask was to make the whole manuscripts project use elasticsearch_dsl. <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/5876118229a063cc613dd30197d08a229af706f8/manuscripts/esquery.py#L500">This line</a> inside <code>get_agg</code> function in esquery.py returns a json object. This is because the function <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/5876118229a063cc613dd30197d08a229af706f8/manuscripts/metrics/metrics.py#L152">get_metrics_data</a> uses the json object to query elasticsearch directly which is unacceptable. It should instead use a es_dsl Search object which can then call the <code>.execute()</code> function to get the results. Those results can then be converted into a dict and the rest of the file will work as it is. Ex:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#f92672">from</span> elasticsearch_dsl <span style="color:#f92672">import</span> A, Search, Q
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">from</span> elasticsearch <span style="color:#f92672">import</span> Elasticsearch
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    es <span style="color:#f92672">=</span> Elasticsearch()
+</span></span><span style="display:flex;"><span>    s <span style="color:#f92672">=</span> Search(using<span style="color:#f92672">=</span>es, index<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;index-name&gt;&#34;</span>)
+</span></span><span style="display:flex;"><span>    q1 <span style="color:#f92672">=</span> Q(<span style="color:#e6db74">&#34;match&#34;</span>, field<span style="color:#f92672">=</span>value)
+</span></span><span style="display:flex;"><span>    q2 <span style="color:#f92672">=</span> Q(<span style="color:#e6db74">&#34;match&#34;</span>, field2<span style="color:#f92672">=</span>value2)
+</span></span><span style="display:flex;"><span>    q <span style="color:#f92672">=</span> q1 <span style="color:#f92672">&amp;</span> q2 <span style="color:#75715e"># ANDing the two queries</span>
+</span></span><span style="display:flex;"><span>    s <span style="color:#f92672">=</span> s<span style="color:#f92672">.</span>query(q)
+</span></span><span style="display:flex;"><span>    agg <span style="color:#f92672">=</span> A(<span style="color:#e6db74">&#34;&lt;aggregation-type&gt;&#34;</span>, field<span style="color:#f92672">=</span>value, <span style="color:#f92672">&lt;</span>other aggreagtion specific parameters<span style="color:#f92672">&gt;</span>)
+</span></span><span style="display:flex;"><span>    s<span style="color:#f92672">.</span>aggs<span style="color:#f92672">.</span>bucket(<span style="color:#e6db74">&#34;&lt;aggregation name&gt;&#34;</span>, agg)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># execute the query:</span>
+</span></span><span style="display:flex;"><span>    response <span style="color:#f92672">=</span> s<span style="color:#f92672">.</span>execute()
+</span></span><span style="display:flex;"><span>    aggregations <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span>aggregations<span style="color:#f92672">.</span>to_dict()
+</span></span></code></pre></div><p>And then we can just use the aggregations like a dictionary object.</p>
 <p>The PR for the second sub task is ready by is not made yet because it will come on top of the first PR as described above.</p>
-
 <p>All in all, with this task, esquery.py file now has tests, is cleaned of using elasticsearch directly and the whole manuscripts project uses elasticsearch_dsl.py module.</p>
-
 <h5 id="task-2-1">Task-2:</h5>
-
-<p>In this task, I had to add more metrics to the Notebook and look at making issues and PRs to <a href="https://github.com/chaoss/grimoirelab-elk">grimoirelab-elk</a> for the metrics that are not available directly in the enriched index.
-I analysed the raw index that is created when data about a github repo is indexed into elasticsearch and found that there is little to no correlation between issues and their corresponding PRs. The metrics under <a href="https://github.com/chaoss/wg-gmd/blob/master/2_Growth-Maturity-Decline.md#code-development">Community Growth</a> depend heavily on the data available about the PRs and the reviews on thos PRs.</p>
-
+<p>In this task, I had to add more metrics to the Notebook and look at making issues and PRs to <a href="https://github.com/chaoss/grimoirelab-elk">grimoirelab-elk</a> for the metrics that are not available directly in the enriched index. I analysed the raw index that is created when data about a github repo is indexed into elasticsearch and found that there is little to no correlation between issues and their corresponding PRs. The metrics under <a href="https://github.com/chaoss/wg-gmd/blob/master/2_Growth-Maturity-Decline.md#code-development">Community Growth</a> depend heavily on the data available about the PRs and the reviews on thos PRs.</p>
 <p>We will have to add the code to add this data to the enriched indices. I plan on working on this in week-4.</p>
-
 <p>Apart from that, I added some more metrics: new contributors, open issue age, closed issue resolution duration(added a moving average aggregation as asked for in <a href="https://github.com/chaoss/wg-gmd/issues/7">this issue</a>) and contributing organizations.</p>
-
 <p>I also refined how I was calculating the metrics and worked on creating different filters for the metrics which can be applied to them. The analysis is in the <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/GMD-metrics-from-scratch.ipynb">Notebook</a>.</p>
-
 <p>I added a <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/GMD-metrics-status.md">progress tracking file</a> to see which issues have been implemented and which issues still need a PR to be able to calculate them.</p>
-
 <h5 id="task-3-1">Task-3:</h5>
-
-<p>I was able to create the chainable <code>by_authors</code>, <code>by_organizations</code>, <code>by_period</code> functions. But these functions are a part of the Metric class implemented in the <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/new_functions.py#L48">new_functions.py</a> file. Because these functions had to be chainable, I created a object to make them chainable methods of that object. The Metric class is just an initial idea and will be modified later.
-These functions give the metric count on the WRT the authors, organizatons and period of analysis. I&rsquo;ve showed these functions in action in the Notebook for open and closed issues.</p>
-
+<p>I was able to create the chainable <code>by_authors</code>, <code>by_organizations</code>, <code>by_period</code> functions. But these functions are a part of the Metric class implemented in the <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/new_functions.py#L48">new_functions.py</a> file. Because these functions had to be chainable, I created a object to make them chainable methods of that object. The Metric class is just an initial idea and will be modified later. These functions give the metric count on the WRT the authors, organizatons and period of analysis. I’ve showed these functions in action in the Notebook for open and closed issues.</p>
 <p>The new classes for the metrics will also be created in this new_functions.py file.</p>
-
 <p>While creating the functions and testing them in the notebook, I came to understand the difficulties that will arise in implementing these functions. Here is a little description of what the functions do:</p>
-
 <ul>
 <li><a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/new_functions.py#L45">Metric class</a>: This is the base class which will act as the parent to other Metrics classes that have to be calculated.</li>
 <li><a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/new_functions.py#L90">add_query</a>: is a function which adds the given key-value pair as a query to the Search object.</li>
@@ -174,39 +127,30 @@ These functions give the metric count on the WRT the authors, organizatons and p
 <li><a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/new_functions.py#L117">by_authors</a>: the first chainable method which is applied to the Search object and used with <code>get_results()</code> to get the DataFrame for that aggregation.</li>
 <li><a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/new_functions.py#L134">by_organizations</a>: similar to <code>by_authors</code>, returns aggregations based on the organizations.</li>
 <li><a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/new_functions.py#L146">by_period</a>: gives <code>date_histogram</code> aggregations.</li>
-<li><a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/new_functions.py#L159">is_open</a>: adds a &ldquo;state&rdquo;:&ldquo;open&rdquo; query filter to the search object.</li>
-<li><a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/new_functions.py#L163">is_closed</a>: adds a &ldquo;state&rdquo;:&ldquo;closed&rdquo; query filter to the search object.</li>
+<li><a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/new_functions.py#L159">is_open</a>: adds a “state”:“open” query filter to the search object.</li>
+<li><a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/new_functions.py#L163">is_closed</a>: adds a “state”:“closed” query filter to the search object.</li>
 <li><a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/new_functions.py#L173">buckets_to_df</a>: takes in a list of buckets and returns a DataFrame with key equals to the datetime objects(if available) or the key in the bucket.</li>
 </ul>
-
 <p>Example: Closed issues by organizations for <a href="https://github.com/chaoss/grimoirelab-perceval">perceval_github</a></p>
-
-<pre><code>import new_functions as nf
-issues = nf.Metric(index=github_index)
-issues.add_query({&quot;item_type&quot;:&quot;issue&quot;}) # add a query to get the issues
-issues.is_closed() # add a query to make status:closed
-
-print(issues.by_organizations().get_results()[0])
-</code></pre>
-
-<p>OUTPUT:</p>
-
-<pre><code>                    doc_count   value
-key                                  
-others                      44     44
-Bitergia                    39     39
-@Bitergia                   22     22
-GNUmedia                     2      2
-Geeky Engineer               2      2
-@amrita-university           1      1
-CMU                          1      1
-Samsung                      1      1
-T-Systems Iberia             1      1
-</code></pre>
-
-<p>Alot of improvement is still required in these functions.
-Some of the difficulties that i&rsquo;ll face while implementing the Classes:</p>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#f92672">import</span> new_functions <span style="color:#66d9ef">as</span> nf
+</span></span><span style="display:flex;"><span>    issues <span style="color:#f92672">=</span> nf<span style="color:#f92672">.</span>Metric(index<span style="color:#f92672">=</span>github_index)
+</span></span><span style="display:flex;"><span>    issues<span style="color:#f92672">.</span>add_query({<span style="color:#e6db74">&#34;item_type&#34;</span>:<span style="color:#e6db74">&#34;issue&#34;</span>}) <span style="color:#75715e"># add a query to get the issues</span>
+</span></span><span style="display:flex;"><span>    issues<span style="color:#f92672">.</span>is_closed() <span style="color:#75715e"># add a query to make status:closed</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    print(issues<span style="color:#f92672">.</span>by_organizations()<span style="color:#f92672">.</span>get_results()[<span style="color:#ae81ff">0</span>])
+</span></span></code></pre></div><p>OUTPUT:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>                        doc_count   value
+</span></span><span style="display:flex;"><span>    key                                  
+</span></span><span style="display:flex;"><span>    others                      <span style="color:#ae81ff">44</span>     <span style="color:#ae81ff">44</span>
+</span></span><span style="display:flex;"><span>    Bitergia                    <span style="color:#ae81ff">39</span>     <span style="color:#ae81ff">39</span>
+</span></span><span style="display:flex;"><span>    @Bitergia                   <span style="color:#ae81ff">22</span>     <span style="color:#ae81ff">22</span>
+</span></span><span style="display:flex;"><span>    GNUmedia                     <span style="color:#ae81ff">2</span>      <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    Geeky Engineer               <span style="color:#ae81ff">2</span>      <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    @amrita-university           <span style="color:#ae81ff">1</span>      <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    CMU                          <span style="color:#ae81ff">1</span>      <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    Samsung                      <span style="color:#ae81ff">1</span>      <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    T-Systems Iberia             <span style="color:#ae81ff">1</span>      <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><p>Alot of improvement is still required in these functions. Some of the difficulties that i’ll face while implementing the Classes:</p>
 <ul>
 <li>Different aggregations have different bucket names and value types which have to be parsed and converted into DataFrames.</li>
 <li>Chainable functions need to work on all the metrics because different metrics will have different field names.</li>
@@ -215,24 +159,14 @@ Some of the difficulties that i&rsquo;ll face while implementing the Classes:</p
 <li>How should results be represented?</li>
 <li>How do I know which bucket is for which result if we are going to use numbers for aggregation names?</li>
 </ul>
-
 <h5 id="task-4-1">Task-4:</h5>
-
-<p>I wasn&rsquo;t able to test any of the visualization tools I wanted to test.</p>
-
-<p>I managed to look into how Plotly works and found out that it requires the user to authenticate themselves to the plotly server and then be able to create the visualizations.
-I plan on working on this task this week.</p>
-
-<hr />
-
-<p>I actually wasn&rsquo;t able to do much this week because a family emergency, but I plan on completing most of the remaining tasks from this week in week-4.</p>
-
+<p>I wasn’t able to test any of the visualization tools I wanted to test.</p>
+<p>I managed to look into how Plotly works and found out that it requires the user to authenticate themselves to the plotly server and then be able to create the visualizations. I plan on working on this task this week.</p>
+<hr>
+<p>I actually wasn’t able to do much this week because a family emergency, but I plan on completing most of the remaining tasks from this week in week-4.</p>
 <p>Till then, adios!</p>
-
-<hr />
-
+<hr>
 <p>Tasks for week-4:</p>
-
 <ul>
 <li>Task-1: Make a PR splitting the tests into smaller more managable tests in test_esquery.py.</li>
 <li>Task-2: Add issues for the metrics that are missing from the notebook and code for which is needed to be added to grimoirelab-elk. Create a first version of the Notebook with all the metrics(which are present in the enriched index) in the notebook.</li>
@@ -249,7 +183,7 @@ I plan on working on this task this week.</p>
 
       <footer class="footer">
   <section class="container">
-    © 2018 · Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    © 2026 · Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
   </section>
 </footer>
 

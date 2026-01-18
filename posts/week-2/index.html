@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="author" content="Pranjal Aswani">
-    <meta name="description" content="This is where i will rant about stuff">
+    <meta name="author" content="Pranjal">
+    <meta name="description" content="Personal blog describing the work that I do, insights about life and my opinions on things">
     <meta name="keywords" content="blog,developer,personal">
 
     <base href="https://aswanipranjal.github.io/">
@@ -25,7 +25,7 @@
 
     
 
-    <meta name="generator" content="Hugo 0.40.1" />
+    <meta name="generator" content="Hugo 0.139.4">
   </head>
 
   <body>
@@ -39,11 +39,11 @@
     <ul class="navigation-list float-right">
       
       <li class="navigation-item">
-        <a class="navigation-link" href="/posts/">Blog</a>
+        <a class="navigation-link" href="/about/">About</a>
       </li>
       
       <li class="navigation-item">
-        <a class="navigation-link" href="/about/">About</a>
+        <a class="navigation-link" href="/posts/">Posts</a>
       </li>
       
       <li class="navigation-item">
@@ -65,312 +65,243 @@
       <h2 class="date">May 22, 2018</h2>
     </header>
 
-    
-
-<p>Okay, so in week 2, I&rsquo;ve had some good challenges to overcome. I was given 3 tasks this week:</p>
-
+    <p>Okay, so in week 2, I’ve had some good challenges to overcome. I was given 3 tasks this week:</p>
 <ol>
 <li>To cleanup <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/master/manuscripts/esquery.py">esquery.py</a> file. This file is the primary file to create elasticsearch DSL queries which are sent to elasticsearch to get the required results.</li>
 <li>To create from scratch, a new notebook which queries elasticsearch enriched indices and calculates the metrics.</li>
-<li>To think about structure of new classes and functions that can be created for the metrics as the old classes are cumbersome to use.<br /></li>
+<li>To think about structure of new classes and functions that can be created for the metrics as the old classes are cumbersome to use.</li>
 </ol>
-
 <h3 id="task-1">Task-1</h3>
-
-<p>I&rsquo;ll start with the First task: below is an analysis of the esquery.py file. This task is actually very vital and related to the other 2 tasks, because while analysing this file, I can tell you what we might need to create the new notebook and the generalized functions for tasks 2 and 3 respectively.</p>
-
-<h4 id="esquery-py">esquery.py</h4>
-
-<pre><code>import json
-from datetime import timezone
-from elasticsearch_dsl import A, Search, Q
-USE_ELASTIC_DSL = True
-</code></pre>
-
-<p>REMEMBER THIS FLAG. The motivation for the first task is to eliminate the need for this flag.</p>
-
-<pre><code>class ElasticQuery():
-    &quot;&quot;&quot; Helper class for building Elastic queries &quot;&quot;&quot;
-    AGGREGATION_ID = 1  # min aggregation identifier
-    AGG_SIZE = 100  # Default max number of buckets
-    ES_PRECISION = 3000
-</code></pre>
-
-<p>Importing necessary modules and creating the base class. <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-metrics-cardinality-aggregation.html#CO67-1">Precision threshold</a>, AGG_SIZE = Number of values to get in the query, AGGREGATION_ID = name of the aggregation bucket created.</p>
-
-<p><br></p>
-
+<p>I’ll start with the First task: below is an analysis of the esquery.py file. This task is actually very vital and related to the other 2 tasks, because while analysing this file, I can tell you what we might need to create the new notebook and the generalized functions for tasks 2 and 3 respectively.</p>
+<h4 id="esquerypy">esquery.py</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#f92672">import</span> json
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">from</span> datetime <span style="color:#f92672">import</span> timezone
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">from</span> elasticsearch_dsl <span style="color:#f92672">import</span> A, Search, Q
+</span></span><span style="display:flex;"><span>    USE_ELASTIC_DSL <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+</span></span></code></pre></div><p>REMEMBER THIS FLAG. The motivation for the first task is to eliminate the need for this flag.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ElasticQuery</span>():
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34; Helper class for building Elastic queries &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        AGGREGATION_ID <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>  <span style="color:#75715e"># min aggregation identifier</span>
+</span></span><span style="display:flex;"><span>        AGG_SIZE <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>  <span style="color:#75715e"># Default max number of buckets</span>
+</span></span><span style="display:flex;"><span>        ES_PRECISION <span style="color:#f92672">=</span> <span style="color:#ae81ff">3000</span>
+</span></span></code></pre></div><p>Importing necessary modules and creating the base class. <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-metrics-cardinality-aggregation.html#CO67-1">Precision threshold</a>, AGG_SIZE = Number of values to get in the query, AGGREGATION_ID = name of the aggregation bucket created.</p>
 <p>The following are some of the functions in the <strong>ElasticQuery</strong> class.</p>
-
 <ul>
-<li><p><a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/d462b4e0ed19fed3e44d9392c799589fbb0b5d9a/manuscripts/esquery.py#L43">get_query_filters()</a>
-This function creates a string containing all the filters that are to be applied to the query.
-After reading <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.0/removal-of-types.html">this</a> and <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query-phrase.html">this</a> post, if we want to match certain phrases for a field, we should be using <code>match_phrase</code> instead of <code>match</code> along with<code>type</code> because the <code>type</code> field has been depretiated and will throw an error when you try to use it.</p></li>
-
-<li><p><a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/d462b4e0ed19fed3e44d9392c799589fbb0b5d9a/manuscripts/esquery.py#L84">get_query_range()</a>
-This function creates a range filter with the <code>date_field</code>. <code>date_field</code> works as a reference timeline in which we have to search for the date. Along with the  <code>greater than equal to</code>(from) and <code>less than equal to</code>(to) as parameters, we can search for terms or apply filters to specify the time period in which we have to perform the search.</p></li>
-
-<li><p><a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/d462b4e0ed19fed3e44d9392c799589fbb0b5d9a/manuscripts/esquery.py#L117">get_query_basic()</a>
-This function combines the range and filter functions to create a query. If an inverse query i.e a filter which should not be searched/looked for in the index is present, it is added under <code>must_not</code>. <code>Must</code> == <code>AND</code>, <code>must_not</code> == <code>NOT</code>. This function also allows the analysis of wildcard characters which are ignored by default. Read about it <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html">here</a>.</p></li>
+<li>
+<p><a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/d462b4e0ed19fed3e44d9392c799589fbb0b5d9a/manuscripts/esquery.py#L43">get_query_filters()</a> This function creates a string containing all the filters that are to be applied to the query. After reading <a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.0/removal-of-types.html">this</a> and <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query-phrase.html">this</a> post, if we want to match certain phrases for a field, we should be using <code>match_phrase</code> instead of <code>match</code> along with<code>type</code> because the <code>type</code> field has been depretiated and will throw an error when you try to use it.</p>
+</li>
+<li>
+<p><a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/d462b4e0ed19fed3e44d9392c799589fbb0b5d9a/manuscripts/esquery.py#L84">get_query_range()</a> This function creates a range filter with the <code>date_field</code>. <code>date_field</code> works as a reference timeline in which we have to search for the date. Along with the <code>greater than equal to</code>(from) and <code>less than equal to</code>(to) as parameters, we can search for terms or apply filters to specify the time period in which we have to perform the search.</p>
+</li>
+<li>
+<p><a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/d462b4e0ed19fed3e44d9392c799589fbb0b5d9a/manuscripts/esquery.py#L117">get_query_basic()</a> This function combines the range and filter functions to create a query. If an inverse query i.e a filter which should not be searched/looked for in the index is present, it is added under <code>must_not</code>. <code>Must</code> == <code>AND</code>, <code>must_not</code> == <code>NOT</code>. This function also allows the analysis of wildcard characters which are ignored by default. Read about it <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html">here</a>.</p>
+</li>
 </ul>
-
 <p>While doing this task, I learned about the different aggregations that elasticsearch supports and how we can combine and manipulate these aggregations to get useful results.</p>
-
 <ul>
-<li><p><a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/d462b4e0ed19fed3e44d9392c799589fbb0b5d9a/manuscripts/esquery.py#L163">get_query_agg_terms()</a>
-Get aggregations based on terms.</p></li>
-
-<li><p><a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/d462b4e0ed19fed3e44d9392c799589fbb0b5d9a/manuscripts/esquery.py#L187">get_query_agg_max()</a>
-Get max of a field. Ex: lines_changed:[34, 2, 44, 32, 124, 678, 432, 32, 1], max: 678.</p></li>
-
-<li><p><a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/d462b4e0ed19fed3e44d9392c799589fbb0b5d9a/manuscripts/esquery.py#L208">get_query_agg_precentile</a>
-Get percentile of a field. This gives us a percentile over a range of values in a particular field. Ex: if we look at the 95th percentile, then the value at 95th percentile is greater than 95% of all the values.</p></li>
-
-<li><p><a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/d462b4e0ed19fed3e44d9392c799589fbb0b5d9a/manuscripts/esquery.py#L232">get_query_agg_avg()</a>
-Get average of a field. Ex: lines_changed:[34, 2, 44, 32, 124, 678, 432, 32, 1], avg: 153.22</p></li>
-
-<li><p><a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/d462b4e0ed19fed3e44d9392c799589fbb0b5d9a/manuscripts/esquery.py#L255">get_query_agg_cardinality()</a>
-Get approx distinct count(<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-metrics-cardinality-aggregation.html">cardinality</a>) of a field.</p></li>
-
-<li><p><a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/d462b4e0ed19fed3e44d9392c799589fbb0b5d9a/manuscripts/esquery.py#L317">get_query_agg_ts()</a>: this function gives us a range of values or a timeseries based on a field. The field that we are using should be numeric or the aggregation that we are applying should return a numeric value. An example of a query by this function will be to count the number of commits made in the project per month. This function performs Date Histogram aggregation.</p></li>
-
-<li><p><a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/d462b4e0ed19fed3e44d9392c799589fbb0b5d9a/manuscripts/esquery.py#L382">get_count()</a>
-This just sets the <code>size</code> parameter to 0. When size is zero, hits data is not returned, and just the count i.e the number of objects matching/having that aggregation/filter/range are returned.</p></li>
+<li>
+<p><a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/d462b4e0ed19fed3e44d9392c799589fbb0b5d9a/manuscripts/esquery.py#L163">get_query_agg_terms()</a> Get aggregations based on terms.</p>
+</li>
+<li>
+<p><a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/d462b4e0ed19fed3e44d9392c799589fbb0b5d9a/manuscripts/esquery.py#L187">get_query_agg_max()</a> Get max of a field. Ex: lines_changed:[34, 2, 44, 32, 124, 678, 432, 32, 1], max: 678.</p>
+</li>
+<li>
+<p><a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/d462b4e0ed19fed3e44d9392c799589fbb0b5d9a/manuscripts/esquery.py#L208">get_query_agg_precentile</a> Get percentile of a field. This gives us a percentile over a range of values in a particular field. Ex: if we look at the 95th percentile, then the value at 95th percentile is greater than 95% of all the values.</p>
+</li>
+<li>
+<p><a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/d462b4e0ed19fed3e44d9392c799589fbb0b5d9a/manuscripts/esquery.py#L232">get_query_agg_avg()</a> Get average of a field. Ex: lines_changed:[34, 2, 44, 32, 124, 678, 432, 32, 1], avg: 153.22</p>
+</li>
+<li>
+<p><a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/d462b4e0ed19fed3e44d9392c799589fbb0b5d9a/manuscripts/esquery.py#L255">get_query_agg_cardinality()</a> Get approx distinct count(<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-aggregations-metrics-cardinality-aggregation.html">cardinality</a>) of a field.</p>
+</li>
+<li>
+<p><a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/d462b4e0ed19fed3e44d9392c799589fbb0b5d9a/manuscripts/esquery.py#L317">get_query_agg_ts()</a>: this function gives us a range of values or a timeseries based on a field. The field that we are using should be numeric or the aggregation that we are applying should return a numeric value. An example of a query by this function will be to count the number of commits made in the project per month. This function performs Date Histogram aggregation.</p>
+</li>
+<li>
+<p><a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/d462b4e0ed19fed3e44d9392c799589fbb0b5d9a/manuscripts/esquery.py#L382">get_count()</a> This just sets the <code>size</code> parameter to 0. When size is zero, hits data is not returned, and just the count i.e the number of objects matching/having that aggregation/filter/range are returned.</p>
+</li>
 </ul>
-
-<h4 id="get-agg-function">get_agg function:</h4>
-
-<p>This function is the only function that is being used in metrics.py file, the only file using esquery.py. To modify this file, I had to specially take care of this function. Initially, this function wasn&rsquo;t using any of the above shown functions.</p>
-
-<pre><code>@classmethod
-def get_agg(cls, field=None, date_field=None, start=None, end=None,
-            filters=None, agg_type=&quot;terms&quot;, offset=None, interval=None):
-    &quot;&quot;&quot;
-    Compute the aggregated value for a field.
-    If USE_ELASTIC_DSL is True it uses the elastic_dsl library. If not, esquery (this) module is
-    used to build the query.
-    :param field: field to get the time series values
-    :param date_field: field with the date
-    :param interval: interval to be used to generate the time series values
-    :param start: date from for the time series
-    :param end: date to for the time series
-    :param agg_type: kind of aggregation for the field (cardinality, avg, percentiles)
-    :param offset: offset to be added to the time_field in days
-    :return: a string with the DSL query
-    &quot;&quot;&quot;
-
-    query_basic = cls.__get_query_basic(date_field=date_field,
-                                        start=start, end=end,
-                                        filters=filters)
-</code></pre>
-
-<p>Start with getting the basic query to add to the final query.</p>
-
-<pre><code>if agg_type == &quot;count&quot;:
-    agg_type = 'cardinality'
-elif agg_type == &quot;median&quot;:
-    agg_type = 'percentiles'
-elif agg_type == &quot;average&quot;:
-    agg_type = 'avg'
-# Get only the aggs not the hits
-s = Search()[0:0]
-</code></pre>
-
-<p>Create a Search object with <code>size</code> and <code>from</code> equals 0. This way, when we get the results, we&rsquo;ll only get the total counts and not the actual data. Setting size to 0 also helps in faster response from elasticsearch as no actual data has to be returned and only aggregation/number of values have to be returned.</p>
-
-<pre><code>for f in filters:
-    param = {f: filters[f]}
-    if f[0:1] == &quot;*&quot;:
-        param = {f[1:]: filters[f]}
-        s = s.query(~Q(&quot;match&quot;, **param))
-    else:
-        s = s.query(Q(&quot;match&quot;, **param))
-date_filter = cls.__get_query_range(date_field, start, end)
-s = s.query(json.loads(date_filter))
-</code></pre>
-
-<p>Here we are adding the filters(normal and inverse) and date range to the Search object created above.</p>
-
-<pre><code>if not interval:
-    if agg_type == &quot;terms&quot;:
-        query_agg = ElasticQuery.__get_query_agg_terms(field)
-    elif agg_type == &quot;max&quot;:
-        query_agg = ElasticQuery.__get_query_agg_max(field)
-    elif agg_type == &quot;cardinality&quot;:
-        query_agg = ElasticQuery.__get_query_agg_cardinality(field)
-    elif agg_type == &quot;percentiles&quot;:
-        query_agg = ElasticQuery.__get_query_agg_percentiles(field)
-    elif agg_type == &quot;avg&quot;:
-        query_agg = ElasticQuery.__get_query_agg_avg(field)
-    else:
-        raise RuntimeError(&quot;Aggregation of %s not supported&quot; % agg_type)
-else:
-    query_agg = ElasticQuery.__get_query_agg_ts(field, date_field,
-                                                start=start, end=end,
-                                                interval=interval,
-                                                agg_type=agg_type,
-                                                offset=offset)
-</code></pre>
-
-<p>This part is to get the aggregation string according to the aggregation type selected by the user. <strong>Note:</strong> this doesnot have any relation to the Search object created above.</p>
-
-<pre><code>if agg_type not in ['percentiles', 'terms', 'avg']:
-    field_agg = A(agg_type, field=field,
-                  precision_threshold=cls.ES_PRECISION)
-else:
-    field_agg = A(agg_type, field=field)
-agg_id = cls.AGGREGATION_ID
-if interval:
-    # Two aggs, date histogram and the field+agg_type
-    bounds = ElasticQuery.__get_bounds(start, end)
-    if offset:
-        # With offset and quarter interval bogus buckets are added
-        # to the start and to the end if extended_bounds is used
-        # https://github.com/elastic/elasticsearch/issues/23776
-        bounds = {&quot;offset&quot;: offset}
-    ts_agg = A('date_histogram', field=date_field, interval=interval,
-               time_zone=&quot;UTC&quot;, min_doc_count=0, **bounds)
-    s.aggs.bucket(agg_id, ts_agg).metric(agg_id + 1, field_agg)
-else:
-    s.aggs.bucket(agg_id, field_agg)
-</code></pre>
-
-<p>Here, we extend the search object by adding into it the aggregation depending on the aggregation type specified by the user. The aggregation string created in the previous section is not being used here.</p>
-
-<pre><code>query = &quot;&quot;&quot;
-    {
-      &quot;size&quot;: 0,
-      %s,
-      %s
-      }
-&quot;&quot;&quot; % (query_agg, query_basic)
-</code></pre>
-
-<p>Create the final query by using the basic query string created initially, containing the filters and the range, and the aggregation query.</p>
-
-<pre><code>if USE_ELASTIC_DSL:
-    return json.dumps(s.to_dict())
-else:
-    return query
-</code></pre>
-
-<p>This function basically returns a fully fleshed out query to get aggregation count for the type of aggregation selected, filters used and the range of time in which the aggreagtion has to be applied on the values for <code>field</code>=field.</p>
-
+<h4 id="get_agg-function">get_agg function:</h4>
+<p>This function is the only function that is being used in metrics.py file, the only file using esquery.py. To modify this file, I had to specially take care of this function. Initially, this function wasn’t using any of the above shown functions.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#a6e22e">@classmethod</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_agg</span>(cls, field<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, date_field<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, start<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, end<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>,
+</span></span><span style="display:flex;"><span>                filters<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, agg_type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;terms&#34;</span>, offset<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, interval<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        Compute the aggregated value for a field.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        If USE_ELASTIC_DSL is True it uses the elastic_dsl library. If not, esquery (this) module is
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        used to build the query.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :param field: field to get the time series values
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :param date_field: field with the date
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :param interval: interval to be used to generate the time series values
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :param start: date from for the time series
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :param end: date to for the time series
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :param agg_type: kind of aggregation for the field (cardinality, avg, percentiles)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :param offset: offset to be added to the time_field in days
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :return: a string with the DSL query
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        query_basic <span style="color:#f92672">=</span> cls<span style="color:#f92672">.</span>__get_query_basic(date_field<span style="color:#f92672">=</span>date_field,
+</span></span><span style="display:flex;"><span>                                            start<span style="color:#f92672">=</span>start, end<span style="color:#f92672">=</span>end,
+</span></span><span style="display:flex;"><span>                                            filters<span style="color:#f92672">=</span>filters)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Start <span style="color:#66d9ef">with</span> getting the basic query to add to the final query<span style="color:#f92672">.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> agg_type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;count&#34;</span>:
+</span></span><span style="display:flex;"><span>        agg_type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;cardinality&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> agg_type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;median&#34;</span>:
+</span></span><span style="display:flex;"><span>        agg_type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;percentiles&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> agg_type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;average&#34;</span>:
+</span></span><span style="display:flex;"><span>        agg_type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;avg&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Get only the aggs not the hits</span>
+</span></span><span style="display:flex;"><span>    s <span style="color:#f92672">=</span> Search()[<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">0</span>]
+</span></span></code></pre></div><p>Create a Search object with <code>size</code> and <code>from</code> equals 0. This way, when we get the results, we’ll only get the total counts and not the actual data. Setting size to 0 also helps in faster response from elasticsearch as no actual data has to be returned and only aggregation/number of values have to be returned.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> f <span style="color:#f92672">in</span> filters:
+</span></span><span style="display:flex;"><span>        param <span style="color:#f92672">=</span> {f: filters[f]}
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> f[<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">1</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;*&#34;</span>:
+</span></span><span style="display:flex;"><span>            param <span style="color:#f92672">=</span> {f[<span style="color:#ae81ff">1</span>:]: filters[f]}
+</span></span><span style="display:flex;"><span>            s <span style="color:#f92672">=</span> s<span style="color:#f92672">.</span>query(<span style="color:#f92672">~</span>Q(<span style="color:#e6db74">&#34;match&#34;</span>, <span style="color:#f92672">**</span>param))
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            s <span style="color:#f92672">=</span> s<span style="color:#f92672">.</span>query(Q(<span style="color:#e6db74">&#34;match&#34;</span>, <span style="color:#f92672">**</span>param))
+</span></span><span style="display:flex;"><span>    date_filter <span style="color:#f92672">=</span> cls<span style="color:#f92672">.</span>__get_query_range(date_field, start, end)
+</span></span><span style="display:flex;"><span>    s <span style="color:#f92672">=</span> s<span style="color:#f92672">.</span>query(json<span style="color:#f92672">.</span>loads(date_filter))
+</span></span></code></pre></div><p>Here we are adding the filters(normal and inverse) and date range to the Search object created above.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> interval:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> agg_type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;terms&#34;</span>:
+</span></span><span style="display:flex;"><span>            query_agg <span style="color:#f92672">=</span> ElasticQuery<span style="color:#f92672">.</span>__get_query_agg_terms(field)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">elif</span> agg_type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;max&#34;</span>:
+</span></span><span style="display:flex;"><span>            query_agg <span style="color:#f92672">=</span> ElasticQuery<span style="color:#f92672">.</span>__get_query_agg_max(field)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">elif</span> agg_type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;cardinality&#34;</span>:
+</span></span><span style="display:flex;"><span>            query_agg <span style="color:#f92672">=</span> ElasticQuery<span style="color:#f92672">.</span>__get_query_agg_cardinality(field)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">elif</span> agg_type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;percentiles&#34;</span>:
+</span></span><span style="display:flex;"><span>            query_agg <span style="color:#f92672">=</span> ElasticQuery<span style="color:#f92672">.</span>__get_query_agg_percentiles(field)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">elif</span> agg_type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;avg&#34;</span>:
+</span></span><span style="display:flex;"><span>            query_agg <span style="color:#f92672">=</span> ElasticQuery<span style="color:#f92672">.</span>__get_query_agg_avg(field)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">RuntimeError</span>(<span style="color:#e6db74">&#34;Aggregation of </span><span style="color:#e6db74">%s</span><span style="color:#e6db74"> not supported&#34;</span> <span style="color:#f92672">%</span> agg_type)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        query_agg <span style="color:#f92672">=</span> ElasticQuery<span style="color:#f92672">.</span>__get_query_agg_ts(field, date_field,
+</span></span><span style="display:flex;"><span>                                                    start<span style="color:#f92672">=</span>start, end<span style="color:#f92672">=</span>end,
+</span></span><span style="display:flex;"><span>                                                    interval<span style="color:#f92672">=</span>interval,
+</span></span><span style="display:flex;"><span>                                                    agg_type<span style="color:#f92672">=</span>agg_type,
+</span></span><span style="display:flex;"><span>                                                    offset<span style="color:#f92672">=</span>offset)
+</span></span></code></pre></div><p>This part is to get the aggregation string according to the aggregation type selected by the user. <strong>Note:</strong> this doesnot have any relation to the Search object created above.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> agg_type <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> [<span style="color:#e6db74">&#39;percentiles&#39;</span>, <span style="color:#e6db74">&#39;terms&#39;</span>, <span style="color:#e6db74">&#39;avg&#39;</span>]:
+</span></span><span style="display:flex;"><span>        field_agg <span style="color:#f92672">=</span> A(agg_type, field<span style="color:#f92672">=</span>field,
+</span></span><span style="display:flex;"><span>                      precision_threshold<span style="color:#f92672">=</span>cls<span style="color:#f92672">.</span>ES_PRECISION)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        field_agg <span style="color:#f92672">=</span> A(agg_type, field<span style="color:#f92672">=</span>field)
+</span></span><span style="display:flex;"><span>    agg_id <span style="color:#f92672">=</span> cls<span style="color:#f92672">.</span>AGGREGATION_ID
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> interval:
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Two aggs, date histogram and the field+agg_type</span>
+</span></span><span style="display:flex;"><span>        bounds <span style="color:#f92672">=</span> ElasticQuery<span style="color:#f92672">.</span>__get_bounds(start, end)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> offset:
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># With offset and quarter interval bogus buckets are added</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># to the start and to the end if extended_bounds is used</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># https://github.com/elastic/elasticsearch/issues/23776</span>
+</span></span><span style="display:flex;"><span>            bounds <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;offset&#34;</span>: offset}
+</span></span><span style="display:flex;"><span>        ts_agg <span style="color:#f92672">=</span> A(<span style="color:#e6db74">&#39;date_histogram&#39;</span>, field<span style="color:#f92672">=</span>date_field, interval<span style="color:#f92672">=</span>interval,
+</span></span><span style="display:flex;"><span>                   time_zone<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTC&#34;</span>, min_doc_count<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, <span style="color:#f92672">**</span>bounds)
+</span></span><span style="display:flex;"><span>        s<span style="color:#f92672">.</span>aggs<span style="color:#f92672">.</span>bucket(agg_id, ts_agg)<span style="color:#f92672">.</span>metric(agg_id <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, field_agg)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        s<span style="color:#f92672">.</span>aggs<span style="color:#f92672">.</span>bucket(agg_id, field_agg)
+</span></span></code></pre></div><p>Here, we extend the search object by adding into it the aggregation depending on the aggregation type specified by the user. The aggregation string created in the previous section is not being used here.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    query <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          &#34;size&#34;: 0,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span> <span style="color:#f92672">%</span> (query_agg, query_basic)
+</span></span></code></pre></div><p>Create the final query by using the basic query string created initially, containing the filters and the range, and the aggregation query.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> USE_ELASTIC_DSL:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> json<span style="color:#f92672">.</span>dumps(s<span style="color:#f92672">.</span>to_dict())
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> query
+</span></span></code></pre></div><p>This function basically returns a fully fleshed out query to get aggregation count for the type of aggregation selected, filters used and the range of time in which the aggreagtion has to be applied on the values for <code>field</code>=field.</p>
 <p>As we can see, the <code>USE_ELASTIC_DSL</code> flag is set to <code>True</code> initially in the file, which means that actually: none of the above queries created are used and the output of the get_agg function is only the Search object that was created in the function and the objects that were attached to it for range, filter and such.</p>
-
 <p>What I did was to convert each function to return elasticsearch_dsl objects and modified the <code>get_agg</code> function to use the above created functions and return a search object.</p>
-
 <p>You can look at the differences <a href="https://github.com/aswanipranjal/grimoirelab-manuscripts/commit/78d4eac5cac7f67baba91589cdacc235c20584b3#diff-8e501c4ebd72cf2bf3762d33b5c0d654R310">here</a>.</p>
-
 <h6 id="results">Results:</h6>
-
 <ul>
 <li><a href="https://github.com/chaoss/grimoirelab-manuscripts/issues/57">The Issue</a> about cleaning esquery.py file and <a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/58">The PR</a> closing that issue.</li>
 </ul>
-
-<hr />
-
+<hr>
 <h3 id="task-2-and-task-3">Task-2 and Task-3:</h3>
-
 <p>These tasks are very much related to each other.</p>
-
 <p>Currently, when we have to calculate a metric, we have to create an object from a class which looks like this:</p>
-
-<pre><code>class GithubOpen(GitHubIssuesMetrics):
-&quot;&quot;&quot; Tickets Open metric class for issue tracking systems &quot;&quot;&quot;
-id = &quot;open&quot;
-name = &quot;Open tickets&quot;
-desc = &quot;Number of tickets currently open&quot;
-FIELD_COUNT = &quot;id&quot;
-FIELD_NAME = &quot;url&quot;
-FIELD_DATE = &quot;created_at&quot;
-filters = {&quot;pull_request&quot;: &quot;false&quot;, &quot;state&quot;: &quot;open&quot;}
-</code></pre>
-
-<p>Here, FIELD_COUNT is the field which is used for aggregation, FIELD_DATE is used to create the date range.
-Filters specify that this is an <em>open pull request</em>.</p>
-
-<pre><code># initialise the object
-open_issues = GithubOpen(es_url, github_index, start=start_date, end=end_date)
-# using the get_agg method, get the aggregation which in this case is also the Metric Open PRs.
-open_issues.get_agg()
-</code></pre>
-
-<p>For <a href="https://github.com/chaoss/grimoirelab-perceval">grimoirelab-perceval</a> this gives an answer 23.</p>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GithubOpen</span>(GitHubIssuesMetrics):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34; Tickets Open metric class for issue tracking systems &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;open&#34;</span>
+</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Open tickets&#34;</span>
+</span></span><span style="display:flex;"><span>    desc <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Number of tickets currently open&#34;</span>
+</span></span><span style="display:flex;"><span>    FIELD_COUNT <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;id&#34;</span>
+</span></span><span style="display:flex;"><span>    FIELD_NAME <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;url&#34;</span>
+</span></span><span style="display:flex;"><span>    FIELD_DATE <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;created_at&#34;</span>
+</span></span><span style="display:flex;"><span>    filters <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;pull_request&#34;</span>: <span style="color:#e6db74">&#34;false&#34;</span>, <span style="color:#e6db74">&#34;state&#34;</span>: <span style="color:#e6db74">&#34;open&#34;</span>}
+</span></span></code></pre></div><p>Here, FIELD_COUNT is the field which is used for aggregation, FIELD_DATE is used to create the date range. Filters specify that this is an <em>open pull request</em>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#75715e"># initialise the object</span>
+</span></span><span style="display:flex;"><span>    open_issues <span style="color:#f92672">=</span> GithubOpen(es_url, github_index, start<span style="color:#f92672">=</span>start_date, end<span style="color:#f92672">=</span>end_date)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># using the get_agg method, get the aggregation which in this case is also the Metric Open PRs.</span>
+</span></span><span style="display:flex;"><span>    open_issues<span style="color:#f92672">.</span>get_agg()
+</span></span></code></pre></div><p>For <a href="https://github.com/chaoss/grimoirelab-perceval">grimoirelab-perceval</a> this gives an answer 23.</p>
 <p>So, for issues, the <em>GitHubIssuesMetrics</em> class is a subclass of the <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/master/manuscripts/metrics/metrics.py#L36"><em>Metrics</em></a> class. <em>GithubOpen</em> is a subclass of the <em>GitHubIssuesMetrics</em> class. And then we create an object from this class and use it. It has all the methods of the Metrics class which we want to use.</p>
-
 <p><em>But what if we want to sort the pull requests by the organizations or users that created them? What about getting the PRs for individual users? How about sorting the commits/PRs by weeks or months?</em></p>
-
 <p>Although We can use nested aggregations to get the commits per user or orgs and we can use the methods in the Metrics class such as <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/d462b4e0ed19fed3e44d9392c799589fbb0b5d9a/manuscripts/metrics/metrics.py#L167">get_ts()</a> which uses the functions from esquery.py file to create a date_histogram which will give us a timeseries of the PRs per week. This method of creating aggregations/filters and creating histogram seems a little to complicated. This method may be <em>taking the longer path</em> to get the same results that we might be able to get if we redesign the classes and functions currently being used.</p>
-
-<p>To achieve this, we&rsquo;ll take a look at an <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/GMD-metrics-from-scratch.ipynb">experimental notebook</a> which calculates the metrics using elasticsearch_dsl queries only and does not use the functions in manuscripts.</p>
-
+<p>To achieve this, we’ll take a look at an <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/GMD-metrics-from-scratch.ipynb">experimental notebook</a> which calculates the metrics using elasticsearch_dsl queries only and does not use the functions in manuscripts.</p>
 <p>An example to calculate the same Open issues:</p>
-
-<pre><code>s = Search(using=es, index=github_index)
-q1 = Q(&quot;match&quot;, **{&quot;item_type&quot;:&quot;issue&quot;})
-q2 = Q(&quot;match&quot;, **{&quot;state&quot;: &quot;open&quot;})
-q = q1 &amp; q2
-s = s.query(q)
-agg = A(&quot;cardinality&quot;, field=&quot;id_in_repo&quot;)
-s.aggs.bucket(&quot;num_open_issues&quot;, agg)
-s = s.extra(size=0)
-response = s.execute()
-response.aggregations.num_open_issues.value
-</code></pre>
-
-<p>Rather than going through the complex process described above, we can use this simple code snippit to calculate the open issues. We will define classes and helper functions such as <code>by_period</code>, <code>by_user</code>, <code>by_organization</code>, to seggregate the, for example, number of commits by the time period in which they were created, by the author of the commit and by the organization under which they were created respectively.</p>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    s <span style="color:#f92672">=</span> Search(using<span style="color:#f92672">=</span>es, index<span style="color:#f92672">=</span>github_index)
+</span></span><span style="display:flex;"><span>    q1 <span style="color:#f92672">=</span> Q(<span style="color:#e6db74">&#34;match&#34;</span>, <span style="color:#f92672">**</span>{<span style="color:#e6db74">&#34;item_type&#34;</span>:<span style="color:#e6db74">&#34;issue&#34;</span>})
+</span></span><span style="display:flex;"><span>    q2 <span style="color:#f92672">=</span> Q(<span style="color:#e6db74">&#34;match&#34;</span>, <span style="color:#f92672">**</span>{<span style="color:#e6db74">&#34;state&#34;</span>: <span style="color:#e6db74">&#34;open&#34;</span>})
+</span></span><span style="display:flex;"><span>    q <span style="color:#f92672">=</span> q1 <span style="color:#f92672">&amp;</span> q2
+</span></span><span style="display:flex;"><span>    s <span style="color:#f92672">=</span> s<span style="color:#f92672">.</span>query(q)
+</span></span><span style="display:flex;"><span>    agg <span style="color:#f92672">=</span> A(<span style="color:#e6db74">&#34;cardinality&#34;</span>, field<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;id_in_repo&#34;</span>)
+</span></span><span style="display:flex;"><span>    s<span style="color:#f92672">.</span>aggs<span style="color:#f92672">.</span>bucket(<span style="color:#e6db74">&#34;num_open_issues&#34;</span>, agg)
+</span></span><span style="display:flex;"><span>    s <span style="color:#f92672">=</span> s<span style="color:#f92672">.</span>extra(size<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>    response <span style="color:#f92672">=</span> s<span style="color:#f92672">.</span>execute()
+</span></span><span style="display:flex;"><span>    response<span style="color:#f92672">.</span>aggregations<span style="color:#f92672">.</span>num_open_issues<span style="color:#f92672">.</span>value
+</span></span></code></pre></div><p>Rather than going through the complex process described above, we can use this simple code snippit to calculate the open issues. We will define classes and helper functions such as <code>by_period</code>, <code>by_user</code>, <code>by_organization</code>, to seggregate the, for example, number of commits by the time period in which they were created, by the author of the commit and by the organization under which they were created respectively.</p>
 <p>All processes will be documented in the <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/GMD-metrics-from-scratch.ipynb">Notebook</a>.</p>
-
-<hr />
-
+<hr>
 <h4 id="issues-created">Issues created:</h4>
-
 <ul>
 <li><a href="https://github.com/chaoss/wg-gmd/issues/5">What are abandoned issues?</a> It is not specified what an abandoned issue is and how it can be calculated.</li>
 <li><a href="https://github.com/chaoss/wg-gmd/issues/6">Open Issue Age</a>: should open issue age be calculated by averaging all the values or should their values be used directly and visualised as a graph?</li>
 <li><a href="https://github.com/chaoss/wg-gmd/issues/7">Closed issue duration</a>: How exactly is closed issue duration supposed to be described? Similar to Open issue age?</li>
 </ul>
-
 <p>The resolution of the above issues will help us better understand the Metrics and help me to calculate and describe them in an efficient way.</p>
-
 <p>That was all for this week!</p>
-
-<hr />
-
-<p>For the next week, I&rsquo;ll have 4 tasks that I need to accomplish:</p>
-
+<hr>
+<p>For the next week, I’ll have 4 tasks that I need to accomplish:</p>
 <ul>
-<li><p>Cleanup esquery.py file a bit further</p>
-
+<li>
+<p>Cleanup esquery.py file a bit further</p>
 <ul>
 <li>1a. Finish the <a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/58">current PR</a> by adding tests for all the functions and correct &amp; cleanup the comments in the functions.</li>
 <li>1b. The get_aggs function returns a JSON object to be used by the functions in metrics.py file. Evaluate, and if it is not a lot of work, implement, changes in the rest of manuscripts, including metrics.py, to use <em>only</em> es_dsl.</li>
-</ul></li>
-
-<li><p>Implement more GMD metrics:</p>
-
+</ul>
+</li>
+<li>
+<p>Implement more GMD metrics:</p>
 <ul>
 <li>2a: Implement all GMD metrics that are implementable (are available from the enriched indexes) in the notebook using elasticsearch_dsl only.</li>
 <li>2b: For those that are missing in the enriched index: open an issue in gelk to implement them in the enriched index, and find ways to aggregate and bucket them.</li>
-</ul></li>
-
-<li><p>Work on the new functions:</p>
-
+</ul>
+</li>
+<li>
+<p>Work on the new functions:</p>
 <ul>
-<li>3a: create chainable objects(by that we mean: create functions and classes which can be used together) for at least &ldquo;by_period&rdquo;, &ldquo;by_organization&rdquo;, &ldquo;by_author&rdquo;. This will be used to seggregate the data <code>by_period</code>, <code>by_org</code> and <code>by_author</code> respectively.</li>
-</ul></li>
-
-<li><p>Work on Visualizations!</p>
-
+<li>3a: create chainable objects(by that we mean: create functions and classes which can be used together) for at least “by_period”, “by_organization”, “by_author”. This will be used to seggregate the data <code>by_period</code>, <code>by_org</code> and <code>by_author</code> respectively.</li>
+</ul>
+</li>
+<li>
+<p>Work on Visualizations!</p>
 <ul>
 <li>4a: test plotly and seaborn for static visualization</li>
 <li>4b: do the same with Altair and Plotly for interactive visualizations</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>Adios.</p>
 
   </article>
@@ -381,7 +312,7 @@ response.aggregations.num_open_issues.value
 
       <footer class="footer">
   <section class="container">
-    © 2018 · Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    © 2026 · Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
   </section>
 </footer>
 

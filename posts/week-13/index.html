@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="author" content="Pranjal Aswani">
-    <meta name="description" content="This is where i will rant about stuff">
+    <meta name="author" content="Pranjal">
+    <meta name="description" content="Personal blog describing the work that I do, insights about life and my opinions on things">
     <meta name="keywords" content="blog,developer,personal">
 
     <base href="https://aswanipranjal.github.io/">
@@ -25,7 +25,7 @@
 
     
 
-    <meta name="generator" content="Hugo 0.40.1" />
+    <meta name="generator" content="Hugo 0.139.4">
   </head>
 
   <body>
@@ -39,11 +39,11 @@
     <ul class="navigation-list float-right">
       
       <li class="navigation-item">
-        <a class="navigation-link" href="/posts/">Blog</a>
+        <a class="navigation-link" href="/about/">About</a>
       </li>
       
       <li class="navigation-item">
-        <a class="navigation-link" href="/about/">About</a>
+        <a class="navigation-link" href="/posts/">Posts</a>
       </li>
       
       <li class="navigation-item">
@@ -65,40 +65,24 @@
       <h2 class="date">August 8, 2018</h2>
     </header>
 
-    
-
-<p>Control room!! This is the reporting ship: <em>All tasks are complete</em>. I repeat: <strong>All tasks are complete.</strong></p>
-
+    <p>Control room!! This is the reporting ship: <em>All tasks are complete</em>. I repeat: <strong>All tasks are complete.</strong></p>
 <p>This is the final week of GSoC. I am happy to tell you that we have the first version of the reports done. <a href="https://drive.google.com/file/d/1-3MHbHHWudLkT3rQyQlEsIfSLsogIplA/view?usp=sharing">The PDF looks wonderful</a> and everything is in order. Welcome to the start of the final week of Google Summer of Code.</p>
-
-<h2 style="text-align: center"><bold>In Brief</bold></h2>
-
+<h2 id="in-brief">In Brief</h2>
 <p>Last week we were left with only 2 tasks.</p>
-
 <h5 id="task-5-done">Task-5 [DONE]:</h5>
-
 <p><strong>Task:</strong> <em>To check which metrics still need the relevant fields to be generated so that those metrics can be calculated.</em></p>
-
-<p><strong>Progress</strong>: Last week Valerio <a href="https://github.com/chaoss/grimoirelab-sirmordred/pull/190">created a PR that added a micro mordred</a> capable of running studies and enriching indices.
-On the basis of that functionality, I implemented an <code>enrich_pull_requests</code> study on the grimorelab-elk repo. This study allows us to create a pull requests index containing all the data related to the pull requests in a repository.</p>
-
+<p><strong>Progress</strong>: Last week Valerio <a href="https://github.com/chaoss/grimoirelab-sirmordred/pull/190">created a PR that added a micro mordred</a> capable of running studies and enriching indices. On the basis of that functionality, I implemented an <code>enrich_pull_requests</code> study on the grimorelab-elk repo. This study allows us to create a pull requests index containing all the data related to the pull requests in a repository.</p>
 <p>Related PRs:</p>
-
 <ul>
 <li><a href="https://github.com/chaoss/grimoirelab-elk/pull/419">chaoss/grimoirelab-elk/pull/419</a></li>
 <li><a href="https://github.com/chaoss/grimoirelab-sirmordred/pull/191">chaoss/grimoirelab-sirmordred/pull/191</a></li>
 <li><a href="https://github.com/chaoss/grimoirelab-sirmordred/pull/194">chaoss/grimoirelab-sirmordred/pull/194</a></li>
 <li><a href="https://github.com/chaoss/grimoirelab-sirmordred/pull/193">chaoss/grimoirelab-sirmordred/pull/193</a></li>
 </ul>
-
 <h5 id="task-7-b-done-tests-remain">Task-7-B [DONE (tests remain)]:</h5>
-
 <p><strong>Task:</strong> <em>To create reports using the functions and classes in <a href="https://github.com/chaoss/grimoirelab-manuscripts/tree/master/manuscripts2">manuscripts2</a></em></p>
-
-<p><strong>Progress:</strong> You might have seen <a href="https://drive.google.com/file/d/1-3MHbHHWudLkT3rQyQlEsIfSLsogIplA/view?usp=sharing">The PDF report</a>. I am still cleaning up the code (I actually needed a break, other wise this would&rsquo;ve been done earlier) and I&rsquo;ll be submitting a PR later in the evening integrating the code to generate the report to the main manuscripts repo.</p>
-
+<p><strong>Progress:</strong> You might have seen <a href="https://drive.google.com/file/d/1-3MHbHHWudLkT3rQyQlEsIfSLsogIplA/view?usp=sharing">The PDF report</a>. I am still cleaning up the code (I actually needed a break, other wise this would’ve been done earlier) and I’ll be submitting a PR later in the evening integrating the code to generate the report to the main manuscripts repo.</p>
 <p>Related PRs:</p>
-
 <ul>
 <li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/97">chaoss/grimoirelab-manuscripts/pull/97</a></li>
 <li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/99">chaoss/grimoirelab-manuscripts/pull/99</a></li>
@@ -108,371 +92,292 @@ On the basis of that functionality, I implemented an <code>enrich_pull_requests<
 <li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/103">chaoss/grimoirelab-manuscripts/pull/103</a></li>
 <li><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/104">chaoss/grimoirelab-manuscripts/pull/104</a></li>
 </ul>
-
 <p>These PRs add the remaining sections of the report. And with these, we are able to generate all the data to generate a report for the git, github_issues and github_prs data sources.</p>
-
 <p>Moving on..</p>
-
-<h2 style="text-align: center"><bold>In Brief</bold></h2>
-
+<h2 id="in-brief-1">In Brief</h2>
 <h5 id="task-5">Task-5:</h5>
-
-<p>Continuing from above, I was able to actually figure out how the studies code works and create a study to enrich the pull requests only index. This is amazing to me because I couldn&rsquo;t do it earlier, and then I was able to. I think the secret to this is that you have to sit with the code for a while, turn the knobs and read the manual carefully. &ldquo;Intuition works but tests actually confirm that everything is fine&rdquo;. Thanks to Valerio and the PR that he made. Okay, here is how it works:</p>
-
-<p>The study takes in as input the name of the github_issues raw index. This index contains data regarding the comments on pull requests that are not fetched by perceval when pull requests only data is fetched.
-Now, we already know the name of the pull reqeuests only enriched index. We fetch the <code>id_in_repo</code> of all these pull requests. Remember, this repo <em>only</em> contains <em>pull_requests</em> data. So every item in that repo is a pull request.</p>
-
+<p>Continuing from above, I was able to actually figure out how the studies code works and create a study to enrich the pull requests only index. This is amazing to me because I couldn’t do it earlier, and then I was able to. I think the secret to this is that you have to sit with the code for a while, turn the knobs and read the manual carefully. “Intuition works but tests actually confirm that everything is fine”. Thanks to Valerio and the PR that he made. Okay, here is how it works:</p>
+<p>The study takes in as input the name of the github_issues raw index. This index contains data regarding the comments on pull requests that are not fetched by perceval when pull requests only data is fetched. Now, we already know the name of the pull reqeuests only enriched index. We fetch the <code>id_in_repo</code> of all these pull requests. Remember, this repo <em>only</em> contains <em>pull_requests</em> data. So every item in that repo is a pull request.</p>
 <p>Once we have the ids of all these pull requests: for each item in the pull requests index, we fetch the corresponding item from the issues index using the id that we got before. This will fetch us the pull requests from the github issues raw index. Now using the data from that index, we can get the required fields. These fields are:</p>
-
 <ul>
 <li><strong>Time to first reaction to the pr:</strong> this can be a comment or a review. The pull requests only index already has a value for this field. We calculate if there was a comment on the PR and the time different between that comment and the time when the PR was made. The first review time and the first comment time are compared and the lesser of the two is set as the new value.</li>
 <li><strong>Num comments:</strong> these are directly fetched from the github issues raw index.</li>
 <li><strong>Comment diversity:</strong> These are the number of people discussing the PR. This can be calulcated by getting the unique users for that PR who commented on the PR.</li>
 <li><strong>Comment duration:</strong> this is the time difference between the last commit and when the PR was created. This was calculated by getting the difference between the creation and the last comment date.</li>
 </ul>
-
 <p>By using this study, we will be able to get the complete data for pull reqeusts of a repo. The configuration file showing how to use this study can be found here. This study can be used once the PR adding micro mordred is added to Sirmordred(<a href="https://github.com/chaoss/grimoirelab-sirmordred">https://github.com/chaoss/grimoirelab-sirmordred</a>).</p>
-
 <p>And with that, we now have almost all the fields (except <em>num code iterations</em>) that can be used to calculate all the metrics.</p>
-
 <h5 id="task-7-b">Task-7-B:</h5>
-
-<p>This task was to create the grimoirelab-manuscripts reports using the new functions (manuscripts2). The first successful report was generated at 16:27 IST. 3 minutes before today&rsquo;s meeting.</p>
-
+<p>This task was to create the grimoirelab-manuscripts reports using the new functions (manuscripts2). The first successful report was generated at 16:27 IST. 3 minutes before today’s meeting.</p>
 <p>In the last <a href="https://aswanipranjal.github.io/posts/week-12/">blog post</a> we saw how the data source (git, github_pes) files have been stuctured. These files contain classes which are used to calculate the Metrics.</p>
-
 <p>Now, each section of the Report is a function in the data source file. That function can be used to get the appropriate metric values using the classes. The four major sections of the report, taking the example from the previous post itself, are as follows:</p>
-
-<p><span style="color: red">
-In manuscripts2/metrics/github.py:
-</span></p>
-
-<pre><code class="language-python">def overview(index, start, end):
-    &quot;&quot;&quot;Compute metrics in the overview section for enriched github issues
-    indexes.
-    Returns a dictionary. Each key in the dictionary is the name of
-    a metric, the value is the value of that metric. Value can be
-    a complex object (eg, a time series).
-    :param index: index object
-    :param start: start date to get the data from
-    :param end: end date to get the data upto
-    :return: dictionary with the value of the metrics
-    &quot;&quot;&quot;
-
-    results = {
-        &quot;activity_metrics&quot;: [OpenedIssues(index, start, end),
-                             ClosedIssues(index, start, end)],
-        &quot;author_metrics&quot;: [],
-        &quot;bmi_metrics&quot;: [BMI(index, start, end)],
-        &quot;time_to_close_metrics&quot;: [DaysToCloseMedian(index, start, end)],
-        &quot;projects_metrics&quot;: []
-    }
-
-    return results
-</code></pre>
-
-<p><span style="color: blue">
-This function returns the Overview section of the report.
-</span></p>
-
-<p><span style="color: red">
-In manuscripts2/report.py:
-</span></p>
-
-<pre><code class="language-python">def get_sec_overview(self):
-        &quot;&quot;&quot;
-        Generate the &quot;overview&quot; section of the report.
-        &quot;&quot;&quot;
-
-        logger.debug(&quot;Calculating Overview metrics.&quot;)
-
-        data_path = os.path.join(self.data_dir, &quot;overview&quot;)
-        if not os.path.exists(data_path):
-            os.makedirs(data_path)
-
-        overview_config = {
-            &quot;activity_metrics&quot;: [],
-            &quot;author_metrics&quot;: [],
-            &quot;bmi_metrics&quot;: [],
-            &quot;time_to_close_metrics&quot;: [],
-            &quot;projects_metrics&quot;: []
-        }
-
-        for ds in self.data_sources:
-            metric_file = self.ds2class[ds]
-            metric_index = self.get_metric_index(ds)
-            overview = metric_file.overview(metric_index, self.start_date, self.end_date)
-            for section in overview_config:
-                overview_config[section] += overview[section]
-
-        overview_config['activity_file_csv'] = &quot;data_source_evolution.csv&quot;
-        overview_config['efficiency_file_csv'] = &quot;efficiency.csv&quot;
-</code></pre>
-
-<p><span style="color: blue">
-The <code>overview</code> function from each of the data source files is called and all the metrics for that section are added to a dictionary.
-</span></p>
-
-<pre><code class="language-python">        # ACTIVITY METRICS
-        metrics = overview_config['activity_metrics']
-        file_name = overview_config['activity_file_csv']
-        file_name = os.path.join(data_path, file_name)
-
-        csv = &quot;metricsnames, netvalues, relativevalues, datasource\n&quot;
-
-        for metric in metrics:
-            (last, percentage) = get_trend(metric.timeseries())
-            csv += &quot;{}, {}, {}, {}\n&quot;.format(metric.name, last,
-                                             percentage, metric.DS_NAME)
-        create_csv(file_name, csv)
-</code></pre>
-
-<p><span style="color: blue">
-Create a CSV file containing the different activity metrics&rsquo; trend (relative to the previous time interval). These contain the number of PRs submitted and closed, the number of issues opened and closed and the number of commits made in this time period as compared to the previous time period.
-</span></p>
-
-<pre><code class="language-python">        # AUTHOR METRICS
-        &quot;&quot;&quot;
-        Git Authors:
-        -----------
-        Description: average number of developers per month by quarters
-        (so we have the average number of developers per month during
-        those three months). If the approach is to work at the level of month,
-        then just the number of developers per month.
-        &quot;&quot;&quot;
-
-        author = overview_config['author_metrics']
-        if author:
-            authors_by_period = author[0]
-            title_label = file_label = authors_by_period.name + ' per ' + self.interval
-            file_path = os.path.join(data_path, file_label)
-            csv_data = authors_by_period.timeseries(dataframe=True)
-            # generate the CSV and the image file displaying the data
-            self.create_csv_fig_from_df([csv_data], file_path, [authors_by_period.name],
-                                        fig_type=&quot;bar&quot;, title=title_label, xlabel=&quot;time_period&quot;,
-                                        ylabel=authors_by_period.id)
-</code></pre>
-
-<p><span style="color: blue">
-Calculate the number of authors per time period (month here) for the range of time we are calculating the metrics for.</p>
-
-<p>The function <code>create_csv_fig_from_df</code> is a very cool function which I describe below.
-</span></p>
-
-<pre><code class="language-python">        # BMI METRICS
-        bmi = []
-        bmi_metrics = overview_config['bmi_metrics']
-        csv = &quot;&quot;
-        for metric in bmi_metrics:
-            bmi.append(metric.aggregations())
-            csv += metric.id + &quot;, &quot;
-
-        # Time to close METRICS
-        ttc = []
-        ttc_metrics = overview_config['time_to_close_metrics']
-        for metric in ttc_metrics:
-            ttc.append(metric.aggregations())
-            csv += metric.id + &quot;, &quot;
-
-        # generate efficiency file
-        csv = csv[:-2] + &quot;\n&quot;
-        csv = csv.replace(&quot;_&quot;, &quot;&quot;)
-        bmi.extend(ttc)
-        for val in bmi:
-            csv += &quot;%s, &quot; % str_val(val)
-        if csv[-2:] == &quot;, &quot;:
-            csv = csv[:-2]
-
-        file_name = os.path.join(data_path, 'efficiency.csv')
-        create_csv(file_name, csv)
-        logger.debug(&quot;Overview metrics generation complete!&quot;)
-
-</code></pre>
-
-<p><span style="color: blue">
-The last part of the function gets the BMI and time to close metrics values for the previous time intervals. The queries for these values are configured on the data source file and the <code>aggregaions()</code> function generates those values here.
-</span></p>
-
-<p><span style="color: blue">
-These metrics are then calculated by calling the <code>timeseries()</code> or <code>aggregations()</code> methods of the Metric classes. The values returned from these methods are stored in files which will then be used when the report is being created using LaTex.
-</span></p>
-
-<p><span style="color: red">
-Other sections are as follows:
-</span></p>
-
-<pre><code class="language-python">def project_activity(index, start, end):
-    &quot;&quot;&quot;Compute the metrics for the project activity section of the enriched
-    github issues index.
-    Returns a dictionary containing a &quot;metric&quot; key. This key contains the
-    metrics for this section.
-    :param index: index object
-    :param start: start date to get the data from
-    :param end: end date to get the data upto
-    :return: dictionary with the value of the metrics
-    &quot;&quot;&quot;
-
-    results = {
-        &quot;metrics&quot;: [OpenedIssues(index, start, end),
-                    ClosedIssues(index, start, end)]
-    }
-
-    return results
-
-
-def project_community(index, start, end):
-    &quot;&quot;&quot;Compute the metrics for the project community section of the enriched
-    github issues index.
-    Returns a dictionary containing &quot;author_metrics&quot;, &quot;people_top_metrics&quot;
-    and &quot;orgs_top_metrics&quot; as the keys and the related Metrics as the values.
-    :param index: index object
-    :param start: start date to get the data from
-    :param end: end date to get the data upto
-    :return: dictionary with the value of the metrics
-    &quot;&quot;&quot;
-
-    results = {
-        &quot;author_metrics&quot;: [],
-        &quot;people_top_metrics&quot;: [],
-        &quot;orgs_top_metrics&quot;: [],
-    }
-
-    return results
-
-
-def project_process(index, start, end):
-    &quot;&quot;&quot;Compute the metrics for the project process section of the enriched
-    github issues index.
-    Returns a dictionary containing &quot;bmi_metrics&quot;, &quot;time_to_close_metrics&quot;,
-    &quot;time_to_close_review_metrics&quot; and patchsets_metrics as the keys and
-    the related Metrics as the values.
-    time_to_close_title and time_to_close_review_title contain the file names
-    to be used for time_to_close_metrics and time_to_close_review_metrics
-    metrics data.
-    :param index: index object
-    :param start: start date to get the data from
-    :param end: end date to get the data upto
-    :return: dictionary with the value of the metrics
-    &quot;&quot;&quot;
-
-    results = {
-        &quot;bmi_metrics&quot;: [BMI(index, start, end)],
-        &quot;time_to_close_metrics&quot;: [DaysToCloseAverage(index, start, end),
-                                  DaysToCloseMedian(index, start, end)],
-        &quot;time_to_close_review_metrics&quot;: [],
-        &quot;patchsets_metrics&quot;: []
-    }
-
-    return results
-</code></pre>
-
-<p><span style="color: red">
-The function create_csv_fig_from_df
-</span></p>
-
-<pre><code class="language-python">def create_csv_fig_from_df(self, data_frames=[], filename=None, headers=[], index_label=None,
-                               fig_type=None, title=None, xlabel=None, ylabel=None, xfont=20,
-                               yfont=20, titlefont=30, fig_size=(10, 15), image_type=&quot;png&quot;):
-        &quot;&quot;&quot;
-        Joins all the datafarames horizontally and creates a CSV and an image file from
-        those dataframes.
-        :param data_frames: a list of dataframes containing timeseries data from various metrics
-        :param filename: the name of the csv and image file
-        :param headers: a list of headers to be applied to columns of the dataframes
-        :param index_label: name of the index column
-        :param fig_type: figure type. Currently we support 'bar' graphs
-                         default: normal graph
-        :param title: display title of the figure
-        :param filename: file name to save the figure as
-        :param xlabel: label for x axis
-        :param ylabel: label for y axis
-        :param xfont: font size of x axis label
-        :param yfont: font size of y axis label
-        :param titlefont: font size of title of the figure
-        :param fig_size: tuple describing size of the figure (in centimeters) (H x W)
-        :param image_type: the image type to save the image as: jpg, png, etc
-                           default: png
-        :returns: creates a csv having name as &quot;filename&quot;.csv and an image file
-                  having the name as &quot;filename&quot;.&quot;image_type&quot;
-        &quot;&quot;&quot;
-
-        if not data_frames:
-            logger.error(&quot;No dataframes provided to create CSV&quot;)
-            sys.exit(1)
-        assert(len(data_frames) == len(headers))
-        dataframes = []
-
-        for index, df in enumerate(data_frames):
-            df = df.rename(columns={&quot;value&quot;: headers[index]})
-            dataframes.append(df)
-        res_df = pd.concat(dataframes, axis=1)
-
-        if &quot;unixtime&quot; in res_df:
-            del res_df['unixtime']
-        if not index_label:
-            index_label = &quot;Date&quot;
-
-        # Create the CSV file:
-        csv_name = filename + &quot;.csv&quot;
-        res_df.to_csv(csv_name, index_label=index_label)
-        logger.debug(&quot;file: {} was created.&quot;.format(csv_name))
-
-        # Create the Image:
-        image_name = filename + &quot;.&quot; + image_type
-        figure(figsize=fig_size)
-        plt.subplot(111)
-
-        if fig_type == &quot;bar&quot;:
-            ax = res_df.plot.bar(figsize=fig_size)
-            ticklabels = res_df.index
-            ax.xaxis.set_major_formatter(matplotlib.ticker.FixedFormatter(ticklabels))
-        else:
-            plt.plot(res_df)
-
-        if not ylabel:
-            ylabel = &quot;num &quot; + &quot; &amp; &quot;.join(headers)
-        if not xlabel:
-            xlabel = index_label
-
-        plt.title(title, fontsize=titlefont)
-        plt.ylabel(ylabel, fontsize=yfont)
-        plt.xlabel(xlabel, fontsize=xfont)
-        plt.grid(True)
-        plt.savefig(image_name)
-        logger.debug(&quot;Figure {} was generated.&quot;.format(image_name))
-
-</code></pre>
-
-<p><span style="color: blue">
-The function <code>create_csv_fig_from_df</code> does that the name says. We pass on to it a list of data frames (timseries data generated from the different metrics). This data is usually connected to each other or is in comparision with each other (time to close days median VS time to close days average). These data frames are 2 columned (one is the Date column which is also the index and the other is a value column). The column names are changed using values from the header variable.
-These dataframes are then concatinated together to create one dataframe containing all the values and same index (Date).
-</span></p>
-
-<p><span style="color: blue">
-In the second part of this function, the concatinated dataframe is then used to create a csv file with the file name that was provided earlier (the extension is csv).
-</span></p>
-
-<p><span style="color: blue">
-In the third part of this function, using the dataframes created in the first part, a <code>eps</code>(default) file is generated. These CSV and EPS files are stored in the folder for that section.
-</span></p>
-
+<p>In manuscripts2/metrics/github.py:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">overview</span>(index, start, end):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;Compute metrics in the overview section for enriched github issues
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        indexes.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        Returns a dictionary. Each key in the dictionary is the name of
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        a metric, the value is the value of that metric. Value can be
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        a complex object (eg, a time series).
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :param index: index object
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :param start: start date to get the data from
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :param end: end date to get the data upto
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :return: dictionary with the value of the metrics
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        results <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;activity_metrics&#34;</span>: [OpenedIssues(index, start, end),
+</span></span><span style="display:flex;"><span>                                 ClosedIssues(index, start, end)],
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;author_metrics&#34;</span>: [],
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;bmi_metrics&#34;</span>: [BMI(index, start, end)],
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;time_to_close_metrics&#34;</span>: [DaysToCloseMedian(index, start, end)],
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;projects_metrics&#34;</span>: []
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> results
+</span></span></code></pre></div><p>This function returns the Overview section of the report.</p>
+<p>In manuscripts2/report.py:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_sec_overview</span>(self):
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            Generate the &#34;overview&#34; section of the report.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            logger<span style="color:#f92672">.</span>debug(<span style="color:#e6db74">&#34;Calculating Overview metrics.&#34;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            data_path <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(self<span style="color:#f92672">.</span>data_dir, <span style="color:#e6db74">&#34;overview&#34;</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>exists(data_path):
+</span></span><span style="display:flex;"><span>                os<span style="color:#f92672">.</span>makedirs(data_path)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            overview_config <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;activity_metrics&#34;</span>: [],
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;author_metrics&#34;</span>: [],
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;bmi_metrics&#34;</span>: [],
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;time_to_close_metrics&#34;</span>: [],
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;projects_metrics&#34;</span>: []
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> ds <span style="color:#f92672">in</span> self<span style="color:#f92672">.</span>data_sources:
+</span></span><span style="display:flex;"><span>                metric_file <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>ds2class[ds]
+</span></span><span style="display:flex;"><span>                metric_index <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>get_metric_index(ds)
+</span></span><span style="display:flex;"><span>                overview <span style="color:#f92672">=</span> metric_file<span style="color:#f92672">.</span>overview(metric_index, self<span style="color:#f92672">.</span>start_date, self<span style="color:#f92672">.</span>end_date)
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">for</span> section <span style="color:#f92672">in</span> overview_config:
+</span></span><span style="display:flex;"><span>                    overview_config[section] <span style="color:#f92672">+=</span> overview[section]
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            overview_config[<span style="color:#e6db74">&#39;activity_file_csv&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;data_source_evolution.csv&#34;</span>
+</span></span><span style="display:flex;"><span>            overview_config[<span style="color:#e6db74">&#39;efficiency_file_csv&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;efficiency.csv&#34;</span>
+</span></span></code></pre></div><p>The <code>overview</code> function from each of the data source files is called and all the metrics for that section are added to a dictionary.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>            <span style="color:#75715e"># ACTIVITY METRICS</span>
+</span></span><span style="display:flex;"><span>            metrics <span style="color:#f92672">=</span> overview_config[<span style="color:#e6db74">&#39;activity_metrics&#39;</span>]
+</span></span><span style="display:flex;"><span>            file_name <span style="color:#f92672">=</span> overview_config[<span style="color:#e6db74">&#39;activity_file_csv&#39;</span>]
+</span></span><span style="display:flex;"><span>            file_name <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(data_path, file_name)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            csv <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;metricsnames, netvalues, relativevalues, datasource</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> metric <span style="color:#f92672">in</span> metrics:
+</span></span><span style="display:flex;"><span>                (last, percentage) <span style="color:#f92672">=</span> get_trend(metric<span style="color:#f92672">.</span>timeseries())
+</span></span><span style="display:flex;"><span>                csv <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">, </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">, </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">, </span><span style="color:#e6db74">{}</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(metric<span style="color:#f92672">.</span>name, last,
+</span></span><span style="display:flex;"><span>                                                 percentage, metric<span style="color:#f92672">.</span>DS_NAME)
+</span></span><span style="display:flex;"><span>            create_csv(file_name, csv)
+</span></span></code></pre></div><p>Create a CSV file containing the different activity metrics’ trend (relative to the previous time interval). These contain the number of PRs submitted and closed, the number of issues opened and closed and the number of commits made in this time period as compared to the previous time period.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>            <span style="color:#75715e"># AUTHOR METRICS</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            Git Authors:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            -----------
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            Description: average number of developers per month by quarters
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            (so we have the average number of developers per month during
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            those three months). If the approach is to work at the level of month,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            then just the number of developers per month.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            author <span style="color:#f92672">=</span> overview_config[<span style="color:#e6db74">&#39;author_metrics&#39;</span>]
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> author:
+</span></span><span style="display:flex;"><span>                authors_by_period <span style="color:#f92672">=</span> author[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>                title_label <span style="color:#f92672">=</span> file_label <span style="color:#f92672">=</span> authors_by_period<span style="color:#f92672">.</span>name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; per &#39;</span> <span style="color:#f92672">+</span> self<span style="color:#f92672">.</span>interval
+</span></span><span style="display:flex;"><span>                file_path <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(data_path, file_label)
+</span></span><span style="display:flex;"><span>                csv_data <span style="color:#f92672">=</span> authors_by_period<span style="color:#f92672">.</span>timeseries(dataframe<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># generate the CSV and the image file displaying the data</span>
+</span></span><span style="display:flex;"><span>                self<span style="color:#f92672">.</span>create_csv_fig_from_df([csv_data], file_path, [authors_by_period<span style="color:#f92672">.</span>name],
+</span></span><span style="display:flex;"><span>                                            fig_type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;bar&#34;</span>, title<span style="color:#f92672">=</span>title_label, xlabel<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;time_period&#34;</span>,
+</span></span><span style="display:flex;"><span>                                            ylabel<span style="color:#f92672">=</span>authors_by_period<span style="color:#f92672">.</span>id)
+</span></span></code></pre></div><p>Calculate the number of authors per time period (month here) for the range of time we are calculating the metrics for.</p>
+<p>The function <code>create_csv_fig_from_df</code> is a very cool function which I describe below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>            <span style="color:#75715e"># BMI METRICS</span>
+</span></span><span style="display:flex;"><span>            bmi <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>            bmi_metrics <span style="color:#f92672">=</span> overview_config[<span style="color:#e6db74">&#39;bmi_metrics&#39;</span>]
+</span></span><span style="display:flex;"><span>            csv <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> metric <span style="color:#f92672">in</span> bmi_metrics:
+</span></span><span style="display:flex;"><span>                bmi<span style="color:#f92672">.</span>append(metric<span style="color:#f92672">.</span>aggregations())
+</span></span><span style="display:flex;"><span>                csv <span style="color:#f92672">+=</span> metric<span style="color:#f92672">.</span>id <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;, &#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Time to close METRICS</span>
+</span></span><span style="display:flex;"><span>            ttc <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>            ttc_metrics <span style="color:#f92672">=</span> overview_config[<span style="color:#e6db74">&#39;time_to_close_metrics&#39;</span>]
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> metric <span style="color:#f92672">in</span> ttc_metrics:
+</span></span><span style="display:flex;"><span>                ttc<span style="color:#f92672">.</span>append(metric<span style="color:#f92672">.</span>aggregations())
+</span></span><span style="display:flex;"><span>                csv <span style="color:#f92672">+=</span> metric<span style="color:#f92672">.</span>id <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;, &#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># generate efficiency file</span>
+</span></span><span style="display:flex;"><span>            csv <span style="color:#f92672">=</span> csv[:<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>] <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>            csv <span style="color:#f92672">=</span> csv<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#34;_&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>            bmi<span style="color:#f92672">.</span>extend(ttc)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> val <span style="color:#f92672">in</span> bmi:
+</span></span><span style="display:flex;"><span>                csv <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">, &#34;</span> <span style="color:#f92672">%</span> str_val(val)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> csv[<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>:] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;, &#34;</span>:
+</span></span><span style="display:flex;"><span>                csv <span style="color:#f92672">=</span> csv[:<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>]
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            file_name <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(data_path, <span style="color:#e6db74">&#39;efficiency.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>            create_csv(file_name, csv)
+</span></span><span style="display:flex;"><span>            logger<span style="color:#f92672">.</span>debug(<span style="color:#e6db74">&#34;Overview metrics generation complete!&#34;</span>)
+</span></span></code></pre></div><p>The last part of the function gets the BMI and time to close metrics values for the previous time intervals. The queries for these values are configured on the data source file and the <code>aggregaions()</code> function generates those values here.</p>
+<p>These metrics are then calculated by calling the <code>timeseries()</code> or <code>aggregations()</code> methods of the Metric classes. The values returned from these methods are stored in files which will then be used when the report is being created using LaTex.</p>
+<p>Other sections are as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">project_activity</span>(index, start, end):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;Compute the metrics for the project activity section of the enriched
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        github issues index.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        Returns a dictionary containing a &#34;metric&#34; key. This key contains the
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        metrics for this section.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :param index: index object
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :param start: start date to get the data from
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :param end: end date to get the data upto
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :return: dictionary with the value of the metrics
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        results <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;metrics&#34;</span>: [OpenedIssues(index, start, end),
+</span></span><span style="display:flex;"><span>                        ClosedIssues(index, start, end)]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> results
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">project_community</span>(index, start, end):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;Compute the metrics for the project community section of the enriched
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        github issues index.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        Returns a dictionary containing &#34;author_metrics&#34;, &#34;people_top_metrics&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        and &#34;orgs_top_metrics&#34; as the keys and the related Metrics as the values.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :param index: index object
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :param start: start date to get the data from
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :param end: end date to get the data upto
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :return: dictionary with the value of the metrics
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        results <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;author_metrics&#34;</span>: [],
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;people_top_metrics&#34;</span>: [],
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;orgs_top_metrics&#34;</span>: [],
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> results
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">project_process</span>(index, start, end):
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;Compute the metrics for the project process section of the enriched
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        github issues index.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        Returns a dictionary containing &#34;bmi_metrics&#34;, &#34;time_to_close_metrics&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;time_to_close_review_metrics&#34; and patchsets_metrics as the keys and
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        the related Metrics as the values.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        time_to_close_title and time_to_close_review_title contain the file names
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        to be used for time_to_close_metrics and time_to_close_review_metrics
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        metrics data.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :param index: index object
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :param start: start date to get the data from
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :param end: end date to get the data upto
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :return: dictionary with the value of the metrics
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        results <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;bmi_metrics&#34;</span>: [BMI(index, start, end)],
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;time_to_close_metrics&#34;</span>: [DaysToCloseAverage(index, start, end),
+</span></span><span style="display:flex;"><span>                                      DaysToCloseMedian(index, start, end)],
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;time_to_close_review_metrics&#34;</span>: [],
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;patchsets_metrics&#34;</span>: []
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> results
+</span></span></code></pre></div><p>The function create_csv_fig_from_df</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">create_csv_fig_from_df</span>(self, data_frames<span style="color:#f92672">=</span>[], filename<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, headers<span style="color:#f92672">=</span>[], index_label<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>,
+</span></span><span style="display:flex;"><span>                                   fig_type<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, title<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, xlabel<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, ylabel<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, xfont<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>,
+</span></span><span style="display:flex;"><span>                                   yfont<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>, titlefont<span style="color:#f92672">=</span><span style="color:#ae81ff">30</span>, fig_size<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">15</span>), image_type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;png&#34;</span>):
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            Joins all the datafarames horizontally and creates a CSV and an image file from
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            those dataframes.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            :param data_frames: a list of dataframes containing timeseries data from various metrics
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            :param filename: the name of the csv and image file
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            :param headers: a list of headers to be applied to columns of the dataframes
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            :param index_label: name of the index column
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            :param fig_type: figure type. Currently we support &#39;bar&#39; graphs
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                             default: normal graph
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            :param title: display title of the figure
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            :param filename: file name to save the figure as
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            :param xlabel: label for x axis
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            :param ylabel: label for y axis
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            :param xfont: font size of x axis label
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            :param yfont: font size of y axis label
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            :param titlefont: font size of title of the figure
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            :param fig_size: tuple describing size of the figure (in centimeters) (H x W)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            :param image_type: the image type to save the image as: jpg, png, etc
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                               default: png
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            :returns: creates a csv having name as &#34;filename&#34;.csv and an image file
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                      having the name as &#34;filename&#34;.&#34;image_type&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> data_frames:
+</span></span><span style="display:flex;"><span>                logger<span style="color:#f92672">.</span>error(<span style="color:#e6db74">&#34;No dataframes provided to create CSV&#34;</span>)
+</span></span><span style="display:flex;"><span>                sys<span style="color:#f92672">.</span>exit(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">assert</span>(len(data_frames) <span style="color:#f92672">==</span> len(headers))
+</span></span><span style="display:flex;"><span>            dataframes <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> index, df <span style="color:#f92672">in</span> enumerate(data_frames):
+</span></span><span style="display:flex;"><span>                df <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>rename(columns<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;value&#34;</span>: headers[index]})
+</span></span><span style="display:flex;"><span>                dataframes<span style="color:#f92672">.</span>append(df)
+</span></span><span style="display:flex;"><span>            res_df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>concat(dataframes, axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#34;unixtime&#34;</span> <span style="color:#f92672">in</span> res_df:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">del</span> res_df[<span style="color:#e6db74">&#39;unixtime&#39;</span>]
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> index_label:
+</span></span><span style="display:flex;"><span>                index_label <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Date&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Create the CSV file:</span>
+</span></span><span style="display:flex;"><span>            csv_name <span style="color:#f92672">=</span> filename <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;.csv&#34;</span>
+</span></span><span style="display:flex;"><span>            res_df<span style="color:#f92672">.</span>to_csv(csv_name, index_label<span style="color:#f92672">=</span>index_label)
+</span></span><span style="display:flex;"><span>            logger<span style="color:#f92672">.</span>debug(<span style="color:#e6db74">&#34;file: </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> was created.&#34;</span><span style="color:#f92672">.</span>format(csv_name))
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Create the Image:</span>
+</span></span><span style="display:flex;"><span>            image_name <span style="color:#f92672">=</span> filename <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;.&#34;</span> <span style="color:#f92672">+</span> image_type
+</span></span><span style="display:flex;"><span>            figure(figsize<span style="color:#f92672">=</span>fig_size)
+</span></span><span style="display:flex;"><span>            plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> fig_type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;bar&#34;</span>:
+</span></span><span style="display:flex;"><span>                ax <span style="color:#f92672">=</span> res_df<span style="color:#f92672">.</span>plot<span style="color:#f92672">.</span>bar(figsize<span style="color:#f92672">=</span>fig_size)
+</span></span><span style="display:flex;"><span>                ticklabels <span style="color:#f92672">=</span> res_df<span style="color:#f92672">.</span>index
+</span></span><span style="display:flex;"><span>                ax<span style="color:#f92672">.</span>xaxis<span style="color:#f92672">.</span>set_major_formatter(matplotlib<span style="color:#f92672">.</span>ticker<span style="color:#f92672">.</span>FixedFormatter(ticklabels))
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>                plt<span style="color:#f92672">.</span>plot(res_df)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> ylabel:
+</span></span><span style="display:flex;"><span>                ylabel <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;num &#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; &amp; &#34;</span><span style="color:#f92672">.</span>join(headers)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> xlabel:
+</span></span><span style="display:flex;"><span>                xlabel <span style="color:#f92672">=</span> index_label
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            plt<span style="color:#f92672">.</span>title(title, fontsize<span style="color:#f92672">=</span>titlefont)
+</span></span><span style="display:flex;"><span>            plt<span style="color:#f92672">.</span>ylabel(ylabel, fontsize<span style="color:#f92672">=</span>yfont)
+</span></span><span style="display:flex;"><span>            plt<span style="color:#f92672">.</span>xlabel(xlabel, fontsize<span style="color:#f92672">=</span>xfont)
+</span></span><span style="display:flex;"><span>            plt<span style="color:#f92672">.</span>grid(<span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>            plt<span style="color:#f92672">.</span>savefig(image_name)
+</span></span><span style="display:flex;"><span>            logger<span style="color:#f92672">.</span>debug(<span style="color:#e6db74">&#34;Figure </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> was generated.&#34;</span><span style="color:#f92672">.</span>format(image_name))
+</span></span></code></pre></div><p>The function <code>create_csv_fig_from_df</code> does that the name says. We pass on to it a list of data frames (timseries data generated from the different metrics). This data is usually connected to each other or is in comparision with each other (time to close days median VS time to close days average). These data frames are 2 columned (one is the Date column which is also the index and the other is a value column). The column names are changed using values from the header variable. These dataframes are then concatinated together to create one dataframe containing all the values and same index (Date).</p>
+<p>In the second part of this function, the concatinated dataframe is then used to create a csv file with the file name that was provided earlier (the extension is csv).</p>
+<p>In the third part of this function, using the dataframes created in the first part, a <code>eps</code>(default) file is generated. These CSV and EPS files are stored in the folder for that section.</p>
 <p>The good thing about the new reports is that is uses a lot of already available code (pandas, elasticsearch_dsl) which allows us to focus on the functionality rather than focus on the implementation.</p>
-
-<p>We are using the <a href="https://github.com/chaoss/grimoirelab-manuscripts/tree/master/manuscripts/latex_template">old latex format and directory structure</a> only. I&rsquo;ve tweaked that format a bit so that the images and CSV files are rendered properly. I&rsquo;ll make a PR adding the method to generate the report by today.</p>
-
-<hr />
-
+<p>We are using the <a href="https://github.com/chaoss/grimoirelab-manuscripts/tree/master/manuscripts/latex_template">old latex format and directory structure</a> only. I’ve tweaked that format a bit so that the images and CSV files are rendered properly. I’ll make a PR adding the method to generate the report by today.</p>
+<hr>
 <p>The final tasks that remain are:</p>
-
 <ul>
 <li>Add good testing suite for the reports</li>
 <li>Add documentation on how the reports can be generated</li>
 <li>Add the Notebooks for GMD and visualizations for the users to have a better hands on approach in looking at the GMD metrics.</li>
 <li>setup.py should be updated so that manusripts2 can be used properly.</li>
 </ul>
-
-<p>And that is it. I&rsquo;ll be wrting a final report that will contain all the details about the project under GSoC and summarizing the report generation.</p>
-
+<p>And that is it. I’ll be wrting a final report that will contain all the details about the project under GSoC and summarizing the report generation.</p>
 <p>Chao!</p>
 
   </article>
@@ -483,7 +388,7 @@ In the third part of this function, using the dataframes created in the first pa
 
       <footer class="footer">
   <section class="container">
-    © 2018 · Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    © 2026 · Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
   </section>
 </footer>
 

@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="author" content="Pranjal Aswani">
-    <meta name="description" content="This is where i will rant about stuff">
+    <meta name="author" content="Pranjal">
+    <meta name="description" content="Personal blog describing the work that I do, insights about life and my opinions on things">
     <meta name="keywords" content="blog,developer,personal">
 
     <base href="https://aswanipranjal.github.io/">
@@ -25,7 +25,7 @@
 
     
 
-    <meta name="generator" content="Hugo 0.40.1" />
+    <meta name="generator" content="Hugo 0.139.4">
   </head>
 
   <body>
@@ -39,11 +39,11 @@
     <ul class="navigation-list float-right">
       
       <li class="navigation-item">
-        <a class="navigation-link" href="/posts/">Blog</a>
+        <a class="navigation-link" href="/about/">About</a>
       </li>
       
       <li class="navigation-item">
-        <a class="navigation-link" href="/about/">About</a>
+        <a class="navigation-link" href="/posts/">Posts</a>
       </li>
       
       <li class="navigation-item">
@@ -65,47 +65,25 @@
       <h2 class="date">June 13, 2018</h2>
     </header>
 
-    
-
-<p><strong>NOTE:</strong> Bold text apart from headings are links to files/images/notebooks. Kindly click on them for better explainations.</p>
-
+    <p><strong>NOTE:</strong> Bold text apart from headings are links to files/images/notebooks. Kindly click on them for better explainations.</p>
 <p>This week (WEEK 5) in <em>Manuscripts: A quest for better reporting of your projects</em>, we will look at some visualizations depecting the various Metrics. We will also see a lot of tests and some documentation describing the new_functions created.</p>
-
 <h2 id="in-brief">In-Brief</h2>
-
-<p>Introduction to the week. We&rsquo;ll look at some tasks and their status.</p>
-
+<p>Introduction to the week. We’ll look at some tasks and their status.</p>
 <h5 id="task-1-completed">Task 1 [Completed]:</h5>
-
-<p>This task was to cleanup the esquery.py file and use elasticsearch_dsl to get aggregations and query elasticsearch.
-This task has been continued for too long, but it is finally finished. All the tests pass. The last PR that I added for this task splits some tests into smaller more manageable tests.</p>
-
+<p>This task was to cleanup the esquery.py file and use elasticsearch_dsl to get aggregations and query elasticsearch. This task has been continued for too long, but it is finally finished. All the tests pass. The last PR that I added for this task splits some tests into smaller more manageable tests.</p>
 <p><a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/64">Related PR</a></p>
-
-<p>Something to remember and always rememeber from this task:
-If you do:</p>
-
-<pre><code class="language-python">test_dict = OrderedDict({&quot;a&quot;: 1, &quot;b&quot;: 2, &quot;c&quot;: 3, &quot;d&quot;: 4})
-</code></pre>
-
-<p>This might still not give you an ordered dict in the form that you want. The dictionary that you&rsquo;ve passed in the OrderedDict can still reorder it self and you&rsquo;ll get a different dict rather than what you hoped for.
-Do this instead:</p>
-
-<pre><code class="language-python">test_dict = OrderedDict()
-test_dict['a'] = 1
-test_dict['b'] = 2
-test_dict['c'] = 3
-test_dict['d'] = 4
-</code></pre>
-
-<p>And you&rsquo;ll surely get what you want.</p>
-
+<p>Something to remember and always rememeber from this task: If you do:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    test_dict <span style="color:#f92672">=</span> OrderedDict({<span style="color:#e6db74">&#34;a&#34;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#34;b&#34;</span>: <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;c&#34;</span>: <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#34;d&#34;</span>: <span style="color:#ae81ff">4</span>})
+</span></span></code></pre></div><p>This might still not give you an ordered dict in the form that you want. The dictionary that you’ve passed in the OrderedDict can still reorder it self and you’ll get a different dict rather than what you hoped for. Do this instead:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    test_dict <span style="color:#f92672">=</span> OrderedDict()
+</span></span><span style="display:flex;"><span>    test_dict[<span style="color:#e6db74">&#39;a&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    test_dict[<span style="color:#e6db74">&#39;b&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    test_dict[<span style="color:#e6db74">&#39;c&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>    test_dict[<span style="color:#e6db74">&#39;d&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+</span></span></code></pre></div><p>And you’ll surely get what you want.</p>
 <h5 id="task-2-on-going">Task 2 [On going]:</h5>
-
 <p>Originally this task was about trying to calculate the GMD metrics and creating Issues for the ones which have not yey been defined properly. I created <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/GMD-metrics-from-scratch.ipynb">this Notebook</a> tracking all the metrics that can be calculated currently and calculated them using the new_functions that you will read about below.</p>
-
 <p>The discussion on the definitions of some metrics is still on going. The committee is coming to conclusions on how the Metrics should be calcualted and Jesus (my mentor) is creating PRs to add the final definitions to the Metrics under discussion. The issues related to this task are as follows:</p>
-
 <ul>
 <li><a href="https://github.com/chaoss/wg-gmd/issues/10">wg-gmd#10</a>.</li>
 <li><a href="https://github.com/chaoss/wg-gmd/issues/9">wg-gmd#9</a>. Jesus will be creating a PR adding the definitions which can then be finalised.</li>
@@ -115,79 +93,38 @@ test_dict['d'] = 4
 <li><a href="https://github.com/chaoss/wg-gmd/issues/5">wg-gmd#5</a>. After a very fruitful discussion, We came to the conclusion that this can be best described by the formula: <code>issues_closed / (issues_opened + issues_backlog)</code>.</li>
 <li><a href="https://github.com/chaoss/wg-gmd/pull/12">Jesus created a PR related to this issue which is under review</a>.</li>
 </ul>
-
 <p>That is the progress of this task, for now.</p>
-
 <h5 id="task-3-complete-version-1">Task 3 [Complete: Version-1]:</h5>
-
 <p>This task was to complete the first acceptable version of the new functions and classes that can be used to calculate the GMD and other Metrics. We will be expanding on this below.</p>
-
 <p>Related Issues: <a href="https://github.com/chaoss/grimoirelab-manuscripts/issues/59">issue#59</a>, <a href="https://github.com/chaoss/grimoirelab-manuscripts/issues/62">issue#62</a></p>
-
 <p>PRs Created: <a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/67">PR#67</a></p>
-
 <h5 id="task-4-on-going-more-research-required">Task 4 [On going: More research required]:</h5>
-
 <p>This task was the dragon that I wanted to slay for a very long time. I love visualisations and for this task I had to look into <a href="https://plot.ly/python/">Plotly</a> (which is awesome, btw), <a href="https://seaborn.pydata.org/">Seaborn</a> and <a href="https://altair-viz.github.io/">Altair</a>.</p>
-
 <p>I created <a href="https://nbviewer.jupyter.org/github/aswanipranjal/gsoc-manuscripts/blob/master/Plotly.ipynb">this notebook</a> for Plotly, please have a look. I expand on this Task more, below.</p>
-
 <h5 id="task-5-on-going-studying-the-code-to-create-prs">Task 5 [On going: Studying the code to create PRs]:</h5>
-
-<p>For this task, I have to create PRs for the Metrics which are not present in the enriched Indices, for manuscripts.
-I am still in the middle of reading code for <a href="https://github.com/chaoss/grimoirelab-elk">grimoire-elk</a> and understanding the workflow. I have to create PRs for the Metrics the definitions for which are pretty clear and simple.</p>
-
-<p>Now, let&rsquo;s dive in!!</p>
-
-<hr />
-
+<p>For this task, I have to create PRs for the Metrics which are not present in the enriched Indices, for manuscripts. I am still in the middle of reading code for <a href="https://github.com/chaoss/grimoirelab-elk">grimoire-elk</a> and understanding the workflow. I have to create PRs for the Metrics the definitions for which are pretty clear and simple.</p>
+<p>Now, let’s dive in!!</p>
+<hr>
 <h2 id="in-detail">In-Detail</h2>
-
 <h5 id="task-3">Task 3:</h5>
-
 <p><a href="https://github.com/aswanipranjal/grimoirelab-manuscripts/blob/8bc19144fed8f20af4cbaf71286f32a7a60b9370/manuscripts2/Readme.md">Readme: to understand the classes better</a>.</p>
-
 <p>In Task 3, I had to create a PR to Manuscripts: adding the new_functions into it. I had a lot of testing and reordering to do for the new functions.</p>
-
-<p>The idea behind these functions is to implement all the functionality that the user will require and have the user calculate the metrics in a minimalistic manner. We have focused on chainability of methods and objects which makes the code look beautiful too!
-<a href="https://github.com/aswanipranjal/grimoirelab-manuscripts/blob/8bc19144fed8f20af4cbaf71286f32a7a60b9370/manuscripts2/new_functions.py">Link to file</a></p>
-
-<p>The basic class is <code>EQCC</code>. It is an acronym for Elasticsearch Query Connect and Compute because this class provides the Querying, Connection and Computation of aggregations from the required elasticsearch Index.
-This class takes in an Index object which contains the details of the Index to be queried.</p>
-
+<p>The idea behind these functions is to implement all the functionality that the user will require and have the user calculate the metrics in a minimalistic manner. We have focused on chainability of methods and objects which makes the code look beautiful too! <a href="https://github.com/aswanipranjal/grimoirelab-manuscripts/blob/8bc19144fed8f20af4cbaf71286f32a7a60b9370/manuscripts2/new_functions.py">Link to file</a></p>
+<p>The basic class is <code>EQCC</code>. It is an acronym for Elasticsearch Query Connect and Compute because this class provides the Querying, Connection and Computation of aggregations from the required elasticsearch Index. This class takes in an Index object which contains the details of the Index to be queried.</p>
 <h6 id="analogy">Analogy:</h6>
-
-<p>Think of a Search object(which fetches the required data from elasticsearch) as a stack of aggregations. This stack of aggregations has some general properties or filters which can be added around this stack as Query objects.
-Inside the stack, we have aggregations which have to be fetched from the index in elasticsearch. We can add the aggregations one by one and nest them too by poping the last added aggregation, placing it as a child aggregation under a covering(parent) aggregation and putting this aggregation inside the stack it self. We can then repeat this process so that we get a doubly nested aggregation. That is the general idea behind this calss.</p>
-
-<p>The <code>aggregations</code> variable, an OrderedDict, inside an EQCC object is what keeps track of the aggregations that are added.
-The <code>queries</code> variable, a dict, contains the filters (properties of the stack) which have to be applied when querying elasticsearch.</p>
-
-<p>Different aggregations such as <code>get_terms</code>, <code>get_sum</code>, <code>get_percentiles</code> can be added to the stack to be calculated.
-I&rsquo;ve explained the working of these functions and the EQCC object, <a href="https://github.com/aswanipranjal/grimoirelab-manuscripts/blob/8bc19144fed8f20af4cbaf71286f32a7a60b9370/manuscripts2/Readme.md">here in the README.md</a>, Please have a look at it for more details. This Readme covers most of the technical functionality that the classes provide.</p>
-
-<p><a href="https://github.com/aswanipranjal/grimoirelab-manuscripts/blob/8bc19144fed8f20af4cbaf71286f32a7a60b9370/manuscripts2/derived_classes.py">PullRequests and Issues</a> are the subclasses that have been created using the EQCC class as their base. These classes currently only differentiate them selves by having fixed queries: {&ldquo;pull_request&rdquo;:&ldquo;true&rdquo;} and {&ldquo;pull_request&rdquo;:&ldquo;false&rdquo;}. But we will be adding more class specific functions in them once the definitions for more Metrics are made clear.</p>
-
+<p>Think of a Search object(which fetches the required data from elasticsearch) as a stack of aggregations. This stack of aggregations has some general properties or filters which can be added around this stack as Query objects. Inside the stack, we have aggregations which have to be fetched from the index in elasticsearch. We can add the aggregations one by one and nest them too by poping the last added aggregation, placing it as a child aggregation under a covering(parent) aggregation and putting this aggregation inside the stack it self. We can then repeat this process so that we get a doubly nested aggregation. That is the general idea behind this calss.</p>
+<p>The <code>aggregations</code> variable, an OrderedDict, inside an EQCC object is what keeps track of the aggregations that are added. The <code>queries</code> variable, a dict, contains the filters (properties of the stack) which have to be applied when querying elasticsearch.</p>
+<p>Different aggregations such as <code>get_terms</code>, <code>get_sum</code>, <code>get_percentiles</code> can be added to the stack to be calculated. I’ve explained the working of these functions and the EQCC object, <a href="https://github.com/aswanipranjal/grimoirelab-manuscripts/blob/8bc19144fed8f20af4cbaf71286f32a7a60b9370/manuscripts2/Readme.md">here in the README.md</a>, Please have a look at it for more details. This Readme covers most of the technical functionality that the classes provide.</p>
+<p><a href="https://github.com/aswanipranjal/grimoirelab-manuscripts/blob/8bc19144fed8f20af4cbaf71286f32a7a60b9370/manuscripts2/derived_classes.py">PullRequests and Issues</a> are the subclasses that have been created using the EQCC class as their base. These classes currently only differentiate them selves by having fixed queries: {“pull_request”:“true”} and {“pull_request”:“false”}. But we will be adding more class specific functions in them once the definitions for more Metrics are made clear.</p>
 <h6 id="moving-on-to-the-tests">Moving on to the tests</h6>
-
-<p>The previous version of new_functions were sloppy, as it was still in it&rsquo;s initial stage, but I worked on them and tested them thoroughly to find edge-cases and loop holes. <a href="https://github.com/aswanipranjal/grimoirelab-manuscripts/blob/15a39620fe87f8805e7be39e32ea98b2168abc2f/manuscripts2/tests.py">Tests have been added</a> to the basic functions and I will be adding some more tests to test the <a href="https://github.com/aswanipranjal/grimoirelab-manuscripts/blob/15a39620fe87f8805e7be39e32ea98b2168abc2f/manuscripts2/tests.py#L282">complex functions</a> created from these basic functions.
-The complex functions will have to be tested using specific data from git or github data sources.</p>
-
+<p>The previous version of new_functions were sloppy, as it was still in it’s initial stage, but I worked on them and tested them thoroughly to find edge-cases and loop holes. <a href="https://github.com/aswanipranjal/grimoirelab-manuscripts/blob/15a39620fe87f8805e7be39e32ea98b2168abc2f/manuscripts2/tests.py">Tests have been added</a> to the basic functions and I will be adding some more tests to test the <a href="https://github.com/aswanipranjal/grimoirelab-manuscripts/blob/15a39620fe87f8805e7be39e32ea98b2168abc2f/manuscripts2/tests.py#L282">complex functions</a> created from these basic functions. The complex functions will have to be tested using specific data from git or github data sources.</p>
 <p>Apart from this, some implementations have been added into the PR, in the form of <a href="https://github.com/aswanipranjal/grimoirelab-manuscripts/blob/0071cfdf50c915c60bc0e8a8fdd0bfcb80a9db09/manuscripts2/Sample%20metrics.ipynb">this notebook</a>. I am calculating the metrics that Manuscripts produces currently using the new_functions created.</p>
-
 <p>And that is Task 3: Version-1. Once <a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/67">this PR</a> is reviewed and accepted, we can start integrating the code into manuscripts change the report.py file to use these functions to create the reports.</p>
-
 <h3 id="task-4">Task 4:</h3>
-
 <p>Okay, here is the deal with visualisations. They need data: and not all data can be visualised using all the design patterns. <a href="https://nbviewer.jupyter.org/github/aswanipranjal/gsoc-manuscripts/blob/master/Plotly.ipynb">I was successful in creating some diagrams using Plotly</a> but not so lucky with Seaborn and Altair.</p>
-
 <p>Seaborn and Altair are statistical visualisation libraries which depend on the <a href="https://seaborn.pydata.org/examples/scatterplot_matrix.html">variation of data</a> and <a href="https://vega.github.io/editor/#/">different categories</a> that the values are divided into.</p>
-
-<p>The problem that I faced when trying to use Seaborn and Altair is the data being generated by the Metrics currently available is very simple, of a same pattern and lots of time it is single valued data. For example the opened and closed issues, the number of commits created by authors or by period, the total number of lines changed by authors, the trend of open and closed PRs and Issues and so on.
-We can repeat the same methods such as bar graphs and point plots to plot that data, but that is of less use and will suck the fun out of the whole visualisation process. So I think it is needed that we try to add more variance and convert the data generated by the Metrics and simultaneously look for more patterns by which the data can be plotted.</p>
-
+<p>The problem that I faced when trying to use Seaborn and Altair is the data being generated by the Metrics currently available is very simple, of a same pattern and lots of time it is single valued data. For example the opened and closed issues, the number of commits created by authors or by period, the total number of lines changed by authors, the trend of open and closed PRs and Issues and so on. We can repeat the same methods such as bar graphs and point plots to plot that data, but that is of less use and will suck the fun out of the whole visualisation process. So I think it is needed that we try to add more variance and convert the data generated by the Metrics and simultaneously look for more patterns by which the data can be plotted.</p>
 <p>Using Plotly, I was able to create:</p>
-
 <ul>
 <li><a href="https://nbviewer.jupyter.org/github/aswanipranjal/gsoc-manuscripts/blob/master/Plotly.ipynb#Distribution-of-issues-by-month-over-time">Scatter plots showing the distribution of Open, Closed and Opened Issues per month</a>.</li>
 <li><a href="https://nbviewer.jupyter.org/github/aswanipranjal/gsoc-manuscripts/blob/master/Plotly.ipynb#Closed-and-open-issues">Number of Closed and still Open issues seggregate by authors</a>.</li>
@@ -195,16 +132,12 @@ We can repeat the same methods such as bar graphs and point plots to plot that d
 <li><a href="https://nbviewer.jupyter.org/github/aswanipranjal/gsoc-manuscripts/blob/master/Plotly.ipynb#Moving-average">Moving average per week for time_to_close_days of the closed issues</a>.</li>
 <li><a href="https://nbviewer.jupyter.org/github/aswanipranjal/gsoc-manuscripts/blob/master/Plotly.ipynb#from-source">Also another scatter plot shwowing the time_to_close_days over all the issues created</a></li>
 <li><a href="https://nbviewer.jupyter.org/github/aswanipranjal/gsoc-manuscripts/blob/master/Plotly.ipynb#By-days-with-sliding-range">A scatter plot with a sliding window showing the commit distribution per day from start to current commit</a>.</li>
-<li><a href="https://nbviewer.jupyter.org/github/aswanipranjal/gsoc-manuscripts/blob/master/Plotly.ipynb#Number-of-contributors">A pie chart showing the number of contributors and the lines changed/added/removed by them showing the impact made by each contrinutor on the project</a></li>
+<li><a href="https://nbviewer.org/github/aswanipranjal/gsoc-manuscripts/blob/master/Plotly/Plotly.ipynb#Number-of-contributors">A pie chart showing the number of contributors and the lines changed/added/removed by them showing the impact made by each contributor on the project</a></li>
 <li><a href="https://nbviewer.jupyter.org/github/aswanipranjal/gsoc-manuscripts/blob/master/Plotly.ipynb#Number-of-contributors">And finally a comparision of the number of lines added vs lines removed per author at the end of the notebook.</a></li>
 </ul>
-
 <p>This week, I will be working towards creating variation in the current data and look at more types of patterns that we can plot the data in.</p>
-
-<hr />
-
+<hr>
 <h4 id="tasks-for-week-6">Tasks for week-6</h4>
-
 <ul>
 <li>Task-1: Jesus will be merging the last PR finishing this task.</li>
 <li>Task-2: Discuss more about the metrics and advance on what can be advanced.</li>
@@ -213,9 +146,7 @@ We can repeat the same methods such as bar graphs and point plots to plot that d
 <li>Task-5: Create PRs in grimoirelab-elk/perceval for the missing metrics in the enriched index.</li>
 <li>Task-6: Create visualisations using Plotly for GMD metrics.</li>
 </ul>
-
-<p>And that&rsquo;s all folks!!</p>
-
+<p>And that’s all folks!!</p>
 <p>Adios.</p>
 
   </article>
@@ -226,7 +157,7 @@ We can repeat the same methods such as bar graphs and point plots to plot that d
 
       <footer class="footer">
   <section class="container">
-    © 2018 · Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    © 2026 · Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
   </section>
 </footer>
 
