@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>TOBOR A TON MA I</title>
-    <link>https://aswanipranjal.github.io/</link>
-    <description>Recent content on TOBOR A TON MA I</description>
+    <title>Gsoc on TOBOR A TON MA I</title>
+    <link>https://aswanipranjal.github.io/tags/gsoc/</link>
+    <description>Recent content in Gsoc on TOBOR A TON MA I</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 11 Aug 2018 16:29:46 +0800</lastBuildDate>
-    <atom:link href="https://aswanipranjal.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://aswanipranjal.github.io/tags/gsoc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>We are there.</title>
       <link>https://aswanipranjal.github.io/posts/week-14/</link>
@@ -65,13 +65,6 @@
       <description>&lt;p&gt;Hey all! I am sorry for been gone for so long.&lt;/p&gt;&#xA;&lt;p&gt;Welcome to Week-7 of Google Summer of Code. First of all, I’d like to thank my mentors: Jesus and Valerio for passing me in the first evaluations! I am very happy about it. They’ve been really great and supportive throughout and I’d like to Thank them for that.&lt;/p&gt;&#xA;&lt;p&gt;Since I skipped the last week, this post might be a little longer than usual.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>null week, move ahead</title>
-      <link>https://aswanipranjal.github.io/posts/week-6/</link>
-      <pubDate>Wed, 20 Jun 2018 16:29:12 +0800</pubDate>
-      <guid>https://aswanipranjal.github.io/posts/week-6/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Come with me.. and you&#39;ll be.. in a world of visualizations, tests and documentation </title>
       <link>https://aswanipranjal.github.io/posts/week-5/</link>
       <pubDate>Wed, 13 Jun 2018 16:29:10 +0800</pubDate>
@@ -112,20 +105,6 @@
       <pubDate>Thu, 10 May 2018 16:10:00 +0800</pubDate>
       <guid>https://aswanipranjal.github.io/posts/community-bonding/</guid>
       <description>&lt;p&gt;This is the first post describing what I have being doing since the starting of the community boding period. There will be one post every wednesday, starting next week, describing what I did the previous week and having links to all the necessary resources to track the project.&lt;/p&gt;&#xA;&lt;h2 id=&#34;community-bonding-april-23rd---may-10th&#34;&gt;Community Bonding (April 23rd - May 10th)&lt;/h2&gt;&#xA;&lt;p&gt;The community bonding period lasts from 23rd April - 13th April. During this time, I had to understand how the community works and how I should participate in the discussions that happen. This time also has to be used to setup clear line of communication with the Mentors and the community.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Preparation for GSoC</title>
-      <link>https://aswanipranjal.github.io/posts/gsoc-prep/</link>
-      <pubDate>Mon, 30 Apr 2018 23:29:20 +0530</pubDate>
-      <guid>https://aswanipranjal.github.io/posts/gsoc-prep/</guid>
-      <description>&lt;h5 id=&#34;before-the-orgs-were-announced&#34;&gt;Before the orgs were announced&lt;/h5&gt;&#xA;&lt;p&gt;Since I enrolled into Engineering back in 2014, I wanted to participate in GSoC. I tried to apply in 2016 and 2017 but didn&amp;rsquo;t get in. This is my final year of Engineering and this year I meant business.&lt;/p&gt;&#xA;&lt;p&gt;I was interning at Network Intelligence India (1) Pvt. Ltd. when the program schedule for 2018 was announced. I didn&amp;rsquo;t have a concrete plan in mind at that time but I knew that I wanted to apply.&#xA;I quit the internship in December to give myself enough time to prepare. Apparently some students start preparing as early as September!&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>About Pranjal</title>
-      <link>https://aswanipranjal.github.io/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://aswanipranjal.github.io/about/</guid>
-      <description>&lt;p&gt;Hey there! I am Pranjal Aswani and I program computers for a living.&lt;/p&gt;&#xA;&lt;p&gt;This blog was initially written as part of my participation in Google Summer of code in 2018, working with the wonderful &lt;a href=&#34;https://chaoss.community/&#34;&gt;CHAOSS&lt;/a&gt; community.&lt;/p&gt;&#xA;&lt;p&gt;Now it serves as my personal blog.&lt;/p&gt;&#xA;&lt;p&gt;Like many developers, I have a keen interest in tech, music and movies. I want to be a force for good in the world and I believe that technology can help us achieve that.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -1,180 +1,124 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on TOBOR A TON MA I</title>
     <link>https://aswanipranjal.github.io/posts/</link>
     <description>Recent content in Posts on TOBOR A TON MA I</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 11 Aug 2018 20:56:31 +0530</lastBuildDate>
-    
-	<atom:link href="https://aswanipranjal.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 11 Aug 2018 16:29:46 +0800</lastBuildDate>
+    <atom:link href="https://aswanipranjal.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>We are there.</title>
       <link>https://aswanipranjal.github.io/posts/week-14/</link>
-      <pubDate>Sat, 11 Aug 2018 20:56:31 +0530</pubDate>
-      
+      <pubDate>Sat, 11 Aug 2018 16:29:46 +0800</pubDate>
       <guid>https://aswanipranjal.github.io/posts/week-14/</guid>
-      <description>Welcome! To the final week of Google Summer of Code-18.
-This is the last in the series of blog posts that I&amp;rsquo;ve been writing about my progress during GSoC-18.
-I am greatful to my mentors: Jesus M. Gonzalez-Barahona and Valerio Cosentino for guiding and helping me through out the summer.
-This blog post also serves as the final report of the work that I&amp;rsquo;ve done during GSoC. The second part of this post is divided into the tasks that I performed and the Issues, PRs, files that were created to complete those tasks.</description>
+      <description>&lt;p&gt;&lt;em&gt;Welcome! To the final week of Google Summer of Code-18.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;This is the last in the &lt;a href=&#34;https://aswanipranjal.github.io/tags/gsoc/&#34;&gt;series&lt;/a&gt; of blog posts that I’ve been writing about my progress during GSoC-18.&lt;/p&gt;&#xA;&lt;p&gt;I am greatful to my mentors: &lt;a href=&#34;https://gsyc.urjc.es/~jgb/&#34;&gt;Jesus M. Gonzalez-Barahona&lt;/a&gt; and &lt;a href=&#34;https://valeriocos.github.io/&#34;&gt;Valerio Cosentino&lt;/a&gt; for guiding and helping me through out the summer.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;This blog post also serves as the final report of the work that I’ve done during GSoC. The second part of this post is divided into the tasks that I performed and the Issues, PRs, files that were created to complete those tasks.&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>I can almost taste it</title>
       <link>https://aswanipranjal.github.io/posts/week-13/</link>
-      <pubDate>Wed, 08 Aug 2018 14:08:55 +0530</pubDate>
-      
+      <pubDate>Wed, 08 Aug 2018 16:29:45 +0800</pubDate>
       <guid>https://aswanipranjal.github.io/posts/week-13/</guid>
-      <description>Control room!! This is the reporting ship: All tasks are complete. I repeat: All tasks are complete.
-This is the final week of GSoC. I am happy to tell you that we have the first version of the reports done. The PDF looks wonderful and everything is in order. Welcome to the start of the final week of Google Summer of Code.
-In Brief Last week we were left with only 2 tasks.</description>
+      <description>&lt;p&gt;Control room!! This is the reporting ship: &lt;em&gt;All tasks are complete&lt;/em&gt;. I repeat: &lt;strong&gt;All tasks are complete.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;This is the final week of GSoC. I am happy to tell you that we have the first version of the reports done. &lt;a href=&#34;https://drive.google.com/file/d/1-3MHbHHWudLkT3rQyQlEsIfSLsogIplA/view?usp=sharing&#34;&gt;The PDF looks wonderful&lt;/a&gt; and everything is in order. Welcome to the start of the final week of Google Summer of Code.&lt;/p&gt;&#xA;&lt;h2 id=&#34;in-brief&#34;&gt;In Brief&lt;/h2&gt;&#xA;&lt;p&gt;Last week we were left with only 2 tasks.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>I see light at the end of this tunnel</title>
       <link>https://aswanipranjal.github.io/posts/week-12/</link>
-      <pubDate>Fri, 03 Aug 2018 00:13:02 +0530</pubDate>
-      
+      <pubDate>Fri, 03 Aug 2018 16:29:29 +0800</pubDate>
       <guid>https://aswanipranjal.github.io/posts/week-12/</guid>
-      <description>This is the third last week. I am running on RedBull, Coffee and an occasional meal in between. This is so exciting!
-Hello everyone. Welcome to Google Summer of Code-18: Week-12&amp;rsquo;s blog. As I write this, only 12 days remain. Here is where we stand as of now:
-In Brief Last time you were reading this blog, 3 tasks remained.
-Task-5 [Progressing..still!]: Task: To check which metrics still need the relevant fields to be generated so that those metrics can be calculated.</description>
+      <description>&lt;p&gt;This is the third last week. I am running on RedBull, Coffee and an occasional meal in between. This is so exciting!&lt;/p&gt;&#xA;&lt;p&gt;Hello everyone. Welcome to Google Summer of Code-18: Week-12’s blog. As I write this, only 12 days remain. Here is where we stand as of now:&lt;/p&gt;&#xA;&lt;h2 id=&#34;in-brief&#34;&gt;In Brief&lt;/h2&gt;&#xA;&lt;p&gt;Last time you were reading this blog, 3 tasks remained.&lt;/p&gt;&#xA;&lt;h5 id=&#34;task-5-progressingstill&#34;&gt;Task-5 [Progressing..still!]:&lt;/h5&gt;&#xA;&lt;p&gt;&lt;strong&gt;Task:&lt;/strong&gt; &lt;em&gt;To check which metrics still need the relevant fields to be generated so that those metrics can be calculated.&lt;/em&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Week-11</title>
       <link>https://aswanipranjal.github.io/posts/week-11/</link>
-      <pubDate>Wed, 25 Jul 2018 12:06:57 +0530</pubDate>
-      
+      <pubDate>Wed, 25 Jul 2018 16:29:25 +0800</pubDate>
       <guid>https://aswanipranjal.github.io/posts/week-11/</guid>
-      <description>If you have a good testing infrastructure, you can do anything with your code. Everything becomes easy because you know that as long as the tests are passing, everything is A-Okay. The only downside is that testing is hard, man.
-Welcome to Google Summer of Code-18: Week-11.
-In Brief Task-5 [Almost Done (still..)]: Task: Try to figure out how to calculate the metrics which depend on Pull Requests Comment data and any other that are remaining.</description>
+      <description>&lt;p&gt;If you have a good testing infrastructure, you &lt;em&gt;can&lt;/em&gt; do anything with your code. Everything becomes easy because you know that as long as the tests are passing, everything is A-Okay. The only downside is that testing is hard, man.&lt;/p&gt;&#xA;&lt;p&gt;Welcome to Google Summer of Code-18: Week-11.&lt;/p&gt;&#xA;&lt;h2 id=&#34;in-brief&#34;&gt;In Brief&lt;/h2&gt;&#xA;&lt;h5 id=&#34;task-5-almost-done-still&#34;&gt;Task-5 [Almost Done (still..)]:&lt;/h5&gt;&#xA;&lt;p&gt;&lt;strong&gt;Task&lt;/strong&gt;: Try to figure out how to calculate the metrics which depend on Pull Requests Comment data and any other that are remaining.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>All hands on deck!</title>
       <link>https://aswanipranjal.github.io/posts/week-10/</link>
-      <pubDate>Wed, 18 Jul 2018 08:54:17 +0530</pubDate>
-      
+      <pubDate>Wed, 18 Jul 2018 16:29:23 +0800</pubDate>
       <guid>https://aswanipranjal.github.io/posts/week-10/</guid>
-      <description>I am very happy to inform y&amp;rsquo;all that I&amp;rsquo;ve passed my second evaluation. Jesus and Valerio helped me a ton in this phase so I&amp;rsquo;d like to thank them. I&amp;rsquo;d also like to thank all of the CHAOSS community for their active participation in defining and discussing the details of the remaining metrics.
-Aaaaaaaaaand we are in the final phase of GSoC. This is now or never people!! Welcome to Google Summer of Code-18 Week-10.</description>
+      <description>&lt;p&gt;I am very happy to inform y’all that I’ve passed my second evaluation. Jesus and Valerio helped me a ton in this phase so I’d like to thank them. I’d also like to thank all of the CHAOSS community for their active participation in defining and discussing the details of the remaining metrics.&lt;/p&gt;&#xA;&lt;p&gt;Aaaaaaaaaand we are in the final phase of GSoC. This is now or never people!! Welcome to Google Summer of Code-18 Week-10.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>If you are happy that you are growing clap your hands!!</title>
       <link>https://aswanipranjal.github.io/posts/week-9/</link>
-      <pubDate>Wed, 11 Jul 2018 12:49:41 +0530</pubDate>
-      
+      <pubDate>Wed, 11 Jul 2018 16:29:19 +0800</pubDate>
       <guid>https://aswanipranjal.github.io/posts/week-9/</guid>
-      <description>I am trying to get into Stoicism and last night I read this quote:
-“Nothing is slower than the true birth of a man.”  Well, this week I understand perfectly what it means.
-Hello and welcome to Week-9 of Google Summer of Code!
-In Brief Last week, we left off with the following tasks.
-Task-2 [Under Progress]: Try to participate in the discussions regarding GMD and other metrics (Task-2).</description>
+      <description>&lt;p&gt;I am trying to get into &lt;a href=&#34;https://en.wikipedia.org/wiki/Stoicism&#34;&gt;Stoicism&lt;/a&gt; and last night I read this quote:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;“Nothing is slower than the true birth of a man.”&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;Well, this week I understand perfectly what it means.&lt;/p&gt;&#xA;&lt;p&gt;Hello and welcome to Week-9 of Google Summer of Code!&lt;/p&gt;&#xA;&lt;h2 id=&#34;in-brief&#34;&gt;In Brief&lt;/h2&gt;&#xA;&lt;p&gt;Last week, we left off with the following tasks.&lt;/p&gt;&#xA;&lt;h5 id=&#34;task-2-under-progress&#34;&gt;Task-2 [Under Progress]:&lt;/h5&gt;&#xA;&lt;p&gt;Try to participate in the discussions regarding GMD and other metrics (Task-2). This task is moving a little slowly, but only a few metrics remain to be properly defined so it can wait a little longer until we set up the remaining infrastructure.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Week 8</title>
       <link>https://aswanipranjal.github.io/posts/week-8/</link>
-      <pubDate>Wed, 04 Jul 2018 07:04:05 +0530</pubDate>
-      
+      <pubDate>Wed, 04 Jul 2018 16:46:34 +0800</pubDate>
       <guid>https://aswanipranjal.github.io/posts/week-8/</guid>
-      <description>HELLO!!
-In this week, I did some experiments and got some good results. Welcome to Week-8 of Google Summer of Code!
-In Brief Task-2 [Under Discussion]:  Open issues for unclear metrics  As last week, this week too the Task-2 is being discussed in the mailing lists.
-Task-3 [Almost Done]:  Create new chainable functions and classes to calcualte the metrics
- I know, Almost Done is a weird tag, but it&amp;rsquo;s true.</description>
+      <description>&lt;p&gt;HELLO!!&lt;/p&gt;&#xA;&lt;p&gt;In this week, I did some experiments and got some good results. Welcome to Week-8 of Google Summer of Code!&lt;/p&gt;&#xA;&lt;h2 id=&#34;in-brief&#34;&gt;In Brief&lt;/h2&gt;&#xA;&lt;h5 id=&#34;task-2-under-discussion&#34;&gt;Task-2 [Under Discussion]:&lt;/h5&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Open issues for unclear metrics&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;As last week, this week too the Task-2 is being discussed in the mailing lists.&lt;/p&gt;&#xA;&lt;h5 id=&#34;task-3-almost-done&#34;&gt;Task-3 [Almost Done]:&lt;/h5&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Create new chainable functions and classes to calcualte the metrics&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;I know, &lt;code&gt;Almost Done&lt;/code&gt; is a weird tag, but it’s true. The new_functions almost good to go as soon as the PR adding them is merged into manuscripts.&lt;/li&gt;&#xA;&lt;li&gt;This week I cleaned up the old code, tested it as a module (earlier they were mere scripts), added comments and function descriptions and over all made the code pretty :P&lt;/li&gt;&#xA;&lt;li&gt;I’ve removed the sample_metrics.ipynb notebook from the manuscripts2 folder and shifted it to Example folder in the main directory. This way we can treat &lt;code&gt;manuscripts2&lt;/code&gt; as a module just like &lt;code&gt;manuscripts&lt;/code&gt;.&lt;/li&gt;&#xA;&lt;li&gt;I also made a mistake and forgot to change other files related to the new_functions so the PR is still to be merged, but it has all the necessary files now so that should be soon, I hope!&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Related PR: &lt;a href=&#34;https://github.com/chaoss/grimoirelab-manuscripts/pull/67&#34;&gt;grimoirelab-manuscripts/pull/67&lt;/a&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Pause, reflect and Plan ahead!</title>
       <link>https://aswanipranjal.github.io/posts/week-7/</link>
-      <pubDate>Wed, 27 Jun 2018 06:51:49 +0530</pubDate>
-      
+      <pubDate>Wed, 27 Jun 2018 16:29:15 +0800</pubDate>
       <guid>https://aswanipranjal.github.io/posts/week-7/</guid>
-      <description>Hey all! I am sorry for been gone for so long.
-Welcome to Week-7 of Google Summer of Code. First of all, I&amp;rsquo;d like to thank my mentors: Jesus and Valerio for passing me in the first evaluations! I am very happy about it. They&amp;rsquo;ve been really great and supportive throughout and I&amp;rsquo;d like to Thank them for that.
-Since I skipped the last week, this post might be a little longer than usual.</description>
+      <description>&lt;p&gt;Hey all! I am sorry for been gone for so long.&lt;/p&gt;&#xA;&lt;p&gt;Welcome to Week-7 of Google Summer of Code. First of all, I’d like to thank my mentors: Jesus and Valerio for passing me in the first evaluations! I am very happy about it. They’ve been really great and supportive throughout and I’d like to Thank them for that.&lt;/p&gt;&#xA;&lt;p&gt;Since I skipped the last week, this post might be a little longer than usual.&lt;/p&gt;</description>
     </item>
-    
+    <item>
+      <title>null week, move ahead</title>
+      <link>https://aswanipranjal.github.io/posts/week-6/</link>
+      <pubDate>Wed, 20 Jun 2018 16:29:12 +0800</pubDate>
+      <guid>https://aswanipranjal.github.io/posts/week-6/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Come with me.. and you&#39;ll be.. in a world of visualizations, tests and documentation </title>
       <link>https://aswanipranjal.github.io/posts/week-5/</link>
-      <pubDate>Wed, 13 Jun 2018 08:14:49 +0530</pubDate>
-      
+      <pubDate>Wed, 13 Jun 2018 16:29:10 +0800</pubDate>
       <guid>https://aswanipranjal.github.io/posts/week-5/</guid>
-      <description>NOTE: Bold text apart from headings are links to files/images/notebooks. Kindly click on them for better explainations.
-This week (WEEK 5) in Manuscripts: A quest for better reporting of your projects, we will look at some visualizations depecting the various Metrics. We will also see a lot of tests and some documentation describing the new_functions created.
-In-Brief Introduction to the week. We&amp;rsquo;ll look at some tasks and their status.</description>
+      <description>&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; Bold text apart from headings are links to files/images/notebooks. Kindly click on them for better explainations.&lt;/p&gt;&#xA;&lt;p&gt;This week (WEEK 5) in &lt;em&gt;Manuscripts: A quest for better reporting of your projects&lt;/em&gt;, we will look at some visualizations depecting the various Metrics. We will also see a lot of tests and some documentation describing the new_functions created.&lt;/p&gt;&#xA;&lt;h2 id=&#34;in-brief&#34;&gt;In-Brief&lt;/h2&gt;&#xA;&lt;p&gt;Introduction to the week. We’ll look at some tasks and their status.&lt;/p&gt;&#xA;&lt;h5 id=&#34;task-1-completed&#34;&gt;Task 1 [Completed]:&lt;/h5&gt;&#xA;&lt;p&gt;This task was to cleanup the esquery.py file and use elasticsearch_dsl to get aggregations and query elasticsearch. This task has been continued for too long, but it is finally finished. All the tests pass. The last PR that I added for this task splits some tests into smaller more manageable tests.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How do you Debug? I use a lot of *print* statements and patience</title>
       <link>https://aswanipranjal.github.io/posts/week-4/</link>
-      <pubDate>Thu, 07 Jun 2018 16:12:47 +0530</pubDate>
-      
+      <pubDate>Thu, 07 Jun 2018 16:29:09 +0800</pubDate>
       <guid>https://aswanipranjal.github.io/posts/week-4/</guid>
-      <description>Welcome to Week 4 of Google Summer of Code. It said in one of the emails from Google, that time will move pretty fast. Yep, 4 weeks over!
-Let&amp;rsquo;s look at the tasks to be completed in this week.
-Brief introduction TASK-1: I created the last PR which completes the migration of manuscripts to elasticsearch_dsl module. The main purpose of this PR was to change esquery.py and metrics.py so that the functions do not directly query elasticsearch.</description>
+      <description>&lt;p&gt;Welcome to Week 4 of Google Summer of Code. It said in one of the emails from Google, that time will move pretty fast. Yep, 4 weeks over!&lt;/p&gt;&#xA;&lt;p&gt;Let’s look at the tasks to be completed in this week.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h4 id=&#34;brief-introduction&#34;&gt;Brief introduction&lt;/h4&gt;&#xA;&lt;p&gt;&lt;strong&gt;TASK-1:&lt;/strong&gt; I created the &lt;a href=&#34;https://github.com/chaoss/grimoirelab-manuscripts/pull/63&#34;&gt;last PR&lt;/a&gt; which completes the migration of manuscripts to elasticsearch_dsl module. The main purpose of this PR was to change esquery.py and metrics.py so that the functions do not directly query elasticsearch. Specifically removing &lt;em&gt;json.loads&lt;/em&gt; from &lt;a href=&#34;https://github.com/chaoss/grimoirelab-manuscripts/blob/104b6575ae2d45f9a26f485491f589500682fddb/manuscripts/esquery.py#L383&#34;&gt;get_agg&lt;/a&gt; in esquery.py and changing &lt;a href=&#34;https://github.com/chaoss/grimoirelab-manuscripts/blob/104b6575ae2d45f9a26f485491f589500682fddb/manuscripts/metrics/metrics.py#L152&#34;&gt;get_metrics_data&lt;/a&gt; to use Search.execute() to get data from elasticsearch.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>A week full of hiccups</title>
       <link>https://aswanipranjal.github.io/posts/week-3/</link>
-      <pubDate>Wed, 30 May 2018 23:43:21 +0530</pubDate>
-      
+      <pubDate>Wed, 30 May 2018 16:10:03 +0800</pubDate>
       <guid>https://aswanipranjal.github.io/posts/week-3/</guid>
-      <description>Hello and welcome to the third week of Google Summer of Code. I hit a couple of speed bumps this week.
-Highlights: Task-1: Complete cleaning esquery.py file, add tests and make the whole manuscripts project use elasticsearch_dsl.py module.
-Progress: I was able to complete writing tests for esquery.py and make the comments more detailed. The changes can be found here. This is the part of the previous PR that I made in the previous week.</description>
+      <description>&lt;p&gt;Hello and welcome to the third week of Google Summer of Code. I hit a couple of speed bumps this week.&lt;/p&gt;&#xA;&lt;h3 id=&#34;highlights&#34;&gt;Highlights:&lt;/h3&gt;&#xA;&lt;h5 id=&#34;task-1&#34;&gt;Task-1:&lt;/h5&gt;&#xA;&lt;p&gt;&lt;em&gt;Complete cleaning esquery.py file, add tests and make the whole manuscripts project use elasticsearch_dsl.py module.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Progress:&lt;/strong&gt; I was able to complete writing tests for esquery.py and make the comments more detailed. &lt;a href=&#34;https://github.com/chaoss/grimoirelab-manuscripts/pull/58/commits/9acc5c2a79a4a09aba1e97f1ae254d60213d3a93&#34;&gt;The changes can be found here&lt;/a&gt;. This is the part of the &lt;a href=&#34;https://github.com/chaoss/grimoirelab-manuscripts/pull/58&#34;&gt;previous PR&lt;/a&gt; that I made in the previous week.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Deep inside the tunnel</title>
       <link>https://aswanipranjal.github.io/posts/week-2/</link>
-      <pubDate>Tue, 22 May 2018 00:00:00 +0000</pubDate>
-      
+      <pubDate>Tue, 22 May 2018 16:10:00 +0800</pubDate>
       <guid>https://aswanipranjal.github.io/posts/week-2/</guid>
-      <description>Okay, so in week 2, I&amp;rsquo;ve had some good challenges to overcome. I was given 3 tasks this week:
- To cleanup esquery.py file. This file is the primary file to create elasticsearch DSL queries which are sent to elasticsearch to get the required results. To create from scratch, a new notebook which queries elasticsearch enriched indices and calculates the metrics. To think about structure of new classes and functions that can be created for the metrics as the old classes are cumbersome to use.</description>
+      <description>&lt;p&gt;Okay, so in week 2, I’ve had some good challenges to overcome. I was given 3 tasks this week:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;To cleanup &lt;a href=&#34;https://github.com/chaoss/grimoirelab-manuscripts/blob/master/manuscripts/esquery.py&#34;&gt;esquery.py&lt;/a&gt; file. This file is the primary file to create elasticsearch DSL queries which are sent to elasticsearch to get the required results.&lt;/li&gt;&#xA;&lt;li&gt;To create from scratch, a new notebook which queries elasticsearch enriched indices and calculates the metrics.&lt;/li&gt;&#xA;&lt;li&gt;To think about structure of new classes and functions that can be created for the metrics as the old classes are cumbersome to use.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;task-1&#34;&gt;Task-1&lt;/h3&gt;&#xA;&lt;p&gt;I’ll start with the First task: below is an analysis of the esquery.py file. This task is actually very vital and related to the other 2 tasks, because while analysing this file, I can tell you what we might need to create the new notebook and the generalized functions for tasks 2 and 3 respectively.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Insert coin to begin</title>
       <link>https://aswanipranjal.github.io/posts/week-1/</link>
-      <pubDate>Wed, 16 May 2018 00:00:00 +0000</pubDate>
-      
+      <pubDate>Wed, 16 May 2018 16:09:57 +0800</pubDate>
       <guid>https://aswanipranjal.github.io/posts/week-1/</guid>
-      <description>This week was interesting! I read the manuscripts base code and played with a lot of functions to learn how they work. It was fun because after being stuck on a few functions and classes, I finally understood that I should burn my laptop, giveup and go home. Good bye!</description>
+      <description>&lt;p&gt;This week was interesting! I read the &lt;a href=&#34;https://github.com/chaoss/grimoirelab-manuscripts&#34;&gt;manuscripts&lt;/a&gt; base code and played with a lot of functions to learn how they work. It was fun because after being stuck on a few functions and classes, I finally understood that I should burn my laptop, giveup and go home. Good bye!&lt;/p&gt;&#xA;&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Ready Player One</title>
-      <link>https://aswanipranjal.github.io/posts/communitybonding/</link>
-      <pubDate>Thu, 10 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://aswanipranjal.github.io/posts/communitybonding/</guid>
-      <description>This is the first post describing what I have being doing since the starting of the community boding period. There will be one post every wednesday, starting next week, describing what I did the previous week and having links to all the necessary resources to track the project.
-Community Bonding (April 23rd - May 10th) The community bonding period lasts from 23rd April - 13th April. During this time, I had to understand how the community works and how I should participate in the discussions that happen.</description>
+      <link>https://aswanipranjal.github.io/posts/community-bonding/</link>
+      <pubDate>Thu, 10 May 2018 16:10:00 +0800</pubDate>
+      <guid>https://aswanipranjal.github.io/posts/community-bonding/</guid>
+      <description>&lt;p&gt;This is the first post describing what I have being doing since the starting of the community boding period. There will be one post every wednesday, starting next week, describing what I did the previous week and having links to all the necessary resources to track the project.&lt;/p&gt;&#xA;&lt;h2 id=&#34;community-bonding-april-23rd---may-10th&#34;&gt;Community Bonding (April 23rd - May 10th)&lt;/h2&gt;&#xA;&lt;p&gt;The community bonding period lasts from 23rd April - 13th April. During this time, I had to understand how the community works and how I should participate in the discussions that happen. This time also has to be used to setup clear line of communication with the Mentors and the community.&lt;/p&gt;</description>
     </item>
-    
     <item>
-      <title>GSoC Prep</title>
+      <title>Preparation for GSoC</title>
       <link>https://aswanipranjal.github.io/posts/gsoc-prep/</link>
-      <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
-      
+      <pubDate>Mon, 30 Apr 2018 23:29:20 +0530</pubDate>
       <guid>https://aswanipranjal.github.io/posts/gsoc-prep/</guid>
-      <description>Before the orgs were announced Since I enrolled into Engineering back in 2014, I wanted to participate in GSoC. I tried to apply in 2016 and 2017 but didn&amp;rsquo;t get in. This is my final year of Engineering and this year I meant business.
-I was interning at Network Intelligence India (1) Pvt. Ltd. when the program schedule for 2018 was announced. I didn&amp;rsquo;t have a concrete plan in mind at that time but I knew that I wanted to apply.</description>
+      <description>&lt;h5 id=&#34;before-the-orgs-were-announced&#34;&gt;Before the orgs were announced&lt;/h5&gt;&#xA;&lt;p&gt;Since I enrolled into Engineering back in 2014, I wanted to participate in GSoC. I tried to apply in 2016 and 2017 but didn&amp;rsquo;t get in. This is my final year of Engineering and this year I meant business.&lt;/p&gt;&#xA;&lt;p&gt;I was interning at Network Intelligence India (1) Pvt. Ltd. when the program schedule for 2018 was announced. I didn&amp;rsquo;t have a concrete plan in mind at that time but I knew that I wanted to apply.&#xA;I quit the internship in December to give myself enough time to prepare. Apparently some students start preparing as early as September!&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

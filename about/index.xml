@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Abouts on TOBOR A TON MA I</title>
+    <link>http://localhost:1313/about/</link>
+    <description>Recent content in Abouts on TOBOR A TON MA I</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/about/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Pranjal</title>
+      <link>http://localhost:1313/about/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/about/</guid>
+      <description>&lt;p&gt;Hey there! I am Pranjal Aswani and I program computers for a living.&lt;/p&gt;&#xA;&lt;p&gt;This blog was initially written as part of my participation in Google Summer of code in 2018, working with the wonderful &lt;a href=&#34;https://chaoss.community/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CHAOSS&lt;/a&gt; community.&lt;/p&gt;&#xA;&lt;p&gt;Now it will &lt;em&gt;hopefully&lt;/em&gt; serve as my personal blog.&lt;/p&gt;&#xA;&lt;p&gt;Like many developers, I have a keen interest in tech, music, books &lt;strong&gt;philosophy &amp;amp; sci-fi&lt;/strong&gt; specifically.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="author" content="Pranjal Aswani">
-    <meta name="description" content="This is where i will rant about stuff">
+    <meta name="author" content="Pranjal">
+    <meta name="description" content="Personal blog describing the work that I do, insights about life and my opinions on things">
     <meta name="keywords" content="blog,developer,personal">
 
     <base href="https://aswanipranjal.github.io/">
@@ -25,7 +25,7 @@
 
     
 
-    <meta name="generator" content="Hugo 0.40.1" />
+    <meta name="generator" content="Hugo 0.139.4">
   </head>
 
   <body>
@@ -39,11 +39,11 @@
     <ul class="navigation-list float-right">
       
       <li class="navigation-item">
-        <a class="navigation-link" href="/posts/">Blog</a>
+        <a class="navigation-link" href="/about/">About</a>
       </li>
       
       <li class="navigation-item">
-        <a class="navigation-link" href="/about/">About</a>
+        <a class="navigation-link" href="/posts/">Posts</a>
       </li>
       
       <li class="navigation-item">
@@ -65,96 +65,50 @@
       <h2 class="date">July 11, 2018</h2>
     </header>
 
-    
-
-<p>I am trying to get into <a href="https://en.wikipedia.org/wiki/Stoicism">Stoicism</a> and last night I read this quote:</p>
-
+    <p>I am trying to get into <a href="https://en.wikipedia.org/wiki/Stoicism">Stoicism</a> and last night I read this quote:</p>
 <pre><code>“Nothing is slower than the true birth of a man.”
 </code></pre>
-
 <p>Well, this week I understand perfectly what it means.</p>
-
 <p>Hello and welcome to Week-9 of Google Summer of Code!</p>
-
-<h2 style="text-align: center"><bold>In Brief</bold></h2>
-
+<h2 id="in-brief">In Brief</h2>
 <p>Last week, we left off with the following tasks.</p>
-
 <h5 id="task-2-under-progress">Task-2 [Under Progress]:</h5>
-
-<p>Try to participate in the discussions regarding GMD and other metrics (Task-2).
-This task is moving a little slowly, but only a few metrics remain to be properly defined so it can wait a little longer until we set up the remaining infrastructure.</p>
-
+<p>Try to participate in the discussions regarding GMD and other metrics (Task-2). This task is moving a little slowly, but only a few metrics remain to be properly defined so it can wait a little longer until we set up the remaining infrastructure.</p>
 <h5 id="task-3-completed">Task-3 [Completed]:</h5>
-
 <p>Yes, Task-3 in which I was trying to create new functions to calculate the metrics, has been completed. <a href="https://gsyc.urjc.es/~jgb/">Jesus</a> merged the <a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/67">pull request</a> and we can finally move on from this.</p>
-
-<p><strong>&lt;Rant&gt;</strong>
-Although this PR was merged, I still had to improve the tests as they were&hellip; well, not that great. I&rsquo;ve been reading about Test Driven Development and I find it quite fascinating. In TDD, we write the tests first and then we create the functions which pass those tests. But here, I had already written the code so I had to write tests which checked if the functions worked properly or not. I&rsquo;ll expand below on how I was able to write tests which I think are pretty good.
-<strong>&lt;/Rant&gt;</strong></p>
-
+<p><strong><!-- raw HTML omitted --></strong> Although this PR was merged, I still had to improve the tests as they were… well, not that great. I’ve been reading about Test Driven Development and I find it quite fascinating. In TDD, we write the tests first and then we create the functions which pass those tests. But here, I had already written the code so I had to write tests which checked if the functions worked properly or not. I’ll expand below on how I was able to write tests which I think are pretty good. <strong><!-- raw HTML omitted --></strong></p>
 <p>Related PRs: <a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/71">The Pull request adding tests for manuscripts2</a></p>
-
 <h5 id="task-5-almost-done">Task-5 [Almost Done]:</h5>
-
-<p>We have made progress in adding more fields into enriched indices which can be used to calculate the <a href="https://github.com/chaoss/wg-gmd/blob/master/2_Growth-Maturity-Decline.md#code-development">GMD Metrics</a>. This task was to add code to <a href="https://github.com/chaoss/grimoirelab-elk">grimoire-elk</a>.
-My mentor, <a href="https://valeriocos.github.io/">Valerio</a> made the <a href="https://github.com/chaoss/grimoirelab-elk/pull/399">initial PR</a> which added the infrasctucture for me to add the enriched fields for the Pull Requests category for the GitHub backend in grimoire-elk. More on this below.</p>
-
+<p>We have made progress in adding more fields into enriched indices which can be used to calculate the <a href="https://github.com/chaoss/wg-gmd/blob/master/2_Growth-Maturity-Decline.md#code-development">GMD Metrics</a>. This task was to add code to <a href="https://github.com/chaoss/grimoirelab-elk">grimoire-elk</a>. My mentor, <a href="https://valeriocos.github.io/">Valerio</a> made the <a href="https://github.com/chaoss/grimoirelab-elk/pull/399">initial PR</a> which added the infrasctucture for me to add the enriched fields for the Pull Requests category for the GitHub backend in grimoire-elk. More on this below.</p>
 <p>Related PRs:</p>
-
 <ul>
 <li>By Valerio: <a href="https://github.com/chaoss/grimoirelab-elk/pull/399">adding initial infrastructure to get pull requests data</a></li>
 <li><a href="https://github.com/chaoss/grimoirelab-elk/pull/398">PR to add pull requests data</a> by defining <code>github_prs</code> as a different data source [connector in gelk]. This PR was not used in favour of the above PR.</li>
 <li><a href="https://github.com/chaoss/grimoirelab-elk/pull/401">PR adding fields</a> in GitHub pull requests enriched indices.</li>
 </ul>
-
 <h5 id="task-7-b-under-progress">Task 7-B [Under Progress]:</h5>
-
-<p>To create the reports for the metrics manuscripts produces right now, using the new functions. I read the code base for manuscripts again, trying to figure out how to get the different metrics and calculate CSV files from those.
-I am hoping to discuss this with Jesus and Valerio and finish this task by Friday.</p>
-
-<h2 style="text-align: center"><bold>In Detail</bold></h2>
-
-<p>I&rsquo;ll start with describing the Tests that I wrote:</p>
-
+<p>To create the reports for the metrics manuscripts produces right now, using the new functions. I read the code base for manuscripts again, trying to figure out how to get the different metrics and calculate CSV files from those. I am hoping to discuss this with Jesus and Valerio and finish this task by Friday.</p>
+<h2 id="in-detail">In Detail</h2>
+<p>I’ll start with describing the Tests that I wrote:</p>
 <h5 id="tests">Tests</h5>
-
-<p><a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/6b25218c0e22956b40217a75cb9714ecb8ce9045/manuscripts2/test_new_functions.py">Initially the tests that I added</a> only checked if the functions created the appropriate aggregations, fields and so on. They didn&rsquo;t actually called the methods defined in the Query class.</p>
-
-<p>I had to try to run them using actual data fetched from elasticsearch. Grimoirelab consists of a lot of tools and so I looked into Perceval&rsquo;s tests because I figured that it also has to fetch the data from the internet using different backend APIs so there might be something useful there. Perceval uses <a href="https://httpretty.readthedocs.io/en/latest/introduction.html">httpretty</a> which taps into the In Built <a href="https://docs.python.org/3/library/socket.html">Socket</a> module of Python. We can then setup the URL to be queried and the data to be returned from that using <code>httpretty.register_uri</code> and it&rsquo;ll mimic the actual URL.
-Perceval uses it brilliantly, but I couldn&rsquo;t because the data that I was dealing with had to be first processed by elasticsearch (aggregations) and to mimic that data would have been another devil to deal with.</p>
-
+<p><a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/6b25218c0e22956b40217a75cb9714ecb8ce9045/manuscripts2/test_new_functions.py">Initially the tests that I added</a> only checked if the functions created the appropriate aggregations, fields and so on. They didn’t actually called the methods defined in the Query class.</p>
+<p>I had to try to run them using actual data fetched from elasticsearch. Grimoirelab consists of a lot of tools and so I looked into Perceval’s tests because I figured that it also has to fetch the data from the internet using different backend APIs so there might be something useful there. Perceval uses <a href="https://httpretty.readthedocs.io/en/latest/introduction.html">httpretty</a> which taps into the In Built <a href="https://docs.python.org/3/library/socket.html">Socket</a> module of Python. We can then setup the URL to be queried and the data to be returned from that using <code>httpretty.register_uri</code> and it’ll mimic the actual URL. Perceval uses it brilliantly, but I couldn’t because the data that I was dealing with had to be first processed by elasticsearch (aggregations) and to mimic that data would have been another devil to deal with.</p>
 <p>I then thought of directly using Elasticsearch, but it would have failed the Continuous Integration that TravisCI does. I contacted Jesus (When in doubt, Jesus will help you out :P) and he explained to me that TravisCI allows setting up Elasticsearch and I should look into <a href="https://github.com/chaoss/grimoirelab-mordred">Mordred</a>. That hit the spot for me.</p>
-
-<p>The next problem came when I had to insert data for testing purposes into elasticsearch. At first I was trying to use the helper class that elasticsearch provides, which gives us the functionality to bulk index the data. I used the Mappings for an enriched github index, but the Mappings for the data kept throwing an error as some of the fields could not be aggregated. When I removed the Mappings, I couldn&rsquo;t access the data and there was an empty response from Elasticsearch.</p>
-
+<p>The next problem came when I had to insert data for testing purposes into elasticsearch. At first I was trying to use the helper class that elasticsearch provides, which gives us the functionality to bulk index the data. I used the Mappings for an enriched github index, but the Mappings for the data kept throwing an error as some of the fields could not be aggregated. When I removed the Mappings, I couldn’t access the data and there was an empty response from Elasticsearch.</p>
 <p>I was stuck here for quite a while, but thanks to Task-5, I had been reading the source code of grimoire-elk and thus I decided to use the methods that gelk uses to insert data into elasticsearch: the <a href="https://github.com/chaoss/grimoirelab-elk/blob/master/grimoire_elk/elk.py#L103">feed_backend</a> and <a href="https://github.com/chaoss/grimoirelab-elk/blob/master/grimoire_elk/elk.py#L482">enrich_backend</a> functions. They worked like a charm!!</p>
-
-<p>Currently, the tests fetch data from a git repo and analyse it to test the functions. I couldn&rsquo;t query the issues data as it would require a GitHub API token for smooth functioning.</p>
-
+<p>Currently, the tests fetch data from a git repo and analyse it to test the functions. I couldn’t query the issues data as it would require a GitHub API token for smooth functioning.</p>
 <p>All in all, this took quite a bit of my time this week, but the tests work now so I am glad.</p>
-
 <h5 id="task-5">Task-5:</h5>
-
 <p>This task was to add methods to calculate GitHub Pull Requests data and enrich it so that GMD-Code Development metrics, along with some others, can be calculated.</p>
-
-<p>In this task, we decided to create separate raw and enriched indices for the GitHub Pull Requests data. I did <a href="https://github.com/chaoss/grimoirelab-elk/pull/398">create a PR</a> for this task but it was highly enfficient would have used a separate backend (github_prs) to calculate the data.
-Valerio made a better suggestion by <a href="https://github.com/chaoss/grimoirelab-elk/pull/399">creating a PR</a> which used waaay less code and is highly efficient. We decided that I work on adding the pull requests enriched fields on top of that.
-<a href="https://github.com/chaoss/grimoirelab-elk/pull/401">This PR</a> adds the code to calculate the enriched fields for Pull Requests data.</p>
-
-<hr style="border-top: dashed 0.3px;" />
-
+<p>In this task, we decided to create separate raw and enriched indices for the GitHub Pull Requests data. I did <a href="https://github.com/chaoss/grimoirelab-elk/pull/398">create a PR</a> for this task but it was highly enfficient would have used a separate backend (github_prs) to calculate the data. Valerio made a better suggestion by <a href="https://github.com/chaoss/grimoirelab-elk/pull/399">creating a PR</a> which used waaay less code and is highly efficient. We decided that I work on adding the pull requests enriched fields on top of that. <a href="https://github.com/chaoss/grimoirelab-elk/pull/401">This PR</a> adds the code to calculate the enriched fields for Pull Requests data.</p>
+<hr>
 <p><strong>NOTE:</strong></p>
-
 <ul>
 <li>This task taught me that I should never be attached to my code and that there is almost always a better method to do what you are doing.</li>
 <li>It also taught me that I should be more careful when reading the source code of projects. For example: the solution that Valerio proposed used approx. 5X less number of lines than the solution I proposed.</li>
 </ul>
-
-<hr style="border-top: dashed 0.3px;" />
-
-<p>There are some metrics still remaining in Code development which I&rsquo;ll discuss today with my mentors:</p>
-
+<hr>
+<p>There are some metrics still remaining in Code development which I’ll discuss today with my mentors:</p>
 <ul>
 <li><strong>Code Reviews:</strong> What is the number of code reviews?</li>
 <li><strong>Code Review Efficiency:</strong> What is the number of merged code changes/number of abandoned code change requests?</li>
@@ -164,27 +118,17 @@ Valerio made a better suggestion by <a href="https://github.com/chaoss/grimoirel
 <li><strong>Pull Request Comment Diversity:</strong> Number of each people discussing each pull request.</li>
 <li><strong>Pull Request Comments:</strong> Number of comments on each pull request.</li>
 </ul>
-
-<p>Once these are finalised, I&rsquo;ll add the code for the corresponding fields and Task-5 can be marked as complete.</p>
-
+<p>Once these are finalised, I’ll add the code for the corresponding fields and Task-5 can be marked as complete.</p>
 <h5 id="task-7-b">Task-7-B:</h5>
-
-<p>Here, I had to start with creating the infrastructure to generate the reports using the new functions added. I couldn&rsquo;t progress on this as much as I would have liked to, but I plan on getting this done by Friday. Atleast the CSV files.</p>
-
+<p>Here, I had to start with creating the infrastructure to generate the reports using the new functions added. I couldn’t progress on this as much as I would have liked to, but I plan on getting this done by Friday. Atleast the CSV files.</p>
 <p>Earlier I was thinking that we can use a similar structure of defining different classes for each of the metric, as Manuscripts does currently, but that might disrupt the whole purpose of us creating the new functions to calculate these metrics. We need to find a better approach than what is currently used. That method is clever, but it will still require a lot of repetition, which we want to avoid.</p>
-
 <p>This task might also lead us to change the manuscripts2 proposed earlier.</p>
-
-<hr />
-
+<hr>
 <p>All in all, I struggled a lot this week, but I learned and grew as well.</p>
-
-<hr />
-
+<hr>
 <h4 id="tasks-for-week-10">Tasks for week-10:</h4>
-
 <ul>
-<li>We have added the functionality to get the enriched data for Pull Requests in grimoirelab-elk. However the comments for each of the PRs are not being fetched here. They are available normally when we try to get issues and prs together, but not for only PRs. So we&rsquo;ll have to look into that. I am opening an issue in grimoirelab-elk to discuss this. The comments are important since some of the GMD code development metrics depends on PR comments. (Still Task-5)</li>
+<li>We have added the functionality to get the enriched data for Pull Requests in grimoirelab-elk. However the comments for each of the PRs are not being fetched here. They are available normally when we try to get issues and prs together, but not for only PRs. So we’ll have to look into that. I am opening an issue in grimoirelab-elk to discuss this. The comments are important since some of the GMD code development metrics depends on PR comments. (Still Task-5)</li>
 <li>The second is to find a way to to be able to calculate the number of code review iterations, i.e the number of times the code is asked to changed and new code is added by the contributor submitting the PR (New Task-8). I am opening an issue in Perceval for the same.</li>
 <li>The third task (Task-7-B) is to make a PR calculating the CSV files produced in the report and follow up on them.</li>
 </ul>
@@ -197,7 +141,7 @@ Valerio made a better suggestion by <a href="https://github.com/chaoss/grimoirel
 
       <footer class="footer">
   <section class="container">
-    © 2018 · Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    © 2026 · Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
   </section>
 </footer>
 

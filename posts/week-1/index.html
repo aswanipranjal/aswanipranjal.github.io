@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="author" content="Pranjal Aswani">
-    <meta name="description" content="This is where i will rant about stuff">
+    <meta name="author" content="Pranjal">
+    <meta name="description" content="Personal blog describing the work that I do, insights about life and my opinions on things">
     <meta name="keywords" content="blog,developer,personal">
 
     <base href="https://aswanipranjal.github.io/">
@@ -25,7 +25,7 @@
 
     
 
-    <meta name="generator" content="Hugo 0.40.1" />
+    <meta name="generator" content="Hugo 0.139.4">
   </head>
 
   <body>
@@ -39,11 +39,11 @@
     <ul class="navigation-list float-right">
       
       <li class="navigation-item">
-        <a class="navigation-link" href="/posts/">Blog</a>
+        <a class="navigation-link" href="/about/">About</a>
       </li>
       
       <li class="navigation-item">
-        <a class="navigation-link" href="/about/">About</a>
+        <a class="navigation-link" href="/posts/">Posts</a>
       </li>
       
       <li class="navigation-item">
@@ -66,63 +66,68 @@
     </header>
 
     <p>This week was interesting! I read the <a href="https://github.com/chaoss/grimoirelab-manuscripts">manuscripts</a> base code and played with a lot of functions to learn how they work. It was fun because after being stuck on a few functions and classes, I finally understood that I should burn my laptop, giveup and go home. Good bye!</p>
-
-<p></br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br></p>
-
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted -->
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
 <p>Just kidding :P!</p>
-
 <p>I studied the classes and functions present in <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/master/manuscripts/metrics/metrics.py">metrics.py</a> and <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/master/manuscripts/esquery.py">esquery.py</a> files. These are the main files through which all the metrics (git, github_issues, github_prs, gerrit, mls, its) have been implemented. I had to change some classes and add to classes so that I could realise some of the required metrics: such as open issues, issue open age, number of lines changed, etc. You can look at the realised metrics in this <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/GMD-manuscripts.ipynb">Notebook</a>.</p>
-
 <p><strong>Note: whenever reading code, always start with the file which only imports builtin libraries or libraries which were downloaded using a package manager. This file will mostly be a root file which gets imported in other files in the project.</strong></p>
-
 <p>I was actually able to add some functionality that I think will be cool. Currently Manuscripts code only performs aggregations(sum, average, count and such) for the required Metrics. I thought why not get specific data for the metrics from the indices and create bargraphs and maybe pycharts(see what I did there?) to show how the data is changing. To do that, I added functions in esquery.py and metrics.py files so that I can get data for specific fields and in specific numbers. That code is currently in my <a href="https://github.com/aswanipranjal/grimoirelab-manuscripts/tree/GMD-metrics">fork</a> of manuscripts.</p>
-
 <p>I feel that by using only aggregation we will miss out on the extreme values that are present in the data: for example, the metric - <a href="https://github.com/chaoss/metrics/blob/master/activity-metrics/open-issue-age.md">Open issues age</a> may have extreme values. Some of the issues might have been open since more than 200 or 250 days and that information will get blurred when we only look at the average of Open issue age. Thus to remedy that, we can and should query data from the index about the issue_id and the time_open_days. That way, we can plot that data to see how many and how much time has been passed since these issues were open.</p>
-
-<p>This is just an example, ofcourse.
-Currently, the Growth-Maturity-Decline Work Group is working on expanding the Metric&rsquo;s definitions as alot of them still require solid definitions.
-Therefore these functions will not be a part of the master branch of manuscripts yet. I have created a branch for the GMD-metrics and the <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/GMD-manuscripts.ipynb">Notebook</a> will reflect the functions in them.</p>
-
+<p>This is just an example, ofcourse. Currently, the Growth-Maturity-Decline Work Group is working on expanding the Metric’s definitions as alot of them still require solid definitions. Therefore these functions will not be a part of the master branch of manuscripts yet. I have created a branch for the GMD-metrics and the <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/GMD-manuscripts.ipynb">Notebook</a> will reflect the functions in them.</p>
 <p>Apart from that, I made a <a href="https://github.com/chaoss/grimoirelab-manuscripts/pull/55">PR</a> fixing the help menu for Manuscripts. The older command, when run without parameters, just gave an error if necessary parameters were missing. Now, a help menu is displayed along with the usage instructions on how to use manuscripts.</p>
-
 <p>I also created these 2 issues:</p>
-
 <ul>
 <li><a href="https://github.com/chaoss/wg-gmd/issues/1">GMD-WD</a>: This is regarding the metrics which need clarifiaction. The WG will be working on this issue, soon.</li>
 <li><a href="https://github.com/chaoss/grimoirelab-manuscripts/issues/56">Mis-Matched classes</a>: ITS class is inhereted in github_pr and github_issues classes. These classes should instead inherit from github_issues and github_pr master classes so that the code is consistent.</li>
 </ul>
-
 <p>That was all that I could do this week. I had an exam today so I am free till sunday to work on the Notebook and make PRs for other issues in Manuscripts.</p>
-
 <p>See you next wednesday!</p>
-
 <p>Adios.</p>
 
   </article>
@@ -133,7 +138,7 @@ Therefore these functions will not be a part of the master branch of manuscripts
 
       <footer class="footer">
   <section class="container">
-    © 2018 · Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    © 2026 · Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
   </section>
 </footer>
 
