@@ -2,16 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://aswanipranjal.github.io/posts/</loc>
+    <lastmod>2026-02-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://aswanipranjal.github.io/</loc>
+    <lastmod>2026-02-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://aswanipranjal.github.io/posts/why-i-dislike-this-timeline/</loc>
+    <lastmod>2026-02-08T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://aswanipranjal.github.io/tags/gsoc/</loc>
     <lastmod>2018-08-11T16:29:46+08:00</lastmod>
   </url><url>
-    <loc>https://aswanipranjal.github.io/posts/</loc>
-    <lastmod>2018-08-11T16:29:46+08:00</lastmod>
-  </url><url>
     <loc>https://aswanipranjal.github.io/tags/</loc>
-    <lastmod>2018-08-11T16:29:46+08:00</lastmod>
-  </url><url>
-    <loc>https://aswanipranjal.github.io/</loc>
     <lastmod>2018-08-11T16:29:46+08:00</lastmod>
   </url><url>
     <loc>https://aswanipranjal.github.io/posts/week-14/</loc>
