@@ -25,7 +25,7 @@
 
     
 
-    <meta name="generator" content="Hugo 0.139.4">
+    <meta name="generator" content="Hugo 0.155.3">
   </head>
 
   <body>
@@ -74,12 +74,12 @@
 <h3 id="task-1">Task-1</h3>
 <p>I’ll start with the First task: below is an analysis of the esquery.py file. This task is actually very vital and related to the other 2 tasks, because while analysing this file, I can tell you what we might need to create the new notebook and the generalized functions for tasks 2 and 3 respectively.</p>
 <h4 id="esquerypy">esquery.py</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#f92672">import</span> json
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#f92672">import</span> json
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">from</span> datetime <span style="color:#f92672">import</span> timezone
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">from</span> elasticsearch_dsl <span style="color:#f92672">import</span> A, Search, Q
 </span></span><span style="display:flex;"><span>    USE_ELASTIC_DSL <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
 </span></span></code></pre></div><p>REMEMBER THIS FLAG. The motivation for the first task is to eliminate the need for this flag.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ElasticQuery</span>():
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ElasticQuery</span>():
 </span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34; Helper class for building Elastic queries &#34;&#34;&#34;</span>
 </span></span><span style="display:flex;"><span>        AGGREGATION_ID <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>  <span style="color:#75715e"># min aggregation identifier</span>
 </span></span><span style="display:flex;"><span>        AGG_SIZE <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>  <span style="color:#75715e"># Default max number of buckets</span>
@@ -123,7 +123,7 @@
 </ul>
 <h4 id="get_agg-function">get_agg function:</h4>
 <p>This function is the only function that is being used in metrics.py file, the only file using esquery.py. To modify this file, I had to specially take care of this function. Initially, this function wasn’t using any of the above shown functions.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#a6e22e">@classmethod</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#a6e22e">@classmethod</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_agg</span>(cls, field<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, date_field<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, start<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, end<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>,
 </span></span><span style="display:flex;"><span>                filters<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, agg_type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;terms&#34;</span>, offset<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, interval<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
 </span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;
@@ -156,7 +156,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Get only the aggs not the hits</span>
 </span></span><span style="display:flex;"><span>    s <span style="color:#f92672">=</span> Search()[<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">0</span>]
 </span></span></code></pre></div><p>Create a Search object with <code>size</code> and <code>from</code> equals 0. This way, when we get the results, we’ll only get the total counts and not the actual data. Setting size to 0 also helps in faster response from elasticsearch as no actual data has to be returned and only aggregation/number of values have to be returned.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> f <span style="color:#f92672">in</span> filters:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> f <span style="color:#f92672">in</span> filters:
 </span></span><span style="display:flex;"><span>        param <span style="color:#f92672">=</span> {f: filters[f]}
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> f[<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">1</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;*&#34;</span>:
 </span></span><span style="display:flex;"><span>            param <span style="color:#f92672">=</span> {f[<span style="color:#ae81ff">1</span>:]: filters[f]}
@@ -166,7 +166,7 @@
 </span></span><span style="display:flex;"><span>    date_filter <span style="color:#f92672">=</span> cls<span style="color:#f92672">.</span>__get_query_range(date_field, start, end)
 </span></span><span style="display:flex;"><span>    s <span style="color:#f92672">=</span> s<span style="color:#f92672">.</span>query(json<span style="color:#f92672">.</span>loads(date_filter))
 </span></span></code></pre></div><p>Here we are adding the filters(normal and inverse) and date range to the Search object created above.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> interval:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> interval:
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> agg_type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;terms&#34;</span>:
 </span></span><span style="display:flex;"><span>            query_agg <span style="color:#f92672">=</span> ElasticQuery<span style="color:#f92672">.</span>__get_query_agg_terms(field)
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">elif</span> agg_type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;max&#34;</span>:
@@ -186,7 +186,7 @@
 </span></span><span style="display:flex;"><span>                                                    agg_type<span style="color:#f92672">=</span>agg_type,
 </span></span><span style="display:flex;"><span>                                                    offset<span style="color:#f92672">=</span>offset)
 </span></span></code></pre></div><p>This part is to get the aggregation string according to the aggregation type selected by the user. <strong>Note:</strong> this doesnot have any relation to the Search object created above.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> agg_type <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> [<span style="color:#e6db74">&#39;percentiles&#39;</span>, <span style="color:#e6db74">&#39;terms&#39;</span>, <span style="color:#e6db74">&#39;avg&#39;</span>]:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> agg_type <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> [<span style="color:#e6db74">&#39;percentiles&#39;</span>, <span style="color:#e6db74">&#39;terms&#39;</span>, <span style="color:#e6db74">&#39;avg&#39;</span>]:
 </span></span><span style="display:flex;"><span>        field_agg <span style="color:#f92672">=</span> A(agg_type, field<span style="color:#f92672">=</span>field,
 </span></span><span style="display:flex;"><span>                      precision_threshold<span style="color:#f92672">=</span>cls<span style="color:#f92672">.</span>ES_PRECISION)
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
@@ -206,7 +206,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
 </span></span><span style="display:flex;"><span>        s<span style="color:#f92672">.</span>aggs<span style="color:#f92672">.</span>bucket(agg_id, field_agg)
 </span></span></code></pre></div><p>Here, we extend the search object by adding into it the aggregation depending on the aggregation type specified by the user. The aggregation string created in the previous section is not being used here.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    query <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    query <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        {
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          &#34;size&#34;: 0,
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">,
@@ -214,7 +214,7 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          }
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span> <span style="color:#f92672">%</span> (query_agg, query_basic)
 </span></span></code></pre></div><p>Create the final query by using the basic query string created initially, containing the filters and the range, and the aggregation query.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> USE_ELASTIC_DSL:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> USE_ELASTIC_DSL:
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> json<span style="color:#f92672">.</span>dumps(s<span style="color:#f92672">.</span>to_dict())
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> query
@@ -230,7 +230,7 @@
 <h3 id="task-2-and-task-3">Task-2 and Task-3:</h3>
 <p>These tasks are very much related to each other.</p>
 <p>Currently, when we have to calculate a metric, we have to create an object from a class which looks like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GithubOpen</span>(GitHubIssuesMetrics):
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GithubOpen</span>(GitHubIssuesMetrics):
 </span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34; Tickets Open metric class for issue tracking systems &#34;&#34;&#34;</span>
 </span></span><span style="display:flex;"><span>    id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;open&#34;</span>
 </span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Open tickets&#34;</span>
@@ -240,7 +240,7 @@
 </span></span><span style="display:flex;"><span>    FIELD_DATE <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;created_at&#34;</span>
 </span></span><span style="display:flex;"><span>    filters <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;pull_request&#34;</span>: <span style="color:#e6db74">&#34;false&#34;</span>, <span style="color:#e6db74">&#34;state&#34;</span>: <span style="color:#e6db74">&#34;open&#34;</span>}
 </span></span></code></pre></div><p>Here, FIELD_COUNT is the field which is used for aggregation, FIELD_DATE is used to create the date range. Filters specify that this is an <em>open pull request</em>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#75715e"># initialise the object</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#75715e"># initialise the object</span>
 </span></span><span style="display:flex;"><span>    open_issues <span style="color:#f92672">=</span> GithubOpen(es_url, github_index, start<span style="color:#f92672">=</span>start_date, end<span style="color:#f92672">=</span>end_date)
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e"># using the get_agg method, get the aggregation which in this case is also the Metric Open PRs.</span>
 </span></span><span style="display:flex;"><span>    open_issues<span style="color:#f92672">.</span>get_agg()
@@ -250,7 +250,7 @@
 <p>Although We can use nested aggregations to get the commits per user or orgs and we can use the methods in the Metrics class such as <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/d462b4e0ed19fed3e44d9392c799589fbb0b5d9a/manuscripts/metrics/metrics.py#L167">get_ts()</a> which uses the functions from esquery.py file to create a date_histogram which will give us a timeseries of the PRs per week. This method of creating aggregations/filters and creating histogram seems a little to complicated. This method may be <em>taking the longer path</em> to get the same results that we might be able to get if we redesign the classes and functions currently being used.</p>
 <p>To achieve this, we’ll take a look at an <a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/GMD-metrics-from-scratch.ipynb">experimental notebook</a> which calculates the metrics using elasticsearch_dsl queries only and does not use the functions in manuscripts.</p>
 <p>An example to calculate the same Open issues:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    s <span style="color:#f92672">=</span> Search(using<span style="color:#f92672">=</span>es, index<span style="color:#f92672">=</span>github_index)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    s <span style="color:#f92672">=</span> Search(using<span style="color:#f92672">=</span>es, index<span style="color:#f92672">=</span>github_index)
 </span></span><span style="display:flex;"><span>    q1 <span style="color:#f92672">=</span> Q(<span style="color:#e6db74">&#34;match&#34;</span>, <span style="color:#f92672">**</span>{<span style="color:#e6db74">&#34;item_type&#34;</span>:<span style="color:#e6db74">&#34;issue&#34;</span>})
 </span></span><span style="display:flex;"><span>    q2 <span style="color:#f92672">=</span> Q(<span style="color:#e6db74">&#34;match&#34;</span>, <span style="color:#f92672">**</span>{<span style="color:#e6db74">&#34;state&#34;</span>: <span style="color:#e6db74">&#34;open&#34;</span>})
 </span></span><span style="display:flex;"><span>    q <span style="color:#f92672">=</span> q1 <span style="color:#f92672">&amp;</span> q2
@@ -304,6 +304,8 @@
 </ul>
 <p>Adios.</p>
 
+
+    
   </article>
 </section>
 

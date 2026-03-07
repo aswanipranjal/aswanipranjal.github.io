@@ -25,7 +25,7 @@
 
     
 
-    <meta name="generator" content="Hugo 0.139.4">
+    <meta name="generator" content="Hugo 0.155.3">
   </head>
 
   <body>
@@ -102,7 +102,7 @@
 <h2 id="in-detail">In Detail</h2>
 <h5 id="task-5">Task-5:</h5>
 <p>So, continuing from above, we decided that we’ll use studies to get the remaining github_prs metrics. The problem was that I had no clue how studies worked, but luckly Valerio helped me out. We discussed this over email and he asked me to try this command out:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    p2o.py --studies-list enrich_areas_of_code --enrich --index git_raw --index-enrich git -e http://localhost:9200 --no_inc --debug git https://github.com/chaoss/grimoirelab-perceval.git
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    p2o.py --studies-list enrich_areas_of_code --enrich --index git_raw --index-enrich git -e http://localhost:9200 --no_inc --debug git https://github.com/chaoss/grimoirelab-perceval.git
 </span></span></code></pre></div><p>What this command should’ve done was to run an <em>enrich-areas-of-code</em> study on the git index and add generate <a href="https://github.com/chaoss/grimoirelab-elk/blob/master/schema/areas_of_code.csv">extra fields related to areas of code</a>. It should’ve also created a <em>git-aoc_enriched</em> index containing this data. But there was some problem with <em>p2o.py</em>, which Valerio figured out:</p>
 <blockquote>
 <p>I have checked the code of p2o.py. The problem is that it doesn’t accept ad-hoc params for any study. Furthermore, if you try to execute multiple studies, there is no way to separate the params for different studies.</p>
@@ -123,11 +123,11 @@
     		|- github_issues.py
     		|- github_prs.py
 </code></pre><p>These files contain the metrics classes that we use to calculate the various metrics. Let’s have a look at how <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/70bec03d2400d382257b0b2cfdf6f523ae1368c0/manuscripts2/metrics/github_issues.py">github_issues.py file</a> is structured: (I know the black and white code looks hideous, but I am working on making it beautiful. Please bear with me, kthnx)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#f92672">from</span> manuscripts2.elasticsearch <span style="color:#f92672">import</span> Issues, calculate_bmi
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#f92672">from</span> manuscripts2.elasticsearch <span style="color:#f92672">import</span> Issues, calculate_bmi
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">from</span> manuscripts2.utils <span style="color:#f92672">import</span> get_prev_month
 </span></span></code></pre></div><p>Importing the Issues class from which all the queries will be derived</p>
 <p>(The description will be in blue, thank you.)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GitHubIssuesMetrics</span>():
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GitHubIssuesMetrics</span>():
 </span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;Root of all metric classes based on queries to a github
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        enriched issues index.
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        This class is not intended to be instantiated, but to be
@@ -139,7 +139,7 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :param end: end date to get the data upto
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> __init__(self, index, start, end):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, index, start, end):
 </span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>query <span style="color:#f92672">=</span> Issues(index)
 </span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>start <span style="color:#f92672">=</span> start
 </span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>end <span style="color:#f92672">=</span> end
@@ -153,7 +153,7 @@
 </span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;&#34;&#34;Obtain a single valued aggregation from the current query.&#34;&#34;&#34;</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>query<span style="color:#f92672">.</span>get_aggs()
 </span></span></code></pre></div><p>This class is the root of all the metrics being calculated. We define a <code>self.query</code> variable which is an instance of the Issue class which allows us to query all issue related data. The <code>aggregations()</code> method returns a single valued aggregation. The <code>timeseries()</code> method returns a timeseries related to an aggregation (Ex: cardinality) for the given duration of time and for a specified interval (month, quarter, year) which is set by the <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/70bec03d2400d382257b0b2cfdf6f523ae1368c0/manuscripts2/report.py#L109">Query class in manuscripts2/report.py</a> file for all the Metrics.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OpenedIssues</span>(GitHubIssuesMetrics):
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">OpenedIssues</span>(GitHubIssuesMetrics):
 </span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;Class for computing opened issues metrics.
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :param index: index object
@@ -161,15 +161,15 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :param end: end date to get the data upto
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> __init__(self, index, start, end):
-</span></span><span style="display:flex;"><span>            super()<span style="color:#f92672">.</span>__init__(index, start, end)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, index, start, end):
+</span></span><span style="display:flex;"><span>            super()<span style="color:#f92672">.</span><span style="color:#a6e22e">__init__</span>(index, start, end)
 </span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;opened&#34;</span>
 </span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Opened tickets&#34;</span>
 </span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>desc <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Number of opened tickets&#34;</span>
 </span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>query<span style="color:#f92672">.</span>get_cardinality(<span style="color:#e6db74">&#34;id&#34;</span>)<span style="color:#f92672">.</span>by_period()
 </span></span></code></pre></div><p>This class represents all the metrics that have to be calculated for the issues that were opened. This class inherits from <code>GitHubIssuesMetrics</code> so by default it has the timeseries and aggregtions methods. Here, when we initialize the class, we set the required aggregations in the <code>self.query</code> variable. When we call aggregations or timeseries in the report, we will get the required values which can be used to create the report.</p>
 <p>Each class has 3 extra variables namely: <code>id</code>, <code>name</code> and <code>desc</code> which help us name the files and the labels of figures when creating csv files and images in the reports.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ClosedIssues</span>(GitHubIssuesMetrics):
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ClosedIssues</span>(GitHubIssuesMetrics):
 </span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;Class for computing closed issues metrics.
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :param index: index object
@@ -177,8 +177,8 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :param end: end date to get the data upto
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> __init__(self, index, start, end):
-</span></span><span style="display:flex;"><span>            super()<span style="color:#f92672">.</span>__init__(index, start, end)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, index, start, end):
+</span></span><span style="display:flex;"><span>            super()<span style="color:#f92672">.</span><span style="color:#a6e22e">__init__</span>(index, start, end)
 </span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;closed&#34;</span>
 </span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Closed tickets&#34;</span>
 </span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>desc <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Number of closed tickets&#34;</span>
@@ -187,7 +187,7 @@
 </span></span><span style="display:flex;"><span>                      <span style="color:#f92672">.</span>until(self<span style="color:#f92672">.</span>end, field<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;closed_at&#34;</span>)
 </span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>query<span style="color:#f92672">.</span>get_cardinality(<span style="color:#e6db74">&#34;id&#34;</span>)<span style="color:#f92672">.</span>by_period()
 </span></span></code></pre></div><p>Here, as you can see, we modify the <code>self.query</code> variable because the Closed issues require the range to be set to a different date field (default is grimoire_creation_date). We can use timeseries and aggregations to calculate the metrics here too.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DaysToCloseMedian</span>(GitHubIssuesMetrics):
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DaysToCloseMedian</span>(GitHubIssuesMetrics):
 </span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;Class for computing the metrics related to median values
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        for the number of days to close a github issue.
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    
@@ -196,8 +196,8 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :param end: end date to get the data upto
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
 </span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> __init__(self, index, start, end):
-</span></span><span style="display:flex;"><span>            super()<span style="color:#f92672">.</span>__init__(index, start, end)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, index, start, end):
+</span></span><span style="display:flex;"><span>            super()<span style="color:#f92672">.</span><span style="color:#a6e22e">__init__</span>(index, start, end)
 </span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;days_to_close_ticket_median&#34;</span>
 </span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Days to close tickets (median)&#34;</span>
 </span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>desc <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Number of days needed to close a ticket (median)&#34;</span>
@@ -223,14 +223,14 @@
 </span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>query<span style="color:#f92672">.</span>by_period()
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> super()<span style="color:#f92672">.</span>timeseries(dataframe<span style="color:#f92672">=</span>dataframe)
 </span></span></code></pre></div><p>Here, the single valued aggregations have to be calculated for the previous interval only, so we modify the start date here.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BMI</span>():
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BMI</span>():
 </span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;The Backlog Management Index measures efficiency dealing with tickets.
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :param index: index object
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :param start: start date to get the data from
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        :param end: end date to get the data upto
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> __init__(self, index, start, end):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, index, start, end):
 </span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>start <span style="color:#f92672">=</span> start
 </span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>end <span style="color:#f92672">=</span> end
 </span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;bmi_tickets&#34;</span>
@@ -263,7 +263,7 @@
 </span></span><span style="display:flex;"><span>            opened_timeseries <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>opened<span style="color:#f92672">.</span>timeseries(dataframe<span style="color:#f92672">=</span>dataframe)
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> calculate_bmi(closed_timeseries, opened_timeseries)
 </span></span></code></pre></div><p>For BMI, the case is a little different. BMI is the ratio of closed issues / opened issues. Thus it requires two completely different queries to be used to generate the aggregations. So, instead of Inheriting from the <code>GitHubIssuesMetrics</code> class, we create a <em>closed</em> and an <em>opened</em> variable which are instances of the classes we discussed above. The methods are similar to <code>GitHubIssuesMetrics</code> class, for consistency and easier use. Here too, the aggregations have to be calculated for the previous interval, so we set the required start date and use the values returned to calculate the metrics. Similar approach is used in the timeseries method.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">overview</span>(index, start, end):
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">overview</span>(index, start, end):
 </span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;Compute metrics in the overview section for enriched github issues
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        indexes.
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    
@@ -290,6 +290,8 @@
 <p>We are not using that method. Instead, each section of the report: <code>overview</code>, <code>project_activity</code>, <code>project_overview</code> and such, will have it’s own function which will be called in the report and the necessary classes will be extracted from the dict returned by that function. <code>aggregations</code> and <code>timeseries</code> methods of these classes will then be called to generate the required mettics.</p>
 <p>This is the general format in which the metrics will be calculated. In the next week we’ll take a look at how the report is being generated. Stay Tuned for more ugly looking code :P Chao!</p>
 
+
+    
   </article>
 </section>
 

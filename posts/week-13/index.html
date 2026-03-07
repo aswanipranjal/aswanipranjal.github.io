@@ -25,7 +25,7 @@
 
     
 
-    <meta name="generator" content="Hugo 0.139.4">
+    <meta name="generator" content="Hugo 0.155.3">
   </head>
 
   <body>
@@ -112,7 +112,7 @@
 <p>In the last <a href="https://aswanipranjal.github.io/posts/week-12/">blog post</a> we saw how the data source (git, github_pes) files have been stuctured. These files contain classes which are used to calculate the Metrics.</p>
 <p>Now, each section of the Report is a function in the data source file. That function can be used to get the appropriate metric values using the classes. The four major sections of the report, taking the example from the previous post itself, are as follows:</p>
 <p>In manuscripts2/metrics/github.py:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">overview</span>(index, start, end):
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">overview</span>(index, start, end):
 </span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;Compute metrics in the overview section for enriched github issues
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        indexes.
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        Returns a dictionary. Each key in the dictionary is the name of
@@ -136,7 +136,7 @@
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> results
 </span></span></code></pre></div><p>This function returns the Overview section of the report.</p>
 <p>In manuscripts2/report.py:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_sec_overview</span>(self):
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">get_sec_overview</span>(self):
 </span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;&#34;&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            Generate the &#34;overview&#34; section of the report.
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            &#34;&#34;&#34;</span>
@@ -165,7 +165,7 @@
 </span></span><span style="display:flex;"><span>            overview_config[<span style="color:#e6db74">&#39;activity_file_csv&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;data_source_evolution.csv&#34;</span>
 </span></span><span style="display:flex;"><span>            overview_config[<span style="color:#e6db74">&#39;efficiency_file_csv&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;efficiency.csv&#34;</span>
 </span></span></code></pre></div><p>The <code>overview</code> function from each of the data source files is called and all the metrics for that section are added to a dictionary.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>            <span style="color:#75715e"># ACTIVITY METRICS</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>            <span style="color:#75715e"># ACTIVITY METRICS</span>
 </span></span><span style="display:flex;"><span>            metrics <span style="color:#f92672">=</span> overview_config[<span style="color:#e6db74">&#39;activity_metrics&#39;</span>]
 </span></span><span style="display:flex;"><span>            file_name <span style="color:#f92672">=</span> overview_config[<span style="color:#e6db74">&#39;activity_file_csv&#39;</span>]
 </span></span><span style="display:flex;"><span>            file_name <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(data_path, file_name)
@@ -178,7 +178,7 @@
 </span></span><span style="display:flex;"><span>                                                 percentage, metric<span style="color:#f92672">.</span>DS_NAME)
 </span></span><span style="display:flex;"><span>            create_csv(file_name, csv)
 </span></span></code></pre></div><p>Create a CSV file containing the different activity metrics’ trend (relative to the previous time interval). These contain the number of PRs submitted and closed, the number of issues opened and closed and the number of commits made in this time period as compared to the previous time period.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>            <span style="color:#75715e"># AUTHOR METRICS</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>            <span style="color:#75715e"># AUTHOR METRICS</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;&#34;&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            Git Authors:
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            -----------
@@ -200,7 +200,7 @@
 </span></span><span style="display:flex;"><span>                                            ylabel<span style="color:#f92672">=</span>authors_by_period<span style="color:#f92672">.</span>id)
 </span></span></code></pre></div><p>Calculate the number of authors per time period (month here) for the range of time we are calculating the metrics for.</p>
 <p>The function <code>create_csv_fig_from_df</code> is a very cool function which I describe below.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>            <span style="color:#75715e"># BMI METRICS</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>            <span style="color:#75715e"># BMI METRICS</span>
 </span></span><span style="display:flex;"><span>            bmi <span style="color:#f92672">=</span> []
 </span></span><span style="display:flex;"><span>            bmi_metrics <span style="color:#f92672">=</span> overview_config[<span style="color:#e6db74">&#39;bmi_metrics&#39;</span>]
 </span></span><span style="display:flex;"><span>            csv <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>
@@ -230,7 +230,7 @@
 </span></span></code></pre></div><p>The last part of the function gets the BMI and time to close metrics values for the previous time intervals. The queries for these values are configured on the data source file and the <code>aggregaions()</code> function generates those values here.</p>
 <p>These metrics are then calculated by calling the <code>timeseries()</code> or <code>aggregations()</code> methods of the Metric classes. The values returned from these methods are stored in files which will then be used when the report is being created using LaTex.</p>
 <p>Other sections are as follows:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">project_activity</span>(index, start, end):
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">project_activity</span>(index, start, end):
 </span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;&#34;&#34;Compute the metrics for the project activity section of the enriched
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        github issues index.
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        Returns a dictionary containing a &#34;metric&#34; key. This key contains the
@@ -294,7 +294,7 @@
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> results
 </span></span></code></pre></div><p>The function create_csv_fig_from_df</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">create_csv_fig_from_df</span>(self, data_frames<span style="color:#f92672">=</span>[], filename<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, headers<span style="color:#f92672">=</span>[], index_label<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>,
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">create_csv_fig_from_df</span>(self, data_frames<span style="color:#f92672">=</span>[], filename<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, headers<span style="color:#f92672">=</span>[], index_label<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>,
 </span></span><span style="display:flex;"><span>                                   fig_type<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, title<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, xlabel<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, ylabel<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, xfont<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>,
 </span></span><span style="display:flex;"><span>                                   yfont<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>, titlefont<span style="color:#f92672">=</span><span style="color:#ae81ff">30</span>, fig_size<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">15</span>), image_type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;png&#34;</span>):
 </span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;&#34;&#34;
@@ -380,6 +380,8 @@
 <p>And that is it. I’ll be wrting a final report that will contain all the details about the project under GSoC and summarizing the report generation.</p>
 <p>Chao!</p>
 
+
+    
   </article>
 </section>
 

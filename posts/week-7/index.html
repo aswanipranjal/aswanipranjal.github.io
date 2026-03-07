@@ -25,7 +25,7 @@
 
     
 
-    <meta name="generator" content="Hugo 0.139.4">
+    <meta name="generator" content="Hugo 0.155.3">
   </head>
 
   <body>
@@ -103,17 +103,17 @@
 <p>A considerable amount of my time this week went into understanding both of these code bases. (That was fun!)</p>
 <p>Perceval is used to fetch data from different data sources such as git, github, mailinglists, gerrit and so on.</p>
 <p>Grimoire-elk, using perceval, fetches this data and saves it as raw indices into elasticsearch. Perceval’s job is then done. After that, Grimoire-elk queries elasticsearch to retrieve this raw data and enriches it by calculating the fields needed to calculate the metrics and saves this enriched data back into elasticsearch in a second index (with possibly a similar name). This is, in short, what happens when we run the command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    $ p2o.py --enrich --index &lt;raw index name&gt; --index-enrich &lt;enriched index name&gt; -e &lt;URI of where elasticsearch is running&gt; --no_inc --debug &lt;data source&gt; &lt;corresponding parameters <span style="color:#66d9ef">for</span> the data source as given to perceval&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    $ p2o.py --enrich --index &lt;raw index name&gt; --index-enrich &lt;enriched index name&gt; -e &lt;URI of where elasticsearch is running&gt; --no_inc --debug &lt;data source&gt; &lt;corresponding parameters <span style="color:#66d9ef">for</span> the data source as given to perceval&gt;
 </span></span></code></pre></div><p>The <code>raw index name</code> is where the data fetched from perceval will be stored. The <code>enriched index name</code> is where the processed data will be stored after it’s enriched by grimoire-elk.</p>
 <hr>
 <h5 id="a-bit-about-how-perceval-works">A bit about how PERCEVAL works</h5>
 <p>Perceval supports a variety of data sources and has specific <a href="https://github.com/chaoss/grimoirelab-perceval/tree/master/perceval/backends/core">set of functions</a> for each of them to fetch the data. To query any data source, we give the command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    $ perceval &lt;datasource&gt; <span style="color:#f92672">[</span>-options<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>arguments <span style="color:#66d9ef">for</span> that data source<span style="color:#f92672">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    $ perceval &lt;datasource&gt; <span style="color:#f92672">[</span>-options<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>arguments <span style="color:#66d9ef">for</span> that data source<span style="color:#f92672">]</span>
 </span></span></code></pre></div><p>All the classes for each data source are derieved from <a href="https://github.com/chaoss/grimoirelab-perceval/blob/master/perceval/backend.py">Backend classes</a>.</p>
 <p>Here, we were dealing with the GitHub data source to calculate the metrics under <a href="https://github.com/chaoss/wg-gmd/blob/master/2_Growth-Maturity-Decline.md#code-development">Code Development</a>. As we can see that almost all these metrics depend on it. The general command to fetch from github data source is:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    $ perceval github &lt;user/org-name&gt; &lt;repo-name&gt; --token &lt;github token&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    $ perceval github &lt;user/org-name&gt; &lt;repo-name&gt; --token &lt;github token&gt;
 </span></span></code></pre></div><p>So, perceval, by default fetches all the items (issues and prs in the repository) as if they were Issues. This behavour is defined by the <a href="https://github.com/chaoss/grimoirelab-perceval/blob/master/perceval/backends/core/github.py#L110">category parameter</a> that is passed to the fetch function when querying the repo for data. We can change this behaviour and fetch the data about pull requests (code reviews, commits made in that PR and such) by passing the category parameter to the perceval command:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    $ perceval github --category pull_requests &lt;user/org-name&gt; &lt;repo-name&gt; --token &lt;github token&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    $ perceval github --category pull_requests &lt;user/org-name&gt; &lt;repo-name&gt; --token &lt;github token&gt;
 </span></span></code></pre></div><p>The issue and PR data that is fetched has a <code>data</code> field, apart from the other meta data fields, which contains the data that we need and which is enriched by grimoire-elk.</p>
 <p>The data fetched under issues has the following fields: <code>assignee</code>, <code>assignee_data</code>, <code>assignees</code>, <code>assignees_data</code>, <code>author_association</code>, <code>body</code>, <code>closed_at</code>, <code>comments</code>, <code>comments_data</code>, <code>comments_url</code>, <code>created_at</code>, <code>events_url</code>, <code>html_url</code>, <code>id</code>, <code>labels</code>, <code>labels_url</code>, <code>locked</code>, <code>milestone</code>, <code>node_id</code>, <code>number</code>, <code>pull_request</code>, <code>reactions</code>, <code>reactions_data</code>, <code>repository_url</code>, <code>state</code>, <code>title</code>, <code>updated_at</code>, <code>url</code>, <code>user</code>, <code>user_data</code></p>
 <p>And the data fetched under pull_requests has the following fields: <code>links</code>, <code>additions</code>, <code>assignee</code>, <code>assignees</code>, <code>author_association</code>, <code>base</code>, <code>body</code>, <code>changed_files</code>, <code>closed_at</code>, <code>comments</code>, <code>comments_url</code>, <code>commits</code>, <code>commits_data</code>, <code>commits_url</code>, <code>created_at</code>, <code>deletions</code>, <code>diff_url</code>, <code>head</code>, <code>html_url</code>, <code>id</code>, <code>issue_url</code>, <code>labels</code>, <code>locked</code>, <code>maintainer_can_modify</code>, <code>merge_commit_sha</code>, <code>mergeable</code>, <code>mergeable_state</code>, <code>merged</code>, <code>merged_at</code>, <code>merged_by</code>, <code>merged_by_data</code>, <code>milestone</code>, <code>node_id</code>, <code>number</code>, <code>patch_url</code>, <code>rebaseable</code>, <code>requested_reviewers</code>, <code>requested_reviewers_data</code>, <code>requested_teams</code>, <code>review_comment_url</code>, <code>review_comments</code>, <code>review_comments_data</code>, <code>review_comments_url</code>, <code>state</code>, <code>statuses_url</code>, <code>title</code>, <code>updated_at</code>, <code>url</code>, <code>user</code>, <code>user_data</code></p>
@@ -143,7 +143,7 @@
 <p>All in all, we might end up using the Pandas in built visualisations and the classic Matplotlib or even Seaborn to get the static visualisations and limit Altair and Plotly to the Notebooks and HTML pages for interactive visualisations. I hope to discuss this more in today’s meeting.</p>
 <hr>
 <p>Altair and Seaborn require data in a specific format, known as <code>tidy-data</code>. So, what is tidy data exactly? The human readable data contains parameters as Column names and the data for those parameters as the rows. Example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    date				opened_issues		closed_issues		remaining_issues
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    date				opened_issues		closed_issues		remaining_issues
 </span></span><span style="display:flex;"><span>    2016-01-01 00:00:00+00:00		1			1			NaN
 </span></span><span style="display:flex;"><span>    2016-02-01 00:00:00+00:00		2			1			1.0
 </span></span><span style="display:flex;"><span>    2016-03-01 00:00:00+00:00		8			4			4.0
@@ -159,7 +159,7 @@
 </span></span><span style="display:flex;"><span>    ....
 </span></span></code></pre></div><p>We can see that each row requires the headings to be specified so that we can determine the parameter that we are looking at. We need to provide extra data to distinguish between rows and fields.</p>
 <p>Let’s have a look at the data which is <em>tidy</em>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    Date				issue_type		count
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    Date				issue_type		count
 </span></span><span style="display:flex;"><span>    2016-01-01T00:00:00+00:00	opened_issues		1.0
 </span></span><span style="display:flex;"><span>    2016-01-01T00:00:00+00:00	closed_issues		1.0
 </span></span><span style="display:flex;"><span>    2016-02-01T00:00:00+00:00	opened_issues		2.0
@@ -199,6 +199,8 @@
 </ul>
 <hr>
 
+
+    
   </article>
 </section>
 
