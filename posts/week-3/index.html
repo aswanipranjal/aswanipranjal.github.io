@@ -25,7 +25,7 @@
 
     
 
-    <meta name="generator" content="Hugo 0.139.4">
+    <meta name="generator" content="Hugo 0.155.3">
   </head>
 
   <body>
@@ -89,7 +89,7 @@
 <p><strong>NOTE: Always try to create tests first before writing the function corresponding to that test so you’ll know exactly what kind of a function you need to make, what it will return and which parameters it requires.</strong></p>
 <p>I am mainly using <code>assertDictEquals</code> to compare the different dictionaries. The good thing is that all the functions are working successfully. I also updated the comments with details about what each function returned as input. We are using elasticsearch_dsl objects in each function and thus all the objects are either Aggregation, Query or Search objects from the elasticsearch_dsl module.</p>
 <p>The second subtask was to make the whole manuscripts project use elasticsearch_dsl. <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/5876118229a063cc613dd30197d08a229af706f8/manuscripts/esquery.py#L500">This line</a> inside <code>get_agg</code> function in esquery.py returns a json object. This is because the function <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/5876118229a063cc613dd30197d08a229af706f8/manuscripts/metrics/metrics.py#L152">get_metrics_data</a> uses the json object to query elasticsearch directly which is unacceptable. It should instead use a es_dsl Search object which can then call the <code>.execute()</code> function to get the results. Those results can then be converted into a dict and the rest of the file will work as it is. Ex:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#f92672">from</span> elasticsearch_dsl <span style="color:#f92672">import</span> A, Search, Q
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#f92672">from</span> elasticsearch_dsl <span style="color:#f92672">import</span> A, Search, Q
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">from</span> elasticsearch <span style="color:#f92672">import</span> Elasticsearch
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>    es <span style="color:#f92672">=</span> Elasticsearch()
@@ -132,14 +132,14 @@
 <li><a href="https://github.com/aswanipranjal/gsoc-manuscripts/blob/master/new_functions.py#L173">buckets_to_df</a>: takes in a list of buckets and returns a DataFrame with key equals to the datetime objects(if available) or the key in the bucket.</li>
 </ul>
 <p>Example: Closed issues by organizations for <a href="https://github.com/chaoss/grimoirelab-perceval">perceval_github</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#f92672">import</span> new_functions <span style="color:#66d9ef">as</span> nf
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#f92672">import</span> new_functions <span style="color:#66d9ef">as</span> nf
 </span></span><span style="display:flex;"><span>    issues <span style="color:#f92672">=</span> nf<span style="color:#f92672">.</span>Metric(index<span style="color:#f92672">=</span>github_index)
 </span></span><span style="display:flex;"><span>    issues<span style="color:#f92672">.</span>add_query({<span style="color:#e6db74">&#34;item_type&#34;</span>:<span style="color:#e6db74">&#34;issue&#34;</span>}) <span style="color:#75715e"># add a query to get the issues</span>
 </span></span><span style="display:flex;"><span>    issues<span style="color:#f92672">.</span>is_closed() <span style="color:#75715e"># add a query to make status:closed</span>
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>    print(issues<span style="color:#f92672">.</span>by_organizations()<span style="color:#f92672">.</span>get_results()[<span style="color:#ae81ff">0</span>])
 </span></span></code></pre></div><p>OUTPUT:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>                        doc_count   value
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>                        doc_count   value
 </span></span><span style="display:flex;"><span>    key                                  
 </span></span><span style="display:flex;"><span>    others                      <span style="color:#ae81ff">44</span>     <span style="color:#ae81ff">44</span>
 </span></span><span style="display:flex;"><span>    Bitergia                    <span style="color:#ae81ff">39</span>     <span style="color:#ae81ff">39</span>
@@ -175,6 +175,8 @@
 <li>Task-5: Add code in grimoirelab-elk for the metrics which are not readily available.</li>
 </ul>
 
+
+    
   </article>
 </section>
 

@@ -25,7 +25,7 @@
 
     
 
-    <meta name="generator" content="Hugo 0.139.4">
+    <meta name="generator" content="Hugo 0.155.3">
   </head>
 
   <body>
@@ -102,7 +102,7 @@
 <p>Now, the file <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/104b6575ae2d45f9a26f485491f589500682fddb/manuscripts/metrics/github_prs.py">github_prs</a> which contains the GithubPRs class has a few other classes too, which derive them selves from a base class of the form Metrics, here that class is <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/104b6575ae2d45f9a26f485491f589500682fddb/manuscripts/metrics/github_prs.py#L71">GithubPRsMetrics</a>.</p>
 <p>Other classes have this class as their parent class. Each class in the file represents a Metric as and since the base class is derived from the Metrics class from metrics.py module, each of them have all the functionalities that Metric class provides.</p>
 <p>So, in the get_section_metrics function inside GithubPRs class, the return dict has these Classes (containing fields for the metrics they represent) to calculate the metrics from them. If I am not clear, this is how the return dict looks like: (from get_section_metrics)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {
 </span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;overview&#34;</span>: {
 </span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;activity_metrics&#34;</span>: [ClosedPR, SubmittedPR],
 </span></span><span style="display:flex;"><span>            <span style="color:#e6db74">&#34;author_metrics&#34;</span>: [],
@@ -132,7 +132,7 @@
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span></code></pre></div><p>And the <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/104b6575ae2d45f9a26f485491f589500682fddb/manuscripts/metrics/github_prs.py#L76">SubmittedPR</a> class will look something like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SubmittedPR</span>(GitHubPRsMetrics):
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SubmittedPR</span>(GitHubPRsMetrics):
 </span></span><span style="display:flex;"><span>        id <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;submitted&#34;</span>
 </span></span><span style="display:flex;"><span>        name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Submitted reviews&#34;</span>
 </span></span><span style="display:flex;"><span>        desc <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Number of submitted code review processes&#34;</span>
@@ -144,7 +144,7 @@
 <h4 id="reportspy">Reports.py</h4>
 <p>Now, coming back to our main file generating the reports. We have <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/104b6575ae2d45f9a26f485491f589500682fddb/manuscripts/report.py#L74">mappings</a> relating the base classes we saw above to their corresponding indices in elasticsearch.</p>
 <p>After the initialization and the required calibration of datasources, we generate the main donfiguration dictionary that will desctibe which Metrics will be a part of which sections using the <a href="https://github.com/chaoss/grimoirelab-manuscripts/blob/104b6575ae2d45f9a26f485491f589500682fddb/manuscripts/report.py#L198">get_config</a> function. This is the configuration file that is generated when we are using git and github data sources to create the reports:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;overview&#39;</span>: {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;overview&#39;</span>: {
 </span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;activity_metrics&#39;</span>: [<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">manuscripts</span><span style="color:#f92672">.</span>metrics<span style="color:#f92672">.</span>github_prs<span style="color:#f92672">.</span>ClosedPR<span style="color:#e6db74">&#39;&gt;, </span>
 </span></span><span style="display:flex;"><span>                            <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">manuscripts</span><span style="color:#f92672">.</span>metrics<span style="color:#f92672">.</span>github_prs<span style="color:#f92672">.</span>SubmittedPR<span style="color:#e6db74">&#39;&gt;, </span>
 </span></span><span style="display:flex;"><span>                            <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">class</span> <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#a6e22e">manuscripts</span><span style="color:#f92672">.</span>metrics<span style="color:#f92672">.</span>github_issues<span style="color:#f92672">.</span>Closed<span style="color:#e6db74">&#39;&gt;, </span>
@@ -259,6 +259,8 @@
 <p>Will our hero succeed in completing these tasks? What challenges will he face? Will he finally defeat the ultimate dragon(looking at you Task#4)? Find out next week.</p>
 <p>Adios!</p>
 
+
+    
   </article>
 </section>
 
