@@ -1,9 +1,10 @@
 {
   "https://lalitm.com/post/building-syntaqlite-ai/": {
-    "title": "Eight years of wanting, three months of building with AI - Lalit Maganti",
     "category": "Building with AI",
     "notes": "Explains how he used AI to steer a project - pitfalls and strengths of AI assisted programming",
-    "read": false,
-    "savedAt": "2026-04-11 21:45:12"
+    "read": true,
+    "savedAt": "2026-04-11 21:45:12",
+    "title": "Eight years of wanting, three months of building with AI - Lalit Maganti",
+    "updatedAt": "2026-04-11 21:49:00"
   }
 }
