@@ -1,10 +1,17 @@
 {
+  "https://captnemo.in/blog/2018/04/22/home-server-networking/": {
+    "title": "Home Server Networking · Nemo's Home",
+    "category": "devops",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-11 22:34:29"
+  },
   "https://fuelingcuriosity.com/game.html?utm_source=hackernewsletter&utm_medium=email&utm_term=show_hn": {
-    "title": "The Great Refinery Run: A Fueling Curiosity Game",
     "category": "Games",
     "notes": "",
     "read": false,
-    "savedAt": "2026-04-11 22:07:33"
+    "savedAt": "2026-04-11 22:07:33",
+    "title": "The Great Refinery Run: A Fueling Curiosity Game"
   },
   "https://p5js.org/": {
     "category": "Tools",
