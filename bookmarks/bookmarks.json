@@ -1,10 +1,17 @@
 {
+  "https://fuelingcuriosity.com/game.html?utm_source=hackernewsletter&utm_medium=email&utm_term=show_hn": {
+    "title": "The Great Refinery Run: A Fueling Curiosity Game",
+    "category": "Games",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-11 22:07:33"
+  },
   "https://p5js.org/": {
-    "title": "p5.js",
     "category": "Tools",
     "notes": "",
     "read": false,
-    "savedAt": "2026-04-11 22:07:16"
+    "savedAt": "2026-04-11 22:07:16",
+    "title": "p5.js"
   },
   "https://aphyr.com/posts/411-the-future-of-everything-is-lies-i-guess": {
     "category": "AI",
