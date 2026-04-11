@@ -1,10 +1,17 @@
 {
+  "https://captnemo.in/": {
+    "title": "I am Nemo · Nemo's Home",
+    "category": "Cool folk",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-11 22:37:18"
+  },
   "https://captnemo.in/blog/2018/04/22/home-server-networking/": {
-    "title": "Home Server Networking · Nemo's Home",
     "category": "devops",
     "notes": "",
     "read": false,
-    "savedAt": "2026-04-11 22:34:29"
+    "savedAt": "2026-04-11 22:34:29",
+    "title": "Home Server Networking · Nemo's Home"
   },
   "https://fuelingcuriosity.com/game.html?utm_source=hackernewsletter&utm_medium=email&utm_term=show_hn": {
     "category": "Games",
