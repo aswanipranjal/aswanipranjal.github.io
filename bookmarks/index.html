@@ -27,6 +27,9 @@
     
 
     <meta name="generator" content="Hugo 0.155.3">
+    
+<link rel="stylesheet" href="/css/bookmarks.css">
+
   </head>
 
   <body>
@@ -36,27 +39,7 @@
     <a class="navigation-title" href="https://aswanipranjal.github.io/">
       TOBOR A TON MA I
     </a>
-    
-    <ul class="navigation-list float-right">
-      
-      <li class="navigation-item">
-        <a class="navigation-link" href="/about/">About</a>
-      </li>
-      
-      <li class="navigation-item">
-        <a class="navigation-link" href="/posts/">Posts</a>
-      </li>
-      
-      <li class="navigation-item">
-        <a class="navigation-link" href="/tags/">Tags</a>
-      </li>
-      
-      <li class="navigation-item">
-        <a class="navigation-link" href="/bookmarks/">Bookmarks</a>
-      </li>
-      
-    </ul>
-    
+    <ul id="nav-list" class="navigation-list float-right"></ul>
   </section>
 </nav>
 
@@ -67,175 +50,7 @@
   <h1 class="title">Bookmarks</h1>
   <div id="bookmarks-root"></div>
 </section>
-
-<style>
-  .bookmarks-category {
-    margin: 3.2rem 0 1.6rem 0;
-  }
-  .bookmarks-category-title {
-    font-size: 1.2rem;
-    color: #999;
-    text-transform: uppercase;
-    letter-spacing: 0.1rem;
-    border-bottom: 1px solid #dcdcdc;
-    padding-bottom: 0.8rem;
-    margin-bottom: 1.6rem;
-  }
-  .bookmark-item {
-    margin-bottom: 2.4rem;
-  }
-  .bookmark-title {
-    display: flex;
-    align-items: baseline;
-    gap: 1rem;
-  }
-  .bookmark-title a {
-    font-size: 1.6rem;
-    text-transform: uppercase;
-    letter-spacing: 0.0625rem;
-  }
-  .bookmark-title a:hover {
-    text-decoration: underline;
-  }
-  .bookmark-item.is-read .bookmark-title a {
-    color: #999;
-    font-weight: 400;
-  }
-  .bookmark-read-badge {
-    font-size: 1.0rem;
-    color: #1abc9c;
-    text-transform: uppercase;
-    letter-spacing: 0.05rem;
-    flex-shrink: 0;
-  }
-  .bookmark-notes {
-    font-size: 1.4rem;
-    color: #555;
-    margin-top: 0.4rem;
-    font-style: italic;
-  }
-  .bookmark-meta {
-    font-size: 1.2rem;
-    color: #bbb;
-    margin-top: 0.3rem;
-  }
-  .bookmarks-empty {
-    color: #999;
-    font-size: 1.4rem;
-    margin-top: 3.2rem;
-  }
-  .bookmarks-error {
-    color: #c0392b;
-    font-size: 1.4rem;
-    margin-top: 3.2rem;
-  }
-</style>
-
-<script>
-  (function () {
-    function parseDate(str) {
-      if (!str) return new Date(0);
-      return new Date(str.replace(' ', 'T'));
-    }
-
-    function formatDate(str) {
-      if (!str) return '';
-      return parseDate(str).toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric'
-      });
-    }
-
-    function esc(str) {
-      return (str || '')
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;');
-    }
-
-    fetch('/bookmarks/bookmarks.json')
-      .then(function (res) {
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        return res.json();
-      })
-      .then(function (data) {
-        var root = document.getElementById('bookmarks-root');
-
-        
-        var items = Object.keys(data).map(function (url) {
-          var b = Object.assign({}, data[url]);
-          b.url = url;
-          return b;
-        });
-
-        if (items.length === 0) {
-          root.innerHTML = '<p class="bookmarks-empty">No bookmarks yet.</p>';
-          return;
-        }
-
-        
-        items.sort(function (a, b) {
-          var diff = parseDate(b.savedAt) - parseDate(a.savedAt);
-          if (diff !== 0) return diff;
-          return parseDate(b.updatedAt) - parseDate(a.updatedAt);
-        });
-
-        
-        var catOrder = [];
-        var categories = {};
-        items.forEach(function (item) {
-          var cat = item.category || 'Uncategorized';
-          if (!categories[cat]) {
-            categories[cat] = [];
-            catOrder.push(cat);
-          }
-          categories[cat].push(item);
-        });
-
-        var html = '';
-        catOrder.forEach(function (cat) {
-          html += '<div class="bookmarks-category">';
-          html += '<div class="bookmarks-category-title">' + esc(cat) + '</div>';
-
-          categories[cat].forEach(function (item) {
-            var readClass = item.read ? ' is-read' : '';
-            html += '<div class="bookmark-item' + readClass + '">';
-
-            html += '<div class="bookmark-title">';
-            html += '<a href="' + esc(item.url) + '" target="_blank" rel="noopener noreferrer">'
-              + esc(item.title || item.url) + '</a>';
-            if (item.read) {
-              html += '<span class="bookmark-read-badge">read</span>';
-            }
-            html += '</div>';
-
-            if (item.notes) {
-              html += '<div class="bookmark-notes">' + esc(item.notes) + '</div>';
-            }
-
-            html += '<div class="bookmark-meta">' + esc(formatDate(item.savedAt));
-            if (item.updatedAt) {
-              html += ' &middot; updated ' + esc(formatDate(item.updatedAt));
-            }
-            html += '</div>';
-
-            html += '</div>';
-          });
-
-          html += '</div>';
-        });
-
-        root.innerHTML = html;
-      })
-      .catch(function (err) {
-        document.getElementById('bookmarks-root').innerHTML =
-          '<p class="bookmarks-error">Could not load bookmarks.</p>';
-        console.error('Bookmarks fetch error:', err);
-      });
-  })();
-</script>
+<script src="/js/bookmarks.js"></script>
 
       </div>
 
@@ -248,6 +63,7 @@
     </main>
 
     
+    <script src="/js/nav.js"></script>
 
   </body>
 
