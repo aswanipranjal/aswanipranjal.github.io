@@ -1,10 +1,17 @@
 {
+  "https://en.wikipedia.org/wiki/Zero-knowledge_proof": {
+    "title": "Zero-knowledge proof - Wikipedia",
+    "category": "misc tech reading",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 19:11:15"
+  },
   "https://aisle.com/blog/ai-cybersecurity-after-mythos-the-jagged-frontier": {
-    "title": "AI Cybersecurity After Mythos: The Jagged Frontier | AISLE",
     "category": "AI",
     "notes": "",
     "read": false,
-    "savedAt": "2026-04-12 19:10:57"
+    "savedAt": "2026-04-12 19:10:57",
+    "title": "AI Cybersecurity After Mythos: The Jagged Frontier | AISLE"
   },
   "https://imitation.readthedocs.io/en/latest/algorithms/bc.html": {
     "category": "Projects to look into",
