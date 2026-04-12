@@ -1,10 +1,17 @@
 {
+  "https://stevehanov.ca/blog/": {
+    "title": "Steve Hanov's Blog",
+    "category": "Cool folk",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 14:24:27"
+  },
   "https://fdc.stanford.edu/": {
-    "title": "Future of Digital Currency Initiative",
     "category": "Projects to look into",
     "notes": "",
     "read": false,
-    "savedAt": "2026-04-12 13:48:27"
+    "savedAt": "2026-04-12 13:48:27",
+    "title": "Future of Digital Currency Initiative"
   },
   "https://botonomous.ai/featured/market_manipulation/dashboard.html": {
     "category": "Games",
