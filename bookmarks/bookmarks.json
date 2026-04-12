@@ -1,10 +1,17 @@
 {
+  "https://botonomous.ai/featured/market_manipulation/dashboard.html": {
+    "title": "Market Manipulation Dashboard — Botonomous.ai",
+    "category": "Games",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 13:47:40"
+  },
   "https://ziglang.org/": {
-    "title": "Home ⚡ Zig Programming Language",
     "category": "New Technologies",
     "notes": "",
     "read": false,
-    "savedAt": "2026-04-12 13:45:53"
+    "savedAt": "2026-04-12 13:45:53",
+    "title": "Home ⚡ Zig Programming Language"
   },
   "https://minusx.ai/blog/decoding-claude-code/#12-use-a-smaller-model-for-everything": {
     "category": "Building with AI",
