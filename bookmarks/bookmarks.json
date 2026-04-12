@@ -1,10 +1,17 @@
 {
+  "https://fidget-spinner.github.io/posts/jit-on-track.html": {
+    "title": "Python 3.15’s JIT is now back on track | Ken Jin’s Blog",
+    "category": "misc tech reading",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 18:33:15"
+  },
   "https://karpathy.ai/": {
-    "title": "Andrej Karpathy",
     "category": "Cool folk",
     "notes": "",
     "read": false,
-    "savedAt": "2026-04-12 18:32:29"
+    "savedAt": "2026-04-12 18:32:29",
+    "title": "Andrej Karpathy"
   },
   "https://lucumr.pocoo.org/about/": {
     "category": "Cool folk",
