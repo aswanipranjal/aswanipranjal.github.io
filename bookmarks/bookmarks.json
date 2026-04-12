@@ -1,10 +1,17 @@
 {
+  "https://essay.app/guide/": {
+    "title": "Writing Guide by Dr. Jordan B. Peterson | Essay",
+    "category": "non tech reading",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 18:54:29"
+  },
   "https://stripe.com/blog/machine-payments-protocol": {
-    "title": "Introducing the Machine Payments Protocol",
     "category": "New Technologies",
     "notes": "",
     "read": true,
-    "savedAt": "2026-04-12 18:35:30"
+    "savedAt": "2026-04-12 18:35:30",
+    "title": "Introducing the Machine Payments Protocol"
   },
   "https://fidget-spinner.github.io/posts/jit-on-track.html": {
     "category": "misc tech reading",
