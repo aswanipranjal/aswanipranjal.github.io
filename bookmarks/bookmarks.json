@@ -1,10 +1,17 @@
 {
+  "https://imitation.readthedocs.io/en/latest/algorithms/bc.html": {
+    "title": "Behavioral Cloning (BC) - imitation",
+    "category": "Projects to look into",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 19:10:43"
+  },
   "https://trustmrr.com/acquire": {
-    "title": "Acquire Profitable Startups - TrustMRR",
     "category": "Bootstrapped SaaS",
     "notes": "",
     "read": false,
-    "savedAt": "2026-04-12 19:09:39"
+    "savedAt": "2026-04-12 19:09:39",
+    "title": "Acquire Profitable Startups - TrustMRR"
   },
   "https://sytse.com/cancer/": {
     "category": "non tech reading",
