@@ -1,10 +1,17 @@
 {
+  "https://github.com/librefin-in": {
+    "title": "librefin",
+    "category": "Projects to look into",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 13:43:56"
+  },
   "https://neilkakkar.com/about/": {
-    "title": "About | Neil Kakkar",
     "category": "Cool folk",
     "notes": "",
     "read": false,
-    "savedAt": "2026-04-12 13:42:39"
+    "savedAt": "2026-04-12 13:42:39",
+    "title": "About | Neil Kakkar"
   },
   "https://stevekrouse.com/precision": {
     "category": "AI",
