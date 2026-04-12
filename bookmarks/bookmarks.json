@@ -1,4 +1,109 @@
 {
+  "https://stevehanov.ca/blog/": {
+    "title": "Steve Hanov's Blog",
+    "category": "Cool folk",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 14:24:27"
+  },
+  "https://fdc.stanford.edu/": {
+    "category": "Projects to look into",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 13:48:27",
+    "title": "Future of Digital Currency Initiative"
+  },
+  "https://botonomous.ai/featured/market_manipulation/dashboard.html": {
+    "category": "Games",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 13:47:40",
+    "title": "Market Manipulation Dashboard — Botonomous.ai"
+  },
+  "https://ziglang.org/": {
+    "category": "New Technologies",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 13:45:53",
+    "title": "Home ⚡ Zig Programming Language"
+  },
+  "https://minusx.ai/blog/decoding-claude-code/#12-use-a-smaller-model-for-everything": {
+    "category": "Building with AI",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 13:45:29",
+    "title": "Minusx | What makes Claude Code so damn good (and how to recreate that magic in your agent)!?"
+  },
+  "https://vivekaithal.co/": {
+    "category": "Cool folk",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 13:45:02",
+    "title": "vivek Aithal"
+  },
+  "https://jry.io/": {
+    "category": "Cool folk",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 13:44:31",
+    "title": "Jacob Young"
+  },
+  "https://cloud.spendbase.co/auth/sign-up": {
+    "category": "Projects to look into",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 13:44:09",
+    "title": "Spendbase Cloud - Sign Up"
+  },
+  "https://github.com/librefin-in": {
+    "category": "Projects to look into",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 13:43:56",
+    "title": "librefin"
+  },
+  "https://neilkakkar.com/about/": {
+    "category": "Cool folk",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 13:42:39",
+    "title": "About | Neil Kakkar"
+  },
+  "https://stevekrouse.com/precision": {
+    "category": "AI",
+    "notes": "",
+    "read": true,
+    "savedAt": "2026-04-12 13:41:36",
+    "title": "Reports of code's death are greatly exaggerated"
+  },
+  "https://translate.kagi.com/?from=en&to=linkedin&text=Working+on+distributed+recommendation+systems+for+million+user+scale": {
+    "category": "Games",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 13:39:16",
+    "title": "Kagi Translate"
+  },
+  "https://www.canirun.ai/": {
+    "category": "AI",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 13:38:57",
+    "title": "CanIRun.ai — Can your machine run AI models?"
+  },
+  "https://www.bassimeledath.com/blog/levels-of-agentic-engineering#levels-1--2-tab-complete-and-agent-ide": {
+    "category": "Agentic engieering",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 13:38:25",
+    "title": "The 8 Levels of Agentic Engineering — Bassim Eledath"
+  },
+  "https://simonwillison.net/2026/Feb/23/agentic-engineering-patterns/": {
+    "category": "Agentic engieering",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 13:38:15",
+    "title": "Writing about Agentic Engineering Patterns"
+  },
   "https://www.mihaileric.com/The-Emperor-Has-No-Clothes/": {
     "category": "Agentic engieering",
     "notes": "how to build your own agent",
