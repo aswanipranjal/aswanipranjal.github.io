@@ -1,10 +1,17 @@
 {
+  "https://fdc.stanford.edu/": {
+    "title": "Future of Digital Currency Initiative",
+    "category": "Projects to look into",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 13:48:27"
+  },
   "https://botonomous.ai/featured/market_manipulation/dashboard.html": {
-    "title": "Market Manipulation Dashboard — Botonomous.ai",
     "category": "Games",
     "notes": "",
     "read": false,
-    "savedAt": "2026-04-12 13:47:40"
+    "savedAt": "2026-04-12 13:47:40",
+    "title": "Market Manipulation Dashboard — Botonomous.ai"
   },
   "https://ziglang.org/": {
     "category": "New Technologies",
