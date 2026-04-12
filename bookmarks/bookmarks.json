@@ -1,10 +1,17 @@
 {
+  "https://ziglang.org/": {
+    "title": "Home ⚡ Zig Programming Language",
+    "category": "New Technologies",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 13:45:53"
+  },
   "https://minusx.ai/blog/decoding-claude-code/#12-use-a-smaller-model-for-everything": {
-    "title": "Minusx | What makes Claude Code so damn good (and how to recreate that magic in your agent)!?",
     "category": "Building with AI",
     "notes": "",
     "read": false,
-    "savedAt": "2026-04-12 13:45:29"
+    "savedAt": "2026-04-12 13:45:29",
+    "title": "Minusx | What makes Claude Code so damn good (and how to recreate that magic in your agent)!?"
   },
   "https://vivekaithal.co/": {
     "category": "Cool folk",
