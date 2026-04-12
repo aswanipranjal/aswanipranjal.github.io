@@ -1,10 +1,17 @@
 {
-  "https://jry.io/": {
-    "title": "Jacob Young",
+  "https://vivekaithal.co/": {
+    "title": "vivek Aithal",
     "category": "Cool folk",
     "notes": "",
     "read": false,
-    "savedAt": "2026-04-12 13:44:31"
+    "savedAt": "2026-04-12 13:45:02"
+  },
+  "https://jry.io/": {
+    "category": "Cool folk",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 13:44:31",
+    "title": "Jacob Young"
   },
   "https://cloud.spendbase.co/auth/sign-up": {
     "category": "Projects to look into",
