@@ -1,10 +1,17 @@
 {
+  "https://anishathalye.com/macbook-touchscreen/": {
+    "title": "Turning a MacBook into a Touchscreen with $1 of Hardware",
+    "category": "Projects to look into",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 18:56:54"
+  },
   "https://essay.app/guide/": {
-    "title": "Writing Guide by Dr. Jordan B. Peterson | Essay",
     "category": "non tech reading",
     "notes": "",
     "read": false,
-    "savedAt": "2026-04-12 18:54:29"
+    "savedAt": "2026-04-12 18:54:29",
+    "title": "Writing Guide by Dr. Jordan B. Peterson | Essay"
   },
   "https://stripe.com/blog/machine-payments-protocol": {
     "category": "New Technologies",
