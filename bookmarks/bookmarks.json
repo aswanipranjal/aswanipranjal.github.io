@@ -1,10 +1,17 @@
 {
-  "https://github.com/librefin-in": {
-    "title": "librefin",
+  "https://cloud.spendbase.co/auth/sign-up": {
+    "title": "Spendbase Cloud - Sign Up",
     "category": "Projects to look into",
     "notes": "",
     "read": false,
-    "savedAt": "2026-04-12 13:43:56"
+    "savedAt": "2026-04-12 13:44:09"
+  },
+  "https://github.com/librefin-in": {
+    "category": "Projects to look into",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 13:43:56",
+    "title": "librefin"
   },
   "https://neilkakkar.com/about/": {
     "category": "Cool folk",
