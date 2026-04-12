@@ -1,10 +1,17 @@
 {
+  "https://www.mintlify.com/docs": {
+    "title": "Introduction - Mintlify",
+    "category": "Tools",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 19:20:31"
+  },
   "https://arxiv.org/abs/2604.01193": {
-    "title": "[2604.01193] Embarrassingly Simple Self-Distillation Improves Code Generation",
     "category": "research papers",
     "notes": "",
     "read": false,
-    "savedAt": "2026-04-12 19:13:46"
+    "savedAt": "2026-04-12 19:13:46",
+    "title": "[2604.01193] Embarrassingly Simple Self-Distillation Improves Code Generation"
   },
   "https://en.wikipedia.org/wiki/Zero-knowledge_proof": {
     "category": "misc tech reading",
