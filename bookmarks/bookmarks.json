@@ -1,10 +1,17 @@
 {
+  "https://rdi.berkeley.edu/blog/trustworthy-benchmarks-cont/": {
+    "title": "Center for Responsible, Decentralized Intelligence at Berkeley",
+    "category": "AI is lagging",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 19:06:45"
+  },
   "https://github.com/n8n-io/n8n": {
-    "title": "n8n-io/n8n: Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
     "category": "Projects to look into",
     "notes": "",
     "read": false,
-    "savedAt": "2026-04-12 18:59:35"
+    "savedAt": "2026-04-12 18:59:35",
+    "title": "n8n-io/n8n: Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations."
   },
   "https://anishathalye.com/macbook-touchscreen/": {
     "category": "Projects to look into",
