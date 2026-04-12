@@ -1,10 +1,17 @@
 {
+  "https://arxiv.org/abs/2604.01193": {
+    "title": "[2604.01193] Embarrassingly Simple Self-Distillation Improves Code Generation",
+    "category": "research papers",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 19:13:46"
+  },
   "https://en.wikipedia.org/wiki/Zero-knowledge_proof": {
-    "title": "Zero-knowledge proof - Wikipedia",
     "category": "misc tech reading",
     "notes": "",
     "read": false,
-    "savedAt": "2026-04-12 19:11:15"
+    "savedAt": "2026-04-12 19:11:15",
+    "title": "Zero-knowledge proof - Wikipedia"
   },
   "https://aisle.com/blog/ai-cybersecurity-after-mythos-the-jagged-frontier": {
     "category": "AI",
