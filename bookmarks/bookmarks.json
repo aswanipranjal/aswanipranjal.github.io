@@ -1,10 +1,17 @@
 {
+  "https://only-eu.eu/en/": {
+    "title": "European Alternatives to US Products & Software | Only EU",
+    "category": "Projects to look into",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 19:20:45"
+  },
   "https://www.mintlify.com/docs": {
-    "title": "Introduction - Mintlify",
     "category": "Tools",
     "notes": "",
     "read": false,
-    "savedAt": "2026-04-12 19:20:31"
+    "savedAt": "2026-04-12 19:20:31",
+    "title": "Introduction - Mintlify"
   },
   "https://arxiv.org/abs/2604.01193": {
     "category": "research papers",
