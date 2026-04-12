@@ -1,10 +1,11 @@
 {
   "https://www.mihaileric.com/The-Emperor-Has-No-Clothes/": {
-    "title": "The Emperor Has No Clothes: How to Code Claude Code in 200 Lines of Code - Mihail Eric",
-    "category": "Building with AI",
+    "category": "Agentic engieering",
     "notes": "how to build your own agent",
     "read": false,
-    "savedAt": "2026-04-12 13:37:24"
+    "savedAt": "2026-04-12 13:37:24",
+    "title": "The Emperor Has No Clothes: How to Code Claude Code in 200 Lines of Code - Mihail Eric",
+    "updatedAt": "2026-04-12 13:37:51"
   },
   "https://steipete.me/posts/2025/shipping-at-inference-speed": {
     "category": "Building with AI",
