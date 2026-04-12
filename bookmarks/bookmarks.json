@@ -1,10 +1,17 @@
 {
-  "https://lucumr.pocoo.org/about/": {
-    "title": "About Me | Armin Ronacher's Thoughts and Writings",
+  "https://karpathy.ai/": {
+    "title": "Andrej Karpathy",
     "category": "Cool folk",
     "notes": "",
     "read": false,
-    "savedAt": "2026-04-12 18:31:41"
+    "savedAt": "2026-04-12 18:32:29"
+  },
+  "https://lucumr.pocoo.org/about/": {
+    "category": "Cool folk",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 18:31:41",
+    "title": "About Me | Armin Ronacher's Thoughts and Writings"
   },
   "https://lucumr.pocoo.org/2026/1/31/pi/": {
     "category": "Building with AI",
