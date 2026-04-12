@@ -1,10 +1,11 @@
 {
   "https://lucumr.pocoo.org/2026/1/31/pi/": {
-    "title": "Pi: The Minimal Agent Within OpenClaw | Armin Ronacher's Thoughts and Writings",
     "category": "Building with AI",
     "notes": "",
-    "read": false,
-    "savedAt": "2026-04-12 18:30:18"
+    "read": true,
+    "savedAt": "2026-04-12 18:30:18",
+    "title": "Pi: The Minimal Agent Within OpenClaw | Armin Ronacher's Thoughts and Writings",
+    "updatedAt": "2026-04-12 18:30:26"
   },
   "https://stevehanov.ca/blog/": {
     "category": "Cool folk",
