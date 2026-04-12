@@ -1,10 +1,17 @@
 {
+  "https://stripe.com/blog/machine-payments-protocol": {
+    "title": "Introducing the Machine Payments Protocol",
+    "category": "New Technologies",
+    "notes": "",
+    "read": true,
+    "savedAt": "2026-04-12 18:35:30"
+  },
   "https://fidget-spinner.github.io/posts/jit-on-track.html": {
-    "title": "Python 3.15’s JIT is now back on track | Ken Jin’s Blog",
     "category": "misc tech reading",
     "notes": "",
     "read": false,
-    "savedAt": "2026-04-12 18:33:15"
+    "savedAt": "2026-04-12 18:33:15",
+    "title": "Python 3.15’s JIT is now back on track | Ken Jin’s Blog"
   },
   "https://karpathy.ai/": {
     "category": "Cool folk",
