@@ -1,10 +1,17 @@
 {
-  "https://anishathalye.com/macbook-touchscreen/": {
-    "title": "Turning a MacBook into a Touchscreen with $1 of Hardware",
+  "https://github.com/n8n-io/n8n": {
+    "title": "n8n-io/n8n: Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
     "category": "Projects to look into",
     "notes": "",
     "read": false,
-    "savedAt": "2026-04-12 18:56:54"
+    "savedAt": "2026-04-12 18:59:35"
+  },
+  "https://anishathalye.com/macbook-touchscreen/": {
+    "category": "Projects to look into",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 18:56:54",
+    "title": "Turning a MacBook into a Touchscreen with $1 of Hardware"
   },
   "https://essay.app/guide/": {
     "category": "non tech reading",
