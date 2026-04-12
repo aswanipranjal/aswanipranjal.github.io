@@ -25,6 +25,10 @@
     return /^https?:\/\//.test(url) ? url : '#';
   }
 
+  function slugify(str) {
+    return str.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+  }
+
   fetch('/bookmarks/bookmarks.json')
     .then(function (res) {
       if (!res.ok) throw new Error('HTTP ' + res.status);
@@ -61,40 +65,76 @@
         categories[cat].push(item);
       });
 
-      var html = '';
+      // Build sidebar
+      var pagePath = window.location.pathname;
+      var sidebarHtml = '';
+      catOrder.forEach(function (cat, i) {
+        var id = slugify(cat);
+        var activeClass = i === 0 ? ' is-active' : '';
+        sidebarHtml += '<a href="' + pagePath + '#' + id + '" class="sidebar-link' + activeClass + '">'
+          + esc(cat)
+          + ' <span class="sidebar-count">' + categories[cat].length + '</span>'
+          + '</a>';
+      });
+
+      // Build content
+      var contentHtml = '';
       catOrder.forEach(function (cat) {
-        html += '<div class="bookmarks-category">';
-        html += '<div class="bookmarks-category-title">' + esc(cat) + '</div>';
+        var id = slugify(cat);
+        contentHtml += '<div class="bookmarks-category" id="' + id + '">';
+        contentHtml += '<div class="bookmarks-category-title">' + esc(cat) + '</div>';
 
         categories[cat].forEach(function (item) {
           var readClass = item.read ? ' is-read' : '';
-          html += '<div class="bookmark-item' + readClass + '">';
+          contentHtml += '<div class="bookmark-item' + readClass + '">';
 
-          html += '<div class="bookmark-title">';
-          html += '<a href="' + esc(safeUrl(item.url)) + '" target="_blank" rel="noopener noreferrer">'
+          contentHtml += '<div class="bookmark-title">';
+          contentHtml += '<a href="' + esc(safeUrl(item.url)) + '" target="_blank" rel="noopener noreferrer">'
             + esc(item.title || item.url) + '</a>';
           if (item.read) {
-            html += '<span class="bookmark-read-badge">read</span>';
+            contentHtml += '<span class="bookmark-read-badge">read</span>';
           }
-          html += '</div>';
+          contentHtml += '<span class="bookmark-meta">' + esc(formatDate(item.savedAt));
+          if (item.updatedAt) {
+            contentHtml += ' &middot; updated ' + esc(formatDate(item.updatedAt));
+          }
+          contentHtml += '</span>';
+          contentHtml += '</div>';
 
           if (item.notes) {
-            html += '<div class="bookmark-notes">' + esc(item.notes) + '</div>';
+            contentHtml += '<div class="bookmark-notes">' + esc(item.notes) + '</div>';
           }
 
-          html += '<div class="bookmark-meta">' + esc(formatDate(item.savedAt));
-          if (item.updatedAt) {
-            html += ' &middot; updated ' + esc(formatDate(item.updatedAt));
-          }
-          html += '</div>';
-
-          html += '</div>';
+          contentHtml += '</div>';
         });
 
-        html += '</div>';
+        contentHtml += '</div>';
       });
 
-      root.innerHTML = html;
+      root.innerHTML =
+        '<div class="bookmarks-layout">'
+        + '<aside class="bookmarks-sidebar">' + sidebarHtml + '</aside>'
+        + '<div class="bookmarks-content">' + contentHtml + '</div>'
+        + '</div>';
+
+      // Highlight active sidebar link on scroll
+      var sections = root.querySelectorAll('.bookmarks-category');
+      var links = root.querySelectorAll('.sidebar-link');
+
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            links.forEach(function (link) {
+              link.classList.toggle(
+                'is-active',
+                link.getAttribute('href') === pagePath + '#' + entry.target.id
+              );
+            });
+          }
+        });
+      }, { rootMargin: '-10% 0px -80% 0px' });
+
+      sections.forEach(function (section) { observer.observe(section); });
     })
     .catch(function (err) {
       document.getElementById('bookmarks-root').innerHTML =
