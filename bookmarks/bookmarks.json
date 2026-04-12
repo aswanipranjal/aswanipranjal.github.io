@@ -1,10 +1,17 @@
 {
+  "https://sytse.com/cancer/": {
+    "title": "Cancer - Sytse.com",
+    "category": "non tech reading",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 19:08:59"
+  },
   "https://rdi.berkeley.edu/blog/trustworthy-benchmarks-cont/": {
-    "title": "Center for Responsible, Decentralized Intelligence at Berkeley",
     "category": "AI is lagging",
     "notes": "",
     "read": false,
-    "savedAt": "2026-04-12 19:06:45"
+    "savedAt": "2026-04-12 19:06:45",
+    "title": "Center for Responsible, Decentralized Intelligence at Berkeley"
   },
   "https://github.com/n8n-io/n8n": {
     "category": "Projects to look into",
