@@ -1,10 +1,17 @@
 {
+  "https://trustmrr.com/acquire": {
+    "title": "Acquire Profitable Startups - TrustMRR",
+    "category": "Bootstrapped SaaS",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 19:09:39"
+  },
   "https://sytse.com/cancer/": {
-    "title": "Cancer - Sytse.com",
     "category": "non tech reading",
     "notes": "",
     "read": false,
-    "savedAt": "2026-04-12 19:08:59"
+    "savedAt": "2026-04-12 19:08:59",
+    "title": "Cancer - Sytse.com"
   },
   "https://rdi.berkeley.edu/blog/trustworthy-benchmarks-cont/": {
     "category": "AI is lagging",
