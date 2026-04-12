@@ -1,10 +1,17 @@
 {
+  "https://piechowski.io/post/git-commands-before-reading-code/": {
+    "title": "The Git Commands I Run Before Reading Any Code",
+    "category": "misc tech reading",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 20:35:29"
+  },
   "https://text.blogosphere.app/blogs": {
-    "title": "Blogs — Blogosphere",
     "category": "blogs",
     "notes": "",
     "read": false,
-    "savedAt": "2026-04-12 20:35:01"
+    "savedAt": "2026-04-12 20:35:01",
+    "title": "Blogs — Blogosphere"
   },
   "https://only-eu.eu/en/": {
     "category": "Projects to look into",
