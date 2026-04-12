@@ -1,10 +1,17 @@
 {
+  "https://neilkakkar.com/about/": {
+    "title": "About | Neil Kakkar",
+    "category": "Cool folk",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 13:42:39"
+  },
   "https://stevekrouse.com/precision": {
-    "title": "Reports of code's death are greatly exaggerated",
     "category": "AI",
     "notes": "",
     "read": true,
-    "savedAt": "2026-04-12 13:41:36"
+    "savedAt": "2026-04-12 13:41:36",
+    "title": "Reports of code's death are greatly exaggerated"
   },
   "https://translate.kagi.com/?from=en&to=linkedin&text=Working+on+distributed+recommendation+systems+for+million+user+scale": {
     "category": "Games",
