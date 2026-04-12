@@ -1,10 +1,17 @@
 {
+  "https://translate.kagi.com/?from=en&to=linkedin&text=Working+on+distributed+recommendation+systems+for+million+user+scale": {
+    "title": "Kagi Translate",
+    "category": "Games",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 13:39:16"
+  },
   "https://www.canirun.ai/": {
-    "title": "CanIRun.ai — Can your machine run AI models?",
     "category": "AI",
     "notes": "",
     "read": false,
-    "savedAt": "2026-04-12 13:38:57"
+    "savedAt": "2026-04-12 13:38:57",
+    "title": "CanIRun.ai — Can your machine run AI models?"
   },
   "https://www.bassimeledath.com/blog/levels-of-agentic-engineering#levels-1--2-tab-complete-and-agent-ide": {
     "category": "Agentic engieering",
