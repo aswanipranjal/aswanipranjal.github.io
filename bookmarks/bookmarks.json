@@ -1,10 +1,17 @@
 {
+  "https://www.canirun.ai/": {
+    "title": "CanIRun.ai — Can your machine run AI models?",
+    "category": "AI",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 13:38:57"
+  },
   "https://www.bassimeledath.com/blog/levels-of-agentic-engineering#levels-1--2-tab-complete-and-agent-ide": {
-    "title": "The 8 Levels of Agentic Engineering — Bassim Eledath",
     "category": "Agentic engieering",
     "notes": "",
     "read": false,
-    "savedAt": "2026-04-12 13:38:25"
+    "savedAt": "2026-04-12 13:38:25",
+    "title": "The 8 Levels of Agentic Engineering — Bassim Eledath"
   },
   "https://simonwillison.net/2026/Feb/23/agentic-engineering-patterns/": {
     "category": "Agentic engieering",
