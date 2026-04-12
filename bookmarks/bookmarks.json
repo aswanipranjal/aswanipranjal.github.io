@@ -1,10 +1,17 @@
 {
+  "https://text.blogosphere.app/blogs": {
+    "title": "Blogs — Blogosphere",
+    "category": "blogs",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 20:35:01"
+  },
   "https://only-eu.eu/en/": {
-    "title": "European Alternatives to US Products & Software | Only EU",
     "category": "Projects to look into",
     "notes": "",
     "read": false,
-    "savedAt": "2026-04-12 19:20:45"
+    "savedAt": "2026-04-12 19:20:45",
+    "title": "European Alternatives to US Products & Software | Only EU"
   },
   "https://www.mintlify.com/docs": {
     "category": "Tools",
