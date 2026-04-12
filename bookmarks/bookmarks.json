@@ -1,10 +1,17 @@
 {
+  "https://steipete.me/posts/2025/shipping-at-inference-speed": {
+    "title": "Shipping at Inference-Speed | Peter Steinberger",
+    "category": "Building with AI",
+    "notes": "Explains how he uses codex|claude to work on multiple projects",
+    "read": true,
+    "savedAt": "2026-04-12 13:34:49"
+  },
   "https://atproto.com/": {
-    "title": "AT Protocol",
     "category": "New Technologies",
     "notes": "",
     "read": false,
-    "savedAt": "2026-04-12 13:33:32"
+    "savedAt": "2026-04-12 13:33:32",
+    "title": "AT Protocol"
   },
   "https://captnemo.in/": {
     "category": "Cool folk",
