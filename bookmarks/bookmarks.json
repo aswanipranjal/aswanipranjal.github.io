@@ -1,4 +1,11 @@
 {
+  "https://lucumr.pocoo.org/about/": {
+    "title": "About Me | Armin Ronacher's Thoughts and Writings",
+    "category": "Cool folk",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-12 18:31:41"
+  },
   "https://lucumr.pocoo.org/2026/1/31/pi/": {
     "category": "Building with AI",
     "notes": "",
