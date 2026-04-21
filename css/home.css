@@ -1,0 +1,66 @@
+.home-layout {
+  display: flex;
+  gap: 6rem;
+  align-items: flex-start;
+  padding-top: 3.2rem;
+}
+.home-identity {
+  flex-shrink: 0;
+  width: 16rem;
+  text-align: center;
+}
+.home-photo {
+  display: block;
+  width: 201px;
+  height: 201px;
+  object-fit: cover;
+  object-position: center;
+  margin: 0 auto 0.8rem;
+}
+.home-name {
+  color: #1abc9c;
+  margin-top: 0.8rem;
+  margin-bottom: 0.4rem;
+}
+.home-info {
+  color: #3498db;
+  font-size: 1.8rem;
+  margin-top: 0;
+  margin-bottom: 1.6rem;
+}
+.home-social {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.home-social li {
+  display: inline;
+}
+.home-social li a {
+  display: inline-flex;
+  margin: 0 0.6rem;
+}
+.social-icon {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+.home-about {
+  flex: 1;
+  min-width: 0;
+  padding-top: 0.8rem;
+}
+.home-about p:first-child {
+  margin-top: 0;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .home-layout {
+    flex-direction: column;
+    gap: 2.4rem;
+    padding-top: 1.6rem;
+  }
+  .home-identity {
+    width: 100%;
+  }
+}

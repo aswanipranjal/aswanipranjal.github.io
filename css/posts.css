@@ -1,0 +1,17 @@
+/* Posts list page */
+.container.list ul {
+  padding: 0;
+  list-style: none;
+}
+.container.list li {
+  margin-bottom: 1.6rem;
+}
+
+/* Individual post content */
+.container.post article {
+  line-height: 2;
+  word-spacing: 0.05em;
+}
+.container.post article p {
+  margin-bottom: 1.6rem;
+}

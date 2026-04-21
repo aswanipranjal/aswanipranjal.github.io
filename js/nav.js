@@ -1,8 +1,6 @@
 (function () {
   var links = [
-    { name: 'About',     url: '/about/' },
     { name: 'Posts',     url: '/posts/' },
-    { name: 'Tags',      url: '/tags/' },
     { name: 'Bookmarks', url: '/bookmarks/' },
   ];
 
