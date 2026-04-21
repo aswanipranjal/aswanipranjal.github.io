@@ -1,0 +1,125 @@
+/* Two-column layout */
+.bookmarks-layout {
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+  margin-top: 0.8rem;
+}
+.bookmarks-sidebar {
+  width: 12rem;
+  flex-shrink: 0;
+  position: sticky;
+  top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.sidebar-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
+  color: #bbb;
+  padding: 0.2rem 0;
+  font-weight: 400;
+  text-decoration: none;
+}
+.sidebar-link:hover {
+  color: #323232;
+  text-decoration: none;
+}
+.sidebar-link.is-active {
+  color: #323232;
+  font-weight: 700;
+}
+.sidebar-count {
+  font-size: 1.0rem;
+  color: #dcdcdc;
+}
+.sidebar-link.is-active .sidebar-count {
+  color: #999;
+}
+.bookmarks-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Category sections */
+.bookmarks-category {
+  margin: 0 0 2.4rem 0;
+}
+.bookmarks-category-title {
+  font-size: 1.2rem;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  border-bottom: 1px solid #dcdcdc;
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.8rem;
+}
+.bookmark-item {
+  margin-bottom: 0.8rem;
+}
+.bookmark-title {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+.bookmark-title a {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.0625rem;
+}
+.bookmark-title a:hover {
+  text-decoration: underline;
+}
+.bookmark-item.is-read .bookmark-title a {
+  color: #999;
+  font-weight: 400;
+}
+.bookmark-read-badge {
+  font-size: 1.0rem;
+  color: #1abc9c;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  flex-shrink: 0;
+}
+.bookmark-meta {
+  margin-left: auto;
+  flex-shrink: 0;
+  font-size: 1.2rem;
+  color: #bbb;
+}
+.bookmark-notes {
+  font-size: 1.4rem;
+  color: #555;
+  margin-top: 0.2rem;
+  font-style: italic;
+}
+.bookmarks-empty {
+  color: #999;
+  font-size: 1.4rem;
+  margin-top: 1.6rem;
+}
+.bookmarks-error {
+  color: #c0392b;
+  font-size: 1.4rem;
+  margin-top: 1.6rem;
+}
+
+/* Mobile: sidebar becomes a horizontal strip above content */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .bookmarks-layout {
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+  .bookmarks-sidebar {
+    width: 100%;
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.8rem 1.6rem;
+  }
+}
