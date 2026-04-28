@@ -1,10 +1,17 @@
 {
+  "https://luminousmen.substack.com/p/drunk-post-things-ive-learned-as": {
+    "title": "Drunk Post: Things I’ve Learned as a Senior Engineer",
+    "category": "blogs",
+    "notes": "",
+    "read": true,
+    "savedAt": "2026-04-28 09:08:39"
+  },
   "https://www.koshyjohn.com/blog/ai-should-elevate-your-thinking-not-replace-it/": {
-    "title": "A.I. Should Elevate Your Thinking, Not Replace It - Blog - Koshy John",
     "category": "Building with AI",
     "notes": "",
     "read": true,
-    "savedAt": "2026-04-27 23:49:52"
+    "savedAt": "2026-04-27 23:49:52",
+    "title": "A.I. Should Elevate Your Thinking, Not Replace It - Blog - Koshy John"
   },
   "https://piechowski.io/post/git-commands-before-reading-code/": {
     "category": "misc tech reading",
