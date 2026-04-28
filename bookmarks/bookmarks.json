@@ -1,10 +1,17 @@
 {
+  "https://huyenchip.com/": {
+    "title": "Chip Huyen",
+    "category": "Cool folk",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-28 13:19:07"
+  },
   "https://luminousmen.substack.com/p/drunk-post-things-ive-learned-as": {
-    "title": "Drunk Post: Things I’ve Learned as a Senior Engineer",
     "category": "blogs",
     "notes": "",
     "read": true,
-    "savedAt": "2026-04-28 09:08:39"
+    "savedAt": "2026-04-28 09:08:39",
+    "title": "Drunk Post: Things I’ve Learned as a Senior Engineer"
   },
   "https://www.koshyjohn.com/blog/ai-should-elevate-your-thinking-not-replace-it/": {
     "category": "Building with AI",
