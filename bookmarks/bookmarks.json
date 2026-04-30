@@ -1,10 +1,17 @@
 {
-  "https://huyenchip.com/": {
-    "title": "Chip Huyen",
+  "https://fp32.org/": {
+    "title": "Thoughts, et cetera. | Shreeyash's Blog",
     "category": "Cool folk",
     "notes": "",
     "read": false,
-    "savedAt": "2026-04-28 13:19:07"
+    "savedAt": "2026-04-30 13:54:36"
+  },
+  "https://huyenchip.com/": {
+    "category": "Cool folk",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-04-28 13:19:07",
+    "title": "Chip Huyen"
   },
   "https://luminousmen.substack.com/p/drunk-post-things-ive-learned-as": {
     "category": "blogs",
