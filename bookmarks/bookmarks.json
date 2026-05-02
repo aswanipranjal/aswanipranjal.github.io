@@ -1,10 +1,18 @@
 {
+  "https://www.bassimeledath.com/blog/levels-of-agentic-engineering#levels-1--2-tab-complete-and-agent-ide": {
+    "category": "Agentic engieering",
+    "notes": "",
+    "read": true,
+    "savedAt": "2026-04-12 13:38:25",
+    "title": "The 8 Levels of Agentic Engineering — Bassim Eledath",
+    "updatedAt": "2026-05-02 19:10:06"
+  },
   "https://12factor.net/": {
-    "title": "The Twelve-Factor App",
     "category": "Engineering fundamentals",
     "notes": "",
     "read": true,
-    "savedAt": "2026-05-02 17:55:02"
+    "savedAt": "2026-05-02 17:55:02",
+    "title": "The Twelve-Factor App"
   },
   "https://lawsofsoftwareengineering.com/": {
     "category": "misc tech reading",
@@ -273,13 +281,6 @@
     "read": false,
     "savedAt": "2026-04-12 13:38:57",
     "title": "CanIRun.ai — Can your machine run AI models?"
-  },
-  "https://www.bassimeledath.com/blog/levels-of-agentic-engineering#levels-1--2-tab-complete-and-agent-ide": {
-    "category": "Agentic engieering",
-    "notes": "",
-    "read": false,
-    "savedAt": "2026-04-12 13:38:25",
-    "title": "The 8 Levels of Agentic Engineering — Bassim Eledath"
   },
   "https://simonwillison.net/2026/Feb/23/agentic-engineering-patterns/": {
     "category": "Agentic engieering",
