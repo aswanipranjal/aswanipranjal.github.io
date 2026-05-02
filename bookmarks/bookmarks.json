@@ -1,10 +1,17 @@
 {
+  "https://lawsofsoftwareengineering.com/": {
+    "title": "Laws of Software Engineering",
+    "category": "misc tech reading",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-05-02 16:43:51"
+  },
   "https://fp32.org/": {
-    "title": "Thoughts, et cetera. | Shreeyash's Blog",
     "category": "Cool folk",
     "notes": "",
     "read": false,
-    "savedAt": "2026-04-30 13:54:36"
+    "savedAt": "2026-04-30 13:54:36",
+    "title": "Thoughts, et cetera. | Shreeyash's Blog"
   },
   "https://huyenchip.com/": {
     "category": "Cool folk",
