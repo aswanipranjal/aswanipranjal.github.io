@@ -1,10 +1,17 @@
 {
+  "https://www.kitchensoap.com/2012/10/25/on-being-a-senior-engineer/": {
+    "title": "Kitchen Soap – On Being A Senior Engineer",
+    "category": "Engineering fundamentals",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-05-10 22:08:16"
+  },
   "https://super-memory.com/articles/sleep.htm": {
-    "title": "Good sleep, good learning, good life",
     "category": "non tech reading",
     "notes": "on sleep, should read at some point",
     "read": false,
-    "savedAt": "2026-05-10 22:06:27"
+    "savedAt": "2026-05-10 22:06:27",
+    "title": "Good sleep, good learning, good life"
   },
   "https://underdogio.notion.site/The-SWE-s-Just-Enough-Prep-Guide-38b4270129e74293a7d790ad992ff7b7": {
     "category": "interview prep",
