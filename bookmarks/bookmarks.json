@@ -1,10 +1,17 @@
 {
+  "https://underdogio.notion.site/The-SWE-s-Just-Enough-Prep-Guide-38b4270129e74293a7d790ad992ff7b7": {
+    "title": "The SWE’s Just Enough Prep Guide",
+    "category": "interview prep",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-05-10 19:23:11"
+  },
   "https://www.stvn.sh/writing/programming-still-sucks-fqffhyp": {
-    "title": "Programming Still Sucks. — Writing",
     "category": "Preparing for the future",
     "notes": "",
     "read": true,
-    "savedAt": "2026-05-10 18:35:01"
+    "savedAt": "2026-05-10 18:35:01",
+    "title": "Programming Still Sucks. — Writing"
   },
   "https://ukiahsmith.com/blog/programming-is-terrible-so-learn-to-enjoy-it/": {
     "category": "programming",
