@@ -1,10 +1,17 @@
 {
+  "https://www.stvn.sh/writing/programming-still-sucks-fqffhyp": {
+    "title": "Programming Still Sucks. — Writing",
+    "category": "Preparing for the future",
+    "notes": "",
+    "read": true,
+    "savedAt": "2026-05-10 18:35:01"
+  },
   "https://ukiahsmith.com/blog/programming-is-terrible-so-learn-to-enjoy-it/": {
-    "title": "Programming is terrible so learn to enjoy it - Ukiah Smith",
     "category": "programming",
     "notes": "",
     "read": true,
-    "savedAt": "2026-05-02 22:33:56"
+    "savedAt": "2026-05-02 22:33:56",
+    "title": "Programming is terrible so learn to enjoy it - Ukiah Smith"
   },
   "https://www.bassimeledath.com/blog/levels-of-agentic-engineering#levels-1--2-tab-complete-and-agent-ide": {
     "category": "Agentic engieering",
