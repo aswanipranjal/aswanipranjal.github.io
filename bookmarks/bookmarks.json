@@ -1,10 +1,17 @@
 {
+  "https://super-memory.com/articles/sleep.htm": {
+    "title": "Good sleep, good learning, good life",
+    "category": "non tech reading",
+    "notes": "on sleep, should read at some point",
+    "read": false,
+    "savedAt": "2026-05-10 22:06:27"
+  },
   "https://underdogio.notion.site/The-SWE-s-Just-Enough-Prep-Guide-38b4270129e74293a7d790ad992ff7b7": {
-    "title": "The SWE’s Just Enough Prep Guide",
     "category": "interview prep",
     "notes": "",
     "read": false,
-    "savedAt": "2026-05-10 19:23:11"
+    "savedAt": "2026-05-10 19:23:11",
+    "title": "The SWE’s Just Enough Prep Guide"
   },
   "https://www.stvn.sh/writing/programming-still-sucks-fqffhyp": {
     "category": "Preparing for the future",
