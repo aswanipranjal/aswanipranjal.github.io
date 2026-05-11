@@ -1,10 +1,17 @@
 {
+  "https://ynarwal.github.io/how-llms-work/": {
+    "title": "How LLMs Work — A Visual Deep Dive",
+    "category": "AI",
+    "notes": "",
+    "read": true,
+    "savedAt": "2026-05-11 23:47:32"
+  },
   "https://en.wikipedia.org/wiki/Stochastic": {
-    "title": "Stochastic - Wikipedia",
     "category": "words",
     "notes": "",
     "read": false,
-    "savedAt": "2026-05-11 23:22:37"
+    "savedAt": "2026-05-11 23:22:37",
+    "title": "Stochastic - Wikipedia"
   },
   "https://en.wikipedia.org/wiki/Polysemy": {
     "category": "words",
