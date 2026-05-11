@@ -1,10 +1,17 @@
 {
+  "https://x.com/ponnappa/status/2024417519789101518": {
+    "title": "(2) Sidu Ponnappa on X: \"There is no Product\" / X",
+    "category": "Preparing for the future",
+    "notes": "",
+    "read": true,
+    "savedAt": "2026-05-11 21:36:57"
+  },
   "https://www.kitchensoap.com/2012/10/25/on-being-a-senior-engineer/": {
-    "title": "Kitchen Soap – On Being A Senior Engineer",
     "category": "Engineering fundamentals",
     "notes": "",
     "read": false,
-    "savedAt": "2026-05-10 22:08:16"
+    "savedAt": "2026-05-10 22:08:16",
+    "title": "Kitchen Soap – On Being A Senior Engineer"
   },
   "https://super-memory.com/articles/sleep.htm": {
     "category": "non tech reading",
