@@ -1,10 +1,17 @@
 {
-  "https://en.wikipedia.org/wiki/Polysemy": {
-    "title": "Polysemy - Wikipedia",
+  "https://en.wikipedia.org/wiki/Stochastic": {
+    "title": "Stochastic - Wikipedia",
     "category": "words",
     "notes": "",
     "read": false,
-    "savedAt": "2026-05-11 23:18:05"
+    "savedAt": "2026-05-11 23:22:37"
+  },
+  "https://en.wikipedia.org/wiki/Polysemy": {
+    "category": "words",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-05-11 23:18:05",
+    "title": "Polysemy - Wikipedia"
   },
   "https://x.com/ponnappa/status/2024417519789101518": {
     "category": "Preparing for the future",
