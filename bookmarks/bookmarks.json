@@ -1,10 +1,17 @@
 {
+  "https://ladybird.org/": {
+    "title": "Ladybird",
+    "category": "Projects to look into",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-05-12 12:18:17"
+  },
   "https://ynarwal.github.io/how-llms-work/": {
-    "title": "How LLMs Work — A Visual Deep Dive",
     "category": "AI",
     "notes": "",
     "read": true,
-    "savedAt": "2026-05-11 23:47:32"
+    "savedAt": "2026-05-11 23:47:32",
+    "title": "How LLMs Work — A Visual Deep Dive"
   },
   "https://en.wikipedia.org/wiki/Stochastic": {
     "category": "words",
