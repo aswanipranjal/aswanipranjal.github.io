@@ -1,10 +1,11 @@
 {
   "https://blog.acolyer.org/2016/09/05/on-the-criteria-to-be-used-in-decomposing-systems-into-modules/": {
-    "title": "On the criteria to be used in decomposing systems into modules – the morning paper",
     "category": "misc tech reading",
     "notes": "",
-    "read": false,
-    "savedAt": "2026-05-13 21:23:56"
+    "read": true,
+    "savedAt": "2026-05-13 21:23:56",
+    "title": "On the criteria to be used in decomposing systems into modules – the morning paper",
+    "updatedAt": "2026-05-13 21:24:03"
   },
   "https://www.realfast.ai/sumanth-why-realfast": {
     "category": "UPSKILLING",
