@@ -1,10 +1,17 @@
 {
+  "https://cs336.stanford.edu/spring2025/": {
+    "title": "Stanford CS336 | Language Modeling from Scratch (2025)",
+    "category": "online courses",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-05-13 23:33:49"
+  },
   "https://alapshah1.substack.com/p/the-global-intelligence-crisis": {
-    "title": "The Global Intelligence Crisis - Alap Shah",
     "category": "Preparing for the future",
     "notes": "",
     "read": true,
-    "savedAt": "2026-05-13 21:40:15"
+    "savedAt": "2026-05-13 21:40:15",
+    "title": "The Global Intelligence Crisis - Alap Shah"
   },
   "https://blog.acolyer.org/2016/09/05/on-the-criteria-to-be-used-in-decomposing-systems-into-modules/": {
     "category": "misc tech reading",
