@@ -1,10 +1,17 @@
 {
-  "https://medium.com/@NMitchem/if-ai-writes-your-code-why-use-python-bf8c4ba1a055": {
-    "title": "If AI Writes Your Code, Why Use Python? | by Noah Mitchem | Apr, 2026 | Medium",
+  "https://unix.foo/posts/local-ai-needs-to-be-norm/": {
+    "title": "Local AI Needs to be the Norm · unix.foo",
     "category": "Building with AI",
     "notes": "",
     "read": true,
-    "savedAt": "2026-05-13 11:19:39"
+    "savedAt": "2026-05-13 14:45:01"
+  },
+  "https://medium.com/@NMitchem/if-ai-writes-your-code-why-use-python-bf8c4ba1a055": {
+    "category": "Building with AI",
+    "notes": "",
+    "read": true,
+    "savedAt": "2026-05-13 11:19:39",
+    "title": "If AI Writes Your Code, Why Use Python? | by Noah Mitchem | Apr, 2026 | Medium"
   },
   "https://ladybird.org/": {
     "category": "Projects to look into",
