@@ -1,10 +1,17 @@
 {
+  "https://medium.com/@NMitchem/if-ai-writes-your-code-why-use-python-bf8c4ba1a055": {
+    "title": "If AI Writes Your Code, Why Use Python? | by Noah Mitchem | Apr, 2026 | Medium",
+    "category": "Building with AI",
+    "notes": "",
+    "read": true,
+    "savedAt": "2026-05-13 11:19:39"
+  },
   "https://ladybird.org/": {
-    "title": "Ladybird",
     "category": "Projects to look into",
     "notes": "",
     "read": false,
-    "savedAt": "2026-05-12 12:18:17"
+    "savedAt": "2026-05-12 12:18:17",
+    "title": "Ladybird"
   },
   "https://ynarwal.github.io/how-llms-work/": {
     "category": "AI",
