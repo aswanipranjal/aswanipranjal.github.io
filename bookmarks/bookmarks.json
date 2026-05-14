@@ -1,10 +1,17 @@
 {
+  "https://matklad.github.io/2021/05/31/how-to-test.html": {
+    "title": "How to Test",
+    "category": "Engineering fundamentals",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-05-14 12:21:54"
+  },
   "https://substack.com/home/post/p-188821754": {
-    "title": "THE 2028 GLOBAL INTELLIGENCE CRISIS",
     "category": "Preparing for the future",
     "notes": "",
     "read": true,
-    "savedAt": "2026-05-14 11:55:29"
+    "savedAt": "2026-05-14 11:55:29",
+    "title": "THE 2028 GLOBAL INTELLIGENCE CRISIS"
   },
   "https://cs336.stanford.edu/spring2025/": {
     "category": "online courses",
