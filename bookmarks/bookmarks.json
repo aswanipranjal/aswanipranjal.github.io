@@ -1,10 +1,17 @@
 {
+  "https://modelcontextprotocol.io/docs/learn/architecture": {
+    "title": "Architecture overview - Model Context Protocol",
+    "category": "MCP",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-05-14 12:22:23"
+  },
   "https://posthog.com/product-engineer/traits": {
-    "title": "Traits of product engineers - Product Engineer Handbook - PostHog",
     "category": "Product Engineer",
     "notes": "",
     "read": false,
-    "savedAt": "2026-05-14 12:22:06"
+    "savedAt": "2026-05-14 12:22:06",
+    "title": "Traits of product engineers - Product Engineer Handbook - PostHog"
   },
   "https://matklad.github.io/2021/05/31/how-to-test.html": {
     "category": "Engineering fundamentals",
