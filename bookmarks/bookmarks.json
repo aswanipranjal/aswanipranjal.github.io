@@ -1,10 +1,17 @@
 {
+  "https://www.trychroma.com/research/context-rot": {
+    "title": "Context Rot: How Increasing Input Tokens Impacts LLM Performance | Chroma",
+    "category": "research papers",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-05-14 14:31:33"
+  },
   "https://modelcontextprotocol.io/docs/learn/architecture": {
-    "title": "Architecture overview - Model Context Protocol",
     "category": "MCP",
     "notes": "",
     "read": false,
-    "savedAt": "2026-05-14 12:22:23"
+    "savedAt": "2026-05-14 12:22:23",
+    "title": "Architecture overview - Model Context Protocol"
   },
   "https://posthog.com/product-engineer/traits": {
     "category": "Product Engineer",
