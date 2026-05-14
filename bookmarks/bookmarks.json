@@ -1,10 +1,17 @@
 {
+  "https://posthog.com/product-engineer/traits": {
+    "title": "Traits of product engineers - Product Engineer Handbook - PostHog",
+    "category": "Product Engineer",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-05-14 12:22:06"
+  },
   "https://matklad.github.io/2021/05/31/how-to-test.html": {
-    "title": "How to Test",
     "category": "Engineering fundamentals",
     "notes": "",
     "read": false,
-    "savedAt": "2026-05-14 12:21:54"
+    "savedAt": "2026-05-14 12:21:54",
+    "title": "How to Test"
   },
   "https://substack.com/home/post/p-188821754": {
     "category": "Preparing for the future",
