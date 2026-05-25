@@ -1,10 +1,17 @@
 {
+  "https://geohot.github.io/blog/": {
+    "title": "the singularity is nearer | A home for poorly researched ideas that I find myself repeating a lot anyway",
+    "category": "Cool folk",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-05-25 14:08:29"
+  },
   "https://x.com/bcherny/status/2017742741636321619?s=20": {
-    "title": "(2) Boris Cherny on X: \"I'm Boris and I created Claude Code. I wanted to quickly share a few tips for using Claude Code, sourced directly from the Claude Code team. The way the team uses Claude is different than how I use it. Remember: there is no one right way to use Claude Code -- everyones' setup is\" / X",
     "category": "Building with AI",
     "notes": "",
     "read": true,
-    "savedAt": "2026-05-19 21:15:33"
+    "savedAt": "2026-05-19 21:15:33",
+    "title": "(2) Boris Cherny on X: \"I'm Boris and I created Claude Code. I wanted to quickly share a few tips for using Claude Code, sourced directly from the Claude Code team. The way the team uses Claude is different than how I use it. Remember: there is no one right way to use Claude Code -- everyones' setup is\" / X"
   },
   "https://jarredsumner.com/": {
     "category": "Cool folk",
