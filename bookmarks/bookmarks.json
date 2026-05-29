@@ -1,10 +1,17 @@
 {
+  "https://shawnsmucker.substack.com/p/please-use-ai": {
+    "title": "Please Use AI",
+    "category": "AI",
+    "notes": "",
+    "read": true,
+    "savedAt": "2026-05-29 20:28:54"
+  },
   "https://geohot.github.io/blog/": {
-    "title": "the singularity is nearer | A home for poorly researched ideas that I find myself repeating a lot anyway",
     "category": "Cool folk",
     "notes": "",
     "read": false,
-    "savedAt": "2026-05-25 14:08:29"
+    "savedAt": "2026-05-25 14:08:29",
+    "title": "the singularity is nearer | A home for poorly researched ideas that I find myself repeating a lot anyway"
   },
   "https://x.com/bcherny/status/2017742741636321619?s=20": {
     "category": "Building with AI",
