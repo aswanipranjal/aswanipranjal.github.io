@@ -1,10 +1,17 @@
 {
+  "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents": {
+    "title": "Demystifying evals for AI agents \\ Anthropic",
+    "category": "Building with AI",
+    "notes": "",
+    "read": true,
+    "savedAt": "2026-06-09 14:54:40"
+  },
   "https://www.theatlantic.com/philosophy/2026/06/no-artificial-intelligence-is-not-conscious/687378/": {
-    "title": "No, Artificial Intelligence Is Not Conscious - The Atlantic",
     "category": "AI",
     "notes": "",
     "read": true,
-    "savedAt": "2026-06-04 14:37:58"
+    "savedAt": "2026-06-04 14:37:58",
+    "title": "No, Artificial Intelligence Is Not Conscious - The Atlantic"
   },
   "https://shawnsmucker.substack.com/p/please-use-ai": {
     "category": "AI",
