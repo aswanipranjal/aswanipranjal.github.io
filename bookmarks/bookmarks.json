@@ -1,10 +1,17 @@
 {
-  "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents": {
-    "title": "Demystifying evals for AI agents \\ Anthropic",
+  "https://www.arunbaby.com/speech-tech/0001-streaming-asr/": {
+    "title": "Streaming ASR Architecture - Arun Baby",
     "category": "Building with AI",
     "notes": "",
     "read": true,
-    "savedAt": "2026-06-09 14:54:40"
+    "savedAt": "2026-06-18 00:02:12"
+  },
+  "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents": {
+    "category": "Building with AI",
+    "notes": "",
+    "read": true,
+    "savedAt": "2026-06-09 14:54:40",
+    "title": "Demystifying evals for AI agents \\ Anthropic"
   },
   "https://www.theatlantic.com/philosophy/2026/06/no-artificial-intelligence-is-not-conscious/687378/": {
     "category": "AI",
