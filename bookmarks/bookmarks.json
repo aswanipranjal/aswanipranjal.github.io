@@ -1,10 +1,17 @@
 {
+  "https://vickiboykis.com/2026/06/15/running-local-models-is-good-now/": {
+    "title": "Running local models is good now | ✰Vicki Boykis✰",
+    "category": "Local AI",
+    "notes": "",
+    "read": true,
+    "savedAt": "2026-06-18 09:22:09"
+  },
   "https://www.arunbaby.com/speech-tech/0001-streaming-asr/": {
-    "title": "Streaming ASR Architecture - Arun Baby",
     "category": "Building with AI",
     "notes": "",
     "read": true,
-    "savedAt": "2026-06-18 00:02:12"
+    "savedAt": "2026-06-18 00:02:12",
+    "title": "Streaming ASR Architecture - Arun Baby"
   },
   "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents": {
     "category": "Building with AI",
