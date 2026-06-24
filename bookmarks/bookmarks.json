@@ -1,10 +1,17 @@
 {
+  "https://lucumr.pocoo.org/2026/6/23/the-coming-loop/": {
+    "title": "The Coming Loop",
+    "category": "Agentic engieering",
+    "notes": "",
+    "read": true,
+    "savedAt": "2026-06-24 15:14:19"
+  },
   "https://vickiboykis.com/2026/06/15/running-local-models-is-good-now/": {
-    "title": "Running local models is good now | ✰Vicki Boykis✰",
     "category": "Local AI",
     "notes": "",
     "read": true,
-    "savedAt": "2026-06-18 09:22:09"
+    "savedAt": "2026-06-18 09:22:09",
+    "title": "Running local models is good now | ✰Vicki Boykis✰"
   },
   "https://www.arunbaby.com/speech-tech/0001-streaming-asr/": {
     "category": "Building with AI",
