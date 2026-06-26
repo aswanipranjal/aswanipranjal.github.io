@@ -1,10 +1,17 @@
 {
+  "https://lmao.center/": {
+    "title": "lmaocenter",
+    "category": "Cool folk",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-06-26 19:26:03"
+  },
   "https://lucumr.pocoo.org/2026/6/23/the-coming-loop/": {
-    "title": "The Coming Loop",
     "category": "Agentic engieering",
     "notes": "",
     "read": true,
-    "savedAt": "2026-06-24 15:14:19"
+    "savedAt": "2026-06-24 15:14:19",
+    "title": "The Coming Loop"
   },
   "https://vickiboykis.com/2026/06/15/running-local-models-is-good-now/": {
     "category": "Local AI",
