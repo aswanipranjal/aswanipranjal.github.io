@@ -1,10 +1,17 @@
 {
+  "https://thereallo.dev/blog/claude-code-prompt-steganography": {
+    "title": "Claude Code Is Steganographically Marking Requests",
+    "category": "AI",
+    "notes": "",
+    "read": true,
+    "savedAt": "2026-07-02 23:33:36"
+  },
   "https://lmao.center/": {
-    "title": "lmaocenter",
     "category": "Cool folk",
     "notes": "",
     "read": false,
-    "savedAt": "2026-06-26 19:26:03"
+    "savedAt": "2026-06-26 19:26:03",
+    "title": "lmaocenter"
   },
   "https://lucumr.pocoo.org/2026/6/23/the-coming-loop/": {
     "category": "Agentic engieering",
