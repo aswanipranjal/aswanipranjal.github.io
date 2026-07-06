@@ -1,10 +1,17 @@
 {
+  "https://weli.dev/blog/half-baked-product/": {
+    "title": "Half-Baked Product",
+    "category": "starting-up",
+    "notes": "",
+    "read": true,
+    "savedAt": "2026-07-06 14:51:17"
+  },
   "https://thereallo.dev/blog/claude-code-prompt-steganography": {
-    "title": "Claude Code Is Steganographically Marking Requests",
     "category": "AI",
     "notes": "",
     "read": true,
-    "savedAt": "2026-07-02 23:33:36"
+    "savedAt": "2026-07-02 23:33:36",
+    "title": "Claude Code Is Steganographically Marking Requests"
   },
   "https://lmao.center/": {
     "category": "Cool folk",
