@@ -1,10 +1,17 @@
 {
+  "https://htmx.org/essays/working-with-ai/": {
+    "title": "</> htmx ~ Working With AI: A Concrete Example",
+    "category": "Building with AI",
+    "notes": "",
+    "read": true,
+    "savedAt": "2026-07-07 12:40:01"
+  },
   "https://jayacunzo.com/blog/your-move-chief": {
-    "title": "The best response to AI slop, infinite advice, and online noise is from Robin Williams",
     "category": "non tech reading",
     "notes": "",
     "read": true,
-    "savedAt": "2026-07-07 12:23:04"
+    "savedAt": "2026-07-07 12:23:04",
+    "title": "The best response to AI slop, infinite advice, and online noise is from Robin Williams"
   },
   "https://weli.dev/blog/half-baked-product/": {
     "category": "starting-up",
