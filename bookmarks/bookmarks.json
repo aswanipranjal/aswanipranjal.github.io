@@ -1,10 +1,17 @@
 {
+  "https://jayacunzo.com/blog/your-move-chief": {
+    "title": "The best response to AI slop, infinite advice, and online noise is from Robin Williams",
+    "category": "non tech reading",
+    "notes": "",
+    "read": true,
+    "savedAt": "2026-07-07 12:23:04"
+  },
   "https://weli.dev/blog/half-baked-product/": {
-    "title": "Half-Baked Product",
     "category": "starting-up",
     "notes": "",
     "read": true,
-    "savedAt": "2026-07-06 14:51:17"
+    "savedAt": "2026-07-06 14:51:17",
+    "title": "Half-Baked Product"
   },
   "https://thereallo.dev/blog/claude-code-prompt-steganography": {
     "category": "AI",
