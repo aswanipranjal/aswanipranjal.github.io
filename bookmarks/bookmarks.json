@@ -1,10 +1,17 @@
 {
+  "https://karolina.mgdubiel.com/drone/": {
+    "title": "RL Octocopter -- Karolina Dubiel",
+    "category": "Projects to look into",
+    "notes": "",
+    "read": false,
+    "savedAt": "2026-07-09 13:46:51"
+  },
   "https://htmx.org/essays/working-with-ai/": {
-    "title": "</> htmx ~ Working With AI: A Concrete Example",
     "category": "Building with AI",
     "notes": "",
     "read": true,
-    "savedAt": "2026-07-07 12:40:01"
+    "savedAt": "2026-07-07 12:40:01",
+    "title": "</> htmx ~ Working With AI: A Concrete Example"
   },
   "https://jayacunzo.com/blog/your-move-chief": {
     "category": "non tech reading",
