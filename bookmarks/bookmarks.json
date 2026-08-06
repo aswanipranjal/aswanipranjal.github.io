@@ -1,10 +1,17 @@
 {
+  "https://andrewkelley.me/post/my-thoughts-bun-rust-rewrite.html": {
+    "title": "My Thoughts on the Bun Rust Rewrite - Andrew Kelley",
+    "category": "blogs",
+    "notes": "",
+    "read": true,
+    "savedAt": "2026-08-06 09:33:39"
+  },
   "https://frantic.im/suddenly/": {
-    "title": "Slow, Then Suddenly / frantic.im",
     "category": "Engineering fundamentals",
     "notes": "",
     "read": true,
-    "savedAt": "2026-07-31 13:57:51"
+    "savedAt": "2026-07-31 13:57:51",
+    "title": "Slow, Then Suddenly / frantic.im"
   },
   "https://timeseriesofindia.com/economy/reads/upi-architecture/": {
     "category": "Engineering fundamentals",
